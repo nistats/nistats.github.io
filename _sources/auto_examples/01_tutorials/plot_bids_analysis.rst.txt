@@ -125,7 +125,7 @@ to the only run_img present
 
  Out::
 
-    Index(['RotX', 'RotY', 'RotZ', 'X', 'Y', 'Z'], dtype='object')
+    Index([u'RotX', u'RotY', u'RotZ', u'X', u'Y', u'Z'], dtype='object')
 
 
 During this acquisition the subject read blocks of sentences and
@@ -246,7 +246,7 @@ language network
 
 
 
-**Total running time of the script:** ( 0 minutes  33.318 seconds)
+**Total running time of the script:** ( 0 minutes  58.408 seconds)
 
 
 

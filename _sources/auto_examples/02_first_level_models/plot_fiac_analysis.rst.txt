@@ -70,6 +70,15 @@ Prepare data and analysis parameters
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out::
+
+    Dataset created in /home/bertrand/mygit/nilearn/nilearn_data/fiac_nistats
+
+    Missing functional scan for session 1.
+    Data absent, downloading...
+    Downloading data from http://nipy.sourceforge.net/data-packages/nipy-data-0.2.tar.gz ...
 
 
 GLM estimation
@@ -153,18 +162,18 @@ compute fixed effects of the two runs and compute related images
  Out::
 
     Computing contrasts...
-      Contrast  1 out of 8: Deactivation
-      Contrast  2 out of 8: DSt_minus_SSt_for_DSp
+      Contrast  1 out of 8: DSp_minus_SSp
+      Contrast  2 out of 8: DSp_minus_SSp_for_DSt
       Contrast  3 out of 8: SStSSp_minus_DStDSp
-      Contrast  4 out of 8: DSp_minus_SSp
+      Contrast  4 out of 8: DSt_minus_SSt
       Contrast  5 out of 8: DStDSp_minus_SStSSp
-      Contrast  6 out of 8: DSp_minus_SSp_for_DSt
+      Contrast  6 out of 8: DSt_minus_SSt_for_DSp
       Contrast  7 out of 8: Effects_of_interest
-      Contrast  8 out of 8: DSt_minus_SSt
-    All the  results were witten in /home/mfpgt/Documents/PHD_research/open_source_contributions/nistats/examples/02_first_level_models/results
+      Contrast  8 out of 8: Deactivation
+    All the  results were witten in /home/bertrand/mygit/nistats/examples/02_first_level_models/results
 
 
-**Total running time of the script:** ( 0 minutes  5.491 seconds)
+**Total running time of the script:** ( 2 minutes  55.655 seconds)
 
 
 

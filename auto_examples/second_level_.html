@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2.1. BIDS dataset first and second level analysis" href="01_tutorials/plot_bids_analysis.html" />
+    <link rel="prev" title="3.1.1. Basic numerics and plotting with Python" href="plot_python_101.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../index.html">
+      <img src="../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="01_tutorials/plot_bids_analysis.html" title="3.2.1. BIDS dataset first and second level analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_python_101.html" title="3.1.1. Basic numerics and plotting with Python"
+             accesskey="P">previous</a> |</li>
+<li><a href="../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="index.html">Examples</a> |&nbsp;</li>
+<li><a href="../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3.1.2. GLM fitting in second level fMRI</a><ul>
+<li><a class="reference internal" href="#fetch-dataset">3.1.2.1. Fetch dataset</a></li>
+<li><a class="reference internal" href="#display-subject-t-maps">3.1.2.2. Display subject t_maps</a></li>
+<li><a class="reference internal" href="#estimate-second-level-model">3.1.2.3. Estimate second level model</a></li>
+<li><a class="reference internal" href="#estimate-uncorrected-effects">3.1.2.4. Estimate uncorrected effects</a></li>
+<li><a class="reference internal" href="#estimate-fwe-corrected-effects-with-permutation-test">3.1.2.5. Estimate FWE corrected effects with permutation test</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_python_101.html"
+                        title="previous chapter">3.1.1. Basic numerics and plotting with Python</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="01_tutorials/plot_bids_analysis.html"
+                        title="next chapter">3.2.1. BIDS dataset first and second level analysis</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="glm-fitting-in-second-level-fmri">
+<span id="sphx-glr-auto-examples-second-level-py"></span><h1>3.1.2. GLM fitting in second level fMRI<a class="headerlink" href="#glm-fitting-in-second-level-fmri" title="Permalink to this headline">¶</a></h1>
+<p>Full step-by-step example of fitting a GLM to perform a second level analysis
+in experimental data and visualizing the results.</p>
+<p>More specifically:</p>
+<ol class="arabic simple">
+<li>A sequence of subject fMRI button press contrasts is downloaded.</li>
+<li>a mask of the useful brain volume is computed</li>
+<li>A one-sample t-test is applied to the brain maps</li>
+</ol>
+<p>(as fixed effects, then contrast estimation)</p>
+<p>Author : Martin Perez-Guevara: 2016</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_localizer_contrasts.html#nilearn.datasets.fetch_localizer_contrasts" title="View documentation for nilearn.datasets.fetch_localizer_contrasts"><span class="n">fetch_localizer_contrasts</span></a>
+<span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="kn">import</span> <span class="n">SecondLevelModel</span>
+</pre></div>
+</div>
+<div class="section" id="fetch-dataset">
+<h2>3.1.2.1. Fetch dataset<a class="headerlink" href="#fetch-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We download a list of left vs right button press contrasts from a
+localizer dataset.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">n_subjects</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">data</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_localizer_contrasts.html#nilearn.datasets.fetch_localizer_contrasts" title="View documentation for nilearn.datasets.fetch_localizer_contrasts"><span class="n">fetch_localizer_contrasts</span></a><span class="p">([</span><span class="s2">&quot;left vs right button press&quot;</span><span class="p">],</span> <span class="n">n_subjects</span><span class="p">,</span>
+                                 <span class="n">get_tmaps</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-subject-t-maps">
+<h2>3.1.2.2. Display subject t_maps<a class="headerlink" href="#display-subject-t-maps" title="Permalink to this headline">¶</a></h2>
+<p>We plot a grid with all the subjects t-maps thresholded at t = 2 for
+simple visualization purposes. The button press effect is visible among
+all subjects</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.crop_img.html#nilearn.image.crop_img" title="View documentation for nilearn.image.crop_img"><span class="n">crop_img</span></a>
+<span class="n">subjects</span> <span class="o">=</span> <span class="p">[</span><span class="n">subject_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">subject_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ext_vars&#39;</span><span class="p">]]</span>
+
+<span class="c1"># fig, axes = plt.subplots(nrows=2, ncols=8, figsize=(16, 6))</span>
+<span class="k">for</span> <span class="n">cidx</span><span class="p">,</span> <span class="n">tmap</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;tmaps&#39;</span><span class="p">]):</span>
+    <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="View documentation for nilearn.plotting.plot_glass_brain"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.crop_img.html#nilearn.image.crop_img" title="View documentation for nilearn.image.crop_img"><span class="n">crop_img</span></a><span class="p">(</span><span class="n">tmap</span><span class="p">),</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+                              <span class="c1"># axes=axes[int(cidx / 8), int(cidx % 8)],</span>
+                              <span class="n">plot_abs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span>
+                              <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.savefig" title="View documentation for matplotlib.pyplot.savefig"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span></a><span class="p">(</span><span class="s1">&#39;/tmp/img_</span><span class="si">%02d</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">cidx</span><span class="p">)</span>
+<span class="c1"># plt.subplots_adjust(left=.01, right=.99, bottom=.01, hspace=.01, wspace=.01)</span>
+<span class="c1"># fig.suptitle(&#39;subjects t_map left-right button press&#39;)</span>
+<span class="n">stop</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="o">-.</span><span class="mo">05</span><span class="p">,</span> <span class="o">-.</span><span class="mo">05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">],</span> <span class="n">h_pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># fig.savefig(&#39;individuals.png&#39;, bbox_inches=&#39;tight&#39;)</span>
+<a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estimate-second-level-model">
+<h2>3.1.2.3. Estimate second level model<a class="headerlink" href="#estimate-second-level-model" title="Permalink to this headline">¶</a></h2>
+<p>We define the input maps and the design matrix for the second level model
+and fit it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">second_level_input</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">second_level_input</span><span class="p">),</span>
+                             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;contrast&#39;</span><span class="p">])</span>
+
+<span class="n">second_level_model</span> <span class="o">=</span> <span class="n">SecondLevelModel</span><span class="p">(</span><span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">second_level_model</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">second_level_input</span><span class="p">,</span>
+                                            <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estimate-uncorrected-effects">
+<h2>3.1.2.4. Estimate uncorrected effects<a class="headerlink" href="#estimate-uncorrected-effects" title="Permalink to this headline">¶</a></h2>
+<p>To estimate the contrast is very simple. We can just provide the column
+name of the design matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We threshold the contrast at uncorrected p &lt; 0.001 and plot</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p_val</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">z_th</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">p_val</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="View documentation for nilearn.plotting.plot_glass_brain"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">z_th</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                    <span class="n">plot_abs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+
+<a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.savefig" title="View documentation for matplotlib.pyplot.savefig"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span></a><span class="p">(</span><span class="s1">&#39;result_onesample.png&#39;</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estimate-fwe-corrected-effects-with-permutation-test">
+<h2>3.1.2.5. Estimate FWE corrected effects with permutation test<a class="headerlink" href="#estimate-fwe-corrected-effects-with-permutation-test" title="Permalink to this headline">¶</a></h2>
+<p>We use a similar function that also allows to tune the permutation
+parameters. For this example we will only use 1000 permutations. But we
+recommend to use 10000.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast_permutations</span><span class="p">(</span>
+    <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;cor_z_score&#39;</span><span class="p">,</span> <span class="n">n_perm</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We threshold the contrast at corrected p &lt; 0.001 and plot</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p_val</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">z_th</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">p_val</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="View documentation for nilearn.plotting.plot_glass_brain"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">z_th</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                    <span class="n">plot_abs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../_downloads/second_level_.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">second_level_.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../_downloads/second_level_.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">second_level_.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="01_tutorials/plot_bids_analysis.html" title="3.2.1. BIDS dataset first and second level analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_python_101.html" title="3.1.1. Basic numerics and plotting with Python"
+             >previous</a> |</li>
+<li><a href="../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="index.html">Examples</a> |&nbsp;</li>
+<li><a href="../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
+        <span style="padding-left: 5ex;">
+          <a href="../_sources/auto_examples/second_level_.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

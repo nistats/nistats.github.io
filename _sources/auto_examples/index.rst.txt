@@ -41,6 +41,26 @@ General-purpose and introductory examples for nistats.
    :hidden:
 
    /auto_examples/plot_python_101
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a second level analysis in experimental d...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/images/thumb/sphx_glr_second_level__thumb.png
+
+        :ref:`sphx_glr_auto_examples_second_level_.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/second_level_
 .. raw:: html
 
     <div style='clear:both'></div>
@@ -332,13 +352,13 @@ These are examples focused on showcasing low level functionality like design mat
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/mfpgt/Documents/PHD_research/open_source_contributions/nistats/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/mfpgt/Documents/PHD_research/open_source_contributions/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
 
 .. rst-class:: sphx-glr-signature
 

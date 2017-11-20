@@ -246,7 +246,15 @@ then contrast estimation)</li>
 <span class="n">fmri_img</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;func1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;func2&#39;</span><span class="p">]]</span>
 <span class="n">mean_img_</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">design_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix2&#39;</span><span class="p">]]</span>
-<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_panel.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
+<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Dataset</span> <span class="n">created</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nilearn</span><span class="o">/</span><span class="n">nilearn_data</span><span class="o">/</span><span class="n">fiac_nistats</span>
+
+<span class="n">Missing</span> <span class="n">functional</span> <span class="n">scan</span> <span class="k">for</span> <span class="n">session</span> <span class="mf">1.</span>
+<span class="n">Data</span> <span class="n">absent</span><span class="p">,</span> <span class="n">downloading</span><span class="o">...</span>
+<span class="n">Downloading</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">nipy</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">nipy</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">0.2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
@@ -299,18 +307,18 @@ then contrast estimation)</li>
 <img alt="../../_images/sphx_glr_plot_fiac_analysis_001.png" class="align-center" src="../../_images/sphx_glr_plot_fiac_analysis_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span><span class="o">...</span>
-  <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
-  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
+  <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
+  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
   <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
-  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
+  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
   <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
-  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
+  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
   <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
-  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
-<span class="n">All</span> <span class="n">the</span>  <span class="n">results</span> <span class="n">were</span> <span class="n">witten</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mfpgt</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">PHD_research</span><span class="o">/</span><span class="n">open_source_contributions</span><span class="o">/</span><span class="n">nistats</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="mi">02</span><span class="n">_first_level_models</span><span class="o">/</span><span class="n">results</span>
+  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
+<span class="n">All</span> <span class="n">the</span>  <span class="n">results</span> <span class="n">were</span> <span class="n">witten</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nistats</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="mi">02</span><span class="n">_first_level_models</span><span class="o">/</span><span class="n">results</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  5.491 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 2 minutes  55.655 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_fiac_analysis.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fiac_analysis.py</span></code></a></div>
@@ -352,7 +360,7 @@ then contrast estimation)</li>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_fiac_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

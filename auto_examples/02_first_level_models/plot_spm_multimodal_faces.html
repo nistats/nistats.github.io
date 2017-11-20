@@ -260,7 +260,7 @@ sampled in different position (encoded by different) affine functions.</p>
     <span class="n">onsets</span> <span class="o">*=</span> <span class="n">tr</span>  <span class="c1"># because onsets were reporting in &#39;scans&#39; units</span>
     <span class="n">conditions</span> <span class="o">=</span> <span class="p">([</span><span class="s1">&#39;faces&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">faces_onsets</span><span class="p">)</span> <span class="o">+</span>
                   <span class="p">[</span><span class="s1">&#39;scrambled&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">scrambled_onsets</span><span class="p">))</span>
-    <span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_panel.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
+    <span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
 
     <span class="c1"># Build design matrix</span>
     <span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">*</span> <span class="n">tr</span>
@@ -311,21 +311,21 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 343.1px; height: 107.63px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 343.1px; height: 107.63px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 343.1px; height: 107.63px;" /></a>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span>
-        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">scrambled</span><span class="o">-</span><span class="n">faces</span>
-        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">effects_of_interest</span>
         <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">faces</span><span class="o">-</span><span class="n">scrambled</span>
+        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">effects_of_interest</span>
+        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">scrambled</span><span class="o">-</span><span class="n">faces</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 1 minutes  19.830 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 2 minutes  48.044 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_spm_multimodal_faces.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_spm_multimodal_faces.py</span></code></a></div>
@@ -366,7 +366,7 @@ sampled in different position (encoded by different) affine functions.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_spm_multimodal_faces.rst.txt"
         	 rel="nofollow">Show this page source</a>

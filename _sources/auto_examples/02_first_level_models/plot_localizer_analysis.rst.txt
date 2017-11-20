@@ -187,14 +187,14 @@ contrast estimation
  Out::
 
     Contrast  1 out of 6: left-right
-      Contrast  2 out of 6: H-V
-      Contrast  3 out of 6: computation-sentences
-      Contrast  4 out of 6: video-audio
-      Contrast  5 out of 6: reading-visual
-      Contrast  6 out of 6: audio-video
+      Contrast  2 out of 6: reading-visual
+      Contrast  3 out of 6: H-V
+      Contrast  4 out of 6: computation-sentences
+      Contrast  5 out of 6: audio-video
+      Contrast  6 out of 6: video-audio
 
 
-**Total running time of the script:** ( 0 minutes  9.892 seconds)
+**Total running time of the script:** ( 0 minutes  15.397 seconds)
 
 
 
