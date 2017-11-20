@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="People" href="authors.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript" src="_static/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+(function($) {
+    $(function() {
+	$('.jcarousel').jcarousel();
+        $('.jcarousel-control-prev')
+            .on('active.jcarouselcontrol', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('inactive.jcarouselcontrol', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('active.jcarouselcontrol', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('inactive.jcarouselcontrol', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+
+        $('.jcarousel-pagination')
+            .on('active.jcarouselpagination', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('inactive.jcarouselpagination', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination();
+    });
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="#">
+      <img src="_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="auto_examples/04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="auto_examples/04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="authors.html" title="People"
+             accesskey="N">next</a> |</li>
+<li><a href="#">Nistats Home</a> |&nbsp;</li>
+<li><a href="user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+<h4> News </h4>
+  <ul>
+      <li><p> <strong>November 2017</strong>: Nistats 0.0.1a released
+      </p></li>
+  </ul>
+  <ul>
+      <li><p> <strong>Ongoing development</strong>:
+          <a href="whats_new.html"</a>What's new</em>.
+      </p></li>
+  </ul>
+
+<h4> Software </h4>
+  <ul class="simple">
+    <li>
+      <div id="download-container">
+	<a href="introduction.html#installation" class="btn btn-primary">Installation</a>
+      </div>
+    </li>
+  </ul>
+<h4> Development </h4>
+  <ul class="simple">
+    <li><p><a class="reference external"
+	href="https://github.com/nistats/nistats">Nistats on GitHub</a></p></li>
+    <li><p>All material Free Software: <strong>BSD license</strong> (3 clause).</p></li>
+    <li><p><a href="authors.html">Authors</a></p></li>
+    <li><p><a href="contributing.html">Contributing</a></p></li>
+  </ul>
+
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="authors.html"
+                        title="next chapter">People</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="index-paragraph docutils container">
+<p>Nistats is a Python module for <strong>fast and easy functional MRI statistical analysis</strong>.</p>
+<p>It leverages Nilearn, Nibabel and other Python libraries from the Python
+scientific stack like Scipy, Numpy and Pandas.</p>
+</div>
+<div id="index-grid" class="section group">
+ <div class="col span_1_of_3">
+     <h3><a href="auto_examples/index.html"> Examples</a></h3>
+     <p>Visit our example gallery</p>
+     <h3><a href="user_guide.html"> User Guide</a></h3>
+     <p>Browse the full documentation</p>
+ </div>
+ <div class="col span_2_of_3">
+ <div class="jcarousel-wrapper">
+ <div class="jcarousel"><ul class="simple">
+<li><a class="reference external" href="auto_examples/04_low_level_functions/plot_hrf.html"><img alt="hrf" src="_images/sphx_glr_plot_hrf_thumb.png" /></a></li>
+<li><a class="reference external" href="auto_examples/04_low_level_functions/plot_design_matrix.html"><img alt="design_matrix" src="_images/sphx_glr_plot_design_matrix_thumb.png" /></a></li>
+<li><a class="reference external" href="auto_examples/02_first_level_models/plot_localizer_analysis.html"><img alt="first_level" src="_images/sphx_glr_plot_localizer_analysis_thumb.png" /></a></li>
+<li><a class="reference external" href="auto_examples/03_second_level_models/plot_second_level_button_press.html"><img alt="second_level" src="_images/sphx_glr_plot_second_level_button_press_thumb.png" /></a></li>
+<li><a class="reference external" href="auto_examples/01_tutorials/plot_bids_analysis.html"><img alt="bids" src="_images/sphx_glr_plot_bids_analysis_thumb.png" /></a></li>
+</ul>
+         </div>
+
+     <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+     <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+     <p class="jcarousel-pagination">
+
+     </p>
+
+     </div>
+     </div>
+
+</div>
+<div style="clear: left"></div><div class="toctree-wrapper compound">
+</div>
+<p>Nistats is part of the <a class="reference external" href="http://nipy.org">NiPy ecosystem</a>.</p>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="authors.html" title="People"
+             >next</a> |</li>
+<li><a href="#">Nistats Home</a> |&nbsp;</li>
+<li><a href="user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="_sources/index.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

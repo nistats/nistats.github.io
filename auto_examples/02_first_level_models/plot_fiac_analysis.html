@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3.2. First level analysis of localizer dataset" href="plot_localizer_analysis.html" />
+    <link rel="prev" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject" href="../01_tutorials/plot_spm_auditory.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../01_tutorials/plot_spm_auditory.html" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3.3.1. Simple example of GLM fitting in fMRI</a><ul>
+<li><a class="reference internal" href="#prepare-data-and-analysis-parameters">3.3.1.1. Prepare data and analysis parameters</a></li>
+<li><a class="reference internal" href="#glm-estimation">3.3.1.2. GLM estimation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../01_tutorials/plot_spm_auditory.html"
+                        title="previous chapter">3.2.3. Univariate analysis of block design, one condition versus rest, single subject</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plot_localizer_analysis.html"
+                        title="next chapter">3.3.2. First level analysis of localizer dataset</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="simple-example-of-glm-fitting-in-fmri">
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"></span><h1>3.3.1. Simple example of GLM fitting in fMRI<a class="headerlink" href="#simple-example-of-glm-fitting-in-fmri" title="Permalink to this headline">¶</a></h1>
+<p>Full step-by-step example of fitting a GLM to experimental data and visualizing
+the results. This is done on two runs of one subject of the FIAC dataset.
+For details on the data, please see:</p>
+<p>Dehaene-Lambertz G, Dehaene S, Anton JL, Campagne A, Ciuciu P, Dehaene
+G, Denghien I, Jobert A, LeBihan D, Sigman M, Pallier C, Poline
+JB. Functional segregation of cortical language areas by sentence
+repetition. Hum Brain Mapp. 2006: 27:360–371.
+<a class="reference external" href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2653076#R11">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2653076#R11</a></p>
+<p>More specifically:</p>
+<ol class="arabic simple">
+<li>A sequence of fMRI volumes are loaded</li>
+<li>A design matrix describing all the effects related to the data is computed</li>
+<li>a mask of the useful brain volume is computed</li>
+<li>A GLM is applied to the dataset (effect/covariance,
+then contrast estimation)</li>
+</ol>
+<p>Author: Bertrand Thirion, 2015</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">getcwd</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a>
+
+<span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="kn">import</span> <span class="n">FirstLevelModel</span>
+<span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+
+<span class="c1"># write directory</span>
+<span class="n">write_dir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">write_dir</span><span class="p">):</span>
+    <span class="n">mkdir</span><span class="p">(</span><span class="n">write_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="prepare-data-and-analysis-parameters">
+<h2>3.3.1.1. Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_fiac_first_level</span><span class="p">()</span>
+<span class="n">fmri_img</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;func1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;func2&#39;</span><span class="p">]]</span>
+<span class="n">mean_img_</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">design_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix2&#39;</span><span class="p">]]</span>
+<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corrwith.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="glm-estimation">
+<h2>3.3.1.2. GLM estimation<a class="headerlink" href="#glm-estimation" title="Permalink to this headline">¶</a></h2>
+<p>GLM specification</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">],</span> <span class="n">minimize_memory</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>GLM fitting</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">design_matrices</span><span class="o">=</span><span class="n">design_matrices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>compute fixed effects of the two runs and compute related images</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">n_columns</span> <span class="o">=</span> <span class="n">design_matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">pad_vector</span><span class="p">(</span><span class="n">contrast_</span><span class="p">,</span> <span class="n">n_columns</span><span class="p">):</span>
+    <span class="k">return</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">contrast_</span><span class="p">,</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">n_columns</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrast_</span><span class="p">))))</span>
+
+
+<span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SStSSp_minus_DStDSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;DStDSp_minus_SStSSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;DSt_minus_SSt&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;DSp_minus_SSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;DSt_minus_SSt_for_DSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;DSp_minus_SSp_for_DSt&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;Deactivation&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
+             <span class="s1">&#39;Effects_of_interest&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">n_columns</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Computing contrasts...&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;  Contrast </span><span class="si">% 2i</span><span class="s1"> out of </span><span class="si">%i</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">),</span> <span class="n">contrast_id</span><span class="p">))</span>
+    <span class="n">z_image_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">write_dir</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_z_map.nii&#39;</span> <span class="o">%</span> <span class="n">contrast_id</span><span class="p">)</span>
+    <span class="n">z_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span>
+        <span class="n">contrast_val</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+    <span class="n">z_map</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">z_image_path</span><span class="p">)</span>
+
+    <span class="c1"># make a snapshot of the contrast activation</span>
+    <span class="k">if</span> <span class="n">contrast_id</span> <span class="o">==</span> <span class="s1">&#39;Effects_of_interest&#39;</span><span class="p">:</span>
+        <span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+            <span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><span class="n">mean_img_</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">contrast_id</span><span class="p">)</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">write_dir</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_z_map.png&#39;</span> <span class="o">%</span> <span class="n">contrast_id</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;All the  results were witten in </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">write_dir</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_fiac_analysis_001.png" class="align-center" src="../../_images/sphx_glr_plot_fiac_analysis_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span><span class="o">...</span>
+  <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
+  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
+  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
+  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
+  <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
+  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
+  <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
+  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
+<span class="n">All</span> <span class="n">the</span>  <span class="n">results</span> <span class="n">were</span> <span class="n">witten</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mfpgt</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">PHD_research</span><span class="o">/</span><span class="n">open_source_contributions</span><span class="o">/</span><span class="n">nistats</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="mi">02</span><span class="n">_first_level_models</span><span class="o">/</span><span class="n">results</span>
+</pre></div>
+</div>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  5.491 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fiac_analysis.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fiac_analysis.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../01_tutorials/plot_spm_auditory.html" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/02_first_level_models/plot_fiac_analysis.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

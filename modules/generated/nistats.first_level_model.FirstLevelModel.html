@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.7.2. nistats.first_level_model.mean_scaling" href="nistats.first_level_model.mean_scaling.html" />
+    <link rel="prev" title="2.6.4. nistats.regression.SimpleRegressionResults" href="nistats.regression.SimpleRegressionResults.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../../auto_examples/04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../../auto_examples/04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../../auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../../auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="nistats.first_level_model.mean_scaling.html" title="2.7.2. nistats.first_level_model.mean_scaling"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nistats.regression.SimpleRegressionResults.html" title="2.6.4. nistats.regression.SimpleRegressionResults"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="../reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">2. Reference documentation: all nistats functions</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2.7.1. nistats.first_level_model.FirstLevelModel</a><ul>
+<li><a class="reference internal" href="#examples-using-nistats-first-level-model-firstlevelmodel">2.7.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="nistats.regression.SimpleRegressionResults.html"
+                        title="previous chapter">2.6.4. nistats.regression.SimpleRegressionResults</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="nistats.first_level_model.mean_scaling.html"
+                        title="next chapter">2.7.2. nistats.first_level_model.mean_scaling</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This page is a reference documentation. It only explains the class
+signature, and not how to use it. Please refer to the
+<a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
+</div>
+<div class="section" id="nistats-first-level-model-firstlevelmodel">
+<h1>2.7.1. nistats.first_level_model.FirstLevelModel<a class="headerlink" href="#nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nistats.first_level_model.FirstLevelModel">
+<em class="property">class </em><code class="descclassname">nistats.first_level_model.</code><code class="descname">FirstLevelModel</code><span class="sig-paren">(</span><em>t_r=None, slice_time_ref=0.0, hrf_model='glover', drift_model='cosine', period_cut=128, drift_order=1, fir_delays=[0], min_onset=-24, mask=None, target_affine=None, target_shape=None, smoothing_fwhm=None, memory=Memory(cachedir=None), memory_level=1, standardize=False, signal_scaling=0, noise_model='ar1', verbose=0, n_jobs=1, minimize_memory=True, subject_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of the General Linear Model for single session fMRI data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t_r</strong> : float</p>
+<blockquote>
+<div><p>This parameter indicates repetition times of the experimental runs.
+In seconds. It is necessary to correctly consider times in the design
+matrix. This parameter is also passed to nilearn.signal.clean.
+Please see the related documentation for details.</p>
+</div></blockquote>
+<p><strong>slice_time_ref</strong> : float, optional (default 0.)</p>
+<blockquote>
+<div><p>This parameter indicates the time of the reference slice used in the
+slice timing preprocessing step of the experimental runs. It is
+expressed as a percentage of the t_r (time repetition), so it can have
+values between 0. and 1.</p>
+</div></blockquote>
+<p><strong>hrf_model</strong> : string, optional</p>
+<blockquote>
+<div><p>This parameter specifies the hemodynamic response function (HRF) for
+the design matrices. It can be ‘canonical’, ‘canonical with derivative’
+or ‘fir’.</p>
+</div></blockquote>
+<p><strong>drift_model</strong> : string, optional</p>
+<blockquote>
+<div><p>This parameter specifies the desired drift model for the design
+matrices. It can be ‘polynomial’, ‘cosine’ or None.</p>
+</div></blockquote>
+<p><strong>period_cut</strong> : float, optional</p>
+<blockquote>
+<div><p>This parameter specifies the cut period of the low-pass filter in
+seconds for the design matrices.</p>
+</div></blockquote>
+<p><strong>drift_order</strong> : int, optional</p>
+<blockquote>
+<div><p>This parameter specifices the order of the drift model (in case it is
+polynomial) for the design matrices.</p>
+</div></blockquote>
+<p><strong>fir_delays</strong> : array of shape(n_onsets) or list, optional</p>
+<blockquote>
+<div><p>In case of FIR design, yields the array of delays used in the FIR
+model, in seconds.</p>
+</div></blockquote>
+<p><strong>min_onset</strong> : float, optional</p>
+<blockquote>
+<div><p>This parameter specifies the minimal onset relative to the design
+(in seconds). Events that start before (slice_time_ref * t_r +
+min_onset) are not considered.</p>
+</div></blockquote>
+<p><strong>mask</strong> : Niimg-like, NiftiMasker object or False, optional</p>
+<blockquote>
+<div><p>Mask to be used on data. If an instance of masker is passed,
+then its mask will be used. If no mask is given,
+it will be computed automatically by a NiftiMasker with default
+parameters. If False is given then the data will not be masked.</p>
+</div></blockquote>
+<p><strong>target_affine</strong> : 3x3 or 4x4 matrix, optional</p>
+<blockquote>
+<div><p>This parameter is passed to nilearn.image.resample_img. Please see the
+related documentation for details.</p>
+</div></blockquote>
+<p><strong>target_shape</strong> : 3-tuple of integers, optional</p>
+<blockquote>
+<div><p>This parameter is passed to nilearn.image.resample_img. Please see the
+related documentation for details.</p>
+</div></blockquote>
+<p><strong>smoothing_fwhm</strong> : float, optional</p>
+<blockquote>
+<div><p>If smoothing_fwhm is not None, it gives the size in millimeters of the
+spatial smoothing to apply to the signal.</p>
+</div></blockquote>
+<p><strong>memory</strong> : string, optional</p>
+<blockquote>
+<div><p>Path to the directory used to cache the masking process and the glm
+fit. By default, no caching is done. Creates instance of joblib.Memory.</p>
+</div></blockquote>
+<p><strong>memory_level</strong> : integer, optional</p>
+<blockquote>
+<div><p>Rough estimator of the amount of memory used by caching. Higher value
+means more memory for caching.</p>
+</div></blockquote>
+<p><strong>standardize</strong> : boolean, optional</p>
+<blockquote>
+<div><p>If standardize is True, the time-series are centered and normed:
+their variance is put to 1 in the time dimension.</p>
+</div></blockquote>
+<p><strong>signal_scaling</strong> : False, int or (int, int), optional,</p>
+<blockquote>
+<div><p>If not False, fMRI signals are scaled to the mean value of scaling_axis
+given, which can be 0, 1 or (0, 1). 0 refers to mean scaling each voxel
+with respect to time, 1 refers to mean scaling each time point with
+respect to all voxels and (0, 1) refers to scaling with respect to
+voxels and time, which is known as grand mean scaling.
+Incompatible with standardize (standardize=False is enforced when
+signal_scaling is not False).</p>
+</div></blockquote>
+<p><strong>noise_model</strong> : {‘ar1’, ‘ols’}, optional</p>
+<blockquote>
+<div><p>The temporal variance model. Defaults to ‘ar1’</p>
+</div></blockquote>
+<p><strong>verbose</strong> : integer, optional</p>
+<blockquote>
+<div><p>Indicate the level of verbosity. By default, nothing is printed.
+If 0 prints nothing. If 1 prints progress by computation of
+each run. If 2 prints timing details of masker and GLM. If 3
+prints masker computation details.</p>
+</div></blockquote>
+<p><strong>n_jobs</strong> : integer, optional</p>
+<blockquote>
+<div><p>The number of CPUs to use to do the computation. -1 means
+‘all CPUs’, -2 ‘all CPUs but one’, and so on.</p>
+</div></blockquote>
+<p><strong>minimize_memory</strong> : boolean, optional</p>
+<blockquote>
+<div><p>Gets rid of some variables on the model fit results that are not
+necessary for contrast computation and would only be useful for
+further inspection of model details. This has an important impact
+on memory consumption. True by default.</p>
+</div></blockquote>
+<p><strong>subject_label</strong> : string, optional</p>
+<blockquote class="last">
+<div><p>This id will be used to identify a <cite>FirstLevelModel</cite> when passed to
+a <cite>SecondLevelModel</cite> object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>labels</td>
+<td>(array of shape (n_voxels,),) a map of values on voxels used to identify the corresponding model</td>
+</tr>
+<tr class="row-even"><td>results</td>
+<td>(dict,) with keys corresponding to the different labels values values are RegressionResults instances corresponding to the voxels</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>t_r=None, slice_time_ref=0.0, hrf_model='glover', drift_model='cosine', period_cut=128, drift_order=1, fir_delays=[0], min_onset=-24, mask=None, target_affine=None, target_shape=None, smoothing_fwhm=None, memory=Memory(cachedir=None), memory_level=1, standardize=False, signal_scaling=0, noise_model='ar1', verbose=0, n_jobs=1, minimize_memory=True, subject_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.compute_contrast">
+<code class="descname">compute_contrast</code><span class="sig-paren">(</span><em>contrast_def</em>, <em>stat_type=None</em>, <em>output_type='z_score'</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.compute_contrast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate different outputs corresponding to
+the contrasts provided e.g. z_map, t_map, effects and variance.
+In multi-session case, outputs the fixed effects map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>contrast_def</strong> : str or array of shape (n_col) or list of (string or</p>
+<blockquote>
+<div><blockquote>
+<div><p>array of shape (n_col))</p>
+</div></blockquote>
+<p>where <code class="docutils literal"><span class="pre">n_col</span></code> is the number of columns of the design matrix,
+(one array per run). If only one array is provided when there
+are several runs, it will be assumed that the same contrast is
+desired for all runs. The string can be a formula compatible with
+the linear constraint of the Patsy library. Basically one can use
+the name of the conditions as they appear in the design matrix of
+the fitted model combined with operators /<a href="#id1"><span class="problematic" id="id2">*</span></a>+- and numbers.
+Please checks the patsy documentation for formula examples:
+<a class="reference external" href="http://patsy.readthedocs.io/en/latest/API-reference.html#patsy.DesignInfo.linear_constraint">http://patsy.readthedocs.io/en/latest/API-reference.html#patsy.DesignInfo.linear_constraint</a></p>
+</div></blockquote>
+<p><strong>stat_type</strong> : {‘t’, ‘F’}, optional</p>
+<blockquote>
+<div><p>type of the contrast</p>
+</div></blockquote>
+<p><strong>output_type</strong> : str, optional</p>
+<blockquote>
+<div><p>Type of the output map. Can be ‘z_score’, ‘stat’, ‘p_value’,
+‘effect_size’ or ‘effect_variance’</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>output</strong> : Nifti1Image</p>
+<blockquote class="last">
+<div><p>The desired output image</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>run_imgs</em>, <em>events=None</em>, <em>confounds=None</em>, <em>design_matrices=None</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the GLM</p>
+<p>For each run:
+1. create design matrix X
+2. do a masker job: fMRI_data -&gt; Y
+3. fit regression to (Y, X)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>run_imgs: Niimg-like object or list of Niimg-like objects,</strong></p>
+<blockquote>
+<div><p>See <a class="reference external" href="http://nilearn.github.io/building_blocks/manipulating_mr_images.html#niimg">http://nilearn.github.io/building_blocks/manipulating_mr_images.html#niimg</a>.
+Data on which the GLM will be fitted. If this is a list,
+the affine is considered the same for all.</p>
+</div></blockquote>
+<p><strong>events: pandas Dataframe or string or list of pandas DataFrames or</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>strings,</p>
+</div></blockquote>
+<p>fMRI events used to build design matrices. One events object
+expected per run_img. Ignored in case designs is not None.
+If string, then a path to a csv file is expected.</p>
+</div></blockquote>
+<p><strong>confounds: pandas Dataframe or string or list of pandas DataFrames or</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>strings,</p>
+</div></blockquote>
+<p>Each column in a DataFrame corresponds to a confound variable
+to be included in the regression model of the respective run_img.
+The number of rows must match the number of volumes in the
+respective run_img. Ignored in case designs is not None.
+If string, then a path to a csv file is expected.</p>
+</div></blockquote>
+<p><strong>design_matrices: pandas DataFrame or list of pandas DataFrames,</strong></p>
+<blockquote class="last">
+<div><p>Design matrices that will be used to fit the GLM. If given it
+takes precedence over events and confounds.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em>, <em>**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to X and y with optional parameters fit_params
+and returns a transformed version of X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>Training set.</p>
+</div></blockquote>
+<p><strong>y</strong> : numpy array of shape [n_samples]</p>
+<blockquote>
+<div><p>Target values.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> : numpy array of shape [n_samples, n_features_new]</p>
+<blockquote class="last">
+<div><p>Transformed array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.get_params">
+<code class="descname">get_params</code><span class="sig-paren">(</span><em>deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>deep</strong> : boolean, optional</p>
+<blockquote>
+<div><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
+<blockquote class="last">
+<div><p>Parameter names mapped to their values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.set_params">
+<code class="descname">set_params</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="examples-using-nistats-first-level-model-firstlevelmodel">
+<h2>2.7.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code><a class="headerlink" href="#examples-using-nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Authors: Bertrand Thirion, dohmatob elvis dopgima, Christophe Pallier, 2015--2017"><div class="figure" id="id3">
+<img alt="../../_images/sphx_glr_plot_spm_auditory_thumb.png" src="../../_images/sphx_glr_plot_spm_auditory_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/01_tutorials/plot_spm_auditory.html#sphx-glr-auto-examples-01-tutorials-plot-spm-auditory-py"><span class="std std-ref">Univariate analysis of block design, one condition versus rest, single subject</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th..."><div class="figure" id="id4">
+<img alt="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" src="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fiac_analysis.html#sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"><span class="std std-ref">Simple example of GLM fitting in fMRI</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results."><div class="figure" id="id5">
+<img alt="../../_images/sphx_glr_plot_localizer_analysis_thumb.png" src="../../_images/sphx_glr_plot_localizer_analysis_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html#sphx-glr-auto-examples-02-first-level-models-plot-localizer-analysis-py"><span class="std std-ref">First level analysis of localizer dataset</span></a></span></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For details on the data, please see: Henson, R.N., Goshen-Gottstein, Y., Ganel, T., Otten, L.J...."><div class="figure" id="id6">
+<img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_thumb.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_spm_multimodal_faces.html#sphx-glr-auto-examples-02-first-level-models-plot-spm-multimodal-faces-py"><span class="std std-ref">Minimal script for preprocessing single-subject data (two session)</span></a></span></p>
+</div>
+</div><div style='clear:both'></div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="nistats.first_level_model.mean_scaling.html" title="2.7.2. nistats.first_level_model.mean_scaling"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="nistats.regression.SimpleRegressionResults.html" title="2.6.4. nistats.regression.SimpleRegressionResults"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="../reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../reference.html" >2. Reference documentation: all nistats functions</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/modules/generated/nistats.first_level_model.FirstLevelModel.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

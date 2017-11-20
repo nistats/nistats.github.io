@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction: nistats in a nutshell" href="introduction.html" />
+    <link rel="prev" title="People" href="authors.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="index.html">
+      <img src="_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="auto_examples/04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="auto_examples/04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction: nistats in a nutshell"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="authors.html" title="People"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="#">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="authors.html"
+                        title="previous chapter">People</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">1. Introduction: nistats in a nutshell</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-guide-table-of-contents">
+<span id="user-guide"></span><h1>User guide: table of contents<a class="headerlink" href="#user-guide-table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title"><strong>Download for offline viewing</strong></p>
+<p class="last">Download the <a class="reference external" href="https://github.com/nistats/nistats.github.io/archive/master.zip">user guide and examples</a>.</p>
+</div>
+<style type="text/css">
+  div.bodywrapper blockquote {
+      margin: 0 ;
+  }
+
+  div.toctree-wrapper ul {
+      margin-top: 0 ;
+      margin-bottom: 0 ;
+      padding-left: 10px ;
+  }
+
+  li.toctree-l1 {
+      padding: 0 0 0.5em 0 ;
+      list-style-type: none;
+      font-size: 150% ;
+      font-weight: bold;
+      }
+
+  li.toctree-l1 ul {
+      padding-left: 40px ;
+  }
+
+  li.toctree-l2 {
+      font-size: 75% ;
+      list-style-type: square;
+      font-weight: normal;
+      }
+
+  li.toctree-l3 {
+      font-size: 85% ;
+      list-style-type: circle;
+      font-weight: normal;
+      }
+
+</style> <SCRIPT>
+ //Function to make the index toctree collapsible
+ $(function () {
+     $('.toctree-l2')
+         .click(function(event){
+             if (event.target.tagName.toLowerCase() != "a") {
+                 if ($(this).children('ul').length > 0) {
+                      $(this).attr('data-content',
+                          (!$(this).children('ul').is(':hidden')) ? '\u25ba' : '\u25bc');
+                     $(this).children('ul').toggle();
+                 }
+                 return true; //Makes links clickable
+             }
+         })
+         .mousedown(function(event){ return false; }) //Firefox highlighting fix
+         .children('ul').hide();
+     // Initialize the values
+     $('li.toctree-l2:not(:has(ul))').attr('data-content', '-');
+     $('li.toctree-l2:has(ul)').attr('data-content', '\u25ba');
+     $('li.toctree-l2:has(ul)').css('cursor', 'pointer');
+
+     $('.toctree-l2').hover(
+         function () {
+             if ($(this).children('ul').length > 0) {
+                 $(this).css('background-color', '#D0D0D0').children('ul').css('background-color', '#F0F0F0');
+                 $(this).attr('data-content',
+                     (!$(this).children('ul').is(':hidden')) ? '\u25bc' : '\u25ba');
+             }
+             else {
+                 $(this).css('background-color', '#F9F9F9');
+             }
+         },
+         function () {
+             $(this).css('background-color', 'white').children('ul').css('background-color', 'white');
+             if ($(this).children('ul').length > 0) {
+                 $(this).attr('data-content',
+                     (!$(this).children('ul').is(':hidden')) ? '\u25bc' : '\u25ba');
+             }
+         }
+     );
+ });
+
+ </SCRIPT>
+
+<style type="text/css">
+  div.bodywrapper blockquote {
+      margin: 0 ;
+  }
+
+  div.toctree-wrapper ul {
+      margin: 0 ;
+      padding-left: 0px ;
+  }
+
+  li, ul {
+      transition-duration: 0.2s;
+  }
+
+  li.toctree-l1 {
+      padding: 5px 0 0;
+      list-style-type: none;
+      font-size: 150% ;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      font-weight: normal;
+      color: #20435c;
+      margin-left: 0;
+      margin-bottom: 1.2em;
+      font-weight: bold;
+      }
+
+  li.toctree-l1 a {
+      padding: 0 0 0 10px ;
+      color: #314F64 ;
+  }
+
+  li.toctree-l2 {
+      padding: 0.25em 0 0.25em 0 ;
+      list-style-type: none;
+      background-color: #FFFFFF;
+      font-size: 85% ;
+      font-weight: normal;
+  }
+
+  li.toctree-l2 ul {
+      padding-left: 40px ;
+  }
+
+
+  li.toctree-l2:before {
+      content: attr(data-content) ;
+      font-size: 85% ;
+      color: #777 ;
+      display: inline-block;
+      width: 10px;
+  }
+
+  li.toctree-l3 {
+      font-size: 88% ;
+      list-style-type: square;
+      font-weight: normal;
+  }
+
+  li.toctree-l4 {
+      font-size: 93% ;
+      list-style-type: circle;
+      font-weight: normal;
+  }
+
+  div.topic li.toctree-l1 {
+      font-size: 100% ;
+      font-weight: bold;
+      background-color: transparent;
+      margin-bottom: 0;
+      margin-left: 1.5em;
+      display:inline;
+  }
+
+  div.topic p {
+      font-size: 90% ;
+      margin: 0.4ex;
+  }
+
+  div.topic p.topic-title {
+      display:inline;
+      font-size: 100% ;
+      margin-bottom: 0;
+  }
+
+  div.sidebar {
+      width: 25ex ;
+  }
+
+</style><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction: nistats in a nutshell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-nistats-bold-fmri-analysis">1.1. What is nistats: Bold-fMRI analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#installing-nistats">1.2. Installing nistats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/reference.html">2. Reference documentation: all nistats functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.datasets">2.1. <code class="docutils literal"><span class="pre">nistats.datasets</span></code>: Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_bids_langloc_dataset.html">2.1.1. nistats.datasets.fetch_bids_langloc_dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_bids_langloc_dataset.html#examples-using-nistats-datasets-fetch-bids-langloc-dataset">2.1.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_bids_langloc_dataset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_openneuro_dataset_index.html">2.1.2. nistats.datasets.fetch_openneuro_dataset_index</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_openneuro_dataset_index.html#examples-using-nistats-datasets-fetch-openneuro-dataset-index">2.1.2.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_openneuro_dataset_index</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.select_from_index.html">2.1.3. nistats.datasets.select_from_index</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.select_from_index.html#examples-using-nistats-datasets-select-from-index">2.1.3.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.select_from_index</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_openneuro_dataset.html">2.1.4. nistats.datasets.fetch_openneuro_dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_openneuro_dataset.html#examples-using-nistats-datasets-fetch-openneuro-dataset">2.1.4.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_openneuro_dataset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_localizer_first_level.html">2.1.5. nistats.datasets.fetch_localizer_first_level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_localizer_first_level.html#examples-using-nistats-datasets-fetch-localizer-first-level">2.1.5.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_localizer_first_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_spm_auditory.html">2.1.6. nistats.datasets.fetch_spm_auditory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_spm_auditory.html#examples-using-nistats-datasets-fetch-spm-auditory">2.1.6.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_spm_auditory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_spm_multimodal_fmri.html">2.1.7. nistats.datasets.fetch_spm_multimodal_fmri</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_spm_multimodal_fmri.html#examples-using-nistats-datasets-fetch-spm-multimodal-fmri">2.1.7.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_spm_multimodal_fmri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_fiac_first_level.html">2.1.8. nistats.datasets.fetch_fiac_first_level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_fiac_first_level.html#examples-using-nistats-datasets-fetch-fiac-first-level">2.1.8.1. Examples using <code class="docutils literal"><span class="pre">nistats.datasets.fetch_fiac_first_level</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.hemodynamic_models">2.2. <code class="docutils literal"><span class="pre">nistats.hemodynamic_models</span></code>: Hemodynamic Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.spm_hrf.html">2.2.1. nistats.hemodynamic_models.spm_hrf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.glover_hrf.html">2.2.2. nistats.hemodynamic_models.glover_hrf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.spm_time_derivative.html">2.2.3. nistats.hemodynamic_models.spm_time_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.glover_time_derivative.html">2.2.4. nistats.hemodynamic_models.glover_time_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.spm_dispersion_derivative.html">2.2.5. nistats.hemodynamic_models.spm_dispersion_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.glover_dispersion_derivative.html">2.2.6. nistats.hemodynamic_models.glover_dispersion_derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.compute_regressor.html">2.2.7. nistats.hemodynamic_models.compute_regressor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.compute_regressor.html#examples-using-nistats-hemodynamic-models-compute-regressor">2.2.7.1. Examples using <code class="docutils literal"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.design_matrix">2.3. <code class="docutils literal"><span class="pre">nistats.design_matrix</span></code>: Design Matrix Creation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.design_matrix.make_design_matrix.html">2.3.1. nistats.design_matrix.make_design_matrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.design_matrix.make_design_matrix.html#examples-using-nistats-design-matrix-make-design-matrix">2.3.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.design_matrix.make_design_matrix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.design_matrix.check_design_matrix.html">2.3.2. nistats.design_matrix.check_design_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.design_matrix.create_second_level_design.html">2.3.3. nistats.design_matrix.create_second_level_design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.design_matrix.create_second_level_design.html#examples-using-nistats-design-matrix-create-second-level-design">2.3.3.1. Examples using <code class="docutils literal"><span class="pre">nistats.design_matrix.create_second_level_design</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.experimental_paradigm">2.4. <code class="docutils literal"><span class="pre">nistats.experimental_paradigm</span></code>: Experimental Paradigm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.experimental_paradigm.check_paradigm.html">2.4.1. nistats.experimental_paradigm.check_paradigm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.experimental_paradigm.paradigm_from_csv.html">2.4.2. nistats.experimental_paradigm.paradigm_from_csv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.model">2.5. <code class="docutils literal"><span class="pre">nistats.model</span></code>: Statistical models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.LikelihoodModelResults.html">2.5.1. nistats.model.LikelihoodModelResults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.TContrastResults.html">2.5.2. nistats.model.TContrastResults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.FContrastResults.html">2.5.3. nistats.model.FContrastResults</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.regression">2.6. <code class="docutils literal"><span class="pre">nistats.regression</span></code>: Regression Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.OLSModel.html">2.6.1. nistats.regression.OLSModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.ARModel.html">2.6.2. nistats.regression.ARModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.RegressionResults.html">2.6.3. nistats.regression.RegressionResults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.SimpleRegressionResults.html">2.6.4. nistats.regression.SimpleRegressionResults</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.first_level_model">2.7. <code class="docutils literal"><span class="pre">nistats.first_level_model</span></code>: First Level Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.first_level_model.FirstLevelModel.html">2.7.1. nistats.first_level_model.FirstLevelModel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.first_level_model.FirstLevelModel.html#examples-using-nistats-first-level-model-firstlevelmodel">2.7.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.first_level_model.mean_scaling.html">2.7.2. nistats.first_level_model.mean_scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.first_level_model.run_glm.html">2.7.3. nistats.first_level_model.run_glm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.first_level_model.first_level_models_from_bids.html">2.7.4. nistats.first_level_model.first_level_models_from_bids</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.first_level_model.first_level_models_from_bids.html#examples-using-nistats-first-level-model-first-level-models-from-bids">2.7.4.1. Examples using <code class="docutils literal"><span class="pre">nistats.first_level_model.first_level_models_from_bids</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.second_level_model">2.8. <code class="docutils literal"><span class="pre">nistats.second_level_model</span></code>: Second Level Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.second_level_model.SecondLevelModel.html">2.8.1. nistats.second_level_model.SecondLevelModel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.second_level_model.SecondLevelModel.html#examples-using-nistats-second-level-model-secondlevelmodel">2.8.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.second_level_model.SecondLevelModel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.contrasts">2.9. <code class="docutils literal"><span class="pre">nistats.contrasts</span></code>: Contrasts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.contrasts.Contrast.html">2.9.1. nistats.contrasts.Contrast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.contrasts.compute_contrast.html">2.9.2. nistats.contrasts.compute_contrast</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.thresholding">2.10. <code class="docutils literal"><span class="pre">nistats.thresholding</span></code>: Thresholding Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.thresholding.fdr_threshold.html">2.10.1. nistats.thresholding.fdr_threshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html">2.10.2. nistats.thresholding.map_threshold</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html#examples-using-nistats-thresholding-map-threshold">2.10.2.1. Examples using <code class="docutils literal"><span class="pre">nistats.thresholding.map_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.thresholding.get_clusters_table.html">2.10.3. nistats.thresholding.get_clusters_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.thresholding.get_clusters_table.html#examples-using-nistats-thresholding-get-clusters-table">2.10.3.1. Examples using <code class="docutils literal"><span class="pre">nistats.thresholding.get_clusters_table</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.reporting">2.11. <code class="docutils literal"><span class="pre">nistats.reporting</span></code>: Report plotting functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.reporting.compare_niimgs.html">2.11.1. nistats.reporting.compare_niimgs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.compare_niimgs.html#examples-using-nistats-reporting-compare-niimgs">2.11.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.reporting.compare_niimgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.reporting.plot_design_matrix.html">2.11.2. nistats.reporting.plot_design_matrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.plot_design_matrix.html#examples-using-nistats-reporting-plot-design-matrix">2.11.2.1. Examples using <code class="docutils literal"><span class="pre">nistats.reporting.plot_design_matrix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.reporting.plot_contrast_matrix.html">2.11.3. nistats.reporting.plot_contrast_matrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.plot_contrast_matrix.html#examples-using-nistats-reporting-plot-contrast-matrix">2.11.3.1. Examples using <code class="docutils literal"><span class="pre">nistats.reporting.plot_contrast_matrix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.utils">2.12. <code class="docutils literal"><span class="pre">nistats.utils</span></code>: Utility functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.z_score.html">2.12.1. nistats.utils.z_score</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.utils.z_score.html#examples-using-nistats-utils-z-score">2.12.1.1. Examples using <code class="docutils literal"><span class="pre">nistats.utils.z_score</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.multiple_fast_inv.html">2.12.2. nistats.utils.multiple_fast_inv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.multiple_mahalanobis.html">2.12.3. nistats.utils.multiple_mahalanobis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.full_rank.html">2.12.4. nistats.utils.full_rank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.pos_recipr.html">2.12.5. nistats.utils.pos_recipr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.get_bids_files.html">2.12.6. nistats.utils.get_bids_files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.parse_bids_filename.html">2.12.7. nistats.utils.parse_bids_filename</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">3. Nistats usage examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#general-examples">3.1. General examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#tutorial-examples">3.2. Tutorial examples</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#first-level-analysis-examples">3.3. First level analysis examples</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#second-level-analysis-examples">3.4. Second level analysis examples</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#low-level-function-examples">3.5. Low level function examples</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction: nistats in a nutshell"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="authors.html" title="People"
+             >previous</a> |</li>
+<li><a href="index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="#">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="_sources/user_guide.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

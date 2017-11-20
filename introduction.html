@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Reference documentation: all nistats functions" href="modules/reference.html" />
+    <link rel="prev" title="User guide: table of contents" href="user_guide.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="index.html">
+      <img src="_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="auto_examples/04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="auto_examples/04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="modules/reference.html" title="2. Reference documentation: all nistats functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user_guide.html" title="User guide: table of contents"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide: table of contents</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Introduction: nistats in a nutshell</a><ul>
+<li><a class="reference internal" href="#what-is-nistats-bold-fmri-analysis">1.1. What is nistats: Bold-fMRI analysis</a></li>
+<li><a class="reference internal" href="#installing-nistats">1.2. Installing nistats</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user_guide.html"
+                        title="previous chapter">User guide: table of contents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modules/reference.html"
+                        title="next chapter">2. Reference documentation: all nistats functions</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-nistats-in-a-nutshell">
+<h1>1. Introduction: nistats in a nutshell<a class="headerlink" href="#introduction-nistats-in-a-nutshell" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><strong>Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#what-is-nistats-bold-fmri-analysis" id="id1">What is nistats: Bold-fMRI analysis</a></li>
+<li><a class="reference internal" href="#installing-nistats" id="id2">Installing nistats</a></li>
+</ul>
+</div>
+<div class="section" id="what-is-nistats-bold-fmri-analysis">
+<h2><a class="toc-backref" href="#id1">1.1. What is nistats: Bold-fMRI analysis</a><a class="headerlink" href="#what-is-nistats-bold-fmri-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="topic">
+<p class="topic-title first"><strong>Why use nistats?</strong></p>
+<p>Nistats is a python module to perform voxel-wise univariate analyses of functional magnetic resonance images (fMRI), using general linear models. It provides functions to create design matrices, at the subject and group levels, to estimate them from images series and to compute statistical maps (contrasts)</p>
+<p>For tutorials, please check out the <a class="reference external" href="auto_examples/index.html">Examples</a> gallery</p>
+</div>
+</div>
+<div class="section" id="installing-nistats">
+<span id="installation"></span><h2><a class="toc-backref" href="#id2">1.2. Installing nistats</a><a class="headerlink" href="#installing-nistats" title="Permalink to this headline">¶</a></h2>
+<script type="text/javascript">
+var OSName=2;
+if (navigator.userAgent.indexOf("Win")!=-1) OSName=1;
+if (navigator.userAgent.indexOf("Mac")!=-1) OSName=2;
+if (navigator.userAgent.indexOf("X11")!=-1) OSName=3;
+if (navigator.userAgent.indexOf("Linux")!=-1) OSName=3;
+if (navigator.userAgent.indexOf("Android")!=-1) OSName=1;
+
+$(document).ready(function(){
+    $("ul#tabs li.active").removeClass("active");
+    $("ul#tab li.active").removeClass("active");
+    $("ul#tabs li:nth-child("+OSName+")").addClass("active");
+    $("ul#tab li:nth-child("+OSName+")").addClass("active");
+});
+
+$(document).ready(function(){
+    $("ul#tabs li").click(function(e){
+        if (!$(this).hasClass("active")) {
+            var tabNum = $(this).index();
+            var nthChild = tabNum+1;
+            $("ul#tabs li.active").removeClass("active");
+            $(this).addClass("active");
+            $("ul#tab li.active").removeClass("active");
+            jQuery("ul#tab li:nth-child("+nthChild+")").fadeIn(400).siblings().hide();
+            $("ul#tab li:nth-child("+nthChild+")").addClass("active");
+        }
+    });
+});
+</script>
+
+<div class="container">
+  <ul id="tabs">
+    <li class="active">Windows</li>
+    <li>Mac</li>
+    <li>Linux</li>
+    <li>Get source</li>
+  </ul>
+  <ul id="tab">
+    <li class="active">
+
+      <p class="emphasize">First: download and install 64 bit <a
+      <class="reference external"
+      <href="https://store.continuum.io/cshop/anaconda/"
+      <target="_blank">Anaconda</a></p>
+
+      <p><strong>We recommend that you install a complete scientific Python
+       distribution like 64 bit <a class="reference external" href="https://
+       store.continuum.io/cshop/anaconda/" target="_blank">Anaconda</a>
+       </strong>. Since it meets all the requirements of nistats, it will save
+       you time and trouble. You could also check <a class="reference external"
+       href="http://python-xy.github.io/" target="_blank">PythonXY</a>
+       as an alternative.</p>
+
+      <p>Nistats requires a Python installation and the following
+      dependencies: ipython, scikit-learn, matplotlib and nibabel.</p>
+
+      <p class="emphasize">Second: open a Command Prompt</p>
+      <p><strong>(Press "Win-R", type "cmd" and press "Enter". This will open
+      the program cmd.exe, which is the command prompt)</strong><br/>
+      Then type the following line and press "Enter"</p>
+      <div class="code"><pre>pip install -U --user nistats</pre></div>
+
+      <p class="emphasize">Third: open IPython</p>
+      <p><strong>(You can open it by writing "ipython" in the command prompt
+      and pressing "Enter")</strong><br/>
+      Then type in the following line and press "Enter":</p>
+      <div class="code"><pre>In [1]: import nistats</pre></div>
+      <p>If no error occurs, you have installed nistats correctly.</p>
+    </li>
+
+
+    <li>
+      <p class="emphasize">First: download and install 64 bit <a class="
+      reference external" href="https://store.continuum.io/cshop/anaconda/"
+      target="_blank">Anaconda</a></p>
+
+      <p><strong>We recommend that you install a complete scientific Python
+      distribution like 64 bit <a class="reference external"
+      href="https://store.continuum.io/cshop/anaconda/" target="_blank">
+      Anaconda</a></strong>. Since it meets all the requirements of nistats,
+      it will save you time and trouble.</p>
+
+      <p>nistats requires a Python installation and the following
+      dependencies: ipython, scikit-learn, matplotlib and nibabel.</p>
+
+      <p class="emphasize">Second: open a Terminal</p>
+      <p><strong>(Navigate to /Applications/Utilities and double-click on
+      Terminal)</strong><br/>
+      Then type the following line and press "Enter"</p>
+      <div class="code"><pre>pip install -U --user nistats</pre></div>
+
+      <p class="emphasize">Third: open IPython</p>
+      <p><strong>(You can open it by writing "ipython" in the terminal and
+      pressing "Enter")</strong><br/>
+      Then type in the following line and press "Enter":</p>
+      <div class="code"><pre>In [1]: import nistats</pre></div>
+      <p>If no error occurs, you have installed nistats correctly.</p>
+
+    </li>
+
+    <li>
+
+      <p class="emphasize">First: Install dependencies</p>
+
+      <p>Install or ask your system administrator to install the following
+      packages using the distribution package manager: <strong>ipython</strong>
+      , <strong>scikit-learn</strong> (sometimes called <cite>sklearn</cite>,
+      or <cite>python-sklearn</cite>), <strong>matplotlib</strong> (sometimes
+      called <cite>python-matplotlib</cite>) and <strong>nibabel</strong>
+      (sometimes called <cite>python-nibabel</cite>).</p>
+
+      <p><strong>If you do not have access to the package manager we recommend
+      that you install a complete scientific Python distribution like 64 bit
+      <a class="reference external"
+      href="https://store.continuum.io/cshop/anaconda/" target="_blank">
+      Anaconda</a></strong>. Since it meets all the requirements of nistats,
+      it will save you time and trouble.</p>
+
+      <p class="emphasize">Second: open a Terminal</p>
+      <p><strong>(Press ctrl+alt+t and a Terminal console will pop up)</strong><br/>
+      Then type the following line and press "Enter"</p>
+      <div class="code"><pre>pip install -U --user nistats</pre></div>
+
+      <p class="emphasize">Third: open IPython</p>
+      <p><strong>(You can open it by writing "ipython" in the terminal and
+      pressing "Enter")</strong><br/>
+      Then type in the following line and press "Enter":</p>
+      <div class="code"><pre>In [1]: import nistats</pre></div>
+      <p>If no error occurs, you have installed nistats correctly.</p>
+
+    </li>
+
+    <li>
+
+      <p class="emphasize">To Install the development version:</p>
+
+      <p><strong>Use git as an alternative to using pip, to get the latest
+      nistats version</strong></p>
+      <p class="first">Simply run the following command (as a shell command,
+      not a Python command):</p>
+      <div class="code"><pre>git clone https://github.com/nistats/nistats.git</pre>
+      </div>
+
+      <p>In the future, you can readily update your copy of nistats by
+      executing &#8220;git pull&#8221; in the nistats root directory (as a
+      shell command).</p>
+      <p>If you really do not want to use git, you may still download the
+      latest development snapshot from the following link (unziping required):
+      <a class="reference external"
+      href="https://github.com/nistats/nistats/archive/master.zip">
+      https://github.com/nistats/nistats/archive/master.zip</a></p>
+      <p><strong>Install in the nistats directory created by the previous
+      steps, run (again, as a shell command):</strong></p>
+      <div class="code"><pre>python setup.py develop --user</pre></div>
+
+      <p><strong>Now to test everything is set up correctly, open IPython and
+      type in the following line:</strong></p>
+      <div class="code"><pre>In [1]: import nistats</pre></div>
+      <p>If no error occurs, you have installed nistats correctly.</p>
+
+    </li>
+
+  </ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="modules/reference.html" title="2. Reference documentation: all nistats functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user_guide.html" title="User guide: table of contents"
+             >previous</a> |</li>
+<li><a href="index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide: table of contents</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="_sources/introduction.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

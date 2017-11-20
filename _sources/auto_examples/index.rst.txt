@@ -1,0 +1,345 @@
+:orphan:
+
+Nistats usage examples
+======================
+
+.. warning::
+
+    If you want to run the examples, make sure you execute them in a directory
+    where you have write permissions, or you copy the examples into such a
+    directory. If you install nistats manually, make sure you have followed
+    :ref:`the instructions <installation>`.
+
+
+.. contents:: **Contents**
+    :local:
+    :depth: 1
+
+General examples
+----------------
+
+General-purpose and introductory examples for nistats.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A simple example of basic Python numerics and how to plot it. ">
+
+.. only:: html
+
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_python_101_thumb.png
+
+        :ref:`sphx_glr_auto_examples_plot_python_101.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_python_101
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Tutorial examples
+-----------------
+
+These are examples with detailed explanations to showcase how to perform an fMRI first and second level analysis in arbitrary datasets and BIDS datasets.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Author : Martin Perez-Guevara: 2016">
+
+.. only:: html
+
+    .. figure:: /auto_examples/01_tutorials/images/thumb/sphx_glr_plot_bids_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_01_tutorials_plot_bids_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/01_tutorials/plot_bids_analysis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Author : Martin Perez-Guevara: 2017">
+
+.. only:: html
+
+    .. figure:: /auto_examples/01_tutorials/images/thumb/sphx_glr_plot_bids_features_thumb.png
+
+        :ref:`sphx_glr_auto_examples_01_tutorials_plot_bids_features.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/01_tutorials/plot_bids_features
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Authors: Bertrand Thirion, dohmatob elvis dopgima, Christophe Pallier, 2015--2017">
+
+.. only:: html
+
+    .. figure:: /auto_examples/01_tutorials/images/thumb/sphx_glr_plot_spm_auditory_thumb.png
+
+        :ref:`sphx_glr_auto_examples_01_tutorials_plot_spm_auditory.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/01_tutorials/plot_spm_auditory
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+First level analysis examples
+------------------------------
+
+These are examples focused on showcasing first level models functionality and single subject analysis.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_fiac_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_first_level_models/plot_fiac_analysis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results.">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_localizer_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_localizer_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_first_level_models/plot_localizer_analysis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For details on the data, please see: Henson, R.N., Goshen-Gottstein, Y., Ganel, T., Otten, L.J....">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_spm_multimodal_faces_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_spm_multimodal_faces.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_first_level_models/plot_spm_multimodal_faces
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Second level analysis examples
+------------------------------
+
+These are examples focused on showcasing second level models functionality and group level analysis.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Perform a one-sample t-test on a bunch of images  (a.k.a. second-level analyis in fMRI) and thr...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_thresholding_thumb.png
+
+        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_thresholding.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_second_level_models/plot_thresholding
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a second level analysis in experimental d...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_second_level_button_press_thumb.png
+
+        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_second_level_button_press.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_second_level_models/plot_second_level_button_press
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Low level function examples
+----------------------------
+
+These are examples focused on showcasing low level functionality like design matrix creation, HRF functions and others.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Requires matplotlib">
+
+.. only:: html
+
+    .. figure:: /auto_examples/04_low_level_functions/images/thumb/sphx_glr_plot_second_level_design_matrix_thumb.png
+
+        :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_second_level_design_matrix.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/04_low_level_functions/plot_second_level_design_matrix
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Requires matplotlib">
+
+.. only:: html
+
+    .. figure:: /auto_examples/04_low_level_functions/images/thumb/sphx_glr_plot_hrf_thumb.png
+
+        :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_hrf.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/04_low_level_functions/plot_hrf
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="See Pinel et al., BMC neuroscience 2007 for reference ">
+
+.. only:: html
+
+    .. figure:: /auto_examples/04_low_level_functions/images/thumb/sphx_glr_write_paradigm_file_thumb.png
+
+        :ref:`sphx_glr_auto_examples_04_low_level_functions_write_paradigm_file.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/04_low_level_functions/write_paradigm_file
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Three examples of design matrices specification and computation (event-related design, block de...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/04_low_level_functions/images/thumb/sphx_glr_plot_design_matrix_thumb.png
+
+        :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_design_matrix.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/04_low_level_functions/plot_design_matrix
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. container:: sphx-glr-footer
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/mfpgt/Documents/PHD_research/open_source_contributions/nistats/doc/auto_examples/auto_examples_python.zip>`
+
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/mfpgt/Documents/PHD_research/open_source_contributions/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
+
+.. rst-class:: sphx-glr-signature
+
+    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

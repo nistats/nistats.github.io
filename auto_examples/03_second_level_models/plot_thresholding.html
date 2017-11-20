@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4.2. GLM fitting in second level fMRI" href="plot_second_level_button_press.html" />
+    <link rel="prev" title="3.3.3. Minimal script for preprocessing single-subject data (two session)" href="../02_first_level_models/plot_spm_multimodal_faces.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="../02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="plot_second_level_button_press.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_second_level_button_press.html" title="3.4.2. GLM fitting in second level fMRI"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../02_first_level_models/plot_spm_multimodal_faces.html" title="3.3.3. Minimal script for preprocessing single-subject data (two session)"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3.4.1. Example of simple second level analysis</a><ul>
+<li><a class="reference internal" href="#prepare-some-images-for-a-simple-t-test">3.4.1.1. Prepare some images for a simple t test</a></li>
+<li><a class="reference internal" href="#perform-the-second-level-analysis">3.4.1.2. Perform the second level analysis</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../02_first_level_models/plot_spm_multimodal_faces.html"
+                        title="previous chapter">3.3.3. Minimal script for preprocessing single-subject data (two session)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plot_second_level_button_press.html"
+                        title="next chapter">3.4.2. GLM fitting in second level fMRI</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="example-of-simple-second-level-analysis">
+<span id="sphx-glr-auto-examples-03-second-level-models-plot-thresholding-py"></span><h1>3.4.1. Example of simple second level analysis<a class="headerlink" href="#example-of-simple-second-level-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Perform a one-sample t-test on a bunch of images
+(a.k.a. second-level analyis in fMRI) and threshold a statistical image.
+This is based on the so-called localizer dataset.
+It shows activation related to a mental computation task,
+as opposed to narrative sentence reading/listening.</p>
+<p>Author: Bertrand.thirion, Virgile Fritsch, 2014–2015</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">nilearn.input_data</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" title="View documentation for nilearn.input_data.NiftiMasker"><span class="n">NiftiMasker</span></a>
+</pre></div>
+</div>
+<div class="section" id="prepare-some-images-for-a-simple-t-test">
+<h2>3.4.1.1. Prepare some images for a simple t test<a class="headerlink" href="#prepare-some-images-for-a-simple-t-test" title="Permalink to this headline">¶</a></h2>
+<p>This is a simple manually performed second level analysis</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">localizer_dataset</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_localizer_calculation_task.html#nilearn.datasets.fetch_localizer_calculation_task" title="View documentation for nilearn.datasets.fetch_localizer_calculation_task"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_calculation_task</span></a><span class="p">(</span>
+    <span class="n">n_subjects</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># mask data</span>
+<span class="n">nifti_masker</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" title="View documentation for nilearn.input_data.NiftiMasker"><span class="n">NiftiMasker</span></a><span class="p">(</span>
+    <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">,</span> <span class="n">memory_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># cache options</span>
+<span class="n">cmap_filenames</span> <span class="o">=</span> <span class="n">localizer_dataset</span><span class="o">.</span><span class="n">cmaps</span>
+<span class="n">fmri_masked</span> <span class="o">=</span> <span class="n">nifti_masker</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cmap_filenames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="perform-the-second-level-analysis">
+<h2>3.4.1.2. Perform the second level analysis<a class="headerlink" href="#perform-the-second-level-analysis" title="Permalink to this headline">¶</a></h2>
+<p>perform a one-sample test on these values</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <a href="http://docs.scipy.org/doc/scipy-0.11.0/reference/generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="View documentation for scipy.stats.ttest_1samp"><span class="n">ttest_1samp</span></a>
+<span class="n">_</span><span class="p">,</span> <span class="n">p_values</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/scipy-0.11.0/reference/generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="View documentation for scipy.stats.ttest_1samp"><span class="n">ttest_1samp</span></a><span class="p">(</span><span class="n">fmri_masked</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>z-transform of p-values</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.utils</span> <span class="kn">import</span> <span class="n">z_score</span>
+<span class="n">z_map</span> <span class="o">=</span> <span class="n">nifti_masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">z_score</span><span class="p">(</span><span class="n">p_values</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Threshold the resulting map:
+false positive rate &lt; .001, cluster size &gt; 10 voxels</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="kn">import</span> <span class="n">map_threshold</span>
+<span class="n">thresholded_map1</span><span class="p">,</span> <span class="n">threshold1</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=.</span><span class="mo">001</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fpr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now use FDR &lt;.05, no cluster-level threshold</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">thresholded_map2</span><span class="p">,</span> <span class="n">threshold2</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Visualize the results</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Raw z map&#39;</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <span class="n">thresholded_map1</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">display</span><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold1</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Thresholded z map, fpr &lt;.001, clusters &gt; 10 voxels&#39;</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">thresholded_map2</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">display</span><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span>
+                       <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Thresholded z map, expected fdr = .05&#39;</span><span class="p">,</span>
+                       <span class="n">threshold</span><span class="o">=</span><span class="n">threshold2</span><span class="p">)</span>
+
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_thresholding_001.png"><img alt="../../_images/sphx_glr_plot_thresholding_001.png" src="../../_images/sphx_glr_plot_thresholding_001.png" style="width: 343.09999999999997px; height: 122.19999999999999px;" /></a>
+</li>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_thresholding_002.png"><img alt="../../_images/sphx_glr_plot_thresholding_002.png" src="../../_images/sphx_glr_plot_thresholding_002.png" style="width: 343.09999999999997px; height: 122.19999999999999px;" /></a>
+</li>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_thresholding_003.png"><img alt="../../_images/sphx_glr_plot_thresholding_003.png" src="../../_images/sphx_glr_plot_thresholding_003.png" style="width: 343.09999999999997px; height: 122.19999999999999px;" /></a>
+</li>
+</ul>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  3.959 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_thresholding.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_thresholding.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_thresholding.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_thresholding.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_second_level_button_press.html" title="3.4.2. GLM fitting in second level fMRI"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../02_first_level_models/plot_spm_multimodal_faces.html" title="3.3.3. Minimal script for preprocessing single-subject data (two session)"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >3. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/03_second_level_models/plot_thresholding.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>
