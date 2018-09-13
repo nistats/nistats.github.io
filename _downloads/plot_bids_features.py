@@ -2,9 +2,6 @@
 First level analysis of a complete BIDS dataset from openneuro
 ===============================================================
 
-Author : Martin Perez-Guevara: 2017
-
-
 
 Full step-by-step example of fitting a GLM to perform a first level analysis
 in an openneuro BIDS dataset. We demonstrate how BIDS derivatives can be
@@ -144,5 +141,5 @@ plt.show()
 
 ###############################################################################
 # We can get a latex table from a Pandas Dataframe for display and publication
-from nistats.thresholding import get_clusters_table
+from nistats.reporting import get_clusters_table
 print(get_clusters_table(z_map, norm.isf(0.001), 10).to_latex())

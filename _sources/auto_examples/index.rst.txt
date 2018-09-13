@@ -15,52 +15,8 @@ Nistats usage examples
     :local:
     :depth: 1
 
-General examples
-----------------
-
-General-purpose and introductory examples for nistats.
 
 
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="A simple example of basic Python numerics and how to plot it. ">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_python_101_thumb.png
-
-        :ref:`sphx_glr_auto_examples_plot_python_101.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_python_101
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a second level analysis in experimental d...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/images/thumb/sphx_glr_second_level__thumb.png
-
-        :ref:`sphx_glr_auto_examples_second_level_.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/second_level_
 .. raw:: html
 
     <div style='clear:both'></div>
@@ -74,7 +30,7 @@ These are examples with detailed explanations to showcase how to perform an fMRI
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Author : Martin Perez-Guevara: 2016">
+    <div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first and second level analysis in a B...">
 
 .. only:: html
 
@@ -94,7 +50,7 @@ These are examples with detailed explanations to showcase how to perform an fMRI
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Author : Martin Perez-Guevara: 2017">
+    <div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first level analysis in an openneuro B...">
 
 .. only:: html
 
@@ -114,7 +70,7 @@ These are examples with detailed explanations to showcase how to perform an fMRI
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Authors: Bertrand Thirion, dohmatob elvis dopgima, Christophe Pallier, 2015--2017">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we compare the fMRI signal during periods of auditory stimulation versus peri...">
 
 .. only:: html
 
@@ -141,6 +97,26 @@ First level analysis examples
 These are examples focused on showcasing first level models functionality and single subject analysis.
 
 
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to a seed extract on the Posterior Cingulate Cortex ...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_adhd_dmn_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_adhd_dmn.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_first_level_models/plot_adhd_dmn
 
 .. raw:: html
 
@@ -214,7 +190,7 @@ These are examples focused on showcasing second level models functionality and g
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Perform a one-sample t-test on a bunch of images  (a.k.a. second-level analyis in fMRI) and thr...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Perform a one-sample t-test on a bunch of images (a.k.a. second-level analyis in fMRI) and thre...">
 
 .. only:: html
 
@@ -264,7 +240,7 @@ These are examples focused on showcasing low level functionality like design mat
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Requires matplotlib">
+    <div class="sphx-glr-thumbcontainer" tooltip="Requires matplotlib.">
 
 .. only:: html
 
@@ -284,7 +260,7 @@ These are examples focused on showcasing low level functionality like design mat
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Requires matplotlib">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot the hrf model in SPM together with the hrf shape proposed by G.Glover, as well as their ti...">
 
 .. only:: html
 
@@ -324,7 +300,7 @@ These are examples focused on showcasing low level functionality like design mat
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Three examples of design matrices specification and computation (event-related design, block de...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Three examples of design matrices specification and computation for first-level fMRI data analy...">
 
 .. only:: html
 
@@ -352,13 +328,13 @@ These are examples focused on showcasing low level functionality like design mat
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
 
 .. rst-class:: sphx-glr-signature
 

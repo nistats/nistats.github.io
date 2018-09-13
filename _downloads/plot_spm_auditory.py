@@ -2,12 +2,8 @@
 Univariate analysis of block design, one condition versus rest, single subject
 ==============================================================================
 
-Authors: Bertrand Thirion, dohmatob elvis dopgima, Christophe Pallier, 2015--2017
-
-
-
-In this tutorial, we compare the fMRI signal during periods of auditory stimulation
-versus periods of rest, using a General Linear Model (GLM). We will
+In this tutorial, we compare the fMRI signal during periods of auditory
+stimulation versus periods of rest, using a General Linear Model (GLM). We will
 use a univariate approach in which independent tests are performed at
 each single-voxel.
 
@@ -43,6 +39,7 @@ To run this example, you must launch IPython via ``ipython
 
 """
 
+import matplotlib.pyplot as plt
 
 ###############################################################################
 # Retrieving the data
@@ -106,7 +103,8 @@ duration = epoch_duration * np.ones(n_blocks)
 onset = np.linspace(0, (n_blocks - 1) * epoch_duration, n_blocks)
 
 import pandas as pd
-events = pd.DataFrame({'onset': onset, 'duration': duration, 'trial_type': conditions})
+events = pd.DataFrame(
+    {'onset': onset, 'duration': duration, 'trial_type': conditions})
 
 ###############################################################################
 # The ``events`` object contains the information for the design:
@@ -129,7 +127,8 @@ hrf_model = 'glover + derivative'
 
 ###############################################################################
 # It is now time to create a ``FirstLevelModel`` object
-# and fit it to the 4D dataset:
+# and fit it to the 4D dataset (Fitting means that the coefficients of the
+# model are estimated to best approximate data)
 
 from nistats.first_level_model import FirstLevelModel
 
@@ -145,13 +144,13 @@ fmri_glm = fmri_glm.fit(fmri_img, events)
 from nistats.reporting import plot_design_matrix
 design_matrix = fmri_glm.design_matrices_[0]
 plot_design_matrix(design_matrix)
-
+plt.show()
 
 ###############################################################################
 # The first column contains the expected reponse profile of regions which are
 # sensitive to the auditory stimulation.
 
-import matplotlib.pyplot as plt
+
 plt.plot(design_matrix['active'])
 plt.xlabel('scan')
 plt.title('Expected Auditory Response')
@@ -191,7 +190,7 @@ contrasts::
 # We can then compare the two conditions 'active' and 'rest' by
 # generating the relevant contrast:
 
-active_minus_rest =  contrasts['active'] - contrasts['rest']
+active_minus_rest = contrasts['active'] - contrasts['rest']
 
 eff_map = fmri_glm.compute_contrast(active_minus_rest,
                                     output_type='effect_size')
@@ -205,7 +204,7 @@ z_map = fmri_glm.compute_contrast(active_minus_rest,
 plot_stat_map(z_map, bg_img=mean_img, threshold=3.0,
               display_mode='z', cut_coords=3, black_bg=True,
               title='Active minus Rest (Z>3)')
-
+plt.show()
 
 ###############################################################################
 # We can use ``nibabel.save`` to save the effect and zscore maps to the disk
@@ -221,18 +220,18 @@ nibabel.save(z_map, join('results', 'active_vs_rest_z_map.nii'))
 nibabel.save(eff_map, join('results', 'active_vs_rest_eff_map.nii'))
 
 ###############################################################################
-#  Extract the signal from a voxels
-#  --------------------------------
+#  Extract the signal from a voxel
+#  -------------------------------
 #
 # We search for the voxel with the larger z-score and plot the signal
-# (warning: double dipping!)
+# (warning: this is "double dipping")
 
 
 # Find the coordinates of the peak
 
 from nibabel.affines import apply_affine
 values = z_map.get_data()
-coord_peaks = np.dstack(np.unravel_index(np.argsort(values.ravel()),
+coord_peaks = np.dstack(np.unravel_index(np.argsort(-values.ravel()),
                                          values.shape))[0, 0, :]
 coord_mm = apply_affine(z_map.affine, coord_peaks)
 

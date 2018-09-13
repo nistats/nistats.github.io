@@ -3,29 +3,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.0.1a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.4.1. Example of simple second level analysis" href="../03_second_level_models/plot_thresholding.html" />
-    <link rel="prev" title="3.3.2. First level analysis of localizer dataset" href="plot_localizer_analysis.html" />
+    <link rel="next" title="3.3.1. Example of simple second level analysis" href="../03_second_level_models/plot_thresholding.html" />
+    <link rel="prev" title="3.2.3. First level analysis of localizer dataset" href="plot_localizer_analysis.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -87,8 +79,7 @@ $(function () {
         })();
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -146,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../03_second_level_models/plot_thresholding.html" title="3.4.1. Example of simple second level analysis"
+          <a href="../03_second_level_models/plot_thresholding.html" title="3.3.1. Example of simple second level analysis"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+          <a href="plot_localizer_analysis.html" title="3.2.3. First level analysis of localizer dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -174,18 +165,22 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_localizer_analysis.html"
-                        title="previous chapter">3.3.2. First level analysis of localizer dataset</a></p>
+                        title="previous chapter">3.2.3. First level analysis of localizer dataset</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../03_second_level_models/plot_thresholding.html"
-                        title="next chapter">3.4.1. Example of simple second level analysis</a></p>
-
-<div class="navbar">
-</div> <!-- end navbar -->
-
-<script type="text/javascript">$('#searchbox-ml').show(0);</script>
-<script type="text/javascript">$('#searchbox-site').show(0);</script>
-
-
+                        title="next chapter">3.3.1. Example of simple second level analysis</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -195,8 +190,7 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="minimal-script-for-preprocessing-single-subject-data-two-session">
-<span id="sphx-glr-auto-examples-02-first-level-models-plot-spm-multimodal-faces-py"></span><h1>3.3.3. Minimal script for preprocessing single-subject data (two session)<a class="headerlink" href="#minimal-script-for-preprocessing-single-subject-data-two-session" title="Permalink to this headline">¶</a></h1>
-<p>Author: DOHMATOB Elvis, Bertrand Thirion, 2015</p>
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-spm-multimodal-faces-py"></span><h1>3.2.4. Minimal script for preprocessing single-subject data (two session)<a class="headerlink" href="#minimal-script-for-preprocessing-single-subject-data-two-session" title="Permalink to this headline">¶</a></h1>
 <p>For details on the data, please see:
 Henson, R.N., Goshen-Gottstein, Y., Ganel, T., Otten, L.J., Quayle, A.,
 Rugg, M.D. Electrophysiological and haemodynamic correlates of face
@@ -204,11 +198,11 @@ perception, recognition and priming. Cereb Cortex. 2003 Jul;13(7):793-805.
 <a class="reference external" href="http://www.dx.doi.org/10.1093/cercor/13.7.793">http://www.dx.doi.org/10.1093/cercor/13.7.793</a></p>
 <p>Note: this example takes a lot of time because the input are lists of 3D images
 sampled in different position (encoded by different) affine functions.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Standard imports</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <a href="http://docs.scipy.org/doc/scipy-0.11.0/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="View documentation for scipy.io.loadmat"><span class="n">loadmat</span></a>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <a href="http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="View documentation for scipy.io.loadmat"><span class="n">loadmat</span></a>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Imports for GLM</span>
@@ -219,11 +213,11 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <p>Fetch spm multimodal_faces data</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">subject_data</span> <span class="o">=</span> <span class="n">fetch_spm_multimodal_fmri</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subject_data</span> <span class="o">=</span> <span class="n">fetch_spm_multimodal_fmri</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Experimental paradigm specification</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="mf">2.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="mf">2.</span>
 <span class="n">slice_time_ref</span> <span class="o">=</span> <span class="mf">0.</span>
 <span class="n">drift_model</span> <span class="o">=</span> <span class="s1">&#39;Cosine&#39;</span>
 <span class="n">hrf_model</span> <span class="o">=</span> <span class="s1">&#39;spm + derivative&#39;</span>
@@ -231,7 +225,7 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <p>Resample the images</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fmri_img</span> <span class="o">=</span> <span class="p">[</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func1</span><span class="p">,</span> <span class="n">auto_resample</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_img</span> <span class="o">=</span> <span class="p">[</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func1</span><span class="p">,</span> <span class="n">auto_resample</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
             <a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func2</span><span class="p">,</span> <span class="n">auto_resample</span><span class="o">=</span><span class="bp">True</span><span class="p">)]</span>
 <span class="n">affine</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">affine</span><span class="p">,</span> <span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Resampling the second image (this takes time)...&#39;</span><span class="p">)</span>
@@ -239,31 +233,31 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Resampling</span> <span class="n">the</span> <span class="n">second</span> <span class="n">image</span> <span class="p">(</span><span class="n">this</span> <span class="n">takes</span> <span class="n">time</span><span class="p">)</span><span class="o">...</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Resampling</span> <span class="n">the</span> <span class="n">second</span> <span class="n">image</span> <span class="p">(</span><span class="n">this</span> <span class="n">takes</span> <span class="n">time</span><span class="p">)</span><span class="o">...</span>
 </pre></div>
 </div>
 <p>Create mean image for display</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mean_image</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean_image</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Make design matrices</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">)):</span>
     <span class="c1"># Build paradigm</span>
     <span class="n">n_scans</span> <span class="o">=</span> <span class="n">fmri_img</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">timing</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/scipy-0.11.0/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="View documentation for scipy.io.loadmat"><span class="n">loadmat</span></a><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">subject_data</span><span class="p">,</span> <span class="s2">&quot;trials_ses</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="n">timing</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.io.loadmat.html#scipy.io.loadmat" title="View documentation for scipy.io.loadmat"><span class="n">loadmat</span></a><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">subject_data</span><span class="p">,</span> <span class="s2">&quot;trials_ses</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
                      <span class="n">squeeze_me</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">struct_as_record</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="n">faces_onsets</span> <span class="o">=</span> <span class="n">timing</span><span class="p">[</span><span class="s1">&#39;onsets&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="n">scrambled_onsets</span> <span class="o">=</span> <span class="n">timing</span><span class="p">[</span><span class="s1">&#39;onsets&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="n">onsets</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">faces_onsets</span><span class="p">,</span> <span class="n">scrambled_onsets</span><span class="p">))</span>
+    <span class="n">onsets</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">faces_onsets</span><span class="p">,</span> <span class="n">scrambled_onsets</span><span class="p">))</span>
     <span class="n">onsets</span> <span class="o">*=</span> <span class="n">tr</span>  <span class="c1"># because onsets were reporting in &#39;scans&#39; units</span>
     <span class="n">conditions</span> <span class="o">=</span> <span class="p">([</span><span class="s1">&#39;faces&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">faces_onsets</span><span class="p">)</span> <span class="o">+</span>
                   <span class="p">[</span><span class="s1">&#39;scrambled&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">scrambled_onsets</span><span class="p">))</span>
-    <span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
+    <span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
 
     <span class="c1"># Build design matrix</span>
-    <span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">*</span> <span class="n">tr</span>
+    <span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">*</span> <span class="n">tr</span>
     <span class="n">design_matrix</span> <span class="o">=</span> <span class="n">make_design_matrix</span><span class="p">(</span>
         <span class="n">frame_times</span><span class="p">,</span> <span class="n">paradigm</span><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="n">hrf_model</span><span class="p">,</span> <span class="n">drift_model</span><span class="o">=</span><span class="n">drift_model</span><span class="p">,</span>
         <span class="n">period_cut</span><span class="o">=</span><span class="n">period_cut</span><span class="p">)</span>
@@ -271,32 +265,32 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <p>We can specify basic contrasts (To get beta maps)</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">contrast_matrix</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contrast_matrix</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">contrasts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">column</span><span class="p">,</span> <span class="n">contrast_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">)])</span>
 </pre></div>
 </div>
 <p>Instead in this example we define more interesting contrasts</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;faces-scrambled&#39;</span><span class="p">:</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;faces&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;scrambled&#39;</span><span class="p">],</span>
     <span class="s1">&#39;scrambled-faces&#39;</span><span class="p">:</span> <span class="o">-</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;faces&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;scrambled&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;effects_of_interest&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;faces&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;effects_of_interest&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;faces&#39;</span><span class="p">],</span>
                                       <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;scrambled&#39;</span><span class="p">]))</span>
     <span class="p">}</span>
 </pre></div>
 </div>
 <p>Fit GLM</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fitting a GLM&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fitting a GLM&#39;</span><span class="p">)</span>
 <span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="n">slice_time_ref</span><span class="p">)</span>
 <span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">design_matrices</span><span class="o">=</span><span class="n">design_matrices</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Fitting</span> <span class="n">a</span> <span class="n">GLM</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fitting</span> <span class="n">a</span> <span class="n">GLM</span>
 </pre></div>
 </div>
 <p>Compute contrast maps</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Computing contrasts&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Computing contrasts&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
 <span class="k">for</span> <span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span> <span class="ow">in</span> <span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -311,26 +305,26 @@ sampled in different position (encoded by different) affine functions.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 343.1px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 343.1px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 343.1px; height: 107.63px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png"><img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 343.09999999999997px; height: 107.63px;" /></a>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span>
         <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">faces</span><span class="o">-</span><span class="n">scrambled</span>
-        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">effects_of_interest</span>
         <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">scrambled</span><span class="o">-</span><span class="n">faces</span>
+        <span class="n">contrast</span> <span class="nb">id</span><span class="p">:</span> <span class="n">effects_of_interest</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 2 minutes  48.044 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  58.138 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_spm_multimodal_faces.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_spm_multimodal_faces.py</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_spm_multimodal_faces.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_spm_multimodal_faces.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_spm_multimodal_faces.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_spm_multimodal_faces.ipynb</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_spm_multimodal_faces.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_spm_multimodal_faces.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
@@ -348,10 +342,10 @@ sampled in different position (encoded by different) affine functions.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../03_second_level_models/plot_thresholding.html" title="3.4.1. Example of simple second level analysis"
+          <a href="../03_second_level_models/plot_thresholding.html" title="3.3.1. Example of simple second level analysis"
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+          <a href="plot_localizer_analysis.html" title="3.2.3. First level analysis of localizer dataset"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -366,7 +360,7 @@ sampled in different position (encoded by different) affine functions.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_spm_multimodal_faces.rst.txt"
         	 rel="nofollow">Show this page source</a>

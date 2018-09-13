@@ -3,29 +3,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.0.1a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="0.0.1a" href="../../whats_new.html" />
-    <link rel="prev" title="3.5.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm." href="write_paradigm_file.html" />
+    <link rel="next" title="0.0.2a" href="../../whats_new.html" />
+    <link rel="prev" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm." href="write_paradigm_file.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -87,8 +79,7 @@ $(function () {
         })();
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -146,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../../whats_new.html" title="0.0.1a"
+          <a href="../../whats_new.html" title="0.0.2a"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="write_paradigm_file.html" title="3.5.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
+          <a href="write_paradigm_file.html" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -174,27 +165,31 @@ $(function () {
 
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">3.5.4. Examples of design matrices</a><ul>
-<li><a class="reference internal" href="#define-parameters">3.5.4.1. Define parameters</a></li>
-<li><a class="reference internal" href="#create-design-matrices">3.5.4.2. Create design matrices</a></li>
+<li><a class="reference internal" href="#">3.4.4. Examples of design matrices</a><ul>
+<li><a class="reference internal" href="#define-parameters">3.4.4.1. Define parameters</a></li>
+<li><a class="reference internal" href="#create-design-matrices">3.4.4.2. Create design matrices</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="write_paradigm_file.html"
-                        title="previous chapter">3.5.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm.</a></p>
+                        title="previous chapter">3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../../whats_new.html"
-                        title="next chapter">0.0.1a</a></p>
-
-<div class="navbar">
-</div> <!-- end navbar -->
-
-<script type="text/javascript">$('#searchbox-ml').show(0);</script>
-<script type="text/javascript">$('#searchbox-site').show(0);</script>
-
-
+                        title="next chapter">0.0.2a</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -204,12 +199,12 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="examples-of-design-matrices">
-<span id="sphx-glr-auto-examples-04-low-level-functions-plot-design-matrix-py"></span><h1>3.5.4. Examples of design matrices<a class="headerlink" href="#examples-of-design-matrices" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-04-low-level-functions-plot-design-matrix-py"></span><h1>3.4.4. Examples of design matrices<a class="headerlink" href="#examples-of-design-matrices" title="Permalink to this headline">¶</a></h1>
 <p>Three examples of design matrices specification and computation
+for first-level fMRI data analysis.
 (event-related design, block design, FIR design)</p>
 <p>Requires matplotlib</p>
-<p>Author : Bertrand Thirion: 2009-2015</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -222,26 +217,26 @@ $(function () {
 </pre></div>
 </div>
 <div class="section" id="define-parameters">
-<h2>3.5.4.1. Define parameters<a class="headerlink" href="#define-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>3.4.4.1. Define parameters<a class="headerlink" href="#define-parameters" title="Permalink to this headline">¶</a></h2>
 <p>first we define parameters related to the images acquisition</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">n_scans</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">*</span> <span class="n">tr</span>
+<span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">*</span> <span class="n">tr</span>
 </pre></div>
 </div>
 <p>then we define parameters related to the experimental design</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">conditions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conditions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">]</span>
 <span class="n">onsets</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.</span><span class="p">,</span> <span class="mf">70.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">90.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">40.</span><span class="p">,</span> <span class="mf">60.</span><span class="p">]</span>
-<span class="n">motion</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.cumsum.html#numpy.cumsum" title="View documentation for numpy.cumsum"><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.random.randn.html#numpy.random.randn" title="View documentation for numpy.random.randn"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># simulate motion</span>
+<span class="n">motion</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.cumsum.html#numpy.cumsum" title="View documentation for numpy.cumsum"><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.random.randn.html#numpy.random.randn" title="View documentation for numpy.random.randn"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># simulate motion</span>
 <span class="n">add_reg_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tx&#39;</span><span class="p">,</span> <span class="s1">&#39;ty&#39;</span><span class="p">,</span> <span class="s1">&#39;tz&#39;</span><span class="p">,</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="s1">&#39;ry&#39;</span><span class="p">,</span> <span class="s1">&#39;rz&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-design-matrices">
-<h2>3.5.4.2. Create design matrices<a class="headerlink" href="#create-design-matrices" title="Permalink to this headline">¶</a></h2>
+<h2>3.4.4.2. Create design matrices<a class="headerlink" href="#create-design-matrices" title="Permalink to this headline">¶</a></h2>
 <p>The same parameters allow us to obtain a variety of design matrices
 First we compute an event-related design matrix</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
 
 <span class="n">hrf_model</span> <span class="o">=</span> <span class="s1">&#39;glover&#39;</span>
 <span class="n">X1</span> <span class="o">=</span> <span class="n">make_design_matrix</span><span class="p">(</span>
@@ -250,8 +245,8 @@ First we compute an event-related design matrix</p>
 </pre></div>
 </div>
 <p>Now we compute a block design matrix. We add duration to create the blocks.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">duration</span> <span class="o">=</span> <span class="mf">7.</span> <span class="o">*</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conditions</span><span class="p">))</span>
-<span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duration</span> <span class="o">=</span> <span class="mf">7.</span> <span class="o">*</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conditions</span><span class="p">))</span>
+<span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">,</span>
                          <span class="s1">&#39;duration&#39;</span><span class="p">:</span> <span class="n">duration</span><span class="p">})</span>
 
 <span class="n">X2</span> <span class="o">=</span> <span class="n">make_design_matrix</span><span class="p">(</span><span class="n">frame_times</span><span class="p">,</span> <span class="n">paradigm</span><span class="p">,</span> <span class="n">drift_model</span><span class="o">=</span><span class="s1">&#39;polynomial&#39;</span><span class="p">,</span>
@@ -259,32 +254,32 @@ First we compute an event-related design matrix</p>
 </pre></div>
 </div>
 <p>Finally we compute a FIR model</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">paradigm</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">conditions</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onsets</span><span class="p">})</span>
 <span class="n">hrf_model</span> <span class="o">=</span> <span class="s1">&#39;FIR&#39;</span>
 <span class="n">X3</span> <span class="o">=</span> <span class="n">make_design_matrix</span><span class="p">(</span><span class="n">frame_times</span><span class="p">,</span> <span class="n">paradigm</span><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;fir&#39;</span><span class="p">,</span>
                         <span class="n">drift_model</span><span class="o">=</span><span class="s1">&#39;polynomial&#39;</span><span class="p">,</span> <span class="n">drift_order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                        <span class="n">fir_delays</span><span class="o">=</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+                        <span class="n">fir_delays</span><span class="o">=</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Here the three designs side by side</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplots" title="View documentation for matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="View documentation for matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Event-related design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Block design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">X3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;FIR design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplots_adjust" title="View documentation for matplotlib.pyplot.subplots_adjust"><span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span></a><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.21</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots_adjust.html#matplotlib.pyplot.subplots_adjust" title="View documentation for matplotlib.pyplot.subplots_adjust"><span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span></a><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.21</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_design_matrix_001.png" class="align-center" src="../../_images/sphx_glr_plot_design_matrix_001.png" />
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.627 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.241 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_design_matrix.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_design_matrix.py</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_design_matrix.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_design_matrix.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_design_matrix.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_design_matrix.ipynb</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_design_matrix.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_design_matrix.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
@@ -303,10 +298,10 @@ First we compute an event-related design matrix</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../../whats_new.html" title="0.0.1a"
+          <a href="../../whats_new.html" title="0.0.2a"
              >next</a> |</li>
         <li class="right" >
-          <a href="write_paradigm_file.html" title="3.5.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
+          <a href="write_paradigm_file.html" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -321,7 +316,7 @@ First we compute an event-related design matrix</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_low_level_functions/plot_design_matrix.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -3,29 +3,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.0.1a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.3.2. First level analysis of localizer dataset" href="plot_localizer_analysis.html" />
-    <link rel="prev" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject" href="../01_tutorials/plot_spm_auditory.html" />
+    <link rel="next" title="3.2.3. First level analysis of localizer dataset" href="plot_localizer_analysis.html" />
+    <link rel="prev" title="3.2.1. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -87,8 +79,7 @@ $(function () {
         })();
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -146,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+          <a href="plot_localizer_analysis.html" title="3.2.3. First level analysis of localizer dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../01_tutorials/plot_spm_auditory.html" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject"
+          <a href="plot_adhd_dmn.html" title="3.2.1. Default Mode Network extraction of AHDH dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -174,27 +165,31 @@ $(function () {
 
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">3.3.1. Simple example of GLM fitting in fMRI</a><ul>
-<li><a class="reference internal" href="#prepare-data-and-analysis-parameters">3.3.1.1. Prepare data and analysis parameters</a></li>
-<li><a class="reference internal" href="#glm-estimation">3.3.1.2. GLM estimation</a></li>
+<li><a class="reference internal" href="#">3.2.2. Simple example of GLM fitting in fMRI</a><ul>
+<li><a class="reference internal" href="#prepare-data-and-analysis-parameters">3.2.2.1. Prepare data and analysis parameters</a></li>
+<li><a class="reference internal" href="#glm-estimation">3.2.2.2. GLM estimation</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../01_tutorials/plot_spm_auditory.html"
-                        title="previous chapter">3.2.3. Univariate analysis of block design, one condition versus rest, single subject</a></p>
+  <p class="topless"><a href="plot_adhd_dmn.html"
+                        title="previous chapter">3.2.1. Default Mode Network extraction of AHDH dataset</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_localizer_analysis.html"
-                        title="next chapter">3.3.2. First level analysis of localizer dataset</a></p>
-
-<div class="navbar">
-</div> <!-- end navbar -->
-
-<script type="text/javascript">$('#searchbox-ml').show(0);</script>
-<script type="text/javascript">$('#searchbox-site').show(0);</script>
-
-
+                        title="next chapter">3.2.3. First level analysis of localizer dataset</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -204,7 +199,7 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="simple-example-of-glm-fitting-in-fmri">
-<span id="sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"></span><h1>3.3.1. Simple example of GLM fitting in fMRI<a class="headerlink" href="#simple-example-of-glm-fitting-in-fmri" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"></span><h1>3.2.2. Simple example of GLM fitting in fMRI<a class="headerlink" href="#simple-example-of-glm-fitting-in-fmri" title="Permalink to this headline">¶</a></h1>
 <p>Full step-by-step example of fitting a GLM to experimental data and visualizing
 the results. This is done on two runs of one subject of the FIAC dataset.
 For details on the data, please see:</p>
@@ -221,8 +216,7 @@ repetition. Hum Brain Mapp. 2006: 27:360–371.
 <li>A GLM is applied to the dataset (effect/covariance,
 then contrast estimation)</li>
 </ol>
-<p>Author: Bertrand Thirion, 2015</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">getcwd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">getcwd</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -241,39 +235,31 @@ then contrast estimation)</li>
 </pre></div>
 </div>
 <div class="section" id="prepare-data-and-analysis-parameters">
-<h2>3.3.1.1. Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_fiac_first_level</span><span class="p">()</span>
+<h2>3.2.2.1. Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_fiac_first_level</span><span class="p">()</span>
 <span class="n">fmri_img</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;func1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;func2&#39;</span><span class="p">]]</span>
 <span class="n">mean_img_</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">design_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix2&#39;</span><span class="p">]]</span>
-<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.all.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Dataset</span> <span class="n">created</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nilearn</span><span class="o">/</span><span class="n">nilearn_data</span><span class="o">/</span><span class="n">fiac_nistats</span>
-
-<span class="n">Missing</span> <span class="n">functional</span> <span class="n">scan</span> <span class="k">for</span> <span class="n">session</span> <span class="mf">1.</span>
-<span class="n">Data</span> <span class="n">absent</span><span class="p">,</span> <span class="n">downloading</span><span class="o">...</span>
-<span class="n">Downloading</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">nipy</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">nipy</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">0.2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">...</span>
+<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="glm-estimation">
-<h2>3.3.1.2. GLM estimation<a class="headerlink" href="#glm-estimation" title="Permalink to this headline">¶</a></h2>
+<h2>3.2.2.2. GLM estimation<a class="headerlink" href="#glm-estimation" title="Permalink to this headline">¶</a></h2>
 <p>GLM specification</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">],</span> <span class="n">minimize_memory</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">],</span> <span class="n">minimize_memory</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>GLM fitting</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">design_matrices</span><span class="o">=</span><span class="n">design_matrices</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">design_matrices</span><span class="o">=</span><span class="n">design_matrices</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>compute fixed effects of the two runs and compute related images</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">n_columns</span> <span class="o">=</span> <span class="n">design_matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_columns</span> <span class="o">=</span> <span class="n">design_matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">pad_vector</span><span class="p">(</span><span class="n">contrast_</span><span class="p">,</span> <span class="n">n_columns</span><span class="p">):</span>
-    <span class="k">return</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">contrast_</span><span class="p">,</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">n_columns</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrast_</span><span class="p">))))</span>
+    <span class="k">return</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">contrast_</span><span class="p">,</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">n_columns</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrast_</span><span class="p">))))</span>
 
 
 <span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SStSSp_minus_DStDSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
@@ -283,7 +269,7 @@ then contrast estimation)</li>
              <span class="s1">&#39;DSt_minus_SSt_for_DSp&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
              <span class="s1">&#39;DSp_minus_SSp_for_DSt&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
              <span class="s1">&#39;Deactivation&#39;</span><span class="p">:</span> <span class="n">pad_vector</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">n_columns</span><span class="p">),</span>
-             <span class="s1">&#39;Effects_of_interest&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.6.0/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">n_columns</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]}</span>
+             <span class="s1">&#39;Effects_of_interest&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">n_columns</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]}</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Computing contrasts...&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
@@ -306,24 +292,24 @@ then contrast estimation)</li>
 </div>
 <img alt="../../_images/sphx_glr_plot_fiac_analysis_001.png" class="align-center" src="../../_images/sphx_glr_plot_fiac_analysis_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span><span class="o">...</span>
-  <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
-  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
-  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
-  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
-  <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
-  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
-  <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
-  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
-<span class="n">All</span> <span class="n">the</span>  <span class="n">results</span> <span class="n">were</span> <span class="n">witten</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nistats</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="mi">02</span><span class="n">_first_level_models</span><span class="o">/</span><span class="n">results</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span><span class="o">...</span>
+  <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
+  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
+  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
+  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
+  <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
+  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
+  <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
+  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
+<span class="n">All</span> <span class="n">the</span>  <span class="n">results</span> <span class="n">were</span> <span class="n">witten</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kshitij</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">nistats</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">nistats</span><span class="o">-</span><span class="n">repo</span><span class="o">/</span><span class="n">kchawla</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="n">nistats</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="mi">02</span><span class="n">_first_level_models</span><span class="o">/</span><span class="n">results</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 2 minutes  55.655 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  4.428 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fiac_analysis.py</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fiac_analysis.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fiac_analysis.ipynb</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_fiac_analysis.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fiac_analysis.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
@@ -342,10 +328,10 @@ then contrast estimation)</li>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_localizer_analysis.html" title="3.3.2. First level analysis of localizer dataset"
+          <a href="plot_localizer_analysis.html" title="3.2.3. First level analysis of localizer dataset"
              >next</a> |</li>
         <li class="right" >
-          <a href="../01_tutorials/plot_spm_auditory.html" title="3.2.3. Univariate analysis of block design, one condition versus rest, single subject"
+          <a href="plot_adhd_dmn.html" title="3.2.1. Default Mode Network extraction of AHDH dataset"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -360,7 +346,7 @@ then contrast estimation)</li>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.5.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_fiac_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -7,11 +7,11 @@ Examples of design matrices
 ===========================
 
 Three examples of design matrices specification and computation
+for first-level fMRI data analysis.
 (event-related design, block design, FIR design)
 
 Requires matplotlib
 
-Author : Bertrand Thirion: 2009-2015
 
 
 
@@ -154,7 +154,7 @@ Here the three designs side by side
 
 
 
-**Total running time of the script:** ( 0 minutes  0.627 seconds)
+**Total running time of the script:** ( 0 minutes  0.241 seconds)
 
 
 

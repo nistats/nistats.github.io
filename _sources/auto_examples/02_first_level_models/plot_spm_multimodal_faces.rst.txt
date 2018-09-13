@@ -5,7 +5,6 @@
 
 Minimal script for preprocessing single-subject data (two session)
 ==================================================================
-Author: DOHMATOB Elvis, Bertrand Thirion, 2015
 
 For details on the data, please see:
 Henson, R.N., Goshen-Gottstein, Y., Ganel, T., Otten, L.J., Quayle, A.,
@@ -244,11 +243,11 @@ Compute contrast maps
 
     Computing contrasts
             contrast id: faces-scrambled
-            contrast id: effects_of_interest
             contrast id: scrambled-faces
+            contrast id: effects_of_interest
 
 
-**Total running time of the script:** ( 2 minutes  48.044 seconds)
+**Total running time of the script:** ( 0 minutes  58.138 seconds)
 
 
 

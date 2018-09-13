@@ -5,14 +5,14 @@
    :ref:`user guide <user_guide>` for the big picture.
 
 
-nistats.thresholding.get_clusters_table
-=======================================
+nistats.reporting.get_clusters_table
+====================================
 
-.. currentmodule:: nistats.thresholding
+.. currentmodule:: nistats.reporting
 
 .. autofunction:: get_clusters_table
 
-.. include:: nistats.thresholding.get_clusters_table.examples
+.. include:: nistats.reporting.get_clusters_table.examples
 
 .. raw:: html
 

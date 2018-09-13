@@ -6,12 +6,8 @@
 Univariate analysis of block design, one condition versus rest, single subject
 ==============================================================================
 
-Authors: Bertrand Thirion, dohmatob elvis dopgima, Christophe Pallier, 2015--2017
-
-
-
-In this tutorial, we compare the fMRI signal during periods of auditory stimulation
-versus periods of rest, using a General Linear Model (GLM). We will
+In this tutorial, we compare the fMRI signal during periods of auditory
+stimulation versus periods of rest, using a General Linear Model (GLM). We will
 use a univariate approach in which independent tests are performed at
 each single-voxel.
 
@@ -44,6 +40,18 @@ To run this example, you must launch IPython via ``ipython
 .. contents:: **Contents**
     :local:
     :depth: 1
+
+
+
+
+.. code-block:: python
+
+
+    import matplotlib.pyplot as plt
+
+
+
+
 
 
 
@@ -85,7 +93,7 @@ We can list the filenames of the functional images
 
  Out::
 
-    ['/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/bertrand/mygit/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
+    ['/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
 
 
 Display the first functional image:
@@ -184,7 +192,8 @@ timings:
     onset = np.linspace(0, (n_blocks - 1) * epoch_duration, n_blocks)
 
     import pandas as pd
-    events = pd.DataFrame({'onset': onset, 'duration': duration, 'trial_type': conditions})
+    events = pd.DataFrame(
+        {'onset': onset, 'duration': duration, 'trial_type': conditions})
 
 
 
@@ -209,23 +218,23 @@ The ``events`` object contains the information for the design:
 
  Out::
 
-    duration  onset trial_type
-    0       42.0    0.0       rest
-    1       42.0   42.0     active
-    2       42.0   84.0       rest
-    3       42.0  126.0     active
-    4       42.0  168.0       rest
-    5       42.0  210.0     active
-    6       42.0  252.0       rest
-    7       42.0  294.0     active
-    8       42.0  336.0       rest
-    9       42.0  378.0     active
-    10      42.0  420.0       rest
-    11      42.0  462.0     active
-    12      42.0  504.0       rest
-    13      42.0  546.0     active
-    14      42.0  588.0       rest
-    15      42.0  630.0     active
+    onset  duration trial_type
+    0     0.0      42.0       rest
+    1    42.0      42.0     active
+    2    84.0      42.0       rest
+    3   126.0      42.0     active
+    4   168.0      42.0       rest
+    5   210.0      42.0     active
+    6   252.0      42.0       rest
+    7   294.0      42.0     active
+    8   336.0      42.0       rest
+    9   378.0      42.0     active
+    10  420.0      42.0       rest
+    11  462.0      42.0     active
+    12  504.0      42.0       rest
+    13  546.0      42.0     active
+    14  588.0      42.0       rest
+    15  630.0      42.0     active
 
 
 Performing the GLM analysis
@@ -253,7 +262,8 @@ modeling temporal drifts:
 
 
 It is now time to create a ``FirstLevelModel`` object
-and fit it to the 4D dataset:
+and fit it to the 4D dataset (Fitting means that the coefficients of the
+model are estimated to best approximate data)
 
 
 
@@ -284,7 +294,7 @@ columns contain the predictors):
     from nistats.reporting import plot_design_matrix
     design_matrix = fmri_glm.design_matrices_[0]
     plot_design_matrix(design_matrix)
-
+    plt.show()
 
 
 
@@ -303,7 +313,7 @@ sensitive to the auditory stimulation.
 .. code-block:: python
 
 
-    import matplotlib.pyplot as plt
+
     plt.plot(design_matrix['active'])
     plt.xlabel('scan')
     plt.title('Expected Auditory Response')
@@ -366,7 +376,7 @@ generating the relevant contrast:
 .. code-block:: python
 
 
-    active_minus_rest =  contrasts['active'] - contrasts['rest']
+    active_minus_rest = contrasts['active'] - contrasts['rest']
 
     eff_map = fmri_glm.compute_contrast(active_minus_rest,
                                         output_type='effect_size')
@@ -390,7 +400,7 @@ Plot thresholded z scores map
     plot_stat_map(z_map, bg_img=mean_img, threshold=3.0,
                   display_mode='z', cut_coords=3, black_bg=True,
                   title='Active minus Rest (Z>3)')
-
+    plt.show()
 
 
 
@@ -424,11 +434,11 @@ We can use ``nibabel.save`` to save the effect and zscore maps to the disk
 
 
 
-Extract the signal from a voxels
- --------------------------------
+Extract the signal from a voxel
+ -------------------------------
 
 We search for the voxel with the larger z-score and plot the signal
-(warning: double dipping!)
+(warning: this is "double dipping")
 
 
 
@@ -440,7 +450,7 @@ We search for the voxel with the larger z-score and plot the signal
 
     from nibabel.affines import apply_affine
     values = z_map.get_data()
-    coord_peaks = np.dstack(np.unravel_index(np.argsort(values.ravel()),
+    coord_peaks = np.dstack(np.unravel_index(np.argsort(-values.ravel()),
                                              values.shape))[0, 0, :]
     coord_mm = apply_affine(z_map.affine, coord_peaks)
 
@@ -491,7 +501,7 @@ Let's plot the signal and the theoretical response
 
 
 
-**Total running time of the script:** ( 0 minutes  13.175 seconds)
+**Total running time of the script:** ( 0 minutes  4.715 seconds)
 
 
 
