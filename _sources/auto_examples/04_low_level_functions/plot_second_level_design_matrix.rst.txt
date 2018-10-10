@@ -2,9 +2,16 @@
 
 .. _sphx_glr_auto_examples_04_low_level_functions_plot_second_level_design_matrix.py:
 
-
 Example of second level design matrix
 =====================================
+
+The shows how a second-level design matrix is specified: assuming that
+the data refer to a group of individuals, with one image per subject,
+the design matrix typically holds the characteristics of each
+individual.
+
+This is used in a second-level analysis to assess the impact of these
+characteristics on brain signals.
 
 Requires matplotlib.
 
@@ -18,10 +25,6 @@ Requires matplotlib.
         import matplotlib.pyplot as plt
     except ImportError:
         raise RuntimeError("This script needs the matplotlib library")
-
-    from nistats.design_matrix import create_second_level_design
-    from nistats.reporting import plot_design_matrix
-    import pandas as pd
 
 
 
@@ -53,10 +56,10 @@ Without confounders the design matrix would correspond to a one sample test
 
 .. code-block:: python
 
+    import pandas as pd
     extra_info_subjects = pd.DataFrame({'subject_label': subjects_label,
                                         'age': range(15, 15 + n_subjects),
                                         'sex': [0, 1] * int(n_subjects / 2)})
-
 
 
 
@@ -71,10 +74,22 @@ Create a second level design matrix
 
 .. code-block:: python
 
+    from nistats.design_matrix import make_second_level_design_matrix
+    design_matrix = make_second_level_design_matrix(subjects_label, extra_info_subjects)
 
-    design_matrix = create_second_level_design(subjects_label, extra_info_subjects)
 
-    # plot the results
+
+
+
+
+
+plot the results
+
+
+
+.. code-block:: python
+
+    from nistats.reporting import plot_design_matrix
     ax = plot_design_matrix(design_matrix)
     ax.set_title('Second level design matrix', fontsize=12)
     ax.set_ylabel('maps')
@@ -89,7 +104,7 @@ Create a second level design matrix
 
 
 
-**Total running time of the script:** ( 0 minutes  0.099 seconds)
+**Total running time of the script:** ( 0 minutes  0.183 seconds)
 
 
 

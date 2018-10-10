@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset" href="plot_localizer_mass_univariate_methods.html" />
+    <link rel="prev" title="2.3.4. Statistical testing of a second-level analysis" href="plot_thresholding.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head>
+  <body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="../02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="plot_thresholding.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_mass_univariate_methods.html" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_thresholding.html" title="2.3.4. Statistical testing of a second-level analysis"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2.3.5. Voxel-Based Morphometry on Oasis dataset</a><ul>
+<li><a class="reference internal" href="#vbm-analysis-of-aging">2.3.5.1. VBM analysis of aging</a></li>
+<li><a class="reference internal" href="#load-oasis-dataset">2.3.5.2. Load Oasis dataset</a></li>
+<li><a class="reference internal" href="#analyse-data">2.3.5.3. Analyse data</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_thresholding.html"
+                        title="previous chapter">2.3.4. Statistical testing of a second-level analysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plot_localizer_mass_univariate_methods.html"
+                        title="next chapter">2.3.6. Massively univariate analysis of a motor task from the Localizer dataset</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="voxel-based-morphometry-on-oasis-dataset">
+<span id="sphx-glr-auto-examples-03-second-level-models-plot-oasis-py"></span><h1>2.3.5. Voxel-Based Morphometry on Oasis dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Permalink to this headline">¶</a></h1>
+<p>This example uses Voxel-Based Morphometry (VBM) to study the relationship
+between aging, sex and gray matter density.</p>
+<p>The data come from the <a class="reference external" href="http://www.oasis-brains.org/">OASIS</a> project.
+If you use it, you need to agree with the data usage agreement available
+on the website.</p>
+<p>It has been run through a standard VBM pipeline (using SPM8 and
+NewSegment) to create VBM maps, which we study here.</p>
+<div class="section" id="vbm-analysis-of-aging">
+<h2>2.3.5.1. VBM analysis of aging<a class="headerlink" href="#vbm-analysis-of-aging" title="Permalink to this headline">¶</a></h2>
+<p>We run a standard GLM analysis to study the association between age
+and gray matter density from the VBM data. We use only 100 subjects
+from the OASIS dataset to limit the memory usage.</p>
+<p>Note that more power would be obtained from using a larger sample of subjects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Authors: Bertrand Thirion, &lt;bertrand.thirion@inria.fr&gt;, July 2018</span>
+<span class="c1">#          Elvis Dhomatob, &lt;elvis.dohmatob@inria.fr&gt;, Apr. 2014</span>
+<span class="c1">#          Virgile Fritsch, &lt;virgile.fritsch@inria.fr&gt;, Apr 2014</span>
+<span class="c1">#          Gael Varoquaux, Apr 2014</span>
+
+
+<span class="n">n_subjects</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># more subjects requires more memory</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-oasis-dataset">
+<h2>2.3.5.2. Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">oasis_dataset</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_oasis_vbm.html#nilearn.datasets.fetch_oasis_vbm" title="View documentation for nilearn.datasets.fetch_oasis_vbm"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_oasis_vbm</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="n">n_subjects</span><span class="p">)</span>
+<span class="n">gray_matter_map_filenames</span> <span class="o">=</span> <span class="n">oasis_dataset</span><span class="o">.</span><span class="n">gray_matter_maps</span>
+<span class="n">age</span> <span class="o">=</span> <span class="n">oasis_dataset</span><span class="o">.</span><span class="n">ext_vars</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sex is encoded as ‘M’ or ‘F’. make it a binary variable</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sex</span> <span class="o">=</span> <span class="n">oasis_dataset</span><span class="o">.</span><span class="n">ext_vars</span><span class="p">[</span><span class="s1">&#39;mf&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;F&#39;</span>
+</pre></div>
+</div>
+<p>Print basic information on the dataset</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;First gray-matter anatomy image (3D) is located at: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+      <span class="n">oasis_dataset</span><span class="o">.</span><span class="n">gray_matter_maps</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 3D data</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;First white-matter anatomy image (3D) is located at: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+      <span class="n">oasis_dataset</span><span class="o">.</span><span class="n">white_matter_maps</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 3D data</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">First</span> <span class="n">gray</span><span class="o">-</span><span class="n">matter</span> <span class="n">anatomy</span> <span class="n">image</span> <span class="p">(</span><span class="mi">3</span><span class="n">D</span><span class="p">)</span> <span class="ow">is</span> <span class="n">located</span> <span class="n">at</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nilearn</span><span class="o">/</span><span class="n">nilearn_data</span><span class="o">/</span><span class="n">oasis1</span><span class="o">/</span><span class="n">OAS1_0001_MR1</span><span class="o">/</span><span class="n">mwrc1OAS1_0001_MR1_mpr_anon_fslswapdim_bet</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">First</span> <span class="n">white</span><span class="o">-</span><span class="n">matter</span> <span class="n">anatomy</span> <span class="n">image</span> <span class="p">(</span><span class="mi">3</span><span class="n">D</span><span class="p">)</span> <span class="ow">is</span> <span class="n">located</span> <span class="n">at</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">bertrand</span><span class="o">/</span><span class="n">mygit</span><span class="o">/</span><span class="n">nilearn</span><span class="o">/</span><span class="n">nilearn_data</span><span class="o">/</span><span class="n">oasis1</span><span class="o">/</span><span class="n">OAS1_0001_MR1</span><span class="o">/</span><span class="n">mwrc2OAS1_0001_MR1_mpr_anon_fslswapdim_bet</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Get a mask image: A mask of the  cortex of the ICBM template</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">gm_mask</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_icbm152_brain_gm_mask.html#nilearn.datasets.fetch_icbm152_brain_gm_mask" title="View documentation for nilearn.datasets.fetch_icbm152_brain_gm_mask"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_icbm152_brain_gm_mask</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p>Resample the images, since this mask has a different resolution</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.resample_to_img.html#nilearn.image.resample_to_img" title="View documentation for nilearn.image.resample_to_img"><span class="n">resample_to_img</span></a>
+<span class="n">mask_img</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.resample_to_img.html#nilearn.image.resample_to_img" title="View documentation for nilearn.image.resample_to_img"><span class="n">resample_to_img</span></a><span class="p">(</span>
+    <span class="n">gm_mask</span><span class="p">,</span> <span class="n">gray_matter_map_filenames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="analyse-data">
+<h2>2.3.5.3. Analyse data<a class="headerlink" href="#analyse-data" title="Permalink to this headline">¶</a></h2>
+<p>First create an adequate design matrix with three columns: ‘age’,
+‘sex’, ‘intercept’.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">intercept</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="p">)</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">intercept</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;intercept&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Plot the design matrix</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_design_matrix</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Second level design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;maps&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_oasis_001.png" class="align-center" src="../../_images/sphx_glr_plot_oasis_001.png" />
+<p>Specify and fit the second-level model when loading the data, we
+smooth a little bit to improve statistical behavior</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="kn">import</span> <span class="n">SecondLevelModel</span>
+<span class="n">second_level_model</span> <span class="o">=</span> <span class="n">SecondLevelModel</span><span class="p">(</span><span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_img</span><span class="p">)</span>
+<span class="n">second_level_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">gray_matter_map_filenames</span><span class="p">,</span>
+                       <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Estimate the contrast is very simple. We can just provide the column
+name of the design matrix.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">second_level_contrast</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                                            <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We threshold the second level contrast at uncorrected p &lt; 0.001 and plot it.
+First compute the threshold.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="kn">import</span> <span class="n">map_threshold</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The FDR=.05-corrected threshold is: </span><span class="si">%.3g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">FDR</span><span class="o">=.</span><span class="mi">05</span><span class="o">-</span><span class="n">corrected</span> <span class="n">threshold</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">2.56</span>
+</pre></div>
+</div>
+<p>The plot it</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;age effect on grey matter density (FDR = .05)&#39;</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_oasis_002.png" class="align-center" src="../../_images/sphx_glr_plot_oasis_002.png" />
+<p>Can also study the effect of sex: compute the stat, compute the
+threshold, plot the map</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">second_level_contrast</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span>
+                                            <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;sex effect on grey matter density (FDR = .05)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_oasis_003.png" class="align-center" src="../../_images/sphx_glr_plot_oasis_003.png" />
+<p>Note that there does not seem to be any significant effect of sex on
+grey matter density on that dataset.</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  29.836 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_oasis.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_oasis.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/plot_oasis.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_oasis.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_mass_univariate_methods.html" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_thresholding.html" title="2.3.4. Statistical testing of a second-level analysis"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/03_second_level_models/plot_oasis.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

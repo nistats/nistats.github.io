@@ -22,8 +22,6 @@ More specifically:
 
 .. code-block:: python
 
-    from os import mkdir, path
-
     import numpy as np
     import pandas as pd
     from nilearn import plotting
@@ -53,6 +51,7 @@ Prepare timing
     paradigm_file = data.paradigm
     paradigm = pd.read_csv(paradigm_file, sep=' ', header=None, index_col=None)
     paradigm.columns = ['session', 'trial_type', 'onset']
+    paradigm['duration'] = np.ones_like(paradigm.onset)
     fmri_img = data.epi_img
 
 
@@ -194,7 +193,7 @@ contrast estimation
       Contrast  6 out of 6: reading-visual
 
 
-**Total running time of the script:** ( 0 minutes  6.920 seconds)
+**Total running time of the script:** ( 0 minutes  13.729 seconds)
 
 
 

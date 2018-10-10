@@ -3,21 +3,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.6.2. nistats.regression.ARModel" href="nistats.regression.ARModel.html" />
-    <link rel="prev" title="2.5.3. nistats.model.FContrastResults" href="nistats.model.FContrastResults.html" />
+    <link rel="next" title="3.6.2. nistats.regression.ARModel" href="nistats.regression.ARModel.html" />
+    <link rel="prev" title="3.5.3. nistats.model.FContrastResults" href="nistats.model.FContrastResults.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -79,7 +87,8 @@ $(function () {
         })();
     </script>
 
-  </head><body>
+  </head>
+  <body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -100,7 +109,7 @@ $(function () {
       <small><a href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
     </li>
     <li>
-      <big><a href="../../auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+      <big><a href="../../auto_examples/03_second_level_models/plot_thresholding.html">Second Level</a></big>
     </li>
     <li>
       <big><a href="../../auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
@@ -137,10 +146,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="nistats.regression.ARModel.html" title="2.6.2. nistats.regression.ARModel"
+          <a href="nistats.regression.ARModel.html" title="3.6.2. nistats.regression.ARModel"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="nistats.model.FContrastResults.html" title="2.5.3. nistats.model.FContrastResults"
+          <a href="nistats.model.FContrastResults.html" title="3.5.3. nistats.model.FContrastResults"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +159,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">2. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,22 +174,18 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.model.FContrastResults.html"
-                        title="previous chapter">2.5.3. nistats.model.FContrastResults</a></p>
+                        title="previous chapter">3.5.3. nistats.model.FContrastResults</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.regression.ARModel.html"
-                        title="next chapter">2.6.2. nistats.regression.ARModel</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+                        title="next chapter">3.6.2. nistats.regression.ARModel</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
         </div>
       </div>
 
@@ -196,7 +201,7 @@ signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-regression-olsmodel">
-<h1>2.6.1. nistats.regression.OLSModel<a class="headerlink" href="#nistats-regression-olsmodel" title="Permalink to this headline">¶</a></h1>
+<h1>3.6.1. nistats.regression.OLSModel<a class="headerlink" href="#nistats-regression-olsmodel" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="nistats.regression.OLSModel">
 <em class="property">class </em><code class="descclassname">nistats.regression.</code><code class="descname">OLSModel</code><span class="sig-paren">(</span><em>design</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.OLSModel" title="Permalink to this definition">¶</a></dt>
@@ -231,7 +236,7 @@ observations in rows.</p>
 <td>(ndarray) This is the Moore-Penrose pseudoinverse of the whitened design matrix.</td>
 </tr>
 <tr class="row-even"><td>normalized_cov_beta</td>
-<td>(ndarray) <code class="docutils literal notranslate"><span class="pre">np.dot(calc_beta,</span> <span class="pre">calc_beta.T)</span></code></td>
+<td>(ndarray) <code class="docutils literal"><span class="pre">np.dot(calc_beta,</span> <span class="pre">calc_beta.T)</span></code></td>
 </tr>
 <tr class="row-odd"><td>df_resid</td>
 <td>(scalar) Degrees of freedom of the residuals.  Number of observations less the rank of the design.</td>
@@ -321,7 +326,7 @@ and the nuisance parameter, sigma.</p>
 <blockquote>
 <div><p>A dict with key ‘sigma’, which is an optional estimate of sigma. If
 None, defaults to its maximum likelihood estimate (with beta fixed)
-as <code class="docutils literal notranslate"><span class="pre">sum((Y</span> <span class="pre">-</span> <span class="pre">X*beta)**2)</span> <span class="pre">/</span> <span class="pre">n</span></code>, where n=Y.shape[0], X=self.design.</p>
+as <code class="docutils literal"><span class="pre">sum((Y</span> <span class="pre">-</span> <span class="pre">X*beta)**2)</span> <span class="pre">/</span> <span class="pre">n</span></code>, where n=Y.shape[0], X=self.design.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -336,16 +341,16 @@ as <code class="docutils literal notranslate"><span class="pre">sum((Y</span> <s
 <p class="rubric">Notes</p>
 <p>The log-Likelihood Function is defined as</p>
 <div class="math">
-<p><span class="math">\ell(\beta,\sigma,Y)=
--\frac{n}{2}\log(2\pi\sigma^2) - \|Y-X\beta\|^2/(2\sigma^2)</span></p>
-</div><p>The parameter <span class="math">\sigma</span> above is what is sometimes referred to as a
+<p><img src="../../_images/math/7f50b97aaf4fb12afc15f49fcca0795eb0ad3306.png" alt="\ell(\beta,\sigma,Y)=
+-\frac{n}{2}\log(2\pi\sigma^2) - \|Y-X\beta\|^2/(2\sigma^2)"/></p>
+</div><p>The parameter <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> above is what is sometimes referred to as a
 nuisance parameter. That is, the likelihood is considered as a function
-of <span class="math">\beta</span>, but to evaluate it, a value of <span class="math">\sigma</span> is
+of <img class="math" src="../../_images/math/410a9d0df9c135dd73b269cba7ef04dcfd932b1f.png" alt="\beta"/>, but to evaluate it, a value of <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> is
 needed.</p>
-<p>If <span class="math">\sigma</span> is not provided, then its maximum likelihood estimate:</p>
+<p>If <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> is not provided, then its maximum likelihood estimate:</p>
 <div class="math">
-<p><span class="math">\hat{\sigma}(\beta) = \frac{\text{SSE}(\beta)}{n}</span></p>
-</div><p>is plugged in. This likelihood is now a function of only <span class="math">\beta</span>
+<p><img src="../../_images/math/471235fc205080f7362b830ec59c50c7afd2f876.png" alt="\hat{\sigma}(\beta) = \frac{\text{SSE}(\beta)}{n}"/></p>
+</div><p>is plugged in. This likelihood is now a function of only <img class="math" src="../../_images/math/410a9d0df9c135dd73b269cba7ef04dcfd932b1f.png" alt="\beta"/>
 and is technically referred to as a profile-likelihood.</p>
 <p class="rubric">References</p>
 <table class="docutils citation" frame="void" id="r2" rules="none">
@@ -403,10 +408,10 @@ a square root of the covariance matrix to X.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="nistats.regression.ARModel.html" title="2.6.2. nistats.regression.ARModel"
+          <a href="nistats.regression.ARModel.html" title="3.6.2. nistats.regression.ARModel"
              >next</a> |</li>
         <li class="right" >
-          <a href="nistats.model.FContrastResults.html" title="2.5.3. nistats.model.FContrastResults"
+          <a href="nistats.model.FContrastResults.html" title="3.5.3. nistats.model.FContrastResults"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -416,12 +421,12 @@ a square root of the covariance matrix to X.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >2. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.regression.OLSModel.rst.txt"
         	 rel="nofollow">Show this page source</a>

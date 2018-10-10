@@ -28,7 +28,7 @@ More specifically:
     from nilearn.input_data import NiftiSpheresMasker
 
     from nistats.first_level_model import FirstLevelModel
-    from nistats.design_matrix import make_design_matrix
+    from nistats.design_matrix import make_first_level_design_matrix
 
 
 
@@ -75,9 +75,9 @@ Specify the contrasts
                                      memory_level=1, verbose=0)
     seed_time_series = seed_masker.fit_transform(adhd_dataset.func[0])
     frametimes = np.linspace(0, (n_scans - 1) * t_r, n_scans)
-    design_matrix = make_design_matrix(frametimes, hrf_model='spm',
-                                       add_regs=seed_time_series,
-                                       add_reg_names=["pcc_seed"])
+    design_matrix = make_first_level_design_matrix(frametimes, hrf_model='spm',
+                                                   add_regs=seed_time_series,
+                                                   add_reg_names=["pcc_seed"])
     dmn_contrast = np.array([1] + [0]*(design_matrix.shape[1]-1))
     contrasts = {'seed_based_glm': dmn_contrast}
 
@@ -137,7 +137,7 @@ contrast estimation
     Save z-map in 'dmn_z_map.png'.
 
 
-**Total running time of the script:** ( 0 minutes  4.105 seconds)
+**Total running time of the script:** ( 0 minutes  12.554 seconds)
 
 
 

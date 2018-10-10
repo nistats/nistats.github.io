@@ -3,21 +3,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.4.2. Example of hemodynamic reponse functions." href="plot_hrf.html" />
-    <link rel="prev" title="3.3.2. GLM fitting in second level fMRI" href="../03_second_level_models/plot_second_level_button_press.html" />
+    <link rel="next" title="2.4.2. Example of hemodynamic reponse functions." href="plot_hrf.html" />
+    <link rel="prev" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset" href="../03_second_level_models/plot_localizer_mass_univariate_methods.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -79,7 +87,8 @@ $(function () {
         })();
     </script>
 
-  </head><body>
+  </head>
+  <body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -100,7 +109,7 @@ $(function () {
       <small><a href="../02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
     </li>
     <li>
-      <big><a href="../03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+      <big><a href="../03_second_level_models/plot_thresholding.html">Second Level</a></big>
     </li>
     <li>
       <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
@@ -137,10 +146,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_hrf.html" title="3.4.2. Example of hemodynamic reponse functions."
+          <a href="plot_hrf.html" title="2.4.2. Example of hemodynamic reponse functions."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../03_second_level_models/plot_second_level_button_press.html" title="3.3.2. GLM fitting in second level fMRI"
+          <a href="../03_second_level_models/plot_localizer_mass_univariate_methods.html" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +159,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">3. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,31 +174,27 @@ $(function () {
 
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">3.4.1. Example of second level design matrix</a><ul>
-<li><a class="reference internal" href="#create-a-simple-experimental-paradigm">3.4.1.1. Create a simple experimental paradigm</a></li>
-<li><a class="reference internal" href="#create-a-second-level-design-matrix">3.4.1.2. Create a second level design matrix</a></li>
+<li><a class="reference internal" href="#">2.4.1. Example of second level design matrix</a><ul>
+<li><a class="reference internal" href="#create-a-simple-experimental-paradigm">2.4.1.1. Create a simple experimental paradigm</a></li>
+<li><a class="reference internal" href="#create-a-second-level-design-matrix">2.4.1.2. Create a second level design matrix</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../03_second_level_models/plot_second_level_button_press.html"
-                        title="previous chapter">3.3.2. GLM fitting in second level fMRI</a></p>
+  <p class="topless"><a href="../03_second_level_models/plot_localizer_mass_univariate_methods.html"
+                        title="previous chapter">2.3.6. Massively univariate analysis of a motor task from the Localizer dataset</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_hrf.html"
-                        title="next chapter">3.4.2. Example of hemodynamic reponse functions.</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+                        title="next chapter">2.4.2. Example of hemodynamic reponse functions.</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
         </div>
       </div>
 
@@ -199,38 +204,44 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="example-of-second-level-design-matrix">
-<span id="sphx-glr-auto-examples-04-low-level-functions-plot-second-level-design-matrix-py"></span><h1>3.4.1. Example of second level design matrix<a class="headerlink" href="#example-of-second-level-design-matrix" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-04-low-level-functions-plot-second-level-design-matrix-py"></span><h1>2.4.1. Example of second level design matrix<a class="headerlink" href="#example-of-second-level-design-matrix" title="Permalink to this headline">¶</a></h1>
+<p>The shows how a second-level design matrix is specified: assuming that
+the data refer to a group of individuals, with one image per subject,
+the design matrix typically holds the characteristics of each
+individual.</p>
+<p>This is used in a second-level analysis to assess the impact of these
+characteristics on brain signals.</p>
 <p>Requires matplotlib.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;This script needs the matplotlib library&quot;</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">nistats.design_matrix</span> <span class="kn">import</span> <span class="n">create_second_level_design</span>
-<span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_design_matrix</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 <div class="section" id="create-a-simple-experimental-paradigm">
-<h2>3.4.1.1. Create a simple experimental paradigm<a class="headerlink" href="#create-a-simple-experimental-paradigm" title="Permalink to this headline">¶</a></h2>
+<h2>2.4.1.1. Create a simple experimental paradigm<a class="headerlink" href="#create-a-simple-experimental-paradigm" title="Permalink to this headline">¶</a></h2>
 <p>We want to get the group result of a contrast for 20 subjects</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_subjects</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">n_subjects</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">subjects_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_subjects</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>Specify extra information about the subjects to create confounders
 Without confounders the design matrix would correspond to a one sample test</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_info_subjects</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;subject_label&#39;</span><span class="p">:</span> <span class="n">subjects_label</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">extra_info_subjects</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;subject_label&#39;</span><span class="p">:</span> <span class="n">subjects_label</span><span class="p">,</span>
                                     <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span> <span class="o">+</span> <span class="n">n_subjects</span><span class="p">),</span>
                                     <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_subjects</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)})</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-a-second-level-design-matrix">
-<h2>3.4.1.2. Create a second level design matrix<a class="headerlink" href="#create-a-second-level-design-matrix" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrix</span> <span class="o">=</span> <span class="n">create_second_level_design</span><span class="p">(</span><span class="n">subjects_label</span><span class="p">,</span> <span class="n">extra_info_subjects</span><span class="p">)</span>
-
-<span class="c1"># plot the results</span>
+<h2>2.4.1.2. Create a second level design matrix<a class="headerlink" href="#create-a-second-level-design-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.design_matrix</span> <span class="kn">import</span> <span class="n">make_second_level_design_matrix</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <span class="n">make_second_level_design_matrix</span><span class="p">(</span><span class="n">subjects_label</span><span class="p">,</span> <span class="n">extra_info_subjects</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>plot the results</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_design_matrix</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Second level design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;maps&#39;</span><span class="p">)</span>
@@ -239,12 +250,12 @@ Without confounders the design matrix would correspond to a one sample test</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" class="align-center" src="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" />
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.099 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.183 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_second_level_design_matrix.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_design_matrix.py</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_second_level_design_matrix.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_design_matrix.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_second_level_design_matrix.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_second_level_design_matrix.ipynb</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_second_level_design_matrix.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_second_level_design_matrix.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
@@ -263,10 +274,10 @@ Without confounders the design matrix would correspond to a one sample test</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_hrf.html" title="3.4.2. Example of hemodynamic reponse functions."
+          <a href="plot_hrf.html" title="2.4.2. Example of hemodynamic reponse functions."
              >next</a> |</li>
         <li class="right" >
-          <a href="../03_second_level_models/plot_second_level_button_press.html" title="3.3.2. GLM fitting in second level fMRI"
+          <a href="../03_second_level_models/plot_localizer_mass_univariate_methods.html" title="2.3.6. Massively univariate analysis of a motor task from the Localizer dataset"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -276,12 +287,12 @@ Without confounders the design matrix would correspond to a one sample test</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >3. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_low_level_functions/plot_second_level_design_matrix.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -3,21 +3,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3.1. nistats.design_matrix.make_design_matrix" href="nistats.design_matrix.make_design_matrix.html" />
-    <link rel="prev" title="2.2.6. nistats.hemodynamic_models.glover_dispersion_derivative" href="nistats.hemodynamic_models.glover_dispersion_derivative.html" />
+    <link rel="next" title="3.3.1. nistats.design_matrix.make_first_level_design_matrix" href="nistats.design_matrix.make_first_level_design_matrix.html" />
+    <link rel="prev" title="3.2.6. nistats.hemodynamic_models.glover_dispersion_derivative" href="nistats.hemodynamic_models.glover_dispersion_derivative.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -79,7 +87,8 @@ $(function () {
         })();
     </script>
 
-  </head><body>
+  </head>
+  <body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -100,7 +109,7 @@ $(function () {
       <small><a href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
     </li>
     <li>
-      <big><a href="../../auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+      <big><a href="../../auto_examples/03_second_level_models/plot_thresholding.html">Second Level</a></big>
     </li>
     <li>
       <big><a href="../../auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
@@ -137,10 +146,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="nistats.design_matrix.make_design_matrix.html" title="2.3.1. nistats.design_matrix.make_design_matrix"
+          <a href="nistats.design_matrix.make_first_level_design_matrix.html" title="3.3.1. nistats.design_matrix.make_first_level_design_matrix"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="nistats.hemodynamic_models.glover_dispersion_derivative.html" title="2.2.6. nistats.hemodynamic_models.glover_dispersion_derivative"
+          <a href="nistats.hemodynamic_models.glover_dispersion_derivative.html" title="3.2.6. nistats.hemodynamic_models.glover_dispersion_derivative"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +159,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">2. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,30 +174,26 @@ $(function () {
 
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">2.2.7. nistats.hemodynamic_models.compute_regressor</a><ul>
-<li><a class="reference internal" href="#examples-using-nistats-hemodynamic-models-compute-regressor">2.2.7.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code></a></li>
+<li><a class="reference internal" href="#">3.2.7. nistats.hemodynamic_models.compute_regressor</a><ul>
+<li><a class="reference internal" href="#examples-using-nistats-hemodynamic-models-compute-regressor">3.2.7.1. Examples using <code class="docutils literal"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code></a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.hemodynamic_models.glover_dispersion_derivative.html"
-                        title="previous chapter">2.2.6. nistats.hemodynamic_models.glover_dispersion_derivative</a></p>
+                        title="previous chapter">3.2.6. nistats.hemodynamic_models.glover_dispersion_derivative</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="nistats.design_matrix.make_design_matrix.html"
-                        title="next chapter">2.3.1. nistats.design_matrix.make_design_matrix</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="topless"><a href="nistats.design_matrix.make_first_level_design_matrix.html"
+                        title="next chapter">3.3.1. nistats.design_matrix.make_first_level_design_matrix</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
         </div>
       </div>
 
@@ -204,10 +209,10 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-hemodynamic-models-compute-regressor">
-<h1>2.2.7. nistats.hemodynamic_models.compute_regressor<a class="headerlink" href="#nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h1>
+<h1>3.2.7. nistats.hemodynamic_models.compute_regressor<a class="headerlink" href="#nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="nistats.hemodynamic_models.compute_regressor">
-<code class="descclassname">nistats.hemodynamic_models.</code><code class="descname">compute_regressor</code><span class="sig-paren">(</span><em>exp_condition</em>, <em>hrf_model</em>, <em>frame_times</em>, <em>con_id='cond'</em>, <em>oversampling=16</em>, <em>fir_delays=None</em>, <em>min_onset=-24</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.hemodynamic_models.compute_regressor" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">nistats.hemodynamic_models.</code><code class="descname">compute_regressor</code><span class="sig-paren">(</span><em>exp_condition</em>, <em>hrf_model</em>, <em>frame_times</em>, <em>con_id='cond'</em>, <em>oversampling=50</em>, <em>fir_delays=None</em>, <em>min_onset=-24</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.hemodynamic_models.compute_regressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the main function to convolve regressors with hrf model</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -280,8 +285,8 @@ orthogonalized wrt the main one.</p>
 </dd></dl>
 
 <div class="section" id="examples-using-nistats-hemodynamic-models-compute-regressor">
-<h2>2.2.7.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code><a class="headerlink" href="#examples-using-nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot the hrf model in SPM together with the hrf shape proposed by G.Glover, as well as their ti..."><div class="figure" id="id1">
+<h2>3.2.7.1. Examples using <code class="docutils literal"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code><a class="headerlink" href="#examples-using-nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Plot the hemodynamic reponse function (hrf) model in SPM together with the hrf shape proposed b..."><div class="figure" id="id1">
 <img alt="../../_images/sphx_glr_plot_hrf_thumb.png" src="../../_images/sphx_glr_plot_hrf_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/04_low_level_functions/plot_hrf.html#sphx-glr-auto-examples-04-low-level-functions-plot-hrf-py"><span class="std std-ref">Example of hemodynamic reponse functions.</span></a></span></p>
 </div>
@@ -301,10 +306,10 @@ orthogonalized wrt the main one.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="nistats.design_matrix.make_design_matrix.html" title="2.3.1. nistats.design_matrix.make_design_matrix"
+          <a href="nistats.design_matrix.make_first_level_design_matrix.html" title="3.3.1. nistats.design_matrix.make_first_level_design_matrix"
              >next</a> |</li>
         <li class="right" >
-          <a href="nistats.hemodynamic_models.glover_dispersion_derivative.html" title="2.2.6. nistats.hemodynamic_models.glover_dispersion_derivative"
+          <a href="nistats.hemodynamic_models.glover_dispersion_derivative.html" title="3.2.6. nistats.hemodynamic_models.glover_dispersion_derivative"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -314,12 +319,12 @@ orthogonalized wrt the main one.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >2. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.hemodynamic_models.compute_regressor.rst.txt"
         	 rel="nofollow">Show this page source</a>

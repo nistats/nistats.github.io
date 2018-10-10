@@ -19,8 +19,6 @@ More specifically:
    in this case the preprocessed bold images were already normalized to the
    same MNI space.
 
-
-
 To run this example, you must launch IPython via ``ipython
 --matplotlib`` in a terminal, or use the Jupyter notebook.
 
@@ -49,6 +47,25 @@ confounds.tsv files.
 
 
 
+
+
+Here is the location of the dataset on disk
+
+
+
+.. code-block:: python
+
+    print(data_dir)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out::
+
+    /home/bertrand/mygit/nilearn/nilearn_data/bids_langloc_example/bids_langloc_dataset
 
 
 Obtain automatically FirstLevelModel objects and fit arguments
@@ -156,24 +173,43 @@ we can define a contrast using the names of the conditions especified in the
 events dataframe. Sum, substraction and scalar multiplication are allowed.
 
 
+set the threshold as the z-variate with an uncorrected p-value of 0.001 
+
+
+
+.. code-block:: python
+
+    from scipy.stats import norm
+    p001_unc = norm.isf(0.001)
+
+
+
+
+
+
+
+Prepare figure for concurrent plot of individual maps
+
+
 
 .. code-block:: python
 
     from nilearn import plotting
     import matplotlib.pyplot as plt
-    from scipy.stats import norm
 
-    fig, axes = plt.subplots(nrows=2, ncols=5)
+    fig, axes = plt.subplots(nrows=2, ncols=5, figsize=(8, 4.5))
     model_and_args = zip(models, models_run_imgs, models_events, models_confounds)
     for midx, (model, imgs, events, confounds) in enumerate(model_and_args):
+        # fit the GLM
         model.fit(imgs, events, confounds)
+        # compute the contrast of interest
         zmap = model.compute_contrast('language-string')
-        plotting.plot_glass_brain(zmap, colorbar=False, threshold=norm.isf(0.001),
+        plotting.plot_glass_brain(zmap, colorbar=False, threshold=p001_unc,
                                   title=('sub-' + model.subject_label),
                                   axes=axes[int(midx / 5), int(midx % 5)],
                                   plot_abs=False, display_mode='x')
     fig.suptitle('subjects z_map language network (unc p<0.001)')
-    plt.show()
+    plotting.show()
 
 
 
@@ -197,6 +233,19 @@ column names)
 
     from nistats.second_level_model import SecondLevelModel
     second_level_input = models
+
+
+
+
+
+
+
+Note that we apply a smoothing of 8mm.
+
+
+
+.. code-block:: python
+
     second_level_model = SecondLevelModel(smoothing_fwhm=8.0)
     second_level_model = second_level_model.fit(second_level_input)
 
@@ -215,7 +264,8 @@ contrast.
 
 .. code-block:: python
 
-    zmap = second_level_model.compute_contrast(first_level_contrast='language-string')
+    zmap = second_level_model.compute_contrast(
+        first_level_contrast='language-string')
 
 
 
@@ -230,7 +280,7 @@ language network
 
 .. code-block:: python
 
-    plotting.plot_glass_brain(zmap, colorbar=True, threshold=norm.isf(0.001),
+    plotting.plot_glass_brain(zmap, colorbar=True, threshold=p001_unc,
                               title='Group language network (unc p<0.001)',
                               plot_abs=False, display_mode='x')
     plotting.show()
@@ -243,7 +293,7 @@ language network
 
 
 
-**Total running time of the script:** ( 0 minutes  27.023 seconds)
+**Total running time of the script:** ( 0 minutes  50.792 seconds)
 
 
 

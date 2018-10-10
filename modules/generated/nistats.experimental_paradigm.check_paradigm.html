@@ -3,21 +3,27 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.4.2. nistats.experimental_paradigm.paradigm_from_csv" href="nistats.experimental_paradigm.paradigm_from_csv.html" />
-    <link rel="prev" title="2.3.3. nistats.design_matrix.create_second_level_design" href="nistats.design_matrix.create_second_level_design.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -79,7 +85,8 @@ $(function () {
         })();
     </script>
 
-  </head><body>
+  </head>
+  <body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -100,7 +107,7 @@ $(function () {
       <small><a href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
     </li>
     <li>
-      <big><a href="../../auto_examples/03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+      <big><a href="../../auto_examples/03_second_level_models/plot_thresholding.html">Second Level</a></big>
     </li>
     <li>
       <big><a href="../../auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
@@ -136,21 +143,13 @@ $(function () {
         <li class="right" style="margin-right: 10px">
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
-        <li class="right" >
-          <a href="nistats.experimental_paradigm.paradigm_from_csv.html" title="2.4.2. nistats.experimental_paradigm.paradigm_from_csv"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="nistats.design_matrix.create_second_level_design.html" title="2.3.3. nistats.design_matrix.create_second_level_design"
-             accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
 <li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
 <li><a href="../reference.html">Reference</a> |&nbsp;</li>
 <li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
-
-          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">2. Reference documentation: all nistats functions</a> &#187;</li> 
+ 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -163,24 +162,14 @@ $(function () {
                     papers</a>.</p></li>
   </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="nistats.design_matrix.create_second_level_design.html"
-                        title="previous chapter">2.3.3. nistats.design_matrix.create_second_level_design</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="nistats.experimental_paradigm.paradigm_from_csv.html"
-                        title="next chapter">2.4.2. nistats.experimental_paradigm.paradigm_from_csv</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
         </div>
       </div>
 
@@ -196,47 +185,7 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-experimental-paradigm-check-paradigm">
-<h1>2.4.1. nistats.experimental_paradigm.check_paradigm<a class="headerlink" href="#nistats-experimental-paradigm-check-paradigm" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="nistats.experimental_paradigm.check_paradigm">
-<code class="descclassname">nistats.experimental_paradigm.</code><code class="descname">check_paradigm</code><span class="sig-paren">(</span><em>paradigm</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.experimental_paradigm.check_paradigm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test that the DataFrame is describes a valid experimental paradigm</p>
-<p>A DataFrame is considered as valid whenever it has an ‘onset’ key.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paradigm</strong> : pandas DataFrame</p>
-<blockquote>
-<div><p>Describes a functional paradigm.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>trial_type</strong> : array of shape (n_events,), dtype=’s’</p>
-<blockquote>
-<div><p>Per-event experimental conditions identifier.
-Defaults to np.repeat(‘dummy’, len(onsets)).</p>
-</div></blockquote>
-<p><strong>onset</strong> : array of shape (n_events,), dtype=’f’</p>
-<blockquote>
-<div><p>Per-event onset time (in seconds)</p>
-</div></blockquote>
-<p><strong>duration</strong> : array of shape (n_events,), dtype=’f’</p>
-<blockquote>
-<div><p>Per-event durantion, (in seconds)
-defaults to zeros(n_events) when no duration is provided</p>
-</div></blockquote>
-<p><strong>modulation</strong> : array of shape (n_events,), dtype=’f’</p>
-<blockquote class="last">
-<div><p>Per-event modulation, (in seconds)
-defaults to ones(n_events) when no duration is provided</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<h1>nistats.experimental_paradigm.check_paradigm<a class="headerlink" href="#nistats-experimental-paradigm-check-paradigm" title="Permalink to this headline">¶</a></h1>
 <div style='clear:both'></div></div>
 
 
@@ -251,26 +200,18 @@ defaults to ones(n_events) when no duration is provided</p>
         <li class="right" style="margin-right: 10px">
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
-        <li class="right" >
-          <a href="nistats.experimental_paradigm.paradigm_from_csv.html" title="2.4.2. nistats.experimental_paradigm.paradigm_from_csv"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="nistats.design_matrix.create_second_level_design.html" title="2.3.3. nistats.design_matrix.create_second_level_design"
-             >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
 <li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
 <li><a href="../reference.html">Reference</a> |&nbsp;</li>
 <li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
-
-          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >2. Reference documentation: all nistats functions</a> &#187;</li> 
+ 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.experimental_paradigm.check_paradigm.rst.txt"
         	 rel="nofollow">Show this page source</a>

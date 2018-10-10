@@ -14,8 +14,6 @@ More specifically:
    then contrast estimation)
 
 """
-from os import mkdir, path
-
 import numpy as np
 import pandas as pd
 from nilearn import plotting
@@ -35,6 +33,7 @@ data = datasets.fetch_localizer_first_level()
 paradigm_file = data.paradigm
 paradigm = pd.read_csv(paradigm_file, sep=' ', header=None, index_col=None)
 paradigm.columns = ['session', 'trial_type', 'onset']
+paradigm['duration'] = np.ones_like(paradigm.onset)
 fmri_img = data.epi_img
 
 #########################################################################

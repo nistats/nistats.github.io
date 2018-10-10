@@ -3,21 +3,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm." href="write_paradigm_file.html" />
-    <link rel="prev" title="3.4.1. Example of second level design matrix" href="plot_second_level_design_matrix.html" />
+    <link rel="next" title="2.4.3. Example of a events.tsv file generation: the neurospin/localizer events." href="write_events_file.html" />
+    <link rel="prev" title="2.4.1. Example of second level design matrix" href="plot_second_level_design_matrix.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -79,7 +87,8 @@ $(function () {
         })();
     </script>
 
-  </head><body>
+  </head>
+  <body>
 <div id="logo-banner">
   <div class="logo">
     <a href="../../index.html">
@@ -100,7 +109,7 @@ $(function () {
       <small><a href="../02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
     </li>
     <li>
-      <big><a href="../03_second_level_models/plot_second_level_button_press.html">Second Level</a></big>
+      <big><a href="../03_second_level_models/plot_thresholding.html">Second Level</a></big>
     </li>
     <li>
       <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
@@ -137,10 +146,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="write_paradigm_file.html" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
+          <a href="write_events_file.html" title="2.4.3. Example of a events.tsv file generation: the neurospin/localizer events."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_design_matrix.html" title="3.4.1. Example of second level design matrix"
+          <a href="plot_second_level_design_matrix.html" title="2.4.1. Example of second level design matrix"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +159,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">3. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,30 +174,27 @@ $(function () {
 
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">3.4.2. Example of hemodynamic reponse functions.</a><ul>
-<li><a class="reference internal" href="#a-first-step-looking-at-our-data">3.4.2.1. A first step: looking at our data</a></li>
+<li><a class="reference internal" href="#">2.4.2. Example of hemodynamic reponse functions.</a><ul>
+<li><a class="reference internal" href="#set-up-some-parameters-for-model-display">2.4.2.1. Set up some parameters for model display</a></li>
+<li><a class="reference internal" href="#sample-the-hrf">2.4.2.2. sample the hrf</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_second_level_design_matrix.html"
-                        title="previous chapter">3.4.1. Example of second level design matrix</a></p>
+                        title="previous chapter">2.4.1. Example of second level design matrix</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="write_paradigm_file.html"
-                        title="next chapter">3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm.</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="topless"><a href="write_events_file.html"
+                        title="next chapter">2.4.3. Example of a events.tsv file generation: the neurospin/localizer events.</a></p>
+
+<div class="navbar">
+</div> <!-- end navbar -->
+
+<script type="text/javascript">$('#searchbox-ml').show(0);</script>
+<script type="text/javascript">$('#searchbox-site').show(0);</script>
+
+
         </div>
       </div>
 
@@ -198,33 +204,51 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="example-of-hemodynamic-reponse-functions">
-<span id="sphx-glr-auto-examples-04-low-level-functions-plot-hrf-py"></span><h1>3.4.2. Example of hemodynamic reponse functions.<a class="headerlink" href="#example-of-hemodynamic-reponse-functions" title="Permalink to this headline">¶</a></h1>
-<p>Plot the hrf model in SPM together with the hrf shape proposed by
-G.Glover, as well as their time and dispersion derivatives.</p>
-<p>Requires matplotlib</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">hemodynamic_models</span>
-</pre></div>
-</div>
-<div class="section" id="a-first-step-looking-at-our-data">
-<h2>3.4.2.1. A first step: looking at our data<a class="headerlink" href="#a-first-step-looking-at-our-data" title="Permalink to this headline">¶</a></h2>
-<p>Let’s quickly plot this file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.linspace.html#numpy.linspace" title="View documentation for numpy.linspace"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>
+<span id="sphx-glr-auto-examples-04-low-level-functions-plot-hrf-py"></span><h1>2.4.2. Example of hemodynamic reponse functions.<a class="headerlink" href="#example-of-hemodynamic-reponse-functions" title="Permalink to this headline">¶</a></h1>
+<p>Plot the hemodynamic reponse function (hrf) model in SPM together with
+the hrf shape proposed by G.Glover, as well as their time and
+dispersion derivatives.</p>
+<p>Requires matplotlib.</p>
+<p>The hrf is the filter that couples neural responses to the
+metabolic-related changes in the MRI signal.  hrf models are simply
+phenomenological.</p>
+<p>In current analysis frameworks, the choice of hrf model is essentially
+left to the user. Fortunately, using spm or Glover model does not make
+a huge difference.  Adding derivatives should be considered whenever
+timing information has some degree of uncertainty. It is actually
+useful to detect timing issues.</p>
+<div class="section" id="set-up-some-parameters-for-model-display">
+<h2>2.4.2.1. Set up some parameters for model display<a class="headerlink" href="#set-up-some-parameters-for-model-display" title="Permalink to this headline">¶</a></h2>
+<p>To get an impulse reponse, we simulate a single event occurring at time t=0, with duration 1s.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">frame_times</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.linspace.html#numpy.linspace" title="View documentation for numpy.linspace"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>
 <span class="n">onset</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">duration</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span>
-<span class="n">stim</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.zeros_like.html#numpy.zeros_like" title="View documentation for numpy.zeros_like"><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span></a><span class="p">(</span><span class="n">frame_times</span><span class="p">)</span>
-<span class="n">stim</span><span class="p">[(</span><span class="n">frame_times</span> <span class="o">&gt;</span> <span class="n">onset</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">frame_times</span> <span class="o">&lt;=</span> <span class="n">onset</span> <span class="o">+</span> <span class="n">duration</span><span class="p">)]</span> <span class="o">=</span> <span class="n">amplitude</span>
 <span class="n">exp_condition</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">((</span><span class="n">onset</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">hrf_models</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;glover + derivative&#39;</span><span class="p">,</span> <span class="s1">&#39;glover + derivative + dispersion&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>sample the hrf</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<p>Sample this on a fris for display</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">stim</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.zeros_like.html#numpy.zeros_like" title="View documentation for numpy.zeros_like"><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span></a><span class="p">(</span><span class="n">frame_times</span><span class="p">)</span>
+<span class="n">stim</span><span class="p">[(</span><span class="n">frame_times</span> <span class="o">&gt;</span> <span class="n">onset</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">frame_times</span> <span class="o">&lt;=</span> <span class="n">onset</span> <span class="o">+</span> <span class="n">duration</span><span class="p">)]</span> <span class="o">=</span> <span class="n">amplitude</span>
+</pre></div>
+</div>
+<p>Define the candidate hrf models</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">hrf_models</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;glover + derivative&#39;</span><span class="p">,</span> <span class="s1">&#39;glover + derivative + dispersion&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-the-hrf">
+<h2>2.4.2.2. sample the hrf<a class="headerlink" href="#sample-the-hrf" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">hemodynamic_models</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">hrf_model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hrf_models</span><span class="p">):</span>
+    <span class="c1"># obtain the signal of interest by convolution</span>
     <span class="n">signal</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">hemodynamic_models</span><span class="o">.</span><span class="n">compute_regressor</span><span class="p">(</span>
         <span class="n">exp_condition</span><span class="p">,</span> <span class="n">hrf_model</span><span class="p">,</span> <span class="n">frame_times</span><span class="p">,</span> <span class="n">con_id</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">,</span>
         <span class="n">oversampling</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
+    <span class="c1"># plot this</span>
     <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.fill.html#matplotlib.pyplot.fill" title="View documentation for matplotlib.pyplot.fill"><span class="n">plt</span><span class="o">.</span><span class="n">fill</span></a><span class="p">(</span><span class="n">frame_times</span><span class="p">,</span> <span class="n">stim</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stimulus&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
@@ -233,17 +257,18 @@ G.Glover, as well as their time and dispersion derivatives.</p>
     <a href="http://matplotlib.org/api/legend_api.html#matplotlib.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="n">hrf_model</span><span class="p">)</span>
 
+<span class="c1"># adjust the plot</span>
 <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots_adjust.html#matplotlib.pyplot.subplots_adjust" title="View documentation for matplotlib.pyplot.subplots_adjust"><span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span></a><span class="p">(</span><span class="n">bottom</span><span class="o">=.</span><span class="mi">12</span><span class="p">)</span>
 <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_hrf_001.png" class="align-center" src="../../_images/sphx_glr_plot_hrf_001.png" />
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.126 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.144 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_hrf.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_hrf.py</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_hrf.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_hrf.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_hrf.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_hrf.ipynb</span></code></a></div>
+<a class="reference download internal" href="../../_downloads/plot_hrf.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_hrf.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
 </div>
@@ -262,10 +287,10 @@ G.Glover, as well as their time and dispersion derivatives.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="write_paradigm_file.html" title="3.4.3. Example of a paradigm .csv file generation: the neurospin/localizer paradigm."
+          <a href="write_events_file.html" title="2.4.3. Example of a events.tsv file generation: the neurospin/localizer events."
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_design_matrix.html" title="3.4.1. Example of second level design matrix"
+          <a href="plot_second_level_design_matrix.html" title="2.4.1. Example of second level design matrix"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -275,12 +300,12 @@ G.Glover, as well as their time and dispersion derivatives.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >3. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_low_level_functions/plot_hrf.rst.txt"
         	 rel="nofollow">Show this page source</a>
