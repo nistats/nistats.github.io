@@ -783,7 +783,7 @@ ar(1) model) are actually reasonable.  Note that these conclusions
 are specific to this dataset and may vary with other ones.
 
 
-**Total running time of the script:** ( 1 minutes  33.803 seconds)
+**Total running time of the script:** ( 0 minutes  45.319 seconds)
 
 
 

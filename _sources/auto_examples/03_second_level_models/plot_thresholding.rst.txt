@@ -131,7 +131,7 @@ Now use FDR <.05, (False Discovery Rate) no cluster-level threshold
 
  Out::
 
-    The FDR=.05 threshold is 2.1
+    The FDR=.05 threshold is 2.06
 
 
 Now use FWER <.05, (Familywise Error Rate) no cluster-level
@@ -154,7 +154,7 @@ use a simple Bonferroni correction
 
  Out::
 
-    The p<.05 Bonferroni-corrected threshold is 4.79
+    The p<.05 Bonferroni-corrected threshold is 4.74
 
 
 Visualize the results
@@ -254,7 +254,7 @@ positive voxels.
 
 
 
-**Total running time of the script:** ( 0 minutes  5.233 seconds)
+**Total running time of the script:** ( 0 minutes  3.780 seconds)
 
 
 

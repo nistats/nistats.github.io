@@ -3,21 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1b',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -87,8 +79,7 @@ $(function () {
         })();
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div id="logo-banner">
   <div class="logo">
     <a href="index.html">
@@ -194,14 +185,18 @@ $(function () {
   <h4>Next topic</h4>
   <p class="topless"><a href="auto_examples/index.html"
                         title="next chapter">2. Nistats usage examples</a></p>
-
-<div class="navbar">
-</div> <!-- end navbar -->
-
-<script type="text/javascript">$('#searchbox-ml').show(0);</script>
-<script type="text/javascript">$('#searchbox-site').show(0);</script>
-
-
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -288,31 +283,31 @@ However, if we assume that the noise is Gaussian, and that the model is correctl
 </tr>
 </tbody>
 </table>
-<p>With this we can do statistical inference: Given a pre-defined error rate <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>, we compare the observed <cite>t</cite> to the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If t is greater than this number, we can reject the null hypothesis with a <em>p-value</em> <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>, meaning: if there were no effect, the probability of oberving an effect as large as t would be less than <cite>alpha</cite>.</p>
+<p>With this we can do statistical inference: Given a pre-defined error rate <span class="math">\alpha</span>, we compare the observed <cite>t</cite> to the <span class="math">(1-\alpha)</span> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If t is greater than this number, we can reject the null hypothesis with a <em>p-value</em> <span class="math">\alpha</span>, meaning: if there were no effect, the probability of oberving an effect as large as t would be less than <cite>alpha</cite>.</p>
 <div class="figure">
 <img alt="_images/student.png" src="_images/student.png" />
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">A frequent misconception consists in interpreting <img class="math" src="_images/math/44668df713b84f4aef79a6a07dc41b9ef954cec8.png" alt="1-\alpha"/> as the probability that there is indeed an effect: this is not true ! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
+<p class="last">A frequent misconception consists in interpreting <span class="math">1-\alpha</span> as the probability that there is indeed an effect: this is not true ! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is cumbersome to work with Student distributions, since those always require to specify the number <cite>dof</cite> of degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this a z-transform of <cite>t</cite>. We call the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
+<p class="last">It is cumbersome to work with Student distributions, since those always require to specify the number <cite>dof</cite> of degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this a z-transform of <cite>t</cite>. We call the <span class="math">(1-\alpha)</span> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
 </div>
 </div>
 <div class="section" id="multiple-comparisons">
 <h3>1.2.4. Multiple comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>A well-known issue that arrives then is that of multiple comparisons:</dt>
-<dd>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect,  the number of detections —false detections since there is no effect— will be roughly <img class="math" src="_images/math/33f9c8228731aa29ce37070deedae869b01d2275.png" alt="n\_voxels \alpha"/>. Then, take <img class="math" src="_images/math/f4f5546f4443855734a808d7003cd00abe7c4fbc.png" alt="\alpha=.001"/> and <img class="math" src="_images/math/ef9e4b856905f05c3b95c6cd7fe3cb2858278811.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</dd>
+<dd>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect,  the number of detections —false detections since there is no effect— will be roughly <span class="math">n\_voxels \alpha</span>. Then, take <span class="math">\alpha=.001</span> and <span class="math">n=10^5</span>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <span class="math">(1-\alpha)</span>-quantile of the standard normal distribution.</dd>
 </dl>
-<p>The first idea that one might think of is to take a much smaller <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>: for instance, if we take, <img class="math" src="_images/math/04e4d0b6dd0081ae19fbb13807c702853ce287fe.png" alt="\alpha=\frac{0.05}{n\_voxels}"/> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance to declare active a truly inactive voxel. This correction on the signifiance is known as Bonferroni procedure. It is fairly accurate when the different tesst are independent or close to independent, and becomes conservative otherwise.
+<p>The first idea that one might think of is to take a much smaller <span class="math">\alpha</span>: for instance, if we take, <span class="math">\alpha=\frac{0.05}{n\_voxels}</span> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance to declare active a truly inactive voxel. This correction on the signifiance is known as Bonferroni procedure. It is fairly accurate when the different tesst are independent or close to independent, and becomes conservative otherwise.
 The problem with his approach is that truly activated voxel may not surpass the corresponding threshold, which is typically very high, because <cite>n_voxels</cite> is large.</p>
 <p>A second possibility is to choose a threshold so that the proportion of true discoveries among the discoveries reaches a certain proportion <cite>0&lt;q&lt;1</cite>, typically <cite>q=0.05</cite>. This means that after statistical inference, one can trust the proporti <cite>1-q</cite> of the discoveries made. The number <cite>q</cite>, is the expected proportion of false discoveries  and is known as the <em>false discovery rate</em>. Controling the false dicovery rate is a reasonable compromise in practice. The thresholding yielding this level of control is typically obtained using the so-called Benjamini-Hochberg procedure.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended not to rely on low values, otherwise the inference is meaningless. Ideally one should use  <img class="math" src="_images/math/04e4d0b6dd0081ae19fbb13807c702853ce287fe.png" alt="\alpha=\frac{0.05}{n\_voxels}"/>, or <cite>q=0.05</cite>.</p>
+<p class="last">Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended not to rely on low values, otherwise the inference is meaningless. Ideally one should use  <span class="math">\alpha=\frac{0.05}{n\_voxels}</span>, or <cite>q=0.05</cite>.</p>
 </div>
 <p>Note also that supra-threshold sets of voxels are often gathered into connected components (aka <em>clusters</em>), so that only large connected components are retained and isolated supra-threshold are discarded. The rationale is that isolated voxels are unlikely to represent extended brain areas, hence are most likely some noise: discarding them most often improves the quality and the reliability of the results.</p>
 </div>
@@ -521,7 +516,7 @@ $(document).ready(function(){
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
         <span style="padding-left: 5ex;">
           <a href="_sources/introduction.rst.txt"
         	 rel="nofollow">Show this page source</a>

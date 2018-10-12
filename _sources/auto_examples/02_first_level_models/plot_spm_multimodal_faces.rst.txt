@@ -271,8 +271,8 @@ Compute contrast-related statistical maps (in z-scale), and plot them
 
     Computing contrasts
             contrast id: faces-scrambled
-            contrast id: scrambled-faces
             contrast id: effects_of_interest
+            contrast id: scrambled-faces
 
 
 Show the resulting maps: We observe that the analysis results in
@@ -294,7 +294,7 @@ displays also some responses in the frontal lobe.
 
 
 
-**Total running time of the script:** ( 2 minutes  40.291 seconds)
+**Total running time of the script:** ( 0 minutes  58.632 seconds)
 
 
 

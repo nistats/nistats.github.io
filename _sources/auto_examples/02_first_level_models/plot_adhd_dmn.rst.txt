@@ -137,7 +137,7 @@ contrast estimation
     Save z-map in 'dmn_z_map.png'.
 
 
-**Total running time of the script:** ( 0 minutes  12.554 seconds)
+**Total running time of the script:** ( 0 minutes  4.466 seconds)
 
 
 

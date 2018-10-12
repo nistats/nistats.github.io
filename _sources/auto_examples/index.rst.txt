@@ -306,26 +306,6 @@ These are examples focused on showcasing second level models functionality and g
    :hidden:
 
    /auto_examples/03_second_level_models/plot_oasis
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows the results obtained in a massively univariate analysis performed at the int...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_localizer_mass_univariate_methods_thumb.png
-
-        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_localizer_mass_univariate_methods.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/03_second_level_models/plot_localizer_mass_univariate_methods
 .. raw:: html
 
     <div style='clear:both'></div>
@@ -427,13 +407,13 @@ These are examples focused on showcasing low level functionality like design mat
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/doc/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/bertrand/mygit/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
 
 .. rst-class:: sphx-glr-signature
 

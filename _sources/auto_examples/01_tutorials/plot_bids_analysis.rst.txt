@@ -65,7 +65,7 @@ Here is the location of the dataset on disk
 
  Out::
 
-    /home/bertrand/mygit/nilearn/nilearn_data/bids_langloc_example/bids_langloc_dataset
+    /home/kshitij/nilearn_data/bids_langloc_example/bids_langloc_dataset
 
 
 Obtain automatically FirstLevelModel objects and fit arguments
@@ -139,7 +139,7 @@ to the only run_img present
 
  Out::
 
-    Index(['RotX', 'RotY', 'RotZ', 'X', 'Y', 'Z'], dtype='object')
+    Index([u'RotX', u'RotY', u'RotZ', u'X', u'Y', u'Z'], dtype='object')
 
 
 During this acquisition the subject read blocks of sentences and
@@ -293,7 +293,7 @@ language network
 
 
 
-**Total running time of the script:** ( 0 minutes  50.792 seconds)
+**Total running time of the script:** ( 0 minutes  27.514 seconds)
 
 
 

@@ -3,21 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1b',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -87,8 +79,7 @@ $(function () {
         })();
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div id="logo-banner">
   <div class="logo">
     <a href="index.html">
@@ -189,14 +180,18 @@ $(function () {
   <h4>Next topic</h4>
   <p class="topless"><a href="contributing.html"
                         title="next chapter">Contributing</a></p>
-
-<div class="navbar">
-</div> <!-- end navbar -->
-
-<script type="text/javascript">$('#searchbox-ml').show(0);</script>
-<script type="text/javascript">$('#searchbox-site').show(0);</script>
-
-
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -228,10 +223,10 @@ $(function () {
 <li><dl class="first docutils">
 <dt>Changes in function parameters</dt>
 <dd><ul class="first last">
-<li>third argument of map_threshold is now called <code class="docutils literal"><span class="pre">level</span></code>.</li>
+<li>third argument of map_threshold is now called <code class="docutils literal notranslate"><span class="pre">level</span></code>.</li>
 <li>Changed the defaut oversampling value for the hemodynamic response
 to 50 and exposed this parameter.</li>
-<li>changed the term <code class="docutils literal"><span class="pre">paradigm</span></code> to <code class="docutils literal"><span class="pre">events</span></code> and made it
+<li>changed the term <code class="docutils literal notranslate"><span class="pre">paradigm</span></code> to <code class="docutils literal notranslate"><span class="pre">events</span></code> and made it
 BIDS-compliant. Set the event file to be tab-separated</li>
 </ul>
 </dd>
@@ -241,19 +236,19 @@ BIDS-compliant. Set the event file to be tab-separated</li>
 <dt>Certain functions and methods have been renamed for clarity</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">nistats.design_matrix</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code></dt>
 <dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">make_design_matrix()</span> <span class="pre">-&gt;</span> <span class="pre">make_first_level_design_matrix()</span></code></li>
-<li><code class="docutils literal"><span class="pre">create_second_level_design()</span> <span class="pre">-&gt;</span> <span class="pre">make_second_level_design_matrix()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">make_design_matrix()</span> <span class="pre">-&gt;</span> <span class="pre">make_first_level_design_matrix()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">create_second_level_design()</span> <span class="pre">-&gt;</span> <span class="pre">make_second_level_design_matrix()</span></code></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">nistats.utils</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">nistats.utils</span></code></dt>
 <dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">pos_recipr()</span> <span class="pre">-&gt;</span> <span class="pre">positive_reciprocal()</span></code></li>
-<li><code class="docutils literal"><span class="pre">multiple_fast_inv()</span> <span class="pre">-&gt;</span> <span class="pre">multiple_fast_inverse()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">pos_recipr()</span> <span class="pre">-&gt;</span> <span class="pre">positive_reciprocal()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">multiple_fast_inv()</span> <span class="pre">-&gt;</span> <span class="pre">multiple_fast_inverse()</span></code></li>
 </ul>
 </dd>
 </dl>
@@ -273,7 +268,7 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
 <div class="section" id="contributors">
 <h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
 <p>The following people contributed to this release:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">45</span>  <span class="n">Bertrand</span> <span class="n">Thirion</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>  <span class="n">Bertrand</span> <span class="n">Thirion</span>
 <span class="mi">70</span>  <span class="n">Kshitij</span> <span class="n">Chawla</span>
 <span class="mi">16</span>  <span class="n">Taylor</span> <span class="n">Salo</span>
  <span class="mi">6</span>  <span class="n">KamalakerDadi</span>
@@ -293,8 +288,8 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
 <div class="section" id="id1">
 <h2>Changelog<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>First alpha release of nistats.</p>
-<p>Contributors (from <code class="docutils literal"><span class="pre">git</span> <span class="pre">shortlog</span> <span class="pre">-ns</span></code>):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">223</span>  <span class="n">Martin</span> <span class="n">Perez</span><span class="o">-</span><span class="n">Guevara</span>
+<p>Contributors (from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">shortlog</span> <span class="pre">-ns</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">223</span>  <span class="n">Martin</span> <span class="n">Perez</span><span class="o">-</span><span class="n">Guevara</span>
 <span class="mi">195</span>  <span class="n">bthirion</span>
  <span class="mi">24</span>  <span class="n">Gael</span> <span class="n">Varoquaux</span>
   <span class="mi">9</span>  <span class="n">Loïc</span> <span class="n">Estève</span>
@@ -339,7 +334,7 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
         <span style="padding-left: 5ex;">
           <a href="_sources/whats_new.rst.txt"
         	 rel="nofollow">Show this page source</a>

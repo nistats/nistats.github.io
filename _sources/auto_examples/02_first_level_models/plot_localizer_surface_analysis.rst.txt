@@ -341,9 +341,9 @@ iterate over contrasts
 
  Out::
 
-    Contrast  1 out of 3: left - right button press, right hemisphere
-      Contrast  2 out of 3: audio - video, right hemisphere
-      Contrast  3 out of 3: computation - sentences, right hemisphere
+    Contrast  1 out of 3: computation - sentences, right hemisphere
+      Contrast  2 out of 3: left - right button press, right hemisphere
+      Contrast  3 out of 3: audio - video, right hemisphere
 
 
 Analysing the left hemisphere
@@ -426,12 +426,12 @@ Create contrast-specific maps
 
  Out::
 
-    Contrast  1 out of 3: left - right button press, left hemisphere
-      Contrast  2 out of 3: audio - video, left hemisphere
-      Contrast  3 out of 3: computation - sentences, left hemisphere
+    Contrast  1 out of 3: computation - sentences, left hemisphere
+      Contrast  2 out of 3: left - right button press, left hemisphere
+      Contrast  3 out of 3: audio - video, left hemisphere
 
 
-**Total running time of the script:** ( 0 minutes  22.943 seconds)
+**Total running time of the script:** ( 0 minutes  7.524 seconds)
 
 
 

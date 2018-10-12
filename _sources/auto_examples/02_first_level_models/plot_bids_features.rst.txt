@@ -309,7 +309,7 @@ We can get a latex table from a Pandas Dataframe for display and publication
     \end{tabular}
 
 
-**Total running time of the script:** ( 0 minutes  24.937 seconds)
+**Total running time of the script:** ( 0 minutes  14.996 seconds)
 
 
 
