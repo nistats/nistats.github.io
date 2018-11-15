@@ -164,17 +164,17 @@ $(function () {
 
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">1. Introduction: nistats in a nutshell</a><ul>
-<li><a class="reference internal" href="#what-is-nistats">1.1. What is nistats?</a></li>
+<li><a class="reference internal" href="#">1. Introduction: NiStats in a nutshell</a><ul>
+<li><a class="reference internal" href="#what-is-nistats">1.1. What is NiStats?</a></li>
 <li><a class="reference internal" href="#a-primer-on-bold-fmri-data-analysis">1.2. A primer on BOLD-fMRI data analysis</a><ul>
 <li><a class="reference internal" href="#what-is-fmri">1.2.1. What is fMRI ?</a></li>
-<li><a class="reference internal" href="#fmri-data-modeling">1.2.2. FMRI data modeling</a></li>
+<li><a class="reference internal" href="#fmri-data-modelling">1.2.2. fMRI data modelling</a></li>
 <li><a class="reference internal" href="#fmri-statistical-analysis">1.2.3. fMRI statistical analysis</a></li>
-<li><a class="reference internal" href="#multiple-comparisons">1.2.4. Multiple comparisons</a></li>
+<li><a class="reference internal" href="#multiple-comparisons">1.2.4. Multiple Comparisons</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tutorials">1.3. Tutorials</a></li>
-<li><a class="reference internal" href="#installing-nistats">1.4. Installing nistats</a></li>
+<li><a class="reference internal" href="#installing-nistats">1.4. Installing NiStats</a></li>
 </ul>
 </li>
 </ul>
@@ -206,59 +206,59 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="introduction-nistats-in-a-nutshell">
-<h1>1. Introduction: nistats in a nutshell<a class="headerlink" href="#introduction-nistats-in-a-nutshell" title="Permalink to this headline">¶</a></h1>
+<h1>1. Introduction: NiStats in a nutshell<a class="headerlink" href="#introduction-nistats-in-a-nutshell" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <p class="topic-title first"><strong>Contents</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="#what-is-nistats" id="id1">What is nistats?</a></li>
+<li><a class="reference internal" href="#what-is-nistats" id="id1">What is NiStats?</a></li>
 <li><a class="reference internal" href="#a-primer-on-bold-fmri-data-analysis" id="id2">A primer on BOLD-fMRI data analysis</a></li>
 <li><a class="reference internal" href="#tutorials" id="id3">Tutorials</a></li>
-<li><a class="reference internal" href="#installing-nistats" id="id4">Installing nistats</a></li>
+<li><a class="reference internal" href="#installing-nistats" id="id4">Installing NiStats</a></li>
 </ul>
 </div>
 <div class="section" id="what-is-nistats">
-<h2><a class="toc-backref" href="#id1">1.1. What is nistats?</a><a class="headerlink" href="#what-is-nistats" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">1.1. What is NiStats?</a><a class="headerlink" href="#what-is-nistats" title="Permalink to this headline">¶</a></h2>
 <div class="topic">
-<p class="topic-title first"><strong>What is nistats?</strong></p>
-<p>Nistats is a Python module to perform voxel-wise analyses of functional magnetic resonance images (fMRI) using linear models. It provides functions to create design matrices, at the subject and group levels, to estimate them from images series and to compute statistical maps (contrasts). It allows to perform the same statistical analyses as <a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">a SPM</a> or <a class="reference external" href="https://www.fmrib.ox.ac.uk/fsl">a FSL</a> (but it does not provide tools for preprocessing stages (realignment, spatial normalization, etc.); for this, see <a class="reference external" href="https://nipype.readthedocs.io/en/latest/">a nipype</a>.</p>
+<p class="topic-title first"><strong>What is NiStats?</strong></p>
+<p>Nistats is a Python module to perform voxel-wise analyses of functional magnetic resonance images (fMRI) using linear models. It provides functions to create design matrices, at the subject and group levels, to estimate them from images series and to compute statistical maps (contrasts). It allows to perform the same statistical analyses as <a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM</a> or <a class="reference external" href="https://www.fmrib.ox.ac.uk/fsl">FSL</a> (but it does not provide tools for preprocessing stages (realignment, spatial normalization, etc.); for this, see <a class="reference external" href="https://nipype.readthedocs.io/en/latest/">NiPype</a>.</p>
 </div>
 </div>
 <div class="section" id="a-primer-on-bold-fmri-data-analysis">
 <h2><a class="toc-backref" href="#id2">1.2. A primer on BOLD-fMRI data analysis</a><a class="headerlink" href="#a-primer-on-bold-fmri-data-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-is-fmri">
 <h3>1.2.1. What is fMRI ?<a class="headerlink" href="#what-is-fmri" title="Permalink to this headline">¶</a></h3>
-<p>Functional magnetic resonance imaging (fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood flow lead to fluctuations of the relative concentrations of oxyhemoglobin (the red cells in the blood that carry oxygen) and deoxyhemoglobin (the same red cells after they have delivered the oxygen). Because oxy- and deoxy-hemoglobin have different magnetic properties (one is diamagnetic while the other is paramagnetic), they affect the local magnetic field in different ways. The signal picked up by the MRI scanner is sensitive to these modifications of the local magnetic field. To record cerebral activity, during functional sessions, the scanner is tuned to detect this “Blood Oxygen Level Dependent” (BOLD) signal.</p>
+<p>Functional magnetic resonance imaging (fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood flow lead to fluctuations of the relative concentrations of oxyhaemoglobin (the red cells in the blood that carry oxygen) and deoxyhaemoglobin (the same red cells after they have delivered the oxygen). Oxy-haemoglobin and deoxy-haemoglobin have different magnetic properties (diamagnetic and paramagnetic, respectively), and they affect the local magnetic field in different ways. The signal picked up by the MRI scanner is sensitive to these modifications of the local magnetic field. To record cerebral activity, during functional sessions, the scanner is tuned to detect this “Blood Oxygen Level Dependent” (BOLD) signal.</p>
 <p>Brain activity is measured in sessions that span several minutes, while the participant performs some a cognitive task and the scanner acquires brain images, typically every 2 or 3 seconds (the time between two successive image acquisition is called the Repetition time, or TR).</p>
-<p>A cerebral MR image provides a 3D image of the brain that can be decomposed into <a href="#id5"><span class="problematic" id="id6">`voxels`_</span></a> (the equivalent of pixels, but in 3 dimensions). The series of images acquired during a functional session provides, in each voxel, a time series of positive real number representing the MRI signal, sampled at the TR.</p>
+<p>A cerebral MR image provides a 3D image of the brain that can be decomposed into <a class="reference external" href="https://en.wikipedia.org/wiki/Voxel">voxels</a> (the equivalent of pixels, but in 3 dimensions). The series of images acquired during a functional session provides, in each voxel, a time series of positive real number representing the MRI signal, sampled at the TR.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Before fMRI images can be used to do meaningful comparisons, they must be processed to ensure that the voxels that are being compared represent the same brain regions, irrespective of the variability in size and shape of the brain and its microarchitecture across different subjects in the experiment. The process is called spatial registration or spatial normalization. During this procedure, the voxels of all the brain images are ‘registered’ to correspond to the same region of the brain. Usually, the images (their voxels) are registered to a standard ‘template’ brain image (its voxels) . One often used standard template is the MNI152 template from the Montreal Neurological Institute. One this is done, the coordinates of a voxel are in the same space as the template and can be used to estimate its brain location using brain atlases based on tht same template.As already mentioned, the nistats package is not meant to perform spatial preprocessing, but only statistical analyses on the voxel times series, regardless of the coordinate system.</p>
+<p class="last">Before fMRI images can be used to do meaningful comparisons, they must be processed to ensure that the voxels that are being compared represent the same brain regions, irrespective of the variability in size and shape of the brain and its microarchitecture across different subjects in the experiment. The process is called spatial registration or spatial normalization. During this procedure, the voxels of all the brain images are ‘registered’ to correspond to the same region of the brain. Usually, the images (their voxels) are registered to a standard ‘template’ brain image (its voxels). One often used standard template is the MNI152 template from the Montreal Neurological Institute. Once this is done, the coordinates of a voxel are in the same space as the template and can be used to estimate its brain location using brain atlases based on that same template. As already mentioned, the NiStats package is not meant to perform spatial preprocessing, but only statistical analyses on the voxel times series, regardless of the coordinate system.</p>
 </div>
 </div>
-<div class="section" id="fmri-data-modeling">
-<h3>1.2.2. FMRI data modeling<a class="headerlink" href="#fmri-data-modeling" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="fmri-data-modelling">
+<h3>1.2.2. fMRI data modelling<a class="headerlink" href="#fmri-data-modelling" title="Permalink to this headline">¶</a></h3>
 <p>One way to analyze times series consists in comparing them to a <em>model</em> built from our knowledge of the events that occurred during the functional session. Events can correspond to actions of the participant (e.g. button presses), presentations of sensory stimui (e.g. sound, images), or hypothesized internal processes (e.g. memorization of a stimulus), …</p>
 <div class="figure">
 <img alt="_images/stimulation-time-diagram.png" src="_images/stimulation-time-diagram.png" />
 </div>
-<p>One expects that a brain region involved in the processing of a certain type of event (e.g. the auditory cortex for sounds), would show a time course of activation that correlates with the time-diagram of these events. If the fMRI signal directly showed neural activity and did not contain any noise, we could just look at it in various voxel and detect those that conform to the time-diagrams.</p>
-<p>Yet, we know, from previous measurements, that the BOLD signal does not follow the exact time course of stimulus processing and the underlying neural activity. The BOLD response reflects changes in blood flow and concentrations in oxy-deoxy hemoglobin, all together forming an  <a href="#id7"><span class="problematic" id="id8">`haemodynamic response`_</span></a> which is sluggish and long-lasting, as can be seen on the following figure showing the response to an impulsive event (for example, an auditory click played to the participants).</p>
+<p>One expects that a brain region involved in the processing of a certain type of event (e.g. the auditory cortex for sounds), would show a time course of activation that correlates with the time-diagram of these events. If the fMRI signal directly showed neural activity and did not contain any noise, we could just look at it in various voxels and detect those that conform to the time-diagrams.</p>
+<p>Yet, we know, from previous measurements, that the BOLD signal does not follow the exact time course of stimulus processing and the underlying neural activity. The BOLD response reflects changes in blood flow and concentrations in oxy-deoxy haemoglobin, all together forming a <a class="reference external" href="https://en.wikipedia.org/wiki/Haemodynamic_response">haemodynamic response</a> which is sluggish and long-lasting, as can be seen on the following figure showing the response to an impulsive event (for example, an auditory click played to the participants).</p>
 <div class="figure">
 <img alt="_images/spm_iHRF.png" src="_images/spm_iHRF.png" />
 </div>
-<p>From the knowledge of the impulse haemodynamic response, we can build a predicted time course from the time-diagram of a type of event (The operation is known a  convolution. Remark: it assumes linearity of the BOLD response, an assumption that may be wrong in some scenarios). It is this predicted time course, also known as a <em>predictor</em>, that is compared to the actual fMRI signal. If the correlation between the predictor and the signal is higher than expected by chance, the voxel is said to exhibit a significant response to the event type.</p>
+<p>From the knowledge of the impulse haemodynamic response, we can build a predicted time course from the time-diagram of a type of event (The operation is known as  <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">convolution</a>. Simply stated, how the shape of one function’s plot would affect the shape of another function’s plot. <strong>Remark:</strong> it assumes linearity of the BOLD response, an assumption that may be wrong in some scenarios). It is this predicted time course, also known as a <em>predictor</em>, that is compared to the actual fMRI signal. If the correlation between the predictor and the signal is higher than expected by chance, the voxel is said to exhibit a significant response to the event type.</p>
 <div class="figure">
 <img alt="_images/time-course-and-model-fit-in-a-voxel.png" src="_images/time-course-and-model-fit-in-a-voxel.png" />
 </div>
 <p>Correlations are computed separately at each voxel and a correlation map can be produced displaying  the values of correlations (real numbers between -1 and +1) at each voxel. Generally, however, the maps presented in the papers report the significance of the correlations at each voxel, in forms of T, Z or p values for the null hypothesis test of no correlation (see below). For example, the following figure displays a Z-map showing voxels responding to auditory events. Large (positive or negative) Z values are unlikely to be due to chance alone. The map is tresholded so that only voxels with a p-value less than 1/1000 are coloured.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Because, in this approach, hypothesis tests are conducted in parallel at many voxels, the likelihood of making false alarms is important. This is known as the problem of multiple comparisons. It is beyond the scope of this short notice to explain ways in which this problem can be approached. Let us just mention that this issue can be addressed in nistats by using random permutations tests.</p>
+<p class="last">In this approach, hypothesis tests are conducted in parallel at many voxels, increasing the liklelihood of False Positives. This is known as the Problem of <a class="reference internal" href="#multiple-comparisons">Multiple Comparisons</a>. Some common strategies for dealing with this are discussed later in this page. This issue can also be addressed in NiStats by using random permutations tests.</p>
 </div>
 <div class="figure">
 <img alt="_images/example-spmZ_map.png" src="_images/example-spmZ_map.png" />
 </div>
-<p>In most fMRI experiments, several predictors are needed to fullly describe the  events occuring during the session – for example, the experimenter may want to distinguish brain activities linked to the perception of auditory stimuli or to button presses. To find the effect specific to each predictor, a multiple  <a href="#id9"><span class="problematic" id="id10">`linear regression`_</span></a> approach is typically used: all predictors are entered as columns in a <em>design-matrix</em> and the software finds the linear combination of these columns that best fits the signal.  The weights assigned to each predictor by this linear combination are estimates of the contribution of this predictor to the response in the voxel. One can plot this effect size maps or, maps showing their statistical significance (how unlikely they are under the null hypothesis of no effect).</p>
+<p>In most fMRI experiments, several predictors are needed to fully describe the  events occuring during the session – for example, the experimenter may want to distinguish brain activities linked to the perception of auditory stimuli or to button presses. To find the effect specific to each predictor, a multiple  <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_regression">linear regression</a> approach is typically used: all predictors are entered as columns in a <em>design-matrix</em> and the software finds the linear combination of these columns that best fits the signal.  The weights assigned to each predictor by this linear combination are estimates of the contribution of this predictor to the response in the voxel. One can plot this using effect size maps or, maps showing their statistical significance (how unlikely they are under the null hypothesis of no effect).</p>
 <p>In brief, the analysis of fMRI images involves:</p>
 <ol class="arabic simple">
 <li>describing the paradigm in terms of events of various types occuring at certain times and having some durations.</li>
@@ -270,11 +270,11 @@ $(function () {
 </div>
 <div class="section" id="fmri-statistical-analysis">
 <h3>1.2.3. fMRI statistical analysis<a class="headerlink" href="#fmri-statistical-analysis" title="Permalink to this headline">¶</a></h3>
-<p>As put in the previous section,  The basic statistical analysis of fMRI is conceptually a correlation analysis, where one seeks whether a certain combination (contrast) of columns of the design matrix fits a significant proportion of the fMRI signal at a given location.</p>
-<p>It can be shown that this is equivalent to studying whether the estimated contrast effect is large with respect to the uncertainty about its exact value. Conretely, we compute the effect size estimate and the uncertainty about its value and divide the to. The resulting number has no physical dimension, it is a statistic — A student or t-statistic, which we will denote <cite>t</cite>.
+<p>As explained in the previous section, the basic statistical analysis of fMRI is conceptually a correlation analysis, where one seeks whether a certain combination (contrast) of columns of the design matrix fits a significant proportion of the fMRI signal at a given location.</p>
+<p>It can be shown that this is equivalent to studying whether the estimated contrast effect is large with respect to the uncertainty about its exact value. Concretely, we compute the effect size estimate and the uncertainty about its value and divide the two. The resulting number has no physical dimension, it is a statistic — a Student or t-statistic, which we will denote <cite>t</cite>.
 Next, based on <cite>t</cite>, we want to decide whether the true effect was indeed greater than zero or not.</p>
-<p>If the true effect were zero, <cite>t</cite> would not necessarily be 0: by chance, the noise in the data my be partly explained by the contrast of interest.
-However, if we assume that the noise is Gaussian, and that the model is correctly specificed, then we know that <cite>t</cite> should follow a Student distribution with <cite>dof</cite> degrees of freedom, where q is the number of free parameters in the model: in practive, the number of observations (i.e. the number of time points), <cite>n_scans</cite> minus the number of effects modeled (i.e. the number of columns <cite>n_columns</cite>) of the design matrix:</p>
+<p>If the true effect were zero, <cite>t</cite> would not necessarily be 0: by chance, the noise in the data may be partly explained by the contrast of interest.
+However, if we assume that the noise is Gaussian, and that the model is correctly specified, then we know that <cite>t</cite> should follow a Student distribution with <cite>dof</cite> degrees of freedom, where q is the number of free parameters in the model: in practice, the number of observations (i.e. the number of time points), <cite>n_scans</cite> minus the number of effects modelled (i.e. the number of columns <cite>n_columns</cite>) of the design matrix:</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -283,31 +283,31 @@ However, if we assume that the noise is Gaussian, and that the model is correctl
 </tr>
 </tbody>
 </table>
-<p>With this we can do statistical inference: Given a pre-defined error rate <span class="math">\alpha</span>, we compare the observed <cite>t</cite> to the <span class="math">(1-\alpha)</span> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If t is greater than this number, we can reject the null hypothesis with a <em>p-value</em> <span class="math">\alpha</span>, meaning: if there were no effect, the probability of oberving an effect as large as t would be less than <cite>alpha</cite>.</p>
+<p>With this we can do statistical inference: Given a pre-defined error rate <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>, we compare the observed <cite>t</cite> to the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If t is greater than this number, we can reject the null hypothesis with a <em>p-value</em> <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>, meaning: if there were no effect, the probability of oberving an effect as large as <cite>t</cite> would be less than <cite>alpha</cite>.</p>
 <div class="figure">
 <img alt="_images/student.png" src="_images/student.png" />
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">A frequent misconception consists in interpreting <span class="math">1-\alpha</span> as the probability that there is indeed an effect: this is not true ! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
+<p class="last">A frequent misconception consists in interpreting <img class="math" src="_images/math/44668df713b84f4aef79a6a07dc41b9ef954cec8.png" alt="1-\alpha"/> as the probability that there is indeed an effect: this is not true ! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is cumbersome to work with Student distributions, since those always require to specify the number <cite>dof</cite> of degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this a z-transform of <cite>t</cite>. We call the <span class="math">(1-\alpha)</span> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
+<p class="last">It is cumbersome to work with Student distributions, since those always require to specify the number <cite>dof</cite> of degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this a z-transform of <cite>t</cite>. We call the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
 </div>
 </div>
 <div class="section" id="multiple-comparisons">
-<h3>1.2.4. Multiple comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this headline">¶</a></h3>
+<h3>1.2.4. Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>A well-known issue that arrives then is that of multiple comparisons:</dt>
-<dd>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect,  the number of detections —false detections since there is no effect— will be roughly <span class="math">n\_voxels \alpha</span>. Then, take <span class="math">\alpha=.001</span> and <span class="math">n=10^5</span>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <span class="math">(1-\alpha)</span>-quantile of the standard normal distribution.</dd>
+<dd>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect,  the number of detections —false detections since there is no effect— will be roughly <img class="math" src="_images/math/33f9c8228731aa29ce37070deedae869b01d2275.png" alt="n\_voxels \alpha"/>. Then, take <img class="math" src="_images/math/f4f5546f4443855734a808d7003cd00abe7c4fbc.png" alt="\alpha=.001"/> and <img class="math" src="_images/math/ef9e4b856905f05c3b95c6cd7fe3cb2858278811.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="_images/math/86b333b63dc76d76f7b6e6eade553138bfe40134.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</dd>
 </dl>
-<p>The first idea that one might think of is to take a much smaller <span class="math">\alpha</span>: for instance, if we take, <span class="math">\alpha=\frac{0.05}{n\_voxels}</span> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance to declare active a truly inactive voxel. This correction on the signifiance is known as Bonferroni procedure. It is fairly accurate when the different tesst are independent or close to independent, and becomes conservative otherwise.
+<p>The first idea that one might think of is to take a much smaller <img class="math" src="_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>: for instance, if we take, <img class="math" src="_images/math/04e4d0b6dd0081ae19fbb13807c702853ce287fe.png" alt="\alpha=\frac{0.05}{n\_voxels}"/> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance to declare active a truly inactive voxel. This correction on the signifiance is known as Bonferroni procedure. It is fairly accurate when the different tests are independent or close to independent, and becomes conservative otherwise.
 The problem with his approach is that truly activated voxel may not surpass the corresponding threshold, which is typically very high, because <cite>n_voxels</cite> is large.</p>
-<p>A second possibility is to choose a threshold so that the proportion of true discoveries among the discoveries reaches a certain proportion <cite>0&lt;q&lt;1</cite>, typically <cite>q=0.05</cite>. This means that after statistical inference, one can trust the proporti <cite>1-q</cite> of the discoveries made. The number <cite>q</cite>, is the expected proportion of false discoveries  and is known as the <em>false discovery rate</em>. Controling the false dicovery rate is a reasonable compromise in practice. The thresholding yielding this level of control is typically obtained using the so-called Benjamini-Hochberg procedure.</p>
+<p>A second possibility is to choose a threshold so that the proportion of true discoveries among the discoveries reaches a certain proportion <cite>0&lt;q&lt;1</cite>, typically <cite>q=0.05</cite>. This means that after statistical inference, one can trust the proportionate <cite>1-q</cite> of the discoveries made. The number <cite>q</cite>, is the expected proportion of false discoveries  and is known as the <em>false discovery rate</em>. Controling the false dicovery rate is a reasonable compromise in practice. The thresholding yielding this level of control is typically obtained using the so-called Benjamini-Hochberg procedure.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended not to rely on low values, otherwise the inference is meaningless. Ideally one should use  <span class="math">\alpha=\frac{0.05}{n\_voxels}</span>, or <cite>q=0.05</cite>.</p>
+<p class="last">Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended not to rely on low values, otherwise the inference is meaningless. Ideally one should use  <img class="math" src="_images/math/04e4d0b6dd0081ae19fbb13807c702853ce287fe.png" alt="\alpha=\frac{0.05}{n\_voxels}"/>, or <cite>q=0.05</cite>.</p>
 </div>
 <p>Note also that supra-threshold sets of voxels are often gathered into connected components (aka <em>clusters</em>), so that only large connected components are retained and isolated supra-threshold are discarded. The rationale is that isolated voxels are unlikely to represent extended brain areas, hence are most likely some noise: discarding them most often improves the quality and the reliability of the results.</p>
 </div>
@@ -318,7 +318,7 @@ The problem with his approach is that truly activated voxel may not surpass the 
 <div>For tutorials, please check out the <a class="reference external" href="auto_examples/index.html">Examples</a> gallery, especially those  of the Tutorial section.</div></blockquote>
 </div>
 <div class="section" id="installing-nistats">
-<span id="installation"></span><h2><a class="toc-backref" href="#id4">1.4. Installing nistats</a><a class="headerlink" href="#installing-nistats" title="Permalink to this headline">¶</a></h2>
+<span id="installation"></span><h2><a class="toc-backref" href="#id4">1.4. Installing NiStats</a><a class="headerlink" href="#installing-nistats" title="Permalink to this headline">¶</a></h2>
 <script type="text/javascript">
 var OSName=2;
 if (navigator.userAgent.indexOf("Win")!=-1) OSName=1;
@@ -516,7 +516,7 @@ $(document).ready(function(){
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="_sources/introduction.rst.txt"
         	 rel="nofollow">Show this page source</a>

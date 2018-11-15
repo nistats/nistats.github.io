@@ -336,16 +336,16 @@ as <code class="docutils literal notranslate"><span class="pre">sum((Y</span> <s
 <p class="rubric">Notes</p>
 <p>The log-Likelihood Function is defined as</p>
 <div class="math">
-<p><span class="math">\ell(\beta,\sigma,Y)=
--\frac{n}{2}\log(2\pi\sigma^2) - \|Y-X\beta\|^2/(2\sigma^2)</span></p>
-</div><p>The parameter <span class="math">\sigma</span> above is what is sometimes referred to as a
+<p><img src="../../_images/math/7f50b97aaf4fb12afc15f49fcca0795eb0ad3306.png" alt="\ell(\beta,\sigma,Y)=
+-\frac{n}{2}\log(2\pi\sigma^2) - \|Y-X\beta\|^2/(2\sigma^2)"/></p>
+</div><p>The parameter <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> above is what is sometimes referred to as a
 nuisance parameter. That is, the likelihood is considered as a function
-of <span class="math">\beta</span>, but to evaluate it, a value of <span class="math">\sigma</span> is
+of <img class="math" src="../../_images/math/410a9d0df9c135dd73b269cba7ef04dcfd932b1f.png" alt="\beta"/>, but to evaluate it, a value of <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> is
 needed.</p>
-<p>If <span class="math">\sigma</span> is not provided, then its maximum likelihood estimate:</p>
+<p>If <img class="math" src="../../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> is not provided, then its maximum likelihood estimate:</p>
 <div class="math">
-<p><span class="math">\hat{\sigma}(\beta) = \frac{\text{SSE}(\beta)}{n}</span></p>
-</div><p>is plugged in. This likelihood is now a function of only <span class="math">\beta</span>
+<p><img src="../../_images/math/471235fc205080f7362b830ec59c50c7afd2f876.png" alt="\hat{\sigma}(\beta) = \frac{\text{SSE}(\beta)}{n}"/></p>
+</div><p>is plugged in. This likelihood is now a function of only <img class="math" src="../../_images/math/410a9d0df9c135dd73b269cba7ef04dcfd932b1f.png" alt="\beta"/>
 and is technically referred to as a profile-likelihood.</p>
 <p class="rubric">References</p>
 <table class="docutils citation" frame="void" id="r2" rules="none">
@@ -421,7 +421,7 @@ a square root of the covariance matrix to X.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.regression.OLSModel.rst.txt"
         	 rel="nofollow">Show this page source</a>

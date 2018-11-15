@@ -205,12 +205,12 @@ Compute and plot statistics
     Computing contrasts...
       Contrast  1 out of 8: DSp_minus_SSp
       Contrast  2 out of 8: DSp_minus_SSp_for_DSt
-      Contrast  3 out of 8: SStSSp_minus_DStDSp
-      Contrast  4 out of 8: DSt_minus_SSt
-      Contrast  5 out of 8: DStDSp_minus_SStSSp
-      Contrast  6 out of 8: DSt_minus_SSt_for_DSp
-      Contrast  7 out of 8: Effects_of_interest
-      Contrast  8 out of 8: Deactivation
+      Contrast  3 out of 8: DSt_minus_SSt
+      Contrast  4 out of 8: SStSSp_minus_DStDSp
+      Contrast  5 out of 8: Deactivation
+      Contrast  6 out of 8: Effects_of_interest
+      Contrast  7 out of 8: DSt_minus_SSt_for_DSp
+      Contrast  8 out of 8: DStDSp_minus_SStSSp
 
 
 Comparing session-specific and fixed effects.
@@ -312,7 +312,7 @@ Not unexpectedly, the fixed effects version looks displays higher peaks than the
 
 
 
-**Total running time of the script:** ( 0 minutes  12.211 seconds)
+**Total running time of the script:** ( 0 minutes  11.231 seconds)
 
 
 

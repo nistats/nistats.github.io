@@ -592,17 +592,17 @@ Report the found positions in a table
     Cluster ID     X     Y     Z  Peak Stat Cluster Size (mm3)
     0           1  60.0   0.0  36.0  10.082400               1512
     1          1a  69.0   6.0  39.0   9.126794                   
-    2          1b  42.0 -12.0  42.0   7.525518                   
-    3           2 -63.0  -6.0  42.0   9.987309               4239
+    2          1b  42.0 -12.0  42.0   7.525517                   
+    3           2 -63.0  -6.0  42.0   9.987308               4239
     4          2a -51.0 -12.0  39.0   8.877129                   
-    5          2b -63.0   6.0  36.0   8.855162                   
+    5          2b -63.0   6.0  36.0   8.855163                   
     6          2c -63.0  18.0  33.0   8.597630                   
     7           3  66.0  15.0  27.0   8.765653                864
-    8          3a  51.0   3.0  30.0   7.242874                   
-    9           4  33.0  -6.0  12.0   7.228048               1134
+    8          3a  51.0   3.0  30.0   7.242875                   
+    9           4  33.0  -6.0  12.0   7.228047               1134
     10          5 -60.0 -21.0  33.0   5.744632                540
     11         5a -63.0 -21.0  42.0   5.708513                   
-    12         5b -63.0 -21.0  21.0   5.706529
+    12         5b -63.0 -21.0  21.0   5.706530
 
 
 the table can be saved for future use
@@ -693,7 +693,7 @@ makes it easier to represent it.
 Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 
-**Total running time of the script:** ( 0 minutes  6.466 seconds)
+**Total running time of the script:** ( 0 minutes  7.631 seconds)
 
 
 

@@ -266,7 +266,7 @@ from the OASIS dataset to limit the memory usage.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">intercept</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.ones.html#numpy.ones" title="View documentation for numpy.ones"><span class="n">np</span><span class="o">.</span><span class="n">ones</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="p">)</span>
-<span class="n">design_matrix</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">intercept</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.mad.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">intercept</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;intercept&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -328,7 +328,7 @@ threshold, plot the map</p>
 <img alt="../../_images/sphx_glr_plot_oasis_003.png" class="align-center" src="../../_images/sphx_glr_plot_oasis_003.png" />
 <p>Note that there does not seem to be any significant effect of sex on
 grey matter density on that dataset.</p>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  27.269 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  28.738 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_oasis.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_oasis.py</span></code></a></div>
@@ -370,7 +370,7 @@ grey matter density on that dataset.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_second_level_models/plot_oasis.rst.txt"
         	 rel="nofollow">Show this page source</a>

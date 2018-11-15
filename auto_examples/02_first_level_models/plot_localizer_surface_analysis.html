@@ -256,7 +256,7 @@ surface.  we could use an individual mesh, but we first resort to a
 standard mesh, the so-called fsaverage5 template from the Freesurfer
 software.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nilearn</span>
-<span class="n">fsaverage</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_surf_fsaverage5.html#nilearn.datasets.fetch_surf_fsaverage5" title="View documentation for nilearn.datasets.fetch_surf_fsaverage5"><span class="n">nilearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage5</span></a><span class="p">()</span>
+<span class="n">fsaverage</span> <span class="o">=</span> <span class="n">nilearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage5</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The projection function simply takes the fMRI data and the mesh.
@@ -371,17 +371,17 @@ the number of columns of the design matrix</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_001.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">computation</span> <span class="o">-</span> <span class="n">sentences</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
-  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span> <span class="n">button</span> <span class="n">press</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
-  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">audio</span> <span class="o">-</span> <span class="n">video</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span> <span class="n">button</span> <span class="n">press</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
+  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">audio</span> <span class="o">-</span> <span class="n">video</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
+  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">computation</span> <span class="o">-</span> <span class="n">sentences</span><span class="p">,</span> <span class="n">right</span> <span class="n">hemisphere</span>
 </pre></div>
 </div>
 </div>
@@ -414,20 +414,20 @@ the number of columns of the design matrix</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_004.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png"><img alt="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" src="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">computation</span> <span class="o">-</span> <span class="n">sentences</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
-  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span> <span class="n">button</span> <span class="n">press</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
-  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">audio</span> <span class="o">-</span> <span class="n">video</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
+<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span> <span class="n">button</span> <span class="n">press</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
+  <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">audio</span> <span class="o">-</span> <span class="n">video</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
+  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="n">computation</span> <span class="o">-</span> <span class="n">sentences</span><span class="p">,</span> <span class="n">left</span> <span class="n">hemisphere</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  7.524 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  7.862 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_localizer_surface_analysis.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_localizer_surface_analysis.py</span></code></a></div>
@@ -469,7 +469,7 @@ the number of columns of the design matrix</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_localizer_surface_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

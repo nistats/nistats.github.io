@@ -244,7 +244,7 @@ it will be a ‘results’ subdirectory of the current directory.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;design_matrix2&#39;</span><span class="p">]]</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
+<span class="n">design_matrices</span> <span class="o">=</span> <span class="p">[</span><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.mad.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.load.html#numpy.load" title="View documentation for numpy.load"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="s1">&#39;X&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">design_files</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -299,12 +299,12 @@ For this, we first define the contrasts as we would do for a single session</p>
 <div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Computing</span> <span class="n">contrasts</span><span class="o">...</span>
   <span class="n">Contrast</span>  <span class="mi">1</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp</span>
   <span class="n">Contrast</span>  <span class="mi">2</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSp_minus_SSp_for_DSt</span>
-  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
-  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
-  <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
-  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
-  <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
-  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
+  <span class="n">Contrast</span>  <span class="mi">3</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt</span>
+  <span class="n">Contrast</span>  <span class="mi">4</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">SStSSp_minus_DStDSp</span>
+  <span class="n">Contrast</span>  <span class="mi">5</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Deactivation</span>
+  <span class="n">Contrast</span>  <span class="mi">6</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Effects_of_interest</span>
+  <span class="n">Contrast</span>  <span class="mi">7</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DSt_minus_SSt_for_DSp</span>
+  <span class="n">Contrast</span>  <span class="mi">8</span> <span class="n">out</span> <span class="n">of</span> <span class="mi">8</span><span class="p">:</span> <span class="n">DStDSp_minus_SStSSp</span>
 </pre></div>
 </div>
 <p>Comparing session-specific and fixed effects.
@@ -346,7 +346,7 @@ Here, we compare the activation mas produced from each separately then, the fixe
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  12.211 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  11.231 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_fiac_analysis.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fiac_analysis.py</span></code></a></div>
@@ -388,7 +388,7 @@ Here, we compare the activation mas produced from each separately then, the fixe
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_fiac_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

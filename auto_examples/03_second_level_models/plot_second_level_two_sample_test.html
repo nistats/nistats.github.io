@@ -252,7 +252,7 @@ and fit it.</p>
 </pre></div>
 </div>
 <p>Assemble those in a design matrix</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrix</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrix</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.mad.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span>
     <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">condition_effect</span><span class="p">[:,</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/arrays.indexing.html#numpy.newaxis" title="View documentation for numpy.newaxis"><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span></a><span class="p">],</span> <span class="n">subject_effect</span><span class="p">)),</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;vertical vs horizontal&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subjects</span><span class="p">)</span>
 </pre></div>
@@ -287,7 +287,7 @@ name of the design matrix.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  2.917 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  3.725 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_second_level_two_sample_test.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_two_sample_test.py</span></code></a></div>
@@ -329,7 +329,7 @@ name of the design matrix.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_second_level_models/plot_second_level_two_sample_test.rst.txt"
         	 rel="nofollow">Show this page source</a>

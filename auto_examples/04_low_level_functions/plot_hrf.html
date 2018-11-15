@@ -236,7 +236,7 @@ useful to detect timing issues.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">hemodynamic_models</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-<span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">hrf_model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hrf_models</span><span class="p">):</span>
     <span class="c1"># obtain the signal of interest by convolution</span>
     <span class="n">signal</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">hemodynamic_models</span><span class="o">.</span><span class="n">compute_regressor</span><span class="p">(</span>
@@ -258,7 +258,7 @@ useful to detect timing issues.</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_hrf_001.png" class="align-center" src="../../_images/sphx_glr_plot_hrf_001.png" />
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.039 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.095 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_hrf.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_hrf.py</span></code></a></div>
@@ -300,7 +300,7 @@ useful to detect timing issues.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_low_level_functions/plot_hrf.rst.txt"
         	 rel="nofollow">Show this page source</a>

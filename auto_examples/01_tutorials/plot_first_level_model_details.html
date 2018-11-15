@@ -345,7 +345,7 @@ repeat contrast specification when we change the design matrix.</p>
 <li>“computation - sentences” looks at the activity when performing a mental comptation task  versus simply reading sentences.</li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contrasts</span> <span class="o">=</span> <span class="n">make_localizer_contrasts</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_contrast_matrix</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="n">ax</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -365,7 +365,7 @@ we encapsulate it in a function that we call when needed.</p>
     <span class="n">design_matrix</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="c1"># Call the contrast specification within the function</span>
     <span class="n">contrasts</span> <span class="o">=</span> <span class="n">make_localizer_contrasts</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
-    <span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">fig</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
     <span class="c1"># compute the per-contrast z-map</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
         <span class="n">ax</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">index</span><span class="p">)</span>
@@ -414,7 +414,7 @@ this is done by setting drift_model to None.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_006.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_006.png" src="../../_images/sphx_glr_plot_first_level_model_details_006.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_006.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_006.png" src="../../_images/sphx_glr_plot_first_level_model_details_006.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_007.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_007.png" src="../../_images/sphx_glr_plot_first_level_model_details_007.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -434,7 +434,7 @@ Let’s take a basis of 5 polynomials</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_008.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_008.png" src="../../_images/sphx_glr_plot_first_level_model_details_008.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_008.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_008.png" src="../../_images/sphx_glr_plot_first_level_model_details_008.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_009.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_009.png" src="../../_images/sphx_glr_plot_first_level_model_details_009.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -457,7 +457,7 @@ so-called Glover hrf) for the so-called canonical model of SPM
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_010.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_010.png" src="../../_images/sphx_glr_plot_first_level_model_details_010.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_010.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_010.png" src="../../_images/sphx_glr_plot_first_level_model_details_010.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_011.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_011.png" src="../../_images/sphx_glr_plot_first_level_model_details_011.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -480,7 +480,7 @@ statistical significance of the effect. Is it the case ?</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_012.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_012.png" src="../../_images/sphx_glr_plot_first_level_model_details_012.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_012.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_012.png" src="../../_images/sphx_glr_plot_first_level_model_details_012.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_013.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_013.png" src="../../_images/sphx_glr_plot_first_level_model_details_013.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -513,7 +513,7 @@ capture some mis-specification in the shape of the hrf.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_015.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_015.png" src="../../_images/sphx_glr_plot_first_level_model_details_015.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_015.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_015.png" src="../../_images/sphx_glr_plot_first_level_model_details_015.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_016.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_016.png" src="../../_images/sphx_glr_plot_first_level_model_details_016.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -536,7 +536,7 @@ no temporal structure (time-independent noise)</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_017.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_017.png" src="../../_images/sphx_glr_plot_first_level_model_details_017.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_017.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_017.png" src="../../_images/sphx_glr_plot_first_level_model_details_017.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_018.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_018.png" src="../../_images/sphx_glr_plot_first_level_model_details_018.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -556,7 +556,7 @@ the compcorr approach, and take those into account in the model.</p>
 <p>For this we rely on the so-called <span class="xref std std-ref">high_variance_confounds</span>
 routine of Nilearn.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html#nilearn.image.high_variance_confounds" title="View documentation for nilearn.image.high_variance_confounds"><span class="n">high_variance_confounds</span></a>
-<span class="n">confounds</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.var.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html#nilearn.image.high_variance_confounds" title="View documentation for nilearn.image.high_variance_confounds"><span class="n">high_variance_confounds</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">confounds</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.mad.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html#nilearn.image.high_variance_confounds" title="View documentation for nilearn.image.high_variance_confounds"><span class="n">high_variance_confounds</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">percentile</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">first_level_model</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">t_r</span><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;spm + derivative&#39;</span><span class="p">)</span>
 <span class="n">first_level_model</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">,</span>
                                           <span class="n">confounds</span><span class="o">=</span><span class="n">confounds</span><span class="p">)</span>
@@ -567,7 +567,7 @@ routine of Nilearn.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_019.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_019.png" src="../../_images/sphx_glr_plot_first_level_model_details_019.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_019.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_019.png" src="../../_images/sphx_glr_plot_first_level_model_details_019.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_020.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_020.png" src="../../_images/sphx_glr_plot_first_level_model_details_020.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -596,7 +596,7 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_021.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_021.png" src="../../_images/sphx_glr_plot_first_level_model_details_021.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_021.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_021.png" src="../../_images/sphx_glr_plot_first_level_model_details_021.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_022.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_022.png" src="../../_images/sphx_glr_plot_first_level_model_details_022.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -618,7 +618,7 @@ data.</p>
 <span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_icbm152_brain_gm_mask.html#nilearn.datasets.fetch_icbm152_brain_gm_mask" title="View documentation for nilearn.datasets.fetch_icbm152_brain_gm_mask"><span class="n">fetch_icbm152_brain_gm_mask</span></a>
 <span class="n">icbm_mask</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_icbm152_brain_gm_mask.html#nilearn.datasets.fetch_icbm152_brain_gm_mask" title="View documentation for nilearn.datasets.fetch_icbm152_brain_gm_mask"><span class="n">fetch_icbm152_brain_gm_mask</span></a><span class="p">()</span>
 <span class="n">data_mask</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">masker_</span><span class="o">.</span><span class="n">mask_img_</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.AxesStack.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a href="http://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_roi.html#nilearn.plotting.plot_roi" title="View documentation for nilearn.plotting.plot_roi"><span class="n">plot_roi</span></a><span class="p">(</span><span class="n">icbm_mask</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;ICBM mask&#39;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
@@ -638,7 +638,7 @@ data.</p>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_024.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_024.png" src="../../_images/sphx_glr_plot_first_level_model_details_024.png" style="width: 300.79999999999995px; height: 225.6px;" /></a>
+<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_024.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_024.png" src="../../_images/sphx_glr_plot_first_level_model_details_024.png" style="width: 376.0px; height: 282.0px;" /></a>
 </li>
 <li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_first_level_model_details_025.png"><img alt="../../_images/sphx_glr_plot_first_level_model_details_025.png" src="../../_images/sphx_glr_plot_first_level_model_details_025.png" style="width: 517.0px; height: 141.0px;" /></a>
 </li>
@@ -651,7 +651,7 @@ manipulation of modeling parameters: this is reassuring. It shows
 that Nistats defaults (‘cosine’ drift, cutoff=128s, ‘glover’ hrf,
 ar(1) model) are actually reasonable.  Note that these conclusions
 are specific to this dataset and may vary with other ones.</p>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  45.319 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  46.371 seconds)</p>
 <div class="sphx-glr-footer docutils container">
 <div class="sphx-glr-download docutils container">
 <a class="reference download internal" href="../../_downloads/plot_first_level_model_details.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_first_level_model_details.py</span></code></a></div>
@@ -693,7 +693,7 @@ are specific to this dataset and may vary with other ones.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.7.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/01_tutorials/plot_first_level_model_details.rst.txt"
         	 rel="nofollow">Show this page source</a>
