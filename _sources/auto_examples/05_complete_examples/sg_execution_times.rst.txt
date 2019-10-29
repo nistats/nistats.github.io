@@ -1,0 +1,11 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_05_complete_examples_sg_execution_times:
+
+Computation times
+=================
+**02:48.489** total execution time for **auto_examples_05_complete_examples** files:
+
+- **02:19.266**: :ref:`sphx_glr_auto_examples_05_complete_examples_plot_surface_bids_analysis.py` (``plot_surface_bids_analysis.py``)
+- **00:29.223**: :ref:`sphx_glr_auto_examples_05_complete_examples_plot_bids_analysis.py` (``plot_bids_analysis.py``)

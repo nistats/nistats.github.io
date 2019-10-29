@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.2. nistats.datasets.fetch_openneuro_dataset_index" href="nistats.datasets.fetch_openneuro_dataset_index.html" />
+    <link rel="prev" title="3. Reference documentation: all nistats functions" href="../reference.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../../auto_examples/04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../../auto_examples/04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="../../auto_examples/02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../../auto_examples/03_second_level_models/plot_thresholding.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../../auto_examples/01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="nistats.datasets.fetch_openneuro_dataset_index.html" title="3.1.2. nistats.datasets.fetch_openneuro_dataset_index"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../reference.html" title="3. Reference documentation: all nistats functions"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="../reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset</a><ul>
+<li><a class="reference internal" href="#examples-using-nistats-datasets-fetch-language-localizer-demo-dataset">3.1.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../reference.html"
+                        title="previous chapter">3. Reference documentation: all nistats functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="nistats.datasets.fetch_openneuro_dataset_index.html"
+                        title="next chapter">3.1.2. nistats.datasets.fetch_openneuro_dataset_index</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is a reference documentation. It only explains the
+function signature, and not how to use it. Please refer to the
+<a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
+</div>
+<div class="section" id="nistats-datasets-fetch-language-localizer-demo-dataset">
+<h1>3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset<a class="headerlink" href="#nistats-datasets-fetch-language-localizer-demo-dataset" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="nistats.datasets.fetch_language_localizer_demo_dataset">
+<code class="sig-prename descclassname">nistats.datasets.</code><code class="sig-name descname">fetch_language_localizer_demo_dataset</code><span class="sig-paren">(</span><em class="sig-param">data_dir=None</em>, <em class="sig-param">verbose=1</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.datasets.fetch_language_localizer_demo_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download language localizer demo dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_dir: string, optional</strong></dt><dd><p>Path to store the downloaded dataset. if None employ nilearn
+datasets default download directory.</p>
+</dd>
+<dt><strong>verbose: int, optional</strong></dt><dd><p>verbosity level (0 means no message).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>data_dir: string</dt><dd><p>Path to downloaded dataset</p>
+</dd>
+<dt>downloaded_files: list of string</dt><dd><p>Absolute paths of downloaded files on disk</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="examples-using-nistats-datasets-fetch-language-localizer-demo-dataset">
+<h2>3.1.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code><a class="headerlink" href="#examples-using-nistats-datasets-fetch-language-localizer-demo-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first and second level analysis in a B..."><div class="figure align-default" id="id1">
+<img alt="../../_images/sphx_glr_plot_bids_analysis_thumb.png" src="../../_images/sphx_glr_plot_bids_analysis_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/05_complete_examples/plot_bids_analysis.html#sphx-glr-auto-examples-05-complete-examples-plot-bids-analysis-py"><span class="std std-ref">BIDS dataset first and second level analysis</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM (first and second level analysis) in a 10-subjects ..."><div class="figure align-default" id="id2">
+<img alt="../../_images/sphx_glr_plot_surface_bids_analysis_thumb.png" src="../../_images/sphx_glr_plot_surface_bids_analysis_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/05_complete_examples/plot_surface_bids_analysis.html#sphx-glr-auto-examples-05-complete-examples-plot-surface-bids-analysis-py"><span class="std std-ref">Surface-based dataset first and second level analysis of a dataset</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div style='clear:both'></div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="nistats.datasets.fetch_openneuro_dataset_index.html" title="3.1.2. nistats.datasets.fetch_openneuro_dataset_index"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../reference.html" title="3. Reference documentation: all nistats functions"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../../auto_examples/index.html">Examples</a> |&nbsp;</li>
+<li><a href="../reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

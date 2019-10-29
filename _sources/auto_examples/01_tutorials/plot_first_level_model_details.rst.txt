@@ -1,9 +1,13 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_01_tutorials_plot_first_level_model_details.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_01_tutorials_plot_first_level_model_details.py:
 
 Studying first-level-model details in a trials-and-error fashion
-================================================================
+===================================================================
 
 In this tutorial, we study the parametrization of the first-level
 model used for fMRI data analysis and clarify their impact on the
@@ -14,7 +18,8 @@ new features in the analysis and look at the outcome, i.e. the
 resulting brain maps.
 
 Readers without prior experience in fMRI data analysis should first
-run the :ref:`plot_single_subject_single_run` tutorial to get a bit more
+run the `Analysis of a single session, single subject fMRI dataset`_
+tutorial to get a bit more
 familiar with the base concepts, and only then run this tutorial example.
 
 To run this example, you must launch IPython via ``ipython
@@ -24,6 +29,7 @@ To run this example, you must launch IPython via ``ipython
     :local:
     :depth: 1
 
+.. _Analysis of a single session, single subject fMRI dataset: plot_single_subject_single_run.html
 
 
 Retrieving the data
@@ -34,8 +40,7 @@ acquisition of a fast event-related dataset.
 
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats import datasets
     data = datasets.fetch_localizer_first_level()
@@ -65,21 +70,20 @@ short sentences, and mental computations (subractions).
 
 This task comprises 10 conditions:
 
-* clicGaudio: Left-hand three-times button press, indicated by visual instruction
-* clicDaudio: Right-hand three-times button press, indicated by visual instruction
-* clicGvideo: Left-hand three-times button press, indicated by auditory instruction
-* clicDvideo:  Right-hand three-times button press, indicated by auditory instruction
-* damier_H: Visualization of flashing horizontal checkerboards
-* damier_V: Visualization of flashing vertical checkerboards
-* phraseaudio: Listen to narrative sentences
-* phrasevideo: Read narrative sentences
-* calculaudio: Mental subtraction, indicated by auditory instruction
-* calculvideo: Mental subtraction, indicated by visual instruction
+* audio_left_hand_button_press: Left-hand three-times button press, indicated by visual instruction
+* audio_right_hand_button_press: Right-hand three-times button press, indicated by visual instruction
+* visual_left_hand_button_press: Left-hand three-times button press, indicated by auditory instruction
+* visual_right_hand_button_press:  Right-hand three-times button press, indicated by auditory instruction
+* horizontal_checkerboard: Visualization of flashing horizontal checkerboards
+* vertical_checkerboard: Visualization of flashing vertical checkerboards
+* sentence_listening: Listen to narrative sentences
+* sentence_reading: Read narrative sentences
+* audio_computation: Mental subtraction, indicated by auditory instruction
+* visual_computation: Mental subtraction, indicated by visual instruction
 
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     t_r = 2.4
@@ -101,8 +105,7 @@ the fit() model creates the design matrix and the beta maps.
 
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.first_level_model import FirstLevelModel
     first_level_model = FirstLevelModel(t_r)
@@ -113,13 +116,22 @@ the fit() model creates the design matrix and the beta maps.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+    Use os.path.join(memory.location, 'joblib') attribute instead.
+      if (memory.cachedir is None and memory_level is not None
+
 
 
 Let us take a look at the design matrix: it has 10 main columns corresponding to 10 experimental conditions, followed by 3 columns describing low-frequency signals (drifts) and a constant regressor.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.reporting import plot_design_matrix
     plot_design_matrix(design_matrix)
@@ -130,8 +142,17 @@ Let us take a look at the design matrix: it has 10 main columns corresponding to
 
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      % get_backend())
 
 
 
@@ -142,8 +163,7 @@ generates the corresponding contrasts.  This will be useful to
 repeat contrast specification when we change the design matrix.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     import numpy as np
 
@@ -155,32 +175,41 @@ repeat contrast specification when we change the design matrix.
         contrasts = dict([(column, contrast_matrix[i])
                           for i, column in enumerate(design_matrix.columns)])
 
-        # Add more complex contrasts
-        contrasts['audio'] = (contrasts['clicDaudio']
-                              + contrasts['clicGaudio']
-                              + contrasts['calculaudio']
-                              + contrasts['phraseaudio']
-                              )
-        contrasts['video'] = (contrasts['clicDvideo']
-                              + contrasts['clicGvideo']
-                              + contrasts['calculvideo']
-                              + contrasts['phrasevideo']
-                              )
-        contrasts['computation'] = contrasts['calculaudio'] + contrasts['calculvideo']
-        contrasts['sentences'] = contrasts['phraseaudio'] + contrasts['phrasevideo']
+        contrasts['audio'] = (
+            contrasts['audio_left_hand_button_press']
+            + contrasts['audio_right_hand_button_press']
+            + contrasts['audio_computation']
+            + contrasts['sentence_listening'])
+    
+        # one contrast adding all conditions involving instructions reading
+        contrasts['visual'] = (
+            contrasts['visual_left_hand_button_press']
+            + contrasts['visual_right_hand_button_press']
+            + contrasts['visual_computation']
+            + contrasts['sentence_reading'])
 
+        # one contrast adding all conditions involving computation
+        contrasts['computation'] = (contrasts['visual_computation']
+                                          + contrasts['audio_computation'])
+
+        # one contrast adding all conditions involving sentences
+        contrasts['sentences'] = (contrasts['sentence_listening']
+                                        + contrasts['sentence_reading'])
+    
         # Short dictionary of more relevant contrasts
         contrasts = {
-            'left-right': (contrasts['clicGaudio']
-                           + contrasts['clicGvideo']
-                           - contrasts['clicDaudio']
-                           - contrasts['clicDvideo']
-                           ),
-            'H-V': contrasts['damier_H'] - contrasts['damier_V'],
-            'audio-video': contrasts['audio'] - contrasts['video'],
-            'computation-sentences': (contrasts['computation'] -
-                                      contrasts['sentences']
-                                      ),
+            'left - right button press': (
+                contrasts['audio_left_hand_button_press']
+                - contrasts['audio_right_hand_button_press']
+                + contrasts['visual_left_hand_button_press']
+                - contrasts['visual_right_hand_button_press']
+            ),
+            'audio - visual': contrasts['audio'] - contrasts['visual'],
+            'computation - sentences': (contrasts['computation'] -
+                                        contrasts['sentences']
+            ),
+            'horizontal-vertical': (contrasts['horizontal_checkerboard'] -
+                                    contrasts['vertical_checkerboard'])
         }
         return contrasts
 
@@ -192,21 +221,20 @@ repeat contrast specification when we change the design matrix.
 
 So let's look at these computed contrasts
 
-* "left - right button press" probes motor activity in left versus right button presses
-* 'H-V': probes the differential activity in viewing a horizontal vs vertical checkerboard
-* "audio - video" probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
-* "computation - sentences" looks at the activity when performing a mental comptation task  versus simply reading sentences.
+* 'left - right button press' probes motor activity in left versus right button presses
+* 'horizontal-vertical': probes the differential activity in viewing a horizontal vs vertical checkerboard
+* 'audio - visual' probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
+* 'computation - sentences' looks at the activity when performing a mental comptation task  versus simply reading sentences.
 
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     contrasts = make_localizer_contrasts(design_matrix)
     plt.figure(figsize=(5, 9))
     from nistats.reporting import plot_contrast_matrix
     for i, (key, values) in enumerate(contrasts.items()):
-        ax = plt.subplot(5, 1, i + 1)
+        ax = plt.subplot(len(contrasts) + 1, 1, i + 1)
         plot_contrast_matrix(values, design_matrix=design_matrix, ax=ax)
 
     plt.show()
@@ -215,8 +243,19 @@ So let's look at these computed contrasts
 
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_002.png
-    :align: center
+    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+      return matrix(data, dtype=dtype, copy=False)
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/tight_layout.py:211: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
+      warnings.warn('Tight layout not applied. '
 
 
 
@@ -227,8 +266,7 @@ we encapsulate it in a function that we call when needed.
 
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn import plotting
 
@@ -256,8 +294,7 @@ we encapsulate it in a function that we call when needed.
 Let's run the model and look at the outcome.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     plot_contrast(first_level_model)
@@ -267,24 +304,39 @@ Let's run the model and look at the outcome.
 
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_003.png
-    :align: center
+    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
+      return _nd_image.find_objects(input, max_label)
 
 
 
 Changing the drift model
 ------------------------
 
-By default the drift model is a set of slow oscillating functions (Discrete Cosine transform), with a cutoff at frequency 1/128 hz.
-We can change this cut-off, e.g. to 1/64Hz.
-This is done by setting period_cut=64(s)
+The drift model is a set of slow oscillating functions
+(Discrete Cosine transform) with a cut-off frequency. To remove
+spurious low-frequency effects related to heart rate, breathing and
+slow drifts in the scanner signal, the standard cutoff frequency
+is 1/128 Hz ~ 0.01Hz. This is the default value set in the FirstLevelModel
+function. Depending on the design of the experiment, the user may want to
+change this value. The cutoff period (1/high_pass) should be set as the
+longest period between two trials of the same condition multiplied by 2.
+For instance, if the longest period is 32s, the high_pass frequency shall be
+1/64 Hz ~ 0.016 Hz.
 
 
+.. code-block:: default
 
-.. code-block:: python
 
-
-    first_level_model = FirstLevelModel(t_r, period_cut=64)
+    first_level_model = FirstLevelModel(t_r, high_pass=.016)
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -293,7 +345,7 @@ This is done by setting period_cut=64(s)
 
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_004.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -301,8 +353,7 @@ This is done by setting period_cut=64(s)
 Does the model perform worse or better ?
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     plot_contrast(first_level_model)
@@ -312,7 +363,7 @@ Does the model perform worse or better ?
 
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_005.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -325,8 +376,7 @@ Another solution is to remove these drift terms. Maybe they're simply useless.
 this is done by setting drift_model to None.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     first_level_model = FirstLevelModel(t_r, drift_model=None)
@@ -345,12 +395,12 @@ this is done by setting drift_model to None.
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_006.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_007.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 
@@ -363,8 +413,7 @@ Another alternative to get a drift model is to specify a set of polynomials
 Let's take a basis of 5 polynomials
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     first_level_model = FirstLevelModel(t_r, drift_model='polynomial',
@@ -384,18 +433,17 @@ Let's take a basis of 5 polynomials
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_008.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_009.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 
 
 Is it good ? No better, no worse. Let's turn to another parameter.
-
 
 Changing the hemodynamic response model
 ---------------------------------------
@@ -408,8 +456,7 @@ so-called Glover hrf) for the so-called canonical model of SPM
 --which has slightly weaker undershoot component.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
  
     first_level_model = FirstLevelModel(t_r, hrf_model='spm')
@@ -428,12 +475,12 @@ so-called Glover hrf) for the so-called canonical model of SPM
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_010.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_011.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 
@@ -450,8 +497,7 @@ which vould decrease the estimated variance and enhance the
 statistical significance of the effect. Is it the case ?
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative')
@@ -470,12 +516,12 @@ statistical significance of the effect. Is it the case ?
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_012.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_013.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 
@@ -488,45 +534,17 @@ possibly valuable information This is implemented by an F test on
 the time derivative regressors.
 
 
+.. code-block:: default
 
-.. code-block:: python
 
+    contrast_val = np.eye(design_matrix.shape[1])[1:21:2]
+    plot_contrast_matrix(contrast_val, design_matrix)
+    plt.show()
 
-    contrast_val = np.eye(design_matrix.shape[1])[1:2:21]
     z_map = first_level_model.compute_contrast(
         contrast_val, output_type='z_score')
     plotting.plot_stat_map(
         z_map, display_mode='z', threshold=3.0, title='effect of time derivatives')
-    plt.show()
-
-
-
-
-.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_014.png
-    :align: center
-
-
-
-
-We don't see too much here: the onset times and hrf delay we're
-using are probably fine.
-
-
-We can also consider adding the so-called dispersion derivative to
-capture some mis-specification in the shape of the hrf.
-
-This is done by specifying `hrf_model='spm + derivative + dispersion'`
-
-
-
-
-.. code-block:: python
-
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative + dispersion')
-    first_level_model = first_level_model.fit(fmri_img, events=events)
-    design_matrix = first_level_model.design_matrices_[0]
-    plot_design_matrix(design_matrix)
-    plot_contrast(first_level_model)
     plt.show()
 
 
@@ -537,35 +555,56 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_015.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_014.png
+            :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_016.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_015.png
+            :class: sphx-glr-multi-img
 
 
 
 
-Not a huge effect. For the sake of simplicity and readibility, we
-can drop that one.
+Well, there seems to be something here. Maybe we could adjust the
+timing, by increasing the slice_time_ref parameter: 0 to 0.5 now the
+reference for model sampling is not the beginning of the volume
+acquisition, but the middle of it.
 
 
-The noise model ar(1) or ols ?
-------------------------------
+.. code-block:: default
 
-So far,we have implicitly used a lag-1 autoregressive model ---aka
-ar(1)--- for the temporal structure of the noise. An alternative
-choice is to use an ordinaly least squares model (ols) that assumes
-no temporal structure (time-independent noise)
+    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative',
+                                        slice_time_ref=0.5)
+    first_level_model = first_level_model.fit(fmri_img, events=events)
+    z_map = first_level_model.compute_contrast(
+        contrast_val, output_type='z_score')
+    plotting.plot_stat_map(
+        z_map, display_mode='z', threshold=3.0,
+        title='effect of time derivatives after model shift')
+    plt.show()
 
 
 
-.. code-block:: python
+.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_016.png
+    :class: sphx-glr-single-img
 
 
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative', noise_model='ols')
+
+
+The time derivatives regressors capture less signal: it's better so.
+
+We can also consider adding the so-called dispersion derivative to
+capture some mis-specification in the shape of the hrf.
+
+This is done by specifying `hrf_model='spm + derivative + dispersion'`
+
+
+
+.. code-block:: default
+
+    first_level_model = FirstLevelModel(t_r,slice_time_ref=0.5,
+                                        hrf_model='spm + derivative + dispersion')
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -581,44 +620,88 @@ no temporal structure (time-independent noise)
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_017.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_018.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 
 
-While the difference is not obvious you should rather stick to the ar(1) model, which is arguably more accurate.
+Not a huge effect. For the sake of simplicity and readibility, we
+can drop that one.
 
+The noise model ar(1) or ols ?
+------------------------------
+
+So far,we have implicitly used a lag-1 autoregressive model ---aka
+ar(1)--- for the temporal structure of the noise. An alternative
+choice is to use an ordinaly least squares model (ols) that assumes
+no temporal structure (time-independent noise)
+
+
+.. code-block:: default
+
+
+    first_level_model = FirstLevelModel(t_r, slice_time_ref=0.5,
+                                        hrf_model='spm + derivative',
+                                        noise_model='ols')
+    first_level_model = first_level_model.fit(fmri_img, events=events)
+    design_matrix = first_level_model.design_matrices_[0]
+    plot_design_matrix(design_matrix)
+    plot_contrast(first_level_model)
+    plt.show()
+
+
+
+
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_019.png
+            :class: sphx-glr-multi-img
+
+    *
+
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_020.png
+            :class: sphx-glr-multi-img
+
+
+
+
+While the difference is not obvious you should rather stick to the
+ar(1) model, which is arguably more accurate.
 
 Removing confounds
 ------------------
 
-A problematic feature of fMRI is the presence of unconctrolled
+A problematic feature of fMRI is the presence of uncontrolled
 confounds in the data, sue to scanner instabilities (spikes) or
 physiological phenomena, such as motion, heart and
-respiration-related blood oxygenation flucturations.  Side
-measurements are sometimes acquired to charcterise these
+respiration-related blood oxygenation fluctuations.  Side
+measurements are sometimes acquired to characterize these
 effects. Here we don't have access to those.  What we can do instead
 is to estimate confounding effects from the data themselves, using
-the compcorr approach, and take those into account in the model.
+the CompCor approach, and take those into account in the model.
 
-For this we rely on the so-called :ref:`high_variance_confounds
-<https://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html>`
+For this we rely on the so-called `high_variance_confounds`_
 routine of Nilearn.
 
+.. _high_variance_confounds: https://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html
 
 
-.. code-block:: python
+.. code-block:: default
 
 
 
     from nilearn.image import high_variance_confounds
     confounds = pd.DataFrame(high_variance_confounds(fmri_img, percentile=1))
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative')
+    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative',
+                                        slice_time_ref=0.5)
     first_level_model = first_level_model.fit(fmri_img, events=events,
                                               confounds=confounds)
     design_matrix = first_level_model.design_matrices_[0]
@@ -634,14 +717,23 @@ routine of Nilearn.
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_019.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_021.png
+            :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_020.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_022.png
+            :class: sphx-glr-multi-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+      return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
 
 
 
@@ -651,7 +743,6 @@ The effect on activation maps is complex: auditory/visual effects
 are killed, probably because they were somewhat colinear to the
 confounds. On the other hand, some of the maps become cleaner (H-V,
 computation) after this addition.
-
 
 Smoothing
 ----------
@@ -664,13 +755,12 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 (fwhm).
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     first_level_model = FirstLevelModel(
-        t_r, hrf_model='spm + derivative', smoothing_fwhm=5).fit(
-            fmri_img, events=events, confounds=confounds)
+        t_r, hrf_model='spm + derivative', smoothing_fwhm=5,
+        slice_time_ref=0.5).fit(fmri_img, events=events, confounds=confounds)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
     plot_contrast(first_level_model)
@@ -684,13 +774,13 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_021.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_023.png
+            :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_022.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_024.png
+            :class: sphx-glr-multi-img
 
 
 
@@ -698,10 +788,11 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 The design is unchanged but the maps are smoother and more contrasted
 
 
-
 Masking
 --------
-Masking consists in selecting the region of the image on which the model is run: it is useless to run it outside of the brain.
+
+Masking consists in selecting the region of the image on which the
+model is run: it is useless to run it outside of the brain.
 
 The approach taken by FirstLeveModel is to estimate it from the fMRI
 data themselves when no mask is explicitly provided.  Since the data
@@ -713,14 +804,14 @@ downside is that the mask may not fit very well these particular
 data.
 
 
+.. code-block:: default
 
-.. code-block:: python
 
-
-    from nilearn.plotting import plot_roi 
+    data_mask = first_level_model.masker_.mask_img_
     from nilearn.datasets import fetch_icbm152_brain_gm_mask
     icbm_mask = fetch_icbm152_brain_gm_mask()
-    data_mask = first_level_model.masker_.mask_img_
+
+    from nilearn.plotting import plot_roi 
     plt.figure(figsize=(16, 4))
     ax = plt.subplot(121)
     plot_roi(icbm_mask, title='ICBM mask', axes=ax)
@@ -731,8 +822,36 @@ data.
 
 
 
-.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_023.png
-    :align: center
+.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_025.png
+    :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
+      return _nd_image.find_objects(input, max_label)
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      % get_backend())
+
+
+
+For the sake of time saving, we reample icbm_mask to our data
+For this we call the resample_to_img routine of Nilearn.
+We use interpolation = 'nearest' to keep the mask a binary image
+
+
+.. code-block:: default
+
+    from nilearn.image import resample_to_img
+    resampled_icbm_mask = resample_to_img(icbm_mask, data_mask,
+                                          interpolation='nearest')
+
+
+
 
 
 
@@ -740,13 +859,11 @@ data.
 Impact on the first-level model
 
 
-
-.. code-block:: python
-
-
+.. code-block:: default
 
     first_level_model = FirstLevelModel(
-        t_r, hrf_model='spm + derivative', smoothing_fwhm=5).fit(
+        t_r, hrf_model='spm + derivative', smoothing_fwhm=5, slice_time_ref=0.5,
+        mask_img=resampled_icbm_mask).fit(
             fmri_img, events=events, confounds=confounds)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -756,22 +873,43 @@ Impact on the first-level model
 
 
 
-
 .. rst-class:: sphx-glr-horizontal
 
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_024.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_026.png
+            :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_025.png
-            :scale: 47
+      .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_027.png
+            :class: sphx-glr-multi-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+    Use os.path.join(memory.location, 'joblib') attribute instead.
+      if (memory.cachedir is None and memory_level is not None
+    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:135: RuntimeWarning: divide by zero encountered in true_divide
+      (ols_result.resid ** 2).sum(axis=0))
+    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:135: RuntimeWarning: invalid value encountered in true_divide
+      (ols_result.resid ** 2).sum(axis=0))
+    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/utils.py:300: RuntimeWarning: divide by zero encountered in true_divide
+      return np.where(X <= 0, 0, 1. / X)
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
+      return _nd_image.find_objects(input, max_label)
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      % get_backend())
 
 
 
+Note that it removed spurious spots in the white matter.
 
 Conclusion
 ----------
@@ -783,11 +921,19 @@ ar(1) model) are actually reasonable.  Note that these conclusions
 are specific to this dataset and may vary with other ones.
 
 
-**Total running time of the script:** ( 0 minutes  46.371 seconds)
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  46.395 seconds)
 
 
+.. _sphx_glr_download_auto_examples_01_tutorials_plot_first_level_model_details.py:
 
-.. container:: sphx-glr-footer
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download
@@ -800,6 +946,9 @@ are specific to this dataset and may vary with other ones.
 
      :download:`Download Jupyter notebook: plot_first_level_model_details.ipynb <plot_first_level_model_details.ipynb>`
 
-.. rst-class:: sphx-glr-signature
 
-    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

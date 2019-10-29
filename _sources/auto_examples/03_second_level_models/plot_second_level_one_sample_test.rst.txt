@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py:
 
@@ -6,7 +10,8 @@
 Second-level fMRI model: one sample test
 ========================================
 
-Full step-by-step example of fitting a GLM to perform a second-level analysis (one-sample test)
+Full step-by-step example of fitting a GLM to perform a second-level analysis
+(one-sample test)
 and visualizing the results.
 
 More specifically:
@@ -15,18 +20,20 @@ More specifically:
 2. a mask of the useful brain volume is computed
 3. A one-sample t-test is applied to the brain maps
 
-We focus on a given contrast of the localizer dataset: the motor response to left versus right button press. Both at the ndividual and group level, this is expected to elicit activity in the motor cortex (positive in the right hemisphere, negative in the left hemisphere).
-
+We focus on a given contrast of the localizer dataset: the motor response to
+left versus right button press. Both at the ndividual and group level, this is
+expected to elicit activity in the motor cortex (positive in the right
+hemisphere, negative in the left hemisphere).
 
 
 Fetch dataset
 --------------
 We download a list of left vs right button press contrasts from a
-localizer dataset. Note that we fetc individual t-maps that represent the Bold activity estimate divided by the uncertainty about this estimate. 
+localizer dataset. Note that we fetc individual t-maps that represent the
+Bold activity estimate divided by the uncertainty about this estimate.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn.datasets import fetch_localizer_contrasts
     n_subjects = 16
@@ -37,6 +44,15 @@ localizer dataset. Note that we fetc individual t-maps that represent the Bold a
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+      output = genfromtxt(fname, **kwargs)
+
 
 
 Display subject t_maps
@@ -46,8 +62,7 @@ simple visualization purposes. The button press effect is visible among
 all subjects
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn import plotting
     import matplotlib.pyplot as plt
@@ -65,8 +80,19 @@ all subjects
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_second_level_one_sample_test_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
+      return _nd_image.find_objects(input, max_label)
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      % get_backend())
 
 
 
@@ -76,8 +102,7 @@ We define the input maps and the design matrix for the second level model
 and fit it.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     import pandas as pd
     second_level_input = data['cmaps']
@@ -93,8 +118,7 @@ and fit it.
 Model specification and fit
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.second_level_model import SecondLevelModel
     second_level_model = SecondLevelModel(smoothing_fwhm=8.0)
@@ -105,14 +129,25 @@ Model specification and fit
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+    Use os.path.join(memory.location, 'joblib') attribute instead.
+      if (memory.cachedir is None and memory_level is not None
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
+      r = func(a, **kwargs)
+
 
 
 To estimate the contrast is very simple. We can just provide the column
 name of the design matrix.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     z_map = second_level_model.compute_contrast(output_type='z_score')
 
@@ -120,26 +155,34 @@ name of the design matrix.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
+      return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+
 
 
 We threshold the second level contrast at uncorrected p < 0.001 and plot
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from scipy.stats import norm
     p_val = 0.001
     p001_unc = norm.isf(p_val)
     display = plotting.plot_glass_brain(
         z_map, threshold=p001_unc, colorbar=True, display_mode='z', plot_abs=False,
-        title='group left-right button press (unc p<0.001')
+        title='group left-right button press (unc p<0.001)')
 
 
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_second_level_one_sample_test_002.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -147,8 +190,7 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot
 As expected, we find the motor cortex
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     plotting.show()
 
@@ -157,11 +199,133 @@ As expected, we find the motor cortex
 
 
 
-**Total running time of the script:** ( 0 minutes  26.438 seconds)
+
+Computing the (corrected) p-values with parametric test to compare with
+non parametric test
+
+
+.. code-block:: default
+
+    import numpy as np
+    from nilearn.image import math_img
+    from nilearn.input_data import NiftiMasker
+    p_val = second_level_model.compute_contrast(output_type='p_value')
+    n_voxels = np.sum(second_level_model.masker_.mask_img_.get_data())
+    # Correcting the p-values for multiple testing and taking negative logarithm
+    neg_log_pval = math_img("-np.log10(np.minimum(1, img * {}))"
+                            .format(str(n_voxels)),
+                            img=p_val)
 
 
 
-.. container:: sphx-glr-footer
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    <string>:1: RuntimeWarning: divide by zero encountered in log10
+
+
+
+Let us plot the (corrected) negative log p-values for the parametric test
+
+
+.. code-block:: default
+
+    cut_coords = [0]
+    # Since we are plotting negative log p-values and using a threshold equal to 1,
+    # it corresponds to corrected p-values lower than 10%, meaning that there
+    # is less than 10% probability to make a single false discovery
+    # (90% chance that we make no false discovery at all).
+    # This threshold is much more conservative than the previous one.
+    threshold = 1
+    title = ('Group left-right button press: \n'
+             'parametric test (FWER < 10%)')
+    display = plotting.plot_glass_brain(
+        neg_log_pval, colorbar=True, display_mode='z', plot_abs=False, vmax=3,
+        cut_coords=cut_coords, threshold=threshold, title=title)
+    plotting.show()
+
+
+
+
+.. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_second_level_one_sample_test_003.png
+    :class: sphx-glr-single-img
+
+
+
+
+Computing the (corrected) p-values with permutation test
+
+
+.. code-block:: default
+
+    from nistats.second_level_model import non_parametric_inference
+    neg_log_pvals_permuted_ols_unmasked = \
+        non_parametric_inference(second_level_input,
+                                 design_matrix=design_matrix,
+                                 model_intercept=True, n_perm=1000,
+                                 two_sided_test=False,
+                                 smoothing_fwhm=8.0, n_jobs=1)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/mass_univariate/permuted_least_squares.py:453: DeprecationWarning: This function is deprecated. Please call randint(1, 2147483646 + 1) instead
+      for n_perm_chunk in n_perm_chunks)
+
+
+
+Let us plot the (corrected) negative log  p-values
+
+
+.. code-block:: default
+
+    title = ('Group left-right button press: \n'
+             'permutation test (FWER < 10%)')
+    display = plotting.plot_glass_brain(
+        neg_log_pvals_permuted_ols_unmasked, colorbar=True, vmax=3,
+        display_mode='z', plot_abs=False, cut_coords=cut_coords,
+        threshold=threshold, title=title)
+    plotting.show()
+
+    # The neg-log p-values obtained with non parametric testing are capped at 3
+    # since the number of permutations is 1e3.
+    # The non parametric test yields many more discoveries
+    # and is then more powerful than the usual parametric procedure.
+
+
+
+.. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_second_level_one_sample_test_004.png
+    :class: sphx-glr-single-img
+
+
+
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  21.081 seconds)
+
+
+.. _sphx_glr_download_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py:
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download
@@ -174,6 +338,9 @@ As expected, we find the motor cortex
 
      :download:`Download Jupyter notebook: plot_second_level_one_sample_test.ipynb <plot_second_level_one_sample_test.ipynb>`
 
-.. rst-class:: sphx-glr-signature
 
-    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

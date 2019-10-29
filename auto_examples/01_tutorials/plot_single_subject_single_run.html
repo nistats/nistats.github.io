@@ -3,21 +3,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.1.3. Studying first-level-model details in a trials-and-error fashion" href="plot_first_level_model_details.html" />
-    <link rel="prev" title="2.1.1. BIDS dataset first and second level analysis" href="plot_bids_analysis.html" />
+    <link rel="next" title="2.1.2. Studying first-level-model details in a trials-and-error fashion" href="plot_first_level_model_details.html" />
+    <link rel="prev" title="2. Nistats usage examples" href="../index.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -137,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_first_level_model_details.html" title="2.1.3. Studying first-level-model details in a trials-and-error fashion"
+          <a href="plot_first_level_model_details.html" title="2.1.2. Studying first-level-model details in a trials-and-error fashion"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_bids_analysis.html" title="2.1.1. BIDS dataset first and second level analysis"
+          <a href="../index.html" title="2. Nistats usage examples"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -163,31 +163,29 @@ $(function () {
                     papers</a>.</p></li>
   </ul>
 
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">2.1.2. Analysis of a single session, single subject fMRI dataset</a><ul>
-<li><a class="reference internal" href="#retrieving-the-data">2.1.2.1. Retrieving the data</a></li>
-<li><a class="reference internal" href="#specifying-the-experimental-paradigm">2.1.2.2. Specifying the experimental paradigm</a></li>
-<li><a class="reference internal" href="#performing-the-glm-analysis">2.1.2.3. Performing the GLM analysis</a></li>
-<li><a class="reference internal" href="#detecting-voxels-with-significant-effects">2.1.2.4. Detecting voxels with significant effects</a></li>
+<li><a class="reference internal" href="#">2.1.1. Analysis of a single session, single subject fMRI dataset</a><ul>
+<li><a class="reference internal" href="#retrieving-the-data">2.1.1.1. Retrieving the data</a></li>
+<li><a class="reference internal" href="#specifying-the-experimental-paradigm">2.1.1.2. Specifying the experimental paradigm</a></li>
+<li><a class="reference internal" href="#performing-the-glm-analysis">2.1.1.3. Performing the GLM analysis</a></li>
+<li><a class="reference internal" href="#detecting-voxels-with-significant-effects">2.1.1.4. Detecting voxels with significant effects</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="plot_bids_analysis.html"
-                        title="previous chapter">2.1.1. BIDS dataset first and second level analysis</a></p>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">2. Nistats usage examples</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_first_level_model_details.html"
-                        title="next chapter">2.1.3. Studying first-level-model details in a trials-and-error fashion</a></p>
+                        title="next chapter">2.1.2. Studying first-level-model details in a trials-and-error fashion</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -200,8 +198,12 @@ $(function () {
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="analysis-of-a-single-session-single-subject-fmri-dataset">
-<span id="sphx-glr-auto-examples-01-tutorials-plot-single-subject-single-run-py"></span><h1>2.1.2. Analysis of a single session, single subject fMRI dataset<a class="headerlink" href="#analysis-of-a-single-session-single-subject-fmri-dataset" title="Permalink to this headline">¶</a></h1>
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-01-tutorials-plot-single-subject-single-run-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="analysis-of-a-single-session-single-subject-fmri-dataset">
+<span id="sphx-glr-auto-examples-01-tutorials-plot-single-subject-single-run-py"></span><h1>2.1.1. Analysis of a single session, single subject fMRI dataset<a class="headerlink" href="#analysis-of-a-single-session-single-subject-fmri-dataset" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we compare the fMRI signal during periods of auditory
 stimulation versus periods of rest, using a General Linear Model (GLM).</p>
 <p>The dataset comes from an experiment conducted at the FIL by Geriant Rees
@@ -223,182 +225,204 @@ spatially normalized and smoothed images).</p>
 <div class="contents local topic" id="contents">
 <p class="topic-title first"><strong>Contents</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="#retrieving-the-data" id="id1">Retrieving the data</a></li>
-<li><a class="reference internal" href="#specifying-the-experimental-paradigm" id="id2">Specifying the experimental paradigm</a></li>
-<li><a class="reference internal" href="#performing-the-glm-analysis" id="id3">Performing the GLM analysis</a></li>
-<li><a class="reference internal" href="#detecting-voxels-with-significant-effects" id="id4">Detecting voxels with significant effects</a></li>
+<li><p><a class="reference internal" href="#retrieving-the-data" id="id1">Retrieving the data</a></p></li>
+<li><p><a class="reference internal" href="#specifying-the-experimental-paradigm" id="id2">Specifying the experimental paradigm</a></p></li>
+<li><p><a class="reference internal" href="#performing-the-glm-analysis" id="id3">Performing the GLM analysis</a></p></li>
+<li><p><a class="reference internal" href="#detecting-voxels-with-significant-effects" id="id4">Detecting voxels with significant effects</a></p></li>
 </ul>
 </div>
 <div class="section" id="retrieving-the-data">
-<h2><a class="toc-backref" href="#id1">2.1.2.1. Retrieving the data</a><a class="headerlink" href="#retrieving-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">2.1.1.1. Retrieving the data</a><a class="headerlink" href="#retrieving-the-data" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In this tutorial, we load the data using a data downloading
+<p class="admonition-title">Note</p>
+<p>In this tutorial, we load the data using a data downloading
 function. To input your own data, you will need to provide
 a list of paths to your own files in the <code class="docutils literal notranslate"><span class="pre">subject_data</span></code> variable.
 These should abide to the Brain Imaging Data Structure (BIDS)
 organization.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.datasets</span> <span class="kn">import</span> <span class="n">fetch_spm_auditory</span>
-<span class="n">subject_data</span> <span class="o">=</span> <span class="n">fetch_spm_auditory</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>  <span class="c1"># print the list of names of functional images</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.datasets</span> <span class="k">import</span> <a href="../../modules/generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="View documentation for nistats.datasets.fetch_spm_auditory"><span class="n">fetch_spm_auditory</span></a>
+<span class="n">subject_data</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="View documentation for nistats.datasets.fetch_spm_auditory"><span class="n">fetch_spm_auditory</span></a><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>  <span class="c1"># print the list of names of functional images</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img&#39;</span><span class="p">]</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img&#39;, &#39;/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img&#39;]
 </pre></div>
 </div>
 <p>We can display the first functional image and the subject’s anatomy:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_anat.html#nilearn.plotting.plot_anat" title="View documentation for nilearn.plotting.plot_anat"><span class="n">plot_anat</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="View documentation for nilearn.plotting.plot_img"><span class="n">plot_img</span></a><span class="p">,</span> <span class="n">show</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_anat.html#nilearn.plotting.plot_anat" title="View documentation for nilearn.plotting.plot_anat"><span class="n">plot_anat</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="View documentation for nilearn.plotting.plot_img"><span class="n">plot_img</span></a><span class="p">,</span> <span class="n">show</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="View documentation for nilearn.plotting.plot_img"><span class="n">plot_img</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_anat.html#nilearn.plotting.plot_anat" title="View documentation for nilearn.plotting.plot_anat"><span class="n">plot_anat</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">anat</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_single_subject_single_run_001.png"><img alt="../../_images/sphx_glr_plot_single_subject_single_run_001.png" src="../../_images/sphx_glr_plot_single_subject_single_run_001.png" style="width: 310.2px; height: 122.19999999999999px;" /></a>
+<li><img alt="../../_images/sphx_glr_plot_single_subject_single_run_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_single_subject_single_run_001.png" />
 </li>
-<li><a class="first reference internal image-reference" href="../../_images/sphx_glr_plot_single_subject_single_run_002.png"><img alt="../../_images/sphx_glr_plot_single_subject_single_run_002.png" src="../../_images/sphx_glr_plot_single_subject_single_run_002.png" style="width: 310.2px; height: 122.19999999999999px;" /></a>
+<li><img alt="../../_images/sphx_glr_plot_single_subject_single_run_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_single_subject_single_run_002.png" />
 </li>
 </ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
+  return _nd_image.find_objects(input, max_label)
+</pre></div>
+</div>
 <p>Next, we concatenate all the 3D EPI image into a single 4D image,
 then we average them in order to create a background
 image that will be used to display the activations:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">,</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a>
 <span class="n">fmri_img</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">concat_imgs</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="specifying-the-experimental-paradigm">
-<h2><a class="toc-backref" href="#id2">2.1.2.2. Specifying the experimental paradigm</a><a class="headerlink" href="#specifying-the-experimental-paradigm" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">2.1.1.2. Specifying the experimental paradigm</a><a class="headerlink" href="#specifying-the-experimental-paradigm" title="Permalink to this headline">¶</a></h2>
 <p>We must now provide a description of the experiment, that is, define the
 timing of the auditory stimulation and rest periods. This is typically
 provided in an events.tsv file. The path of this file is
 provided in the dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="n">events</span> <span class="o">=</span> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><span class="n">subject_data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><span class="n">subject_data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onset</span>  <span class="n">duration</span> <span class="n">trial_type</span>
-<span class="mi">0</span>     <span class="mf">0.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">1</span>    <span class="mf">42.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">2</span>    <span class="mf">84.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">3</span>   <span class="mf">126.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">4</span>   <span class="mf">168.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">5</span>   <span class="mf">210.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">6</span>   <span class="mf">252.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">7</span>   <span class="mf">294.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">8</span>   <span class="mf">336.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">9</span>   <span class="mf">378.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">10</span>  <span class="mf">420.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">11</span>  <span class="mf">462.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">12</span>  <span class="mf">504.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">13</span>  <span class="mf">546.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
-<span class="mi">14</span>  <span class="mf">588.0</span>      <span class="mf">42.0</span>       <span class="n">rest</span>
-<span class="mi">15</span>  <span class="mf">630.0</span>      <span class="mf">42.0</span>     <span class="n">active</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>    onset  duration trial_type
+0     0.0      42.0       rest
+1    42.0      42.0     active
+2    84.0      42.0       rest
+3   126.0      42.0     active
+4   168.0      42.0       rest
+5   210.0      42.0     active
+6   252.0      42.0       rest
+7   294.0      42.0     active
+8   336.0      42.0       rest
+9   378.0      42.0     active
+10  420.0      42.0       rest
+11  462.0      42.0     active
+12  504.0      42.0       rest
+13  546.0      42.0     active
+14  588.0      42.0       rest
+15  630.0      42.0     active
 </pre></div>
 </div>
 </div>
 <div class="section" id="performing-the-glm-analysis">
-<h2><a class="toc-backref" href="#id3">2.1.2.3. Performing the GLM analysis</a><a class="headerlink" href="#performing-the-glm-analysis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">2.1.1.3. Performing the GLM analysis</a><a class="headerlink" href="#performing-the-glm-analysis" title="Permalink to this headline">¶</a></h2>
 <p>It is now time to create and estimate a <code class="docutils literal notranslate"><span class="pre">FirstLevelModel</span></code> object, that will generate the <em>design matrix</em> using the  information provided by the <code class="docutils literal notranslate"><span class="pre">events</span></code> object.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="kn">import</span> <span class="n">FirstLevelModel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a>
 </pre></div>
 </div>
 <p>Parameters of the first-level model</p>
 <ul class="simple">
-<li>t_r=7(s) is the time of repetition of acquisitions</li>
-<li>noise_model=’ar1’ specifies the noise covariance model: a lag-1 dependence</li>
-<li>standardize=False means that we do not want to rescale the time</li>
+<li><p>t_r=7(s) is the time of repetition of acquisitions</p></li>
+<li><p>noise_model=’ar1’ specifies the noise covariance model: a lag-1 dependence</p></li>
+<li><p>standardize=False means that we do not want to rescale the time series to mean 0, variance 1</p></li>
+<li><p>hrf_model=’spm’ means that we rely on the SPM “canonical hrf” model (without time or dispersion derivatives)</p></li>
+<li><p>drift_model=’cosine’ means that we model the signal drifts as slow oscillating time functions</p></li>
+<li><p>high_pass=0.01(Hz) defines the cutoff frequency (inverse of the time period).</p></li>
 </ul>
-<p>series to mean 0, variance 1
-* hrf_model=’spm’ means that we rely on the SPM “canonical hrf”
-model (without time or dispersion derivatives)
-* drift_model=’cosine’ means that we model the signal drifts as slow oscillating time functions
-* period_cut=160(s) defines the cutoff frequency (its inverse actually).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">FirstLevelModel</span><span class="p">(</span><span class="n">t_r</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a><span class="p">(</span><span class="n">t_r</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
                            <span class="n">noise_model</span><span class="o">=</span><span class="s1">&#39;ar1&#39;</span><span class="p">,</span>
-                           <span class="n">standardize</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                            <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;spm&#39;</span><span class="p">,</span>
                            <span class="n">drift_model</span><span class="o">=</span><span class="s1">&#39;cosine&#39;</span><span class="p">,</span>
-                           <span class="n">period_cut</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
+                           <span class="n">high_pass</span><span class="o">=.</span><span class="mi">01</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now that we have specified the model, we can run it on the fMRI image</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fmri_glm</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The &#39;cachedir&#39; attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+Use os.path.join(memory.location, &#39;joblib&#39;) attribute instead.
+  if (memory.cachedir is None and memory_level is not None
 </pre></div>
 </div>
 <p>One can inspect the design matrix (rows represent time, and
 columns contain the predictors).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrix</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">design_matrix</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Formally, we have taken the first design matrix, because the model is
 implictily meant to for multiple runs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_design_matrix</span>
-<span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="k">import</span> <a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a>
+<a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_003.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_003.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  % get_backend())
+</pre></div>
+</div>
 <p>Save the design matrix image to disk
 first create a directory where you want to write the images</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">outdir</span> <span class="o">=</span> <span class="s1">&#39;results&#39;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outdir</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">outdir</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
-<span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;design_matrix.png&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">join</span>
+<a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">(</span>
+    <span class="n">design_matrix</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;design_matrix.png&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The first column contains the expected reponse profile of regions which are
+<p>The first column contains the expected response profile of regions which are
 sensitive to the auditory stimulation.
 Let’s plot this first column</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="View documentation for matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">])</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s1">&#39;scan&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Expected Auditory Response&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="View documentation for matplotlib.pyplot.plot"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">])</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s1">&#39;scan&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Expected Auditory Response&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_004.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_004.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_004.png" />
 </div>
 <div class="section" id="detecting-voxels-with-significant-effects">
-<h2><a class="toc-backref" href="#id4">2.1.2.4. Detecting voxels with significant effects</a><a class="headerlink" href="#detecting-voxels-with-significant-effects" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">2.1.1.4. Detecting voxels with significant effects</a><a class="headerlink" href="#detecting-voxels-with-significant-effects" title="Permalink to this headline">¶</a></h2>
 <p>To access the estimated coefficients (Betas of the GLM model), we
-created constrast with a single ‘1’ in each of the columns: The role
+created contrast with a single ‘1’ in each of the columns: The role
 of the contrast is to select some columns of the model –and
 potentially weight them– to study the associated statistics. So in
-a nutshell, a contrast is a weigted combination of the estimated
+a nutshell, a contrast is a weighted combination of the estimated
 effects.  Here we can define canonical contrasts that just consider
 the two condition in isolation —let’s call them “conditions”—
 then a contrast that makes the difference between these conditions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a>
 <span class="n">conditions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;active&#39;</span><span class="p">:</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]),</span>
-    <span class="s1">&#39;rest&#39;</span><span class="p">:</span>   <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]),</span>
+    <span class="s1">&#39;active&#39;</span><span class="p">:</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>
+                     <span class="mf">0.</span><span class="p">]),</span>
+    <span class="s1">&#39;rest&#39;</span><span class="p">:</span>   <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">array</span></a><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>
+                     <span class="mf">0.</span><span class="p">]),</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>We can then compare the two conditions ‘active’ and ‘rest’ by
 defining the corresponding contrast:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">active_minus_rest</span> <span class="o">=</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;rest&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">active_minus_rest</span> <span class="o">=</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;rest&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Let’s look at it: plot the coefficients of the contrast, indexed by
 the names of the columns of the design matrix.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">plot_contrast_matrix</span>
-<span class="n">plot_contrast_matrix</span><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="k">import</span> <a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a>
+<a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_005.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_005.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_005.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+  return matrix(data, dtype=dtype, copy=False)
+</pre></div>
+</div>
 <p>Below, we compute the estimated effect. It is in BOLD signal unit,
 but has no statistical guarantees, because it does not take into
 account the associated variance.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eff_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eff_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span>
                                     <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;effect_size&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -406,7 +430,7 @@ account the associated variance.</p>
 directly convert is into z-scale. The z-scale means that the values
 are scaled to match a standard Gaussian distribution (mean=0,
 variance=1), across voxels, if there were now effects in the data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">active_minus_rest</span><span class="p">,</span>
                                   <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -414,116 +438,140 @@ variance=1), across voxels, if there were now effects in the data.</p>
 <p>We display it on top of the average
 functional image of the series (could be the anatomical image of the
 subject).  We use arbitrarily a threshold of 3.0 in z-scale. We’ll
-see later how to use corrected thresholds.  we show to display 3
-axial views: display_mode=’z’, cut_coords=3</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+see later how to use corrected thresholds. We will show 3
+axial views, with display_mode=’z’ and cut_coords=3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Active minus Rest (Z&gt;3)&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_006.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_006.png" />
-<p>Statistical signifiance testing. One should worry about the
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_006.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_006.png" />
+<p>Statistical significance testing. One should worry about the
 statistical validity of the procedure: here we used an arbitrary
 threshold of 3.0 but the threshold should provide some guarantees on
-the risk of false detections (aka type-1 errors in statistics). One
-first suggestion is to control the false positive rate (fpr) at a
-certain level, e.g. 0.001: this means that there is.1% chance of
-declaring active an inactive voxel.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="kn">import</span> <span class="n">map_threshold</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">001</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fpr&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Uncorrected p&lt;0.001 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
+the risk of false detections (aka type-1 errors in statistics).
+One suggestion is to control the false positive rate (fpr, denoted by
+alpha) at a certain level, e.g. 0.001: this means that there is 0.1% chance
+of declaring an inactive voxel, active.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="k">import</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a>
+<span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">001</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fpr&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Uncorrected p&lt;0.001 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Active minus Rest (p&lt;0.001)&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_007.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_007.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_007.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_007.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Uncorrected</span> <span class="n">p</span><span class="o">&lt;</span><span class="mf">0.001</span> <span class="n">threshold</span><span class="p">:</span> <span class="mf">3.090</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Uncorrected p&lt;0.001 threshold: 3.090
 </pre></div>
 </div>
 <p>The problem is that with this you expect 0.001 * n_voxels to show up
 while they’re not active — tens to hundreds of voxels. A more
-conservative solution is to control the family wise errro rate,
-i.e. the probability of making ony one false detection, say at
+conservative solution is to control the family wise error rate,
+i.e. the probability of making only one false detection, say at
 5%. For that we use the so-called Bonferroni correction</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bonferroni-corrected, p&lt;0.05 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bonferroni-corrected, p&lt;0.05 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Active minus Rest (p&lt;0.05, corrected)&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_008.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_008.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_008.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_008.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Bonferroni</span><span class="o">-</span><span class="n">corrected</span><span class="p">,</span> <span class="n">p</span><span class="o">&lt;</span><span class="mf">0.05</span> <span class="n">threshold</span><span class="p">:</span> <span class="mf">4.797</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Bonferroni-corrected, p&lt;0.05 threshold: 4.797
 </pre></div>
 </div>
-<p>This is quite conservative indeed !  A popular alternative is to
-control the false discovery rate, i.e. the expected proportion of
+<p>This is quite conservative indeed!  A popular alternative is to
+control the expected proportion of
 false discoveries among detections. This is called the false
-disovery rate</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;False Discovery rate = 0.05 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
+discovery rate</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;False Discovery rate = 0.05 threshold: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Active minus Rest (fdr=0.05)&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_009.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_009.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_009.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_009.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span> <span class="n">Discovery</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="n">threshold</span><span class="p">:</span> <span class="mf">2.952</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>False Discovery rate = 0.05 threshold: 2.760
 </pre></div>
 </div>
 <p>Finally people like to discard isolated voxels (aka “small
 clusters”) from these images. It is possible to generate a
 thresholded map with small clusters removed by providing a
-cluster_threshold argument. here clusters smaller than 10 voxels
+cluster_threshold argument. Here clusters smaller than 10 voxels
 will be discarded.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clean_map</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clean_map</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">clean_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Active minus Rest (fdr=0.05), clusters &gt; 10 voxels&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_010.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_010.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_010.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_010.png" />
 <p>We can save the effect and zscore maps to the disk</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;active_vs_rest_z_map.nii.gz&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;active_vs_rest_z_map.nii.gz&#39;</span><span class="p">))</span>
 <span class="n">eff_map</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;active_vs_rest_eff_map.nii.gz&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Report the found positions in a table</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <span class="n">get_clusters_table</span>
-<span class="n">table</span> <span class="o">=</span> <span class="n">get_clusters_table</span><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">stat_threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="k">import</span> <a href="../../modules/generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="View documentation for nistats.reporting.get_clusters_table"><span class="n">get_clusters_table</span></a>
+<span class="n">table</span> <span class="o">=</span> <a href="../../modules/generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="View documentation for nistats.reporting.get_clusters_table"><span class="n">get_clusters_table</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">stat_threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
                            <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cluster</span> <span class="n">ID</span>     <span class="n">X</span>     <span class="n">Y</span>     <span class="n">Z</span>  <span class="n">Peak</span> <span class="n">Stat</span> <span class="n">Cluster</span> <span class="n">Size</span> <span class="p">(</span><span class="n">mm3</span><span class="p">)</span>
-<span class="mi">0</span>           <span class="mi">1</span>  <span class="mf">60.0</span>   <span class="mf">0.0</span>  <span class="mf">36.0</span>  <span class="mf">10.082400</span>               <span class="mi">1512</span>
-<span class="mi">1</span>          <span class="mi">1</span><span class="n">a</span>  <span class="mf">69.0</span>   <span class="mf">6.0</span>  <span class="mf">39.0</span>   <span class="mf">9.126794</span>
-<span class="mi">2</span>          <span class="mi">1</span><span class="n">b</span>  <span class="mf">42.0</span> <span class="o">-</span><span class="mf">12.0</span>  <span class="mf">42.0</span>   <span class="mf">7.525517</span>
-<span class="mi">3</span>           <span class="mi">2</span> <span class="o">-</span><span class="mf">63.0</span>  <span class="o">-</span><span class="mf">6.0</span>  <span class="mf">42.0</span>   <span class="mf">9.987308</span>               <span class="mi">4239</span>
-<span class="mi">4</span>          <span class="mi">2</span><span class="n">a</span> <span class="o">-</span><span class="mf">51.0</span> <span class="o">-</span><span class="mf">12.0</span>  <span class="mf">39.0</span>   <span class="mf">8.877129</span>
-<span class="mi">5</span>          <span class="mi">2</span><span class="n">b</span> <span class="o">-</span><span class="mf">63.0</span>   <span class="mf">6.0</span>  <span class="mf">36.0</span>   <span class="mf">8.855163</span>
-<span class="mi">6</span>          <span class="mi">2</span><span class="n">c</span> <span class="o">-</span><span class="mf">63.0</span>  <span class="mf">18.0</span>  <span class="mf">33.0</span>   <span class="mf">8.597630</span>
-<span class="mi">7</span>           <span class="mi">3</span>  <span class="mf">66.0</span>  <span class="mf">15.0</span>  <span class="mf">27.0</span>   <span class="mf">8.765653</span>                <span class="mi">864</span>
-<span class="mi">8</span>          <span class="mi">3</span><span class="n">a</span>  <span class="mf">51.0</span>   <span class="mf">3.0</span>  <span class="mf">30.0</span>   <span class="mf">7.242875</span>
-<span class="mi">9</span>           <span class="mi">4</span>  <span class="mf">33.0</span>  <span class="o">-</span><span class="mf">6.0</span>  <span class="mf">12.0</span>   <span class="mf">7.228047</span>               <span class="mi">1134</span>
-<span class="mi">10</span>          <span class="mi">5</span> <span class="o">-</span><span class="mf">60.0</span> <span class="o">-</span><span class="mf">21.0</span>  <span class="mf">33.0</span>   <span class="mf">5.744632</span>                <span class="mi">540</span>
-<span class="mi">11</span>         <span class="mi">5</span><span class="n">a</span> <span class="o">-</span><span class="mf">63.0</span> <span class="o">-</span><span class="mf">21.0</span>  <span class="mf">42.0</span>   <span class="mf">5.708513</span>
-<span class="mi">12</span>         <span class="mi">5</span><span class="n">b</span> <span class="o">-</span><span class="mf">63.0</span> <span class="o">-</span><span class="mf">21.0</span>  <span class="mf">21.0</span>   <span class="mf">5.706530</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>   Cluster ID     X     Y     Z  Peak Stat Cluster Size (mm3)
+0           1 -60.0  -6.0  42.0   9.811979               4590
+1          1a -63.0   6.0  36.0   8.601922
+2          1b -63.0   0.0  42.0   8.399054
+3          1c -48.0 -15.0  39.0   8.364058
+4           2  60.0   0.0  36.0   9.605127               1728
+5          2a  45.0 -12.0  42.0   7.590201
+6          2b  69.0   6.0  30.0   4.136199
+7           3  63.0  12.0  27.0   8.284500                999
+8          3a  51.0   3.0  30.0   6.968355
+9          3b  54.0   9.0  39.0   3.565609
+10          4  36.0  -3.0  15.0   8.087450               1269
+11          5  51.0  30.0  27.0   7.850265                756
+12         5a  48.0  21.0  27.0   7.411894
+13         5b  57.0  39.0  27.0   6.043533
+14         5c  45.0   9.0  27.0   5.133463
+15          6 -63.0 -18.0  27.0   5.807508                810
+16         6a -63.0 -21.0  42.0   5.646351
+17         6b -60.0 -21.0  33.0   5.416272
+18         6c -63.0  -9.0  24.0   4.292129
+19          7  45.0 -18.0  57.0   5.710963               1053
+20         7a  36.0 -12.0  57.0   5.633747
+21         7b  30.0  -9.0  66.0   4.796135
+22         7c  36.0 -15.0  69.0   4.254544
+23          8 -12.0 -15.0  93.0   5.522476                621
+24         8a  -6.0 -15.0  99.0   4.713854
+25         8b  -3.0 -18.0  90.0   4.270732
+26         8c -18.0 -12.0  96.0   4.085567
+27          9  -3.0 -27.0  90.0   5.406320                891
+28         9a -24.0 -24.0  90.0   5.331806
+29         9b -36.0 -24.0  90.0   4.700089
+30         9c -12.0 -24.0  81.0   4.193729
+31         10 -15.0 -60.0  66.0   4.835098                918
+32        10a -15.0 -60.0  57.0   4.615643
+33        10b  -6.0 -63.0  63.0   4.091567
+34         11 -12.0 -69.0  51.0   4.565542                540
+35        11a -24.0 -63.0  51.0   3.855582
+36        11b  -6.0 -69.0  51.0   3.784628
 </pre></div>
 </div>
 <p>the table can be saved for future use</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;table.csv&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="s1">&#39;table.csv&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Performing an F-test</p>
@@ -533,41 +581,43 @@ seeks whether a certain combination of conditions (possibly two-,
 three- or higher-dimensional) explains a significant proportion of
 the signal.  Here one might for instance test which voxels are well
 explained by combination of the active and rest condition.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">effects_of_interest</span> <span class="o">=</span> <a href="http://docs.scipy.org/doc/numpy-1.11.0/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">],</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;rest&#39;</span><span class="p">]))</span>
-<span class="n">plot_contrast_matrix</span><span class="p">(</span><span class="n">effects_of_interest</span><span class="p">,</span> <span class="n">design_matrix</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">effects_of_interest</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">],</span> <span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;rest&#39;</span><span class="p">]))</span>
+<a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><span class="n">effects_of_interest</span><span class="p">,</span> <span class="n">design_matrix</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_011.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_011.png" />
-<p>Specify the contrast and compute the correspoding map. Actually, the
-contrast specification is done exactly the same way as for t
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_011.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_011.png" />
+<p>Specify the contrast and compute the corresponding map. Actually, the
+contrast specification is done exactly the same way as for t-
 contrasts.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">effects_of_interest</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">fmri_glm</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">effects_of_interest</span><span class="p">,</span>
                                   <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <p>Note that the statistic has been converted to a z-variable, which
 makes it easier to represent it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clean_map</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">map_threshold</span><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">level</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clean_map</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
+    <span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">clean_map</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">black_bg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Effects of interest (fdr=0.05), clusters &gt; 10 voxels&#39;</span><span class="p">)</span>
-<a href="http://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_plot_single_subject_single_run_012.png" class="align-center" src="../../_images/sphx_glr_plot_single_subject_single_run_012.png" />
+<img alt="../../_images/sphx_glr_plot_single_subject_single_run_012.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_single_subject_single_run_012.png" />
 <p>Oops, there is a lot of non-neural signal in there (ventricles, arteries)…</p>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  7.631 seconds)</p>
-<div class="sphx-glr-footer docutils container">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.751 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-tutorials-plot-single-subject-single-run-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_single_subject_single_run.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_single_subject_single_run.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../../_downloads/plot_single_subject_single_run.ipynb" download=""><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_single_subject_single_run.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../../_downloads/dd7d5b88d94e168cce5fa0d8aab07ddf/plot_single_subject_single_run.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_single_subject_single_run.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/4fa5cef1f5999b70587ddc842933cd35/plot_single_subject_single_run.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_single_subject_single_run.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 </div>
 
@@ -584,10 +634,10 @@ makes it easier to represent it.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_first_level_model_details.html" title="2.1.3. Studying first-level-model details in a trials-and-error fashion"
+          <a href="plot_first_level_model_details.html" title="2.1.2. Studying first-level-model details in a trials-and-error fashion"
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_bids_analysis.html" title="2.1.1. BIDS dataset first and second level analysis"
+          <a href="../index.html" title="2. Nistats usage examples"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -602,7 +652,7 @@ makes it easier to represent it.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/01_tutorials/plot_single_subject_single_run.rst.txt"
         	 rel="nofollow">Show this page source</a>

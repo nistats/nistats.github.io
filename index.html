@@ -3,16 +3,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
@@ -147,10 +147,6 @@
 
 <h4> News </h4>
   <ul>
-      <li><p> <strong>UPCOMING SPRINT in April!</strong> Click 
-          <a href=https://github.com/nilearn/nilearn/wiki/April-2019-Sprint>here</a>
-          for details.
-      </p></li>
       <li><p> <strong>October 2018</strong>: Nistats 0.0.1b released
       </p></li>
       <li><p> <strong>November 2017</strong>: Nistats 0.0.1a released
@@ -191,13 +187,11 @@
   <p class="topless"><a href="authors.html"
                         title="next chapter">People</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -225,11 +219,11 @@ scientific stack like Scipy, Numpy and Pandas.</p>
  <div class="col span_2_of_3">
  <div class="jcarousel-wrapper">
  <div class="jcarousel"><ul class="simple">
-<li><a class="reference external" href="auto_examples/04_low_level_functions/plot_hrf.html"><img alt="hrf" src="_images/sphx_glr_plot_hrf_thumb.png" /></a></li>
-<li><a class="reference external" href="auto_examples/04_low_level_functions/plot_design_matrix.html"><img alt="design_matrix" src="_images/sphx_glr_plot_design_matrix_thumb.png" /></a></li>
-<li><a class="reference external" href="auto_examples/02_first_level_models/plot_localizer_analysis.html"><img alt="first_level" src="auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_localizer_analysis_thumb.png" /></a></li>
-<li><a class="reference external" href="auto_examples/03_second_level_models/plot_thresholding.html"><img alt="second_level" src="_images/sphx_glr_plot_thresholding_thumb.png" /></a></li>
-<li><a class="reference external" href="auto_examples/01_tutorials/plot_bids_analysis.html"><img alt="bids" src="_images/sphx_glr_plot_bids_analysis_thumb.png" /></a></li>
+<li><p><a class="reference external" href="auto_examples/04_low_level_functions/plot_hrf.html"><img alt="hrf" src="_images/sphx_glr_plot_hrf_thumb.png" /></a></p></li>
+<li><p><a class="reference external" href="auto_examples/04_low_level_functions/plot_design_matrix.html"><img alt="design_matrix" src="_images/sphx_glr_plot_design_matrix_thumb.png" /></a></p></li>
+<li><p><a class="reference external" href="auto_examples/02_first_level_models/plot_localizer_analysis.html"><img alt="first_level" src="_images/sphx_glr_plot_localizer_surface_analysis_thumb.png" /></a></p></li>
+<li><p><a class="reference external" href="auto_examples/03_second_level_models/plot_thresholding.html"><img alt="second_level" src="_images/sphx_glr_plot_thresholding_thumb.png" /></a></p></li>
+<li><p><a class="reference external" href="auto_examples/05_complete_examples/plot_bids_analysis.html"><img alt="bids" src="_images/sphx_glr_plot_bids_analysis_thumb.png" /></a></p></li>
 </ul>
          </div>
 
@@ -274,7 +268,7 @@ scientific stack like Scipy, Numpy and Pandas.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
         <span style="padding-left: 5ex;">
           <a href="_sources/index.rst.txt"
         	 rel="nofollow">Show this page source</a>

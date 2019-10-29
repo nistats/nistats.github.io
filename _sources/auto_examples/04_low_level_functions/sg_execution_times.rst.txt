@@ -1,0 +1,13 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_04_low_level_functions_sg_execution_times:
+
+Computation times
+=================
+**00:00.968** total execution time for **auto_examples_04_low_level_functions** files:
+
+- **00:00.490**: :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_design_matrix.py` (``plot_design_matrix.py``)
+- **00:00.251**: :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_second_level_design_matrix.py` (``plot_second_level_design_matrix.py``)
+- **00:00.228**: :ref:`sphx_glr_auto_examples_04_low_level_functions_plot_hrf.py` (``plot_hrf.py``)
+- **00:00.000**: :ref:`sphx_glr_auto_examples_04_low_level_functions_write_events_file.py` (``write_events_file.py``)

@@ -3,21 +3,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1.1. nistats.datasets.fetch_bids_langloc_dataset" href="generated/nistats.datasets.fetch_bids_langloc_dataset.html" />
-    <link rel="prev" title="2.4.4. Examples of design matrices" href="../auto_examples/04_low_level_functions/plot_design_matrix.html" />
+    <link rel="next" title="3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset" href="generated/nistats.datasets.fetch_language_localizer_demo_dataset.html" />
+    <link rel="prev" title="2.5.2. Surface-based dataset first and second level analysis of a dataset" href="../auto_examples/05_complete_examples/plot_surface_bids_analysis.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -137,10 +137,10 @@ $(function () {
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="generated/nistats.datasets.fetch_bids_langloc_dataset.html" title="3.1.1. nistats.datasets.fetch_bids_langloc_dataset"
+          <a href="generated/nistats.datasets.fetch_language_localizer_demo_dataset.html" title="3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../auto_examples/04_low_level_functions/plot_design_matrix.html" title="2.4.4. Examples of design matrices"
+          <a href="../auto_examples/05_complete_examples/plot_surface_bids_analysis.html" title="2.5.2. Surface-based dataset first and second level analysis of a dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -162,43 +162,41 @@ $(function () {
                     papers</a>.</p></li>
   </ul>
 
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">3. Reference documentation: all nistats functions</a><ul>
-<li><a class="reference internal" href="#module-nistats.datasets">3.1. <code class="docutils literal notranslate"><span class="pre">nistats.datasets</span></code>: Datasets</a></li>
-<li><a class="reference internal" href="#module-nistats.hemodynamic_models">3.2. <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code>: Hemodynamic Models</a></li>
-<li><a class="reference internal" href="#module-nistats.design_matrix">3.3. <code class="docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code>: Design Matrix Creation</a></li>
-<li><a class="reference internal" href="#module-nistats.experimental_paradigm">3.4. <code class="docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code>: Experimental Paradigm</a></li>
-<li><a class="reference internal" href="#module-nistats.model">3.5. <code class="docutils literal notranslate"><span class="pre">nistats.model</span></code>: Statistical models</a></li>
-<li><a class="reference internal" href="#module-nistats.regression">3.6. <code class="docutils literal notranslate"><span class="pre">nistats.regression</span></code>: Regression Models</a></li>
-<li><a class="reference internal" href="#module-nistats.first_level_model">3.7. <code class="docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code>: First Level Model</a><ul>
+<li><a class="reference internal" href="#module-nistats.datasets">3.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.datasets</span></code>: Datasets</a></li>
+<li><a class="reference internal" href="#module-nistats.hemodynamic_models">3.2. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code>: Hemodynamic Models</a></li>
+<li><a class="reference internal" href="#module-nistats.design_matrix">3.3. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code>: Design Matrix Creation</a></li>
+<li><a class="reference internal" href="#module-nistats.experimental_paradigm">3.4. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code>: Experimental Paradigm</a></li>
+<li><a class="reference internal" href="#module-nistats.model">3.5. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.model</span></code>: Statistical models</a></li>
+<li><a class="reference internal" href="#module-nistats.regression">3.6. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.regression</span></code>: Regression Models</a></li>
+<li><a class="reference internal" href="#module-nistats.first_level_model">3.7. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code>: First Level Model</a><ul>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-nistats.second_level_model">3.8. <code class="docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code>: Second Level Model</a></li>
-<li><a class="reference internal" href="#module-nistats.contrasts">3.9. <code class="docutils literal notranslate"><span class="pre">nistats.contrasts</span></code>: Contrasts</a><ul>
+<li><a class="reference internal" href="#module-nistats.second_level_model">3.8. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code>: Second Level Model</a></li>
+<li><a class="reference internal" href="#module-nistats.contrasts">3.9. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.contrasts</span></code>: Contrasts</a><ul>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-nistats.thresholding">3.10. <code class="docutils literal notranslate"><span class="pre">nistats.thresholding</span></code>: Thresholding Maps</a></li>
-<li><a class="reference internal" href="#module-nistats.reporting">3.11. <code class="docutils literal notranslate"><span class="pre">nistats.reporting</span></code>: Report plotting functions</a></li>
-<li><a class="reference internal" href="#module-nistats.utils">3.12. <code class="docutils literal notranslate"><span class="pre">nistats.utils</span></code>: Utility functions</a></li>
+<li><a class="reference internal" href="#module-nistats.thresholding">3.10. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.thresholding</span></code>: Thresholding Maps</a></li>
+<li><a class="reference internal" href="#module-nistats.reporting">3.11. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.reporting</span></code>: Report plotting functions</a></li>
+<li><a class="reference internal" href="#module-nistats.utils">3.12. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.utils</span></code>: Utility functions</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../auto_examples/04_low_level_functions/plot_design_matrix.html"
-                        title="previous chapter">2.4.4. Examples of design matrices</a></p>
+  <p class="topless"><a href="../auto_examples/05_complete_examples/plot_surface_bids_analysis.html"
+                        title="previous chapter">2.5.2. Surface-based dataset first and second level analysis of a dataset</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="generated/nistats.datasets.fetch_bids_langloc_dataset.html"
-                        title="next chapter">3.1.1. nistats.datasets.fetch_bids_langloc_dataset</a></p>
+  <p class="topless"><a href="generated/nistats.datasets.fetch_language_localizer_demo_dataset.html"
+                        title="next chapter">3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -219,18 +217,18 @@ uses.</p>
 <div class="contents local topic" id="list-of-modules">
 <p class="topic-title first"><strong>List of modules</strong></p>
 <ul class="simple">
-<li><a class="reference internal" href="#module-nistats.datasets" id="id1"><a class="reference internal" href="#module-nistats.datasets" title="nistats.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.datasets</span></code></a>: Datasets</a></li>
-<li><a class="reference internal" href="#module-nistats.hemodynamic_models" id="id2"><a class="reference internal" href="#module-nistats.hemodynamic_models" title="nistats.hemodynamic_models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code></a>: Hemodynamic Models</a></li>
-<li><a class="reference internal" href="#module-nistats.design_matrix" id="id3"><a class="reference internal" href="#module-nistats.design_matrix" title="nistats.design_matrix"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code></a>: Design Matrix Creation</a></li>
-<li><a class="reference internal" href="#module-nistats.experimental_paradigm" id="id4"><a class="reference internal" href="#module-nistats.experimental_paradigm" title="nistats.experimental_paradigm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code></a>: Experimental Paradigm</a></li>
-<li><a class="reference internal" href="#module-nistats.model" id="id5"><a class="reference internal" href="#module-nistats.model" title="nistats.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.model</span></code></a>: Statistical models</a></li>
-<li><a class="reference internal" href="#module-nistats.regression" id="id6"><a class="reference internal" href="#module-nistats.regression" title="nistats.regression"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.regression</span></code></a>: Regression Models</a></li>
-<li><a class="reference internal" href="#module-nistats.first_level_model" id="id7"><a class="reference internal" href="#module-nistats.first_level_model" title="nistats.first_level_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code></a>: First Level Model</a></li>
-<li><a class="reference internal" href="#module-nistats.second_level_model" id="id8"><a class="reference internal" href="#module-nistats.second_level_model" title="nistats.second_level_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code></a>: Second Level Model</a></li>
-<li><a class="reference internal" href="#module-nistats.contrasts" id="id9"><a class="reference internal" href="#module-nistats.contrasts" title="nistats.contrasts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.contrasts</span></code></a>: Contrasts</a></li>
-<li><a class="reference internal" href="#module-nistats.thresholding" id="id10"><a class="reference internal" href="#module-nistats.thresholding" title="nistats.thresholding"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.thresholding</span></code></a>: Thresholding Maps</a></li>
-<li><a class="reference internal" href="#module-nistats.reporting" id="id11"><a class="reference internal" href="#module-nistats.reporting" title="nistats.reporting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.reporting</span></code></a>: Report plotting functions</a></li>
-<li><a class="reference internal" href="#module-nistats.utils" id="id12"><a class="reference internal" href="#module-nistats.utils" title="nistats.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.utils</span></code></a>: Utility functions</a></li>
+<li><p><a class="reference internal" href="#module-nistats.datasets" id="id1"><a class="reference internal" href="#module-nistats.datasets" title="nistats.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.datasets</span></code></a>: Datasets</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.hemodynamic_models" id="id2"><a class="reference internal" href="#module-nistats.hemodynamic_models" title="nistats.hemodynamic_models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code></a>: Hemodynamic Models</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.design_matrix" id="id3"><a class="reference internal" href="#module-nistats.design_matrix" title="nistats.design_matrix"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code></a>: Design Matrix Creation</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.experimental_paradigm" id="id4"><a class="reference internal" href="#module-nistats.experimental_paradigm" title="nistats.experimental_paradigm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code></a>: Experimental Paradigm</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.model" id="id5"><a class="reference internal" href="#module-nistats.model" title="nistats.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.model</span></code></a>: Statistical models</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.regression" id="id6"><a class="reference internal" href="#module-nistats.regression" title="nistats.regression"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.regression</span></code></a>: Regression Models</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.first_level_model" id="id7"><a class="reference internal" href="#module-nistats.first_level_model" title="nistats.first_level_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code></a>: First Level Model</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.second_level_model" id="id8"><a class="reference internal" href="#module-nistats.second_level_model" title="nistats.second_level_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code></a>: Second Level Model</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.contrasts" id="id9"><a class="reference internal" href="#module-nistats.contrasts" title="nistats.contrasts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.contrasts</span></code></a>: Contrasts</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.thresholding" id="id10"><a class="reference internal" href="#module-nistats.thresholding" title="nistats.thresholding"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.thresholding</span></code></a>: Thresholding Maps</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.reporting" id="id11"><a class="reference internal" href="#module-nistats.reporting" title="nistats.reporting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.reporting</span></code></a>: Report plotting functions</a></p></li>
+<li><p><a class="reference internal" href="#module-nistats.utils" id="id12"><a class="reference internal" href="#module-nistats.utils" title="nistats.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.utils</span></code></a>: Utility functions</a></p></li>
 </ul>
 </div>
 <div class="section" id="module-nistats.datasets">
@@ -238,35 +236,35 @@ uses.</p>
 <p>Utilities to download NeuroImaging datasets
 Author: Gael Varoquaux</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.datasets.fetch_bids_langloc_dataset.html#nistats.datasets.fetch_bids_langloc_dataset" title="nistats.datasets.fetch_bids_langloc_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_bids_langloc_dataset</span></code></a>([data_dir,&nbsp;verbose])</td>
-<td>Download language localizer example bids dataset.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="nistats.datasets.fetch_language_localizer_demo_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_language_localizer_demo_dataset</span></code></a>([…])</p></td>
+<td><p>Download language localizer demo dataset.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.datasets.fetch_openneuro_dataset_index.html#nistats.datasets.fetch_openneuro_dataset_index" title="nistats.datasets.fetch_openneuro_dataset_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_openneuro_dataset_index</span></code></a>([data_dir,&nbsp;…])</td>
-<td>Download openneuro bids dataset index</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_openneuro_dataset_index.html#nistats.datasets.fetch_openneuro_dataset_index" title="nistats.datasets.fetch_openneuro_dataset_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_openneuro_dataset_index</span></code></a>([data_dir, …])</p></td>
+<td><p>Download a file with OpenNeuro BIDS dataset index.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.datasets.select_from_index.html#nistats.datasets.select_from_index" title="nistats.datasets.select_from_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_from_index</span></code></a>(urls[,&nbsp;inclusion_filters,&nbsp;…])</td>
-<td>Select subset of urls with given filters.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.datasets.select_from_index.html#nistats.datasets.select_from_index" title="nistats.datasets.select_from_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_from_index</span></code></a>(urls[, inclusion_filters, …])</p></td>
+<td><p>Select subset of urls with given filters.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.datasets.fetch_openneuro_dataset.html#nistats.datasets.fetch_openneuro_dataset" title="nistats.datasets.fetch_openneuro_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_openneuro_dataset</span></code></a>([urls,&nbsp;data_dir,&nbsp;…])</td>
-<td>Download openneuro bids dataset.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_openneuro_dataset.html#nistats.datasets.fetch_openneuro_dataset" title="nistats.datasets.fetch_openneuro_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_openneuro_dataset</span></code></a>([urls, data_dir, …])</p></td>
+<td><p>Download OpenNeuro BIDS dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.datasets.fetch_localizer_first_level.html#nistats.datasets.fetch_localizer_first_level" title="nistats.datasets.fetch_localizer_first_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_localizer_first_level</span></code></a>([data_dir,&nbsp;verbose])</td>
-<td>Download a first-level localizer fMRI dataset</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_localizer_first_level.html#nistats.datasets.fetch_localizer_first_level" title="nistats.datasets.fetch_localizer_first_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_localizer_first_level</span></code></a>([data_dir, verbose])</p></td>
+<td><p>Download a first-level localizer fMRI dataset</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="nistats.datasets.fetch_spm_auditory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_spm_auditory</span></code></a>([data_dir,&nbsp;data_name,&nbsp;…])</td>
-<td>Function to fetch SPM auditory single-subject data.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="nistats.datasets.fetch_spm_auditory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_spm_auditory</span></code></a>([data_dir, data_name, …])</p></td>
+<td><p>Function to fetch SPM auditory single-subject data.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.datasets.fetch_spm_multimodal_fmri.html#nistats.datasets.fetch_spm_multimodal_fmri" title="nistats.datasets.fetch_spm_multimodal_fmri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_spm_multimodal_fmri</span></code></a>([data_dir,&nbsp;…])</td>
-<td>Fetcher for Multi-modal Face Dataset.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_spm_multimodal_fmri.html#nistats.datasets.fetch_spm_multimodal_fmri" title="nistats.datasets.fetch_spm_multimodal_fmri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_spm_multimodal_fmri</span></code></a>([data_dir, …])</p></td>
+<td><p>Fetcher for Multi-modal Face Dataset.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.datasets.fetch_fiac_first_level.html#nistats.datasets.fetch_fiac_first_level" title="nistats.datasets.fetch_fiac_first_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_fiac_first_level</span></code></a>([data_dir,&nbsp;verbose])</td>
-<td>Download a first-level fiac fMRI dataset (2 sessions)</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.datasets.fetch_fiac_first_level.html#nistats.datasets.fetch_fiac_first_level" title="nistats.datasets.fetch_fiac_first_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_fiac_first_level</span></code></a>([data_dir, verbose])</p></td>
+<td><p>Download a first-level fiac fMRI dataset (2 sessions)</p></td>
 </tr>
 </tbody>
 </table>
@@ -278,32 +276,32 @@ Here we provide for SPM, Glover hrfs and finite timpulse response (FIR) models.
 This module closely follows SPM implementation</p>
 <p>Author: Bertrand Thirion, 2011–2018</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_hrf.html#nistats.hemodynamic_models.spm_hrf" title="nistats.hemodynamic_models.spm_hrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_hrf</span></code></a>(tr[,&nbsp;oversampling,&nbsp;time_length,&nbsp;onset])</td>
-<td>Implementation of the SPM hrf model</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_hrf.html#nistats.hemodynamic_models.spm_hrf" title="nistats.hemodynamic_models.spm_hrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_hrf</span></code></a>(tr[, oversampling, time_length, onset])</p></td>
+<td><p>Implementation of the SPM hrf model</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_hrf.html#nistats.hemodynamic_models.glover_hrf" title="nistats.hemodynamic_models.glover_hrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_hrf</span></code></a>(tr[,&nbsp;oversampling,&nbsp;time_length,&nbsp;…])</td>
-<td>Implementation of the Glover hrf model</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_hrf.html#nistats.hemodynamic_models.glover_hrf" title="nistats.hemodynamic_models.glover_hrf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_hrf</span></code></a>(tr[, oversampling, time_length, …])</p></td>
+<td><p>Implementation of the Glover hrf model</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_time_derivative.html#nistats.hemodynamic_models.spm_time_derivative" title="nistats.hemodynamic_models.spm_time_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_time_derivative</span></code></a>(tr[,&nbsp;oversampling,&nbsp;…])</td>
-<td>Implementation of the SPM time derivative hrf (dhrf) model</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_time_derivative.html#nistats.hemodynamic_models.spm_time_derivative" title="nistats.hemodynamic_models.spm_time_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_time_derivative</span></code></a>(tr[, oversampling, …])</p></td>
+<td><p>Implementation of the SPM time derivative hrf (dhrf) model</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_time_derivative.html#nistats.hemodynamic_models.glover_time_derivative" title="nistats.hemodynamic_models.glover_time_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_time_derivative</span></code></a>(tr[,&nbsp;oversampling,&nbsp;…])</td>
-<td>Implementation of the Glover time derivative hrf (dhrf) model</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_time_derivative.html#nistats.hemodynamic_models.glover_time_derivative" title="nistats.hemodynamic_models.glover_time_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_time_derivative</span></code></a>(tr[, oversampling, …])</p></td>
+<td><p>Implementation of the Glover time derivative hrf (dhrf) model</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_dispersion_derivative.html#nistats.hemodynamic_models.spm_dispersion_derivative" title="nistats.hemodynamic_models.spm_dispersion_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_dispersion_derivative</span></code></a>(tr[,&nbsp;…])</td>
-<td>Implementation of the SPM dispersion derivative hrf model</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.spm_dispersion_derivative.html#nistats.hemodynamic_models.spm_dispersion_derivative" title="nistats.hemodynamic_models.spm_dispersion_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spm_dispersion_derivative</span></code></a>(tr[, …])</p></td>
+<td><p>Implementation of the SPM dispersion derivative hrf model</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_dispersion_derivative.html#nistats.hemodynamic_models.glover_dispersion_derivative" title="nistats.hemodynamic_models.glover_dispersion_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_dispersion_derivative</span></code></a>(tr[,&nbsp;…])</td>
-<td>Implementation of the Glover dispersion derivative hrf model</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.glover_dispersion_derivative.html#nistats.hemodynamic_models.glover_dispersion_derivative" title="nistats.hemodynamic_models.glover_dispersion_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glover_dispersion_derivative</span></code></a>(tr[, …])</p></td>
+<td><p>Implementation of the Glover dispersion derivative hrf model</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.hemodynamic_models.compute_regressor.html#nistats.hemodynamic_models.compute_regressor" title="nistats.hemodynamic_models.compute_regressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_regressor</span></code></a>(exp_condition,&nbsp;hrf_model,&nbsp;…)</td>
-<td>This is the main function to convolve regressors with hrf model</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.hemodynamic_models.compute_regressor.html#nistats.hemodynamic_models.compute_regressor" title="nistats.hemodynamic_models.compute_regressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_regressor</span></code></a>(exp_condition, hrf_model, …)</p></td>
+<td><p>This is the main function to convolve regressors with hrf model</p></td>
 </tr>
 </tbody>
 </table>
@@ -317,51 +315,52 @@ to the make_first_level_design_matrix function, that create a DataFrame
 All the others are ancillary functions.</p>
 <p>Design matrices contain three different types of regressors:</p>
 <ol class="arabic">
-<li><p class="first">Task-related regressors, that result from the convolution
+<li><p>Task-related regressors, that result from the convolution
 of the experimental paradigm regressors with hemodynamic models
 A hemodynamic model is one of:</p>
 <blockquote>
-<div><p>‘spm’ : linear filter used in the SPM software
-‘glover’ : linear filter estimated by G.Glover
-‘spm + derivative’, ‘glover + derivative’: the same linear models,</p>
-<blockquote>
-<div><p>plus their time derivative (2 regressors per condition)</p>
-</div></blockquote>
-<dl class="docutils">
-<dt>‘spm + derivative + dispersion’, ‘glover + derivative + dispersion’:</dt>
-<dd><p class="first last">idem plus the derivative wrt the dispersion parameter of the hrf
+<div><ul class="simple">
+<li><p>‘spm’ : linear filter used in the SPM software</p></li>
+<li><p>‘glover’ : linear filter estimated by G.Glover</p></li>
+<li><dl class="simple">
+<dt>‘spm + derivative’, ‘glover + derivative’: the same linear models,</dt><dd><p>plus their time derivative (2 regressors per condition)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>‘spm + derivative + dispersion’, ‘glover + derivative + dispersion’:</dt><dd><p>idem plus the derivative wrt the dispersion parameter of the hrf
 (3 regressors per condition)</p>
 </dd>
 </dl>
-<p>‘fir’ : finite impulse response model, generic linear filter</p>
+</li>
+<li><p>‘fir’ : finite impulse response model, generic linear filter</p></li>
+</ul>
 </div></blockquote>
 </li>
-<li><p class="first">User-specified regressors, that represent information available on
+<li><p>User-specified regressors, that represent information available on
 the data, e.g. motion parameters, physiological data resampled at
 the acquisition rate, or sinusoidal regressors that model the
-signal at a frequency of interest.</p>
-</li>
-<li><p class="first">Drift regressors, that represent low_frequency phenomena of no
+signal at a frequency of interest.</p></li>
+<li><p>Drift regressors, that represent low_frequency phenomena of no
 interest in the data; they need to be included to reduce variance
-estimates.</p>
-</li>
+estimates.</p></li>
 </ol>
 <p>Author: Bertrand Thirion, 2009-2015</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.design_matrix.make_first_level_design_matrix.html#nistats.design_matrix.make_first_level_design_matrix" title="nistats.design_matrix.make_first_level_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_first_level_design_matrix</span></code></a>(frame_times)</td>
-<td>Generate a design matrix from the input parameters</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.design_matrix.make_first_level_design_matrix.html#nistats.design_matrix.make_first_level_design_matrix" title="nistats.design_matrix.make_first_level_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_first_level_design_matrix</span></code></a>(frame_times)</p></td>
+<td><p>Generate a design matrix from the input parameters</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.design_matrix.check_design_matrix.html#nistats.design_matrix.check_design_matrix" title="nistats.design_matrix.check_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_design_matrix</span></code></a>(design_matrix)</td>
-<td>Check that the provided DataFrame is indeed a valid design matrix descriptor, and returns a triplet of fields</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.design_matrix.check_design_matrix.html#nistats.design_matrix.check_design_matrix" title="nistats.design_matrix.check_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_design_matrix</span></code></a>(design_matrix)</p></td>
+<td><p>Check that the provided DataFrame is indeed a valid design matrix descriptor, and returns a triplet of fields</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.design_matrix.make_second_level_design_matrix.html#nistats.design_matrix.make_second_level_design_matrix" title="nistats.design_matrix.make_second_level_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_second_level_design_matrix</span></code></a>(subjects_label)</td>
-<td>Sets up a second level design.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.design_matrix.make_second_level_design_matrix.html#nistats.design_matrix.make_second_level_design_matrix" title="nistats.design_matrix.make_second_level_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_second_level_design_matrix</span></code></a>(subjects_label)</p></td>
+<td><p>Sets up a second level design.</p></td>
 </tr>
 </tbody>
 </table>
@@ -374,25 +373,25 @@ that includes an ‘onset’ field.</p>
 It can also contain:</p>
 <blockquote>
 <div><ul class="simple">
-<li>a ‘trial_type’ field that yields the condition identifier.</li>
-<li><dl class="first docutils">
-<dt>a ‘duration’ field that yields event duration (for so-called block</dt>
-<dd>paradigms).</dd>
+<li><p>a ‘trial_type’ field that yields the condition identifier.</p></li>
+<li><dl class="simple">
+<dt>a ‘duration’ field that yields event duration (for so-called block</dt><dd><p>paradigms).</p>
+</dd>
 </dl>
 </li>
-<li>a ‘modulation’ field that associated a scalar value to each event.</li>
+<li><p>a ‘modulation’ field that associated a scalar value to each event.</p></li>
 </ul>
 </div></blockquote>
 <p>Author: Bertrand Thirion, 2015</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.experimental_paradigm.check_events.html#nistats.experimental_paradigm.check_events" title="nistats.experimental_paradigm.check_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_events</span></code></a>(events)</td>
-<td>Test that the events data describes a valid experimental paradigm</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.experimental_paradigm.check_events.html#nistats.experimental_paradigm.check_events" title="nistats.experimental_paradigm.check_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_events</span></code></a>(events)</p></td>
+<td><p>Test that the events data describes a valid experimental paradigm</p></td>
 </tr>
 </tbody>
 </table>
@@ -402,20 +401,20 @@ It can also contain:</p>
 <p>This module implement classes to handle statistical tests on likelihood models</p>
 <p>Author: Bertrand Thirion, 2011–2015</p>
 <p><strong>Classes</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.model.LikelihoodModelResults.html#nistats.model.LikelihoodModelResults" title="nistats.model.LikelihoodModelResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LikelihoodModelResults</span></code></a>(theta,&nbsp;Y,&nbsp;model[,&nbsp;…])</td>
-<td>Class to contain results from likelihood models</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.model.LikelihoodModelResults.html#nistats.model.LikelihoodModelResults" title="nistats.model.LikelihoodModelResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LikelihoodModelResults</span></code></a>(theta, Y, model[, …])</p></td>
+<td><p>Class to contain results from likelihood models</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.model.TContrastResults.html#nistats.model.TContrastResults" title="nistats.model.TContrastResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TContrastResults</span></code></a>(t,&nbsp;sd,&nbsp;effect[,&nbsp;df_den])</td>
-<td>Results from a t contrast of coefficients in a parametric model.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.model.TContrastResults.html#nistats.model.TContrastResults" title="nistats.model.TContrastResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TContrastResults</span></code></a>(t, sd, effect[, df_den])</p></td>
+<td><p>Results from a t contrast of coefficients in a parametric model.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.model.FContrastResults.html#nistats.model.FContrastResults" title="nistats.model.FContrastResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FContrastResults</span></code></a>(effect,&nbsp;covariance,&nbsp;F,&nbsp;df_num)</td>
-<td>Results from an F contrast of coefficients in a parametric model.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.model.FContrastResults.html#nistats.model.FContrastResults" title="nistats.model.FContrastResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FContrastResults</span></code></a>(effect, covariance, F, df_num)</p></td>
+<td><p>Results from an F contrast of coefficients in a parametric model.</p></td>
 </tr>
 </tbody>
 </table>
@@ -430,28 +429,28 @@ models, as well as an AR(p) regression model.</p>
 should write over the ‘whiten’ method as the fit method
 prewhitens the response by calling ‘whiten’.</p>
 <p>General reference for regression models:</p>
-<dl class="docutils">
-<dt>‘Introduction to Linear Regression Analysis’, Douglas C. Montgomery,</dt>
-<dd>Elizabeth A. Peck, G. Geoffrey Vining. Wiley, 2006.</dd>
+<dl class="simple">
+<dt>‘Introduction to Linear Regression Analysis’, Douglas C. Montgomery,</dt><dd><p>Elizabeth A. Peck, G. Geoffrey Vining. Wiley, 2006.</p>
+</dd>
 </dl>
 <p><strong>Classes</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.regression.OLSModel.html#nistats.regression.OLSModel" title="nistats.regression.OLSModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OLSModel</span></code></a>(design)</td>
-<td>A simple ordinary least squares model.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.regression.OLSModel.html#nistats.regression.OLSModel" title="nistats.regression.OLSModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OLSModel</span></code></a>(design)</p></td>
+<td><p>A simple ordinary least squares model.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.regression.ARModel.html#nistats.regression.ARModel" title="nistats.regression.ARModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARModel</span></code></a>(design,&nbsp;rho)</td>
-<td>A regression model with an AR(p) covariance structure.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.regression.ARModel.html#nistats.regression.ARModel" title="nistats.regression.ARModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ARModel</span></code></a>(design, rho)</p></td>
+<td><p>A regression model with an AR(p) covariance structure.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.regression.RegressionResults.html#nistats.regression.RegressionResults" title="nistats.regression.RegressionResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionResults</span></code></a>(theta,&nbsp;Y,&nbsp;model,&nbsp;wY,&nbsp;wresid)</td>
-<td>This class summarizes the fit of a linear regression model.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.regression.RegressionResults.html#nistats.regression.RegressionResults" title="nistats.regression.RegressionResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionResults</span></code></a>(theta, Y, model, wY, wresid)</p></td>
+<td><p>This class summarizes the fit of a linear regression model.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.regression.SimpleRegressionResults.html#nistats.regression.SimpleRegressionResults" title="nistats.regression.SimpleRegressionResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleRegressionResults</span></code></a>(results)</td>
-<td>This class contains only information of the model fit necessary for contast computation.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.regression.SimpleRegressionResults.html#nistats.regression.SimpleRegressionResults" title="nistats.regression.SimpleRegressionResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleRegressionResults</span></code></a>(results)</p></td>
+<td><p>This class contains only information of the model fit necessary for contast computation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -464,32 +463,32 @@ nistats.regression.</p>
 of fMRI data analyses.</p>
 <p>Author: Bertrand Thirion, Martin Perez-Guevara, 2016</p>
 <p><strong>Classes</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="nistats.first_level_model.FirstLevelModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FirstLevelModel</span></code></a>([t_r,&nbsp;slice_time_ref,&nbsp;…])</td>
-<td>Implementation of the General Linear Model for single session fMRI data</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="nistats.first_level_model.FirstLevelModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FirstLevelModel</span></code></a>([t_r, slice_time_ref, …])</p></td>
+<td><p>Implementation of the General Linear Model for single session fMRI data</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.first_level_model.mean_scaling.html#nistats.first_level_model.mean_scaling" title="nistats.first_level_model.mean_scaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean_scaling</span></code></a>(Y[,&nbsp;axis])</td>
-<td>Scaling of the data to have percent of baseline change along the specified axis</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.first_level_model.mean_scaling.html#nistats.first_level_model.mean_scaling" title="nistats.first_level_model.mean_scaling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean_scaling</span></code></a>(Y[, axis])</p></td>
+<td><p>Scaling of the data to have percent of baseline change along the specified axis</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.first_level_model.run_glm.html#nistats.first_level_model.run_glm" title="nistats.first_level_model.run_glm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_glm</span></code></a>(Y,&nbsp;X[,&nbsp;noise_model,&nbsp;bins,&nbsp;n_jobs,&nbsp;…])</td>
-<td>GLM fit for an fMRI data matrix</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.first_level_model.run_glm.html#nistats.first_level_model.run_glm" title="nistats.first_level_model.run_glm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_glm</span></code></a>(Y, X[, noise_model, bins, n_jobs, …])</p></td>
+<td><p>GLM fit for an fMRI data matrix</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.first_level_model.first_level_models_from_bids.html#nistats.first_level_model.first_level_models_from_bids" title="nistats.first_level_model.first_level_models_from_bids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_level_models_from_bids</span></code></a>(dataset_path,&nbsp;…)</td>
-<td>Create FirstLevelModel objects and fit arguments from a BIDS dataset.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.first_level_model.first_level_models_from_bids.html#nistats.first_level_model.first_level_models_from_bids" title="nistats.first_level_model.first_level_models_from_bids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_level_models_from_bids</span></code></a>(dataset_path, …)</p></td>
+<td><p>Create FirstLevelModel objects and fit arguments from a BIDS dataset.</p></td>
 </tr>
 </tbody>
 </table>
@@ -502,14 +501,14 @@ nistats.regression.</p>
 first level contrasts or directly on fitted first level models</p>
 <p>Author: Martin Perez-Guevara, 2016</p>
 <p><strong>Classes</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="nistats.second_level_model.SecondLevelModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SecondLevelModel</span></code></a>([mask,&nbsp;smoothing_fwhm,&nbsp;…])</td>
-<td>Implementation of the General Linear Model for multiple subject fMRI data</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="nistats.second_level_model.SecondLevelModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SecondLevelModel</span></code></a>([mask_img, smoothing_fwhm, …])</p></td>
+<td><p>Implementation of the General Linear Model for multiple subject fMRI data</p></td>
 </tr>
 </tbody>
 </table>
@@ -520,26 +519,26 @@ first level contrasts or directly on fitted first level models</p>
 obtain fixed effect results.</p>
 <p>Author: Bertrand Thirion, Martin Perez-Guevara, 2016</p>
 <p><strong>Classes</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.contrasts.Contrast.html#nistats.contrasts.Contrast" title="nistats.contrasts.Contrast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Contrast</span></code></a>(effect,&nbsp;variance[,&nbsp;dim,&nbsp;dof,&nbsp;…])</td>
-<td>The contrast class handles the estimation of statistical contrasts on a given model: student (t) or Fisher (F).</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.contrasts.Contrast.html#nistats.contrasts.Contrast" title="nistats.contrasts.Contrast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Contrast</span></code></a>(effect, variance[, dim, dof, …])</p></td>
+<td><p>The contrast class handles the estimation of statistical contrasts on a given model: student (t) or Fisher (F).</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.contrasts.compute_contrast.html#nistats.contrasts.compute_contrast" title="nistats.contrasts.compute_contrast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_contrast</span></code></a>(labels,&nbsp;regression_result,&nbsp;…)</td>
-<td>Compute the specified contrast given an estimated glm</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.contrasts.compute_contrast.html#nistats.contrasts.compute_contrast" title="nistats.contrasts.compute_contrast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_contrast</span></code></a>(labels, regression_result, …)</p></td>
+<td><p>Compute the specified contrast given an estimated glm</p></td>
 </tr>
 </tbody>
 </table>
@@ -550,17 +549,17 @@ obtain fixed effect results.</p>
 maps.</p>
 <p>Author: Bertrand Thirion, 2015</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.thresholding.fdr_threshold.html#nistats.thresholding.fdr_threshold" title="nistats.thresholding.fdr_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fdr_threshold</span></code></a>(z_vals,&nbsp;alpha)</td>
-<td>return the Benjamini-Hochberg FDR threshold for the input z_vals</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.thresholding.fdr_threshold.html#nistats.thresholding.fdr_threshold" title="nistats.thresholding.fdr_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fdr_threshold</span></code></a>(z_vals, alpha)</p></td>
+<td><p>return the Benjamini-Hochberg FDR threshold for the input z_vals</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="nistats.thresholding.map_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_threshold</span></code></a>([stat_img,&nbsp;mask_img,&nbsp;level,&nbsp;…])</td>
-<td>Compute the required threshold level and return the thresholded map</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="nistats.thresholding.map_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_threshold</span></code></a>([stat_img, mask_img, alpha, …])</p></td>
+<td><p>Compute the required threshold level and return the thresholded map</p></td>
 </tr>
 </tbody>
 </table>
@@ -570,23 +569,26 @@ maps.</p>
 <p>This module implements plotting functions useful to report analysis results.</p>
 <p>Author: Martin Perez-Guevara, Elvis Dohmatob, 2017</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.reporting.compare_niimgs.html#nistats.reporting.compare_niimgs" title="nistats.reporting.compare_niimgs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare_niimgs</span></code></a>(ref_imgs,&nbsp;src_imgs,&nbsp;masker[,&nbsp;…])</td>
-<td>Creates plots to compare two lists of images and measure correlation.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.reporting.compare_niimgs.html#nistats.reporting.compare_niimgs" title="nistats.reporting.compare_niimgs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare_niimgs</span></code></a>(ref_imgs, src_imgs, masker[, …])</p></td>
+<td><p>Creates plots to compare two lists of images and measure correlation.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="nistats.reporting.plot_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_design_matrix</span></code></a>(design_matrix[,&nbsp;rescale,&nbsp;…])</td>
-<td>Plot a design matrix provided as a DataFrame</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="nistats.reporting.plot_design_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_design_matrix</span></code></a>(design_matrix[, rescale, …])</p></td>
+<td><p>Plot a design matrix provided as a DataFrame</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="nistats.reporting.plot_contrast_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_contrast_matrix</span></code></a>(contrast_def,&nbsp;design_matrix)</td>
-<td>Creates plot for contrast definition.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="nistats.reporting.plot_contrast_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_contrast_matrix</span></code></a>(contrast_def, design_matrix)</p></td>
+<td><p>Creates plot for contrast definition.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="nistats.reporting.get_clusters_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clusters_table</span></code></a>(stat_img,&nbsp;stat_threshold)</td>
-<td>Creates pandas dataframe with img cluster statistics.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="nistats.reporting.get_clusters_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clusters_table</span></code></a>(stat_img, stat_threshold)</p></td>
+<td><p>Creates pandas dataframe with img cluster statistics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_glm_report</span></code></a>(model, contrasts[, title, …])</p></td>
+<td><p>Returns HTMLDocument object for a report which shows all important aspects of a fitted GLM.</p></td>
 </tr>
 </tbody>
 </table>
@@ -596,32 +598,32 @@ maps.</p>
 <p>Misc utilities for the library</p>
 <p>Authors: Bertrand Thirion, Matthew Brett, 2015</p>
 <p><strong>Functions</strong>:</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-default">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.utils.z_score.html#nistats.utils.z_score" title="nistats.utils.z_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z_score</span></code></a>(pvalue)</td>
-<td>Return the z-score corresponding to a given p-value.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.utils.z_score.html#nistats.utils.z_score" title="nistats.utils.z_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z_score</span></code></a>(pvalue)</p></td>
+<td><p>Return the z-score corresponding to a given p-value.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.utils.multiple_fast_inverse.html#nistats.utils.multiple_fast_inverse" title="nistats.utils.multiple_fast_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiple_fast_inverse</span></code></a>(a)</td>
-<td>Compute the inverse of a set of arrays.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.utils.multiple_fast_inverse.html#nistats.utils.multiple_fast_inverse" title="nistats.utils.multiple_fast_inverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiple_fast_inverse</span></code></a>(a)</p></td>
+<td><p>Compute the inverse of a set of arrays.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.utils.multiple_mahalanobis.html#nistats.utils.multiple_mahalanobis" title="nistats.utils.multiple_mahalanobis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiple_mahalanobis</span></code></a>(effect,&nbsp;covariance)</td>
-<td>Returns the squared Mahalanobis distance for a given set of samples</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.utils.multiple_mahalanobis.html#nistats.utils.multiple_mahalanobis" title="nistats.utils.multiple_mahalanobis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multiple_mahalanobis</span></code></a>(effect, covariance)</p></td>
+<td><p>Returns the squared Mahalanobis distance for a given set of samples</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.utils.full_rank.html#nistats.utils.full_rank" title="nistats.utils.full_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_rank</span></code></a>(X[,&nbsp;cmax])</td>
-<td>Computes the condition number of X and if it is larger than cmax, returns a matrix with a condition number smaller than cmax.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.utils.full_rank.html#nistats.utils.full_rank" title="nistats.utils.full_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_rank</span></code></a>(X[, cmax])</p></td>
+<td><p>Computes the condition number of X and if it is larger than cmax, returns a matrix with a condition number smaller than cmax.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.utils.positive_reciprocal.html#nistats.utils.positive_reciprocal" title="nistats.utils.positive_reciprocal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">positive_reciprocal</span></code></a>(X)</td>
-<td>Return element-wise reciprocal of array, setting <cite>X</cite>&gt;=0 to 0</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.utils.positive_reciprocal.html#nistats.utils.positive_reciprocal" title="nistats.utils.positive_reciprocal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">positive_reciprocal</span></code></a>(X)</p></td>
+<td><p>Return element-wise reciprocal of array, setting <cite>X</cite>&gt;=0 to 0</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/nistats.utils.get_bids_files.html#nistats.utils.get_bids_files" title="nistats.utils.get_bids_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bids_files</span></code></a>(main_path[,&nbsp;file_tag,&nbsp;…])</td>
-<td>Search for files in a BIDS dataset following given constraints.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/nistats.utils.get_bids_files.html#nistats.utils.get_bids_files" title="nistats.utils.get_bids_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bids_files</span></code></a>(main_path[, file_tag, …])</p></td>
+<td><p>Search for files in a BIDS dataset following given constraints.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/nistats.utils.parse_bids_filename.html#nistats.utils.parse_bids_filename" title="nistats.utils.parse_bids_filename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_bids_filename</span></code></a>(img_path)</td>
-<td>Returns dictionary with parsed information from file path</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/nistats.utils.parse_bids_filename.html#nistats.utils.parse_bids_filename" title="nistats.utils.parse_bids_filename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_bids_filename</span></code></a>(img_path)</p></td>
+<td><p>Returns dictionary with parsed information from file path</p></td>
 </tr>
 </tbody>
 </table>
@@ -641,10 +643,10 @@ maps.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="generated/nistats.datasets.fetch_bids_langloc_dataset.html" title="3.1.1. nistats.datasets.fetch_bids_langloc_dataset"
+          <a href="generated/nistats.datasets.fetch_language_localizer_demo_dataset.html" title="3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset"
              >next</a> |</li>
         <li class="right" >
-          <a href="../auto_examples/04_low_level_functions/plot_design_matrix.html" title="2.4.4. Examples of design matrices"
+          <a href="../auto_examples/05_complete_examples/plot_surface_bids_analysis.html" title="2.5.2. Surface-based dataset first and second level analysis of a dataset"
              >previous</a> |</li>
 <li><a href="../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -658,7 +660,7 @@ maps.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
         <span style="padding-left: 5ex;">
           <a href="../_sources/modules/reference.rst.txt"
         	 rel="nofollow">Show this page source</a>

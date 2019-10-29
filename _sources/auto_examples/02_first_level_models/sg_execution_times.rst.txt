@@ -1,0 +1,15 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_02_first_level_models_sg_execution_times:
+
+Computation times
+=================
+**02:37.792** total execution time for **auto_examples_02_first_level_models** files:
+
+- **00:59.664**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_spm_multimodal_faces.py` (``plot_spm_multimodal_faces.py``)
+- **00:51.268**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py` (``plot_fiac_analysis.py``)
+- **00:23.597**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_bids_features.py` (``plot_bids_features.py``)
+- **00:12.293**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py` (``plot_localizer_surface_analysis.py``)
+- **00:07.165**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_adhd_dmn.py` (``plot_adhd_dmn.py``)
+- **00:03.804**: :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fir_model.py` (``plot_fir_model.py``)

@@ -3,16 +3,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
@@ -161,15 +161,22 @@ $(function () {
                     papers</a>.</p></li>
   </ul>
 
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">0.0.1b</a><ul>
-<li><a class="reference internal" href="#changelog">Changelog</a></li>
+<li><a class="reference internal" href="#">0.1.0b2</a><ul>
+<li><a class="reference internal" href="#new">New</a></li>
+<li><a class="reference internal" href="#changes">Changes</a></li>
+<li><a class="reference internal" href="#fixes">Fixes</a></li>
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#b">0.0.1b</a><ul>
+<li><a class="reference internal" href="#changelog">Changelog</a></li>
+<li><a class="reference internal" href="#id1">Contributors</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#a">0.0.1a</a><ul>
-<li><a class="reference internal" href="#id1">Changelog</a></li>
+<li><a class="reference internal" href="#id2">Changelog</a></li>
 </ul>
 </li>
 </ul>
@@ -181,13 +188,11 @@ $(function () {
   <p class="topless"><a href="contributing.html"
                         title="next chapter">Contributing</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -200,73 +205,121 @@ $(function () {
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="b">
-<h1>0.0.1b<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="changelog">
-<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="b2">
+<h1>0.1.0b2<a class="headerlink" href="#b2" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">period_cut (in seconds) has been replaced by high_pass (in Hz) in FirstLevelModel &amp; design matrices.</div>
+<div class="line">This is a code-breaking change. Please update your code accordingly.</div>
+</div>
+</div>
+<div class="section" id="new">
+<h2>New<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Updated the minimum versions of the dependencies</dt>
-<dd><ul class="first last">
-<li>Numpy &gt;= 1.11</li>
-<li>SciPy &gt;= 0.17</li>
-<li>Nibabel &gt;= 2.0.2</li>
-<li>Nilearn &gt;= 0.4.0</li>
-<li>Pandas &gt;= 0.18.0</li>
-<li>Sklearn &gt;= 0.18.0</li>
+<li><p>Use <a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a> to easily generate HTML reports from fitted first and second level models and contrasts.</p></li>
+<li><p>New dataset fetcher, <a class="reference internal" href="modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="nistats.datasets.fetch_language_localizer_demo_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code></a> , BIDS 1.2 compatible.</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li>Added comprehensive tutorial</li>
-<li>Second-level model accepts 4D images as input.</li>
-<li><dl class="first docutils">
-<dt>Changes in function parameters</dt>
-<dd><ul class="first last">
-<li>third argument of map_threshold is now called <code class="docutils literal notranslate"><span class="pre">level</span></code>.</li>
-<li>Changed the defaut oversampling value for the hemodynamic response
-to 50 and exposed this parameter.</li>
-<li>changed the term <code class="docutils literal notranslate"><span class="pre">paradigm</span></code> to <code class="docutils literal notranslate"><span class="pre">events</span></code> and made it
-BIDS-compliant. Set the event file to be tab-separated</li>
+</div>
+<div class="section" id="changes">
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Nistats now uses BIDS v1.2 &amp; BIDS Derivatives terminology.</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Certain functions and methods have been renamed for clarity</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code></dt>
-<dd><ul class="first last">
-<li><code class="docutils literal notranslate"><span class="pre">make_design_matrix()</span> <span class="pre">-&gt;</span> <span class="pre">make_first_level_design_matrix()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">create_second_level_design()</span> <span class="pre">-&gt;</span> <span class="pre">make_second_level_design_matrix()</span></code></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">nistats.utils</span></code></dt>
-<dd><ul class="first last">
-<li><code class="docutils literal notranslate"><span class="pre">pos_recipr()</span> <span class="pre">-&gt;</span> <span class="pre">positive_reciprocal()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">multiple_fast_inv()</span> <span class="pre">-&gt;</span> <span class="pre">multiple_fast_inverse()</span></code></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Python2 Deprecation:</dt>
-<dd>Python 2 is now deprecated and will not be supported in a future version.
-A DeprecationWarning is displayed in Python 2 environments with a suggestion to move to Python 3.</dd>
-</dl>
-</li>
+</div>
+<div class="section" id="fixes">
+<h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Removed Python 2 deprecation warning for Python 3 installations.</p></li>
+<li><p>fixed effect contrasts now average effect sizes across runs rather than
+summing them.</p></li>
+<li><p><a class="reference internal" href="modules/generated/nistats.first_level_model.first_level_models_from_bids.html#nistats.first_level_model.first_level_models_from_bids" title="nistats.first_level_model.first_level_models_from_bids"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.first_level_model.first_level_models_from_bids</span></code></a> uses correct BIDS v1.2 conventions.</p></li>
 </ul>
 </div>
 <div class="section" id="contributors">
 <h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>The following people contributed to this release (in alphabetical order)</p>
+<blockquote>
+<div><p>Ana Luisa Pinho
+Anthony Gifuni
+Bertrand Thirion
+Christopher J. Markiewicz
+Christophe Pallier
+Gael Varoquaux
+Jerome Dockes
+Jerome-Alexis Chevalier
+Jessica Thompson
+Kshitij Chawla (kchawla-pi)
+Takis Panagopoulos
+Tuan Binh Nguyen</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="b">
+<h1>0.0.1b<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Updated the minimum versions of the dependencies</dt><dd><ul>
+<li><p>Numpy &gt;= 1.11</p></li>
+<li><p>SciPy &gt;= 0.17</p></li>
+<li><p>Nibabel &gt;= 2.0.2</p></li>
+<li><p>Nilearn &gt;= 0.4.0</p></li>
+<li><p>Pandas &gt;= 0.18.0</p></li>
+<li><p>Sklearn &gt;= 0.18.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Added comprehensive tutorial</p></li>
+<li><p>Second-level model accepts 4D images as input.</p></li>
+<li><dl class="simple">
+<dt>Changes in function parameters</dt><dd><ul>
+<li><p>third argument of map_threshold is now called <code class="docutils literal notranslate"><span class="pre">level</span></code>.</p></li>
+<li><p>Changed the defaut oversampling value for the hemodynamic response
+to 50 and exposed this parameter.</p></li>
+<li><p>changed the term <code class="docutils literal notranslate"><span class="pre">paradigm</span></code> to <code class="docutils literal notranslate"><span class="pre">events</span></code> and made it
+BIDS-compliant. Set the event file to be tab-separated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FirstLevelModel.compute_contrasts</span></code> parameter <code class="docutils literal notranslate"><span class="pre">output_type</span></code> can
+take the value <code class="docutils literal notranslate"><span class="pre">'all'</span></code>, returning a dictionary of images for each
+output type</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Certain functions and methods have been renamed for clarity</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_design_matrix()</span> <span class="pre">-&gt;</span> <span class="pre">make_first_level_design_matrix()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_second_level_design()</span> <span class="pre">-&gt;</span> <span class="pre">make_second_level_design_matrix()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">nistats.utils</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos_recipr()</span> <span class="pre">-&gt;</span> <span class="pre">positive_reciprocal()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiple_fast_inv()</span> <span class="pre">-&gt;</span> <span class="pre">multiple_fast_inverse()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Python2 Deprecation:</dt><dd><p>Python 2 is now deprecated and will not be supported in a future version.
+A DeprecationWarning is displayed in Python 2 environments with a suggestion to move to Python 3.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Contributors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>The following people contributed to this release:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>  <span class="n">Bertrand</span> <span class="n">Thirion</span>
 <span class="mi">70</span>  <span class="n">Kshitij</span> <span class="n">Chawla</span>
@@ -285,8 +338,8 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
 </div>
 <div class="section" id="a">
 <h1>0.0.1a<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Changelog<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>Changelog<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>First alpha release of nistats.</p>
 <p>Contributors (from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">shortlog</span> <span class="pre">-ns</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">223</span>  <span class="n">Martin</span> <span class="n">Perez</span><span class="o">-</span><span class="n">Guevara</span>
@@ -334,7 +387,7 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
         <span style="padding-left: 5ex;">
           <a href="_sources/whats_new.rst.txt"
         	 rel="nofollow">Show this page source</a>

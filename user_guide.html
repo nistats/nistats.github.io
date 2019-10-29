@@ -3,20 +3,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introduction: NiStats in a nutshell" href="introduction.html" />
+    <link rel="next" title="1. Introduction: Nistats in a nutshell" href="introduction.html" />
     <link rel="prev" title="People" href="authors.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -137,7 +137,7 @@ $(function () {
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="introduction.html" title="1. Introduction: NiStats in a nutshell"
+          <a href="introduction.html" title="1. Introduction: Nistats in a nutshell"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="authors.html" title="People"
@@ -166,15 +166,13 @@ $(function () {
                         title="previous chapter">People</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="introduction.html"
-                        title="next chapter">1. Introduction: NiStats in a nutshell</a></p>
+                        title="next chapter">1. Introduction: Nistats in a nutshell</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -190,8 +188,8 @@ $(function () {
   <div class="section" id="user-guide-table-of-contents">
 <span id="user-guide"></span><h1>User guide: table of contents<a class="headerlink" href="#user-guide-table-of-contents" title="Permalink to this headline">¶</a></h1>
 <div class="sidebar">
-<p class="first sidebar-title"><strong>Download for offline viewing</strong></p>
-<p class="last">Download the <a class="reference external" href="https://github.com/nistats/nistats.github.io/archive/master.zip">user guide and examples</a>.</p>
+<p class="sidebar-title"><strong>Download for offline viewing</strong></p>
+<p>Download the <a class="reference external" href="https://github.com/nistats/nistats.github.io/archive/master.zip">user guide and examples</a>.</p>
 </div>
 <style type="text/css">
   div.bodywrapper blockquote {
@@ -362,8 +360,8 @@ $(function () {
 
 </style><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction: NiStats in a nutshell</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-nistats">1.1. What is NiStats?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction: Nistats in a nutshell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-nistats">1.1. What is Nistats?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#a-primer-on-bold-fmri-data-analysis">1.2. A primer on BOLD-fMRI data analysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="introduction.html#what-is-fmri">1.2.1. What is fMRI ?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="introduction.html#fmri-data-modelling">1.2.2. fMRI data modelling</a></li>
@@ -372,7 +370,7 @@ $(function () {
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#tutorials">1.3. Tutorials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#installing-nistats">1.4. Installing NiStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#installing-nistats">1.4. Installing Nistats</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">2. Nistats usage examples</a><ul>
@@ -388,12 +386,15 @@ $(function () {
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#low-level-function-examples">2.4. Low level function examples</a><ul>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/index.html#complete-examples">2.5. Complete examples</a><ul>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules/reference.html">3. Reference documentation: all nistats functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.datasets">3.1. <code class="docutils literal notranslate"><span class="pre">nistats.datasets</span></code>: Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_bids_langloc_dataset.html">3.1.1. nistats.datasets.fetch_bids_langloc_dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_bids_langloc_dataset.html#examples-using-nistats-datasets-fetch-bids-langloc-dataset">3.1.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.datasets.fetch_bids_langloc_dataset</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.datasets">3.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.datasets</span></code>: Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html">3.1.1. nistats.datasets.fetch_language_localizer_demo_dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#examples-using-nistats-datasets-fetch-language-localizer-demo-dataset">3.1.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.datasets.fetch_openneuro_dataset_index.html">3.1.2. nistats.datasets.fetch_openneuro_dataset_index</a><ul>
@@ -426,7 +427,7 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.hemodynamic_models">3.2. <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code>: Hemodynamic Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.hemodynamic_models">3.2. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.hemodynamic_models</span></code>: Hemodynamic Models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.spm_hrf.html">3.2.1. nistats.hemodynamic_models.spm_hrf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.glover_hrf.html">3.2.2. nistats.hemodynamic_models.glover_hrf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.hemodynamic_models.spm_time_derivative.html">3.2.3. nistats.hemodynamic_models.spm_time_derivative</a></li>
@@ -439,7 +440,7 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.design_matrix">3.3. <code class="docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code>: Design Matrix Creation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.design_matrix">3.3. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.design_matrix</span></code>: Design Matrix Creation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.design_matrix.make_first_level_design_matrix.html">3.3.1. nistats.design_matrix.make_first_level_design_matrix</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.design_matrix.make_first_level_design_matrix.html#examples-using-nistats-design-matrix-make-first-level-design-matrix">3.3.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.design_matrix.make_first_level_design_matrix</span></code></a></li>
 </ul>
@@ -451,24 +452,24 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.experimental_paradigm">3.4. <code class="docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code>: Experimental Paradigm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.experimental_paradigm">3.4. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.experimental_paradigm</span></code>: Experimental Paradigm</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.experimental_paradigm.check_events.html">3.4.1. nistats.experimental_paradigm.check_events</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.model">3.5. <code class="docutils literal notranslate"><span class="pre">nistats.model</span></code>: Statistical models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.model">3.5. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.model</span></code>: Statistical models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.LikelihoodModelResults.html">3.5.1. nistats.model.LikelihoodModelResults</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.TContrastResults.html">3.5.2. nistats.model.TContrastResults</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.model.FContrastResults.html">3.5.3. nistats.model.FContrastResults</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.regression">3.6. <code class="docutils literal notranslate"><span class="pre">nistats.regression</span></code>: Regression Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.regression">3.6. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.regression</span></code>: Regression Models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.OLSModel.html">3.6.1. nistats.regression.OLSModel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.ARModel.html">3.6.2. nistats.regression.ARModel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.RegressionResults.html">3.6.3. nistats.regression.RegressionResults</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.regression.SimpleRegressionResults.html">3.6.4. nistats.regression.SimpleRegressionResults</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.first_level_model">3.7. <code class="docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code>: First Level Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.first_level_model">3.7. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.first_level_model</span></code>: First Level Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.first_level_model.FirstLevelModel.html">3.7.1. nistats.first_level_model.FirstLevelModel</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.first_level_model.FirstLevelModel.html#examples-using-nistats-first-level-model-firstlevelmodel">3.7.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code></a></li>
 </ul>
@@ -484,14 +485,14 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.second_level_model">3.8. <code class="docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code>: Second Level Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.second_level_model">3.8. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.second_level_model</span></code>: Second Level Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.second_level_model.SecondLevelModel.html">3.8.1. nistats.second_level_model.SecondLevelModel</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.second_level_model.SecondLevelModel.html#examples-using-nistats-second-level-model-secondlevelmodel">3.8.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.second_level_model.SecondLevelModel</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.contrasts">3.9. <code class="docutils literal notranslate"><span class="pre">nistats.contrasts</span></code>: Contrasts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.contrasts">3.9. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.contrasts</span></code>: Contrasts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.contrasts.Contrast.html">3.9.1. nistats.contrasts.Contrast</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.contrasts.compute_contrast.html">3.9.2. nistats.contrasts.compute_contrast</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.contrasts.compute_contrast.html#examples-using-nistats-contrasts-compute-contrast">3.9.2.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.contrasts.compute_contrast</span></code></a></li>
@@ -499,7 +500,7 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.thresholding">3.10. <code class="docutils literal notranslate"><span class="pre">nistats.thresholding</span></code>: Thresholding Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.thresholding">3.10. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.thresholding</span></code>: Thresholding Maps</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.thresholding.fdr_threshold.html">3.10.1. nistats.thresholding.fdr_threshold</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html">3.10.2. nistats.thresholding.map_threshold</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html#examples-using-nistats-thresholding-map-threshold">3.10.2.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.thresholding.map_threshold</span></code></a></li>
@@ -507,7 +508,7 @@ $(function () {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.reporting">3.11. <code class="docutils literal notranslate"><span class="pre">nistats.reporting</span></code>: Report plotting functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.reporting">3.11. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.reporting</span></code>: Report plotting functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.reporting.compare_niimgs.html">3.11.1. nistats.reporting.compare_niimgs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.compare_niimgs.html#examples-using-nistats-reporting-compare-niimgs">3.11.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.compare_niimgs</span></code></a></li>
 </ul>
@@ -524,9 +525,13 @@ $(function () {
 <li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.get_clusters_table.html#examples-using-nistats-reporting-get-clusters-table">3.11.4.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.get_clusters_table</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html">3.11.5. nistats.reporting.make_glm_report</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#examples-using-nistats-reporting-make-glm-report">3.11.5.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.utils">3.12. <code class="docutils literal notranslate"><span class="pre">nistats.utils</span></code>: Utility functions</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/reference.html#module-nistats.utils">3.12. <code class="xref py py-mod docutils literal notranslate"><span class="pre">nistats.utils</span></code>: Utility functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.z_score.html">3.12.1. nistats.utils.z_score</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.multiple_fast_inverse.html">3.12.2. nistats.utils.multiple_fast_inverse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nistats.utils.multiple_mahalanobis.html">3.12.3. nistats.utils.multiple_mahalanobis</a></li>
@@ -555,7 +560,7 @@ $(function () {
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="introduction.html" title="1. Introduction: NiStats in a nutshell"
+          <a href="introduction.html" title="1. Introduction: Nistats in a nutshell"
              >next</a> |</li>
         <li class="right" >
           <a href="authors.html" title="People"
@@ -571,7 +576,7 @@ $(function () {
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.6.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
         <span style="padding-left: 5ex;">
           <a href="_sources/user_guide.rst.txt"
         	 rel="nofollow">Show this page source</a>

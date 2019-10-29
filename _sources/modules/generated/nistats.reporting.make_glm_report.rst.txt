@@ -1,0 +1,19 @@
+.. note::
+
+   This page is a reference documentation. It only explains the
+   function signature, and not how to use it. Please refer to the
+   :ref:`user guide <user_guide>` for the big picture.
+
+
+nistats.reporting.make_glm_report
+=================================
+
+.. currentmodule:: nistats.reporting
+
+.. autofunction:: make_glm_report
+
+.. include:: nistats.reporting.make_glm_report.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

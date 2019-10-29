@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py:
 
@@ -11,11 +15,9 @@ sampled on the cortical surface and visualizing the results.
 More specifically:
 
 1. A sequence of fMRI volumes are loaded
-2. fMRI data are projected onto a reference cortical surface (the
-freesurfer template, fsaverage)
+2. fMRI data are projected onto a reference cortical surface (the freesurfer template, fsaverage)
 3. A design matrix describing all the effects related to the data is computed
-4. A GLM is applied to the dataset (effect/covariance,
-   then contrast estimation)
+4. A GLM is applied to the dataset (effect/covariance, then contrast estimation)
 
 The result of the analysis are statistical maps that are defined on
 the brain mesh. We display them using Nilearn capabilities.
@@ -23,16 +25,13 @@ the brain mesh. We display them using Nilearn capabilities.
 The projection of fMRI data onto a given brain mesh requires that both
 are initially defined in the same space.
 
-* The functional data should be coregistered to the anatomy from which
-  the mesh was obtained.
+* The functional data should be coregistered to the anatomy from which the mesh was obtained.
 
-* Another possibility, used here, is to project the normalized fMRI
-  data to an MNI-coregistered mesh, such as fsaverage.
+* Another possibility, used here, is to project the normalized fMRI data to an MNI-coregistered mesh, such as fsaverage.
 
 The advantage of this second approach is that it makes it easy to run
 second-level analyses on the surface. On the other hand, it is
 obviously less accurate than using a subject-tailored mesh.
-
 
 
 Prepare data and analysis parameters
@@ -40,8 +39,7 @@ Prepare data and analysis parameters
 Prepare timing parameters
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     t_r = 2.4
     slice_time_ref = 0.5
@@ -56,8 +54,7 @@ Prepare data
 First the volume-based fMRI data.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.datasets import fetch_localizer_first_level
     data = fetch_localizer_first_level()
@@ -72,10 +69,9 @@ First the volume-based fMRI data.
 Second the experimental paradigm.
 
 
+.. code-block:: default
 
-.. code-block:: python
-
-    events_file = data['events']
+    events_file = data.events
     import pandas as pd
     events = pd.read_table(events_file)
 
@@ -94,12 +90,11 @@ standard mesh, the so-called fsaverage5 template from the Freesurfer
 software.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     import nilearn
-    fsaverage = nilearn.datasets.fetch_surf_fsaverage5()
+    fsaverage = nilearn.datasets.fetch_surf_fsaverage()
 
 
 
@@ -111,8 +106,7 @@ The projection function simply takes the fMRI data and the mesh.
 Note that those correspond spatially, are they are bothin MNI space.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn import surface
     texture = surface.vol_to_surf(fmri_img, fsaverage.pial_right)
@@ -130,8 +124,7 @@ This involves computing the design matrix and fitting the model.
 We start by specifying the timing of fMRI frames
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     import numpy as np
@@ -150,8 +143,7 @@ We specify an hrf model containing Glover model and its time derivative
 the drift model is implicitly a cosine basis with period cutoff 128s.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.design_matrix import make_first_level_design_matrix
     design_matrix = make_first_level_design_matrix(frame_times,
@@ -172,8 +164,7 @@ Note that the output consists in 2 variables: `labels` and `fit`
 We keep them for later contrast computation.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     from nistats.first_level_model import run_glm
@@ -192,8 +183,7 @@ For practical purpose, we first generate an identity matrix whose size is
 the number of columns of the design matrix
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     contrast_matrix = np.eye(design_matrix.shape[1])
 
@@ -206,8 +196,7 @@ the number of columns of the design matrix
 first create basic contrasts
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     basic_contrasts = dict([(column, contrast_matrix[i])
                             for i, column in enumerate(design_matrix.columns)])
@@ -219,27 +208,31 @@ first create basic contrasts
 
 
 add some intermediate contrasts
+one contrast adding all conditions with some auditory parts
 
 
+.. code-block:: default
 
-.. code-block:: python
+    basic_contrasts['audio'] = (
+        basic_contrasts['audio_left_hand_button_press']
+        + basic_contrasts['audio_right_hand_button_press']
+        + basic_contrasts['audio_computation']
+        + basic_contrasts['sentence_listening'])
 
-    basic_contrasts["audio"] = (basic_contrasts["clicDaudio"]
-                                + basic_contrasts["clicGaudio"]
-                                + basic_contrasts["calculaudio"]
-                                + basic_contrasts["phraseaudio"]
-                                )
-    basic_contrasts["video"] = (basic_contrasts["clicDvideo"]
-                                + basic_contrasts["clicGvideo"]
-                                + basic_contrasts["calculvideo"]
-                                + basic_contrasts["phrasevideo"]
-                                )
-    basic_contrasts["computation"] = (basic_contrasts["calculaudio"]
-                                      + basic_contrasts["calculvideo"]
-                                      )
-    basic_contrasts["sentences"] = (basic_contrasts["phraseaudio"]
-                                    + basic_contrasts["phrasevideo"]
-                                    )
+    # one contrast adding all conditions involving instructions reading
+    basic_contrasts['visual'] = (
+        basic_contrasts['visual_left_hand_button_press']
+        + basic_contrasts['visual_right_hand_button_press']
+        + basic_contrasts['visual_computation']
+        + basic_contrasts['sentence_reading'])
+
+    # one contrast adding all conditions involving computation
+    basic_contrasts['computation'] = (basic_contrasts['visual_computation']
+                                      + basic_contrasts['audio_computation'])
+
+    # one contrast adding all conditions involving sentences
+    basic_contrasts['sentences'] = (basic_contrasts['sentence_listening']
+                                    + basic_contrasts['sentence_reading'])
 
 
 
@@ -249,28 +242,28 @@ add some intermediate contrasts
 
 Finally make a dictionary of more relevant contrasts
 
-* "left - right button press" probes motor activity in left versus right button presses
-* "audio - video" probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
-* "computation - sentences" looks at the activity when performing a mental comptation task  versus simply reading sentences.
+* 'left - right button press' probes motor activity in left versus right button presses
+* 'audio - visual' probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
+* 'computation - sentences' looks at the activity when performing a mental comptation task  versus simply reading sentences.
 
 Of course, we could define other contrasts, but we keep only 3 for simplicity.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     contrasts = {
-        "left - right button press": (basic_contrasts["clicGaudio"]
-                                      + basic_contrasts["clicGvideo"]
-                                      - basic_contrasts["clicDaudio"]
-                                      - basic_contrasts["clicDvideo"]
-                                      ),
-        "audio - video": basic_contrasts["audio"] - basic_contrasts["video"],
-        "computation - sentences": (basic_contrasts["computation"] -
-                                    basic_contrasts["sentences"]
-                                    )
-        }
+        'left - right button press': (
+            basic_contrasts['audio_left_hand_button_press']
+            - basic_contrasts['audio_right_hand_button_press']
+            + basic_contrasts['visual_left_hand_button_press']
+            - basic_contrasts['visual_right_hand_button_press']
+        ),
+        'audio - visual': basic_contrasts['audio'] - basic_contrasts['visual'],
+        'computation - sentences': (basic_contrasts['computation'] -
+                                    basic_contrasts['sentences']
+        )
+    }
 
 
 
@@ -281,8 +274,7 @@ Of course, we could define other contrasts, but we keep only 3 for simplicity.
 contrast estimation
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.contrasts import compute_contrast
     from nilearn import plotting
@@ -296,8 +288,7 @@ contrast estimation
 iterate over contrasts
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
         print('  Contrast % i out of %i: %s, right hemisphere' %
@@ -324,26 +315,29 @@ iterate over contrasts
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_001.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_002.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_003.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
 
-    Contrast  1 out of 3: left - right button press, right hemisphere
-      Contrast  2 out of 3: audio - video, right hemisphere
+ .. code-block:: none
+
+      Contrast  1 out of 3: left - right button press, right hemisphere
+      Contrast  2 out of 3: audio - visual, right hemisphere
       Contrast  3 out of 3: computation - sentences, right hemisphere
+
 
 
 Analysing the left hemisphere
@@ -351,12 +345,10 @@ Analysing the left hemisphere
 
 Note that it requires little additional code!
 
-
 Project the fMRI data to the mesh
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     texture = surface.vol_to_surf(fmri_img, fsaverage.pial_left)
 
@@ -369,8 +361,7 @@ Project the fMRI data to the mesh
 Estimate the General Linear Model
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     labels, estimates = run_glm(texture.T, design_matrix.values)
 
@@ -383,8 +374,7 @@ Estimate the General Linear Model
 Create contrast-specific maps
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
         print('  Contrast % i out of %i: %s, left hemisphere' %
@@ -409,33 +399,45 @@ Create contrast-specific maps
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_004.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_005.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/02_first_level_models/images/sphx_glr_plot_localizer_surface_analysis_006.png
-            :scale: 47
+            :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
 
-    Contrast  1 out of 3: left - right button press, left hemisphere
-      Contrast  2 out of 3: audio - video, left hemisphere
+ .. code-block:: none
+
+      Contrast  1 out of 3: left - right button press, left hemisphere
+      Contrast  2 out of 3: audio - visual, left hemisphere
       Contrast  3 out of 3: computation - sentences, left hemisphere
 
 
-**Total running time of the script:** ( 0 minutes  7.862 seconds)
 
 
+.. rst-class:: sphx-glr-timing
 
-.. container:: sphx-glr-footer
+   **Total running time of the script:** ( 0 minutes  12.293 seconds)
+
+
+.. _sphx_glr_download_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py:
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download
@@ -448,6 +450,9 @@ Create contrast-specific maps
 
      :download:`Download Jupyter notebook: plot_localizer_surface_analysis.ipynb <plot_localizer_surface_analysis.ipynb>`
 
-.. rst-class:: sphx-glr-signature
 
-    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

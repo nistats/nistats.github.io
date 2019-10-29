@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Reference documentation: all nistats functions" href="../../modules/reference.html" />
+    <link rel="prev" title="2.5.1. BIDS dataset first and second level analysis" href="plot_bids_analysis.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="../02_first_level_models/plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../03_second_level_models/plot_thresholding.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="../../modules/reference.html" title="3. Reference documentation: all nistats functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_bids_analysis.html" title="2.5.1. BIDS dataset first and second level analysis"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2.5.2. Surface-based dataset first and second level analysis of a dataset</a><ul>
+<li><a class="reference internal" href="#fetch-example-bids-dataset">2.5.2.1. Fetch example BIDS dataset</a></li>
+<li><a class="reference internal" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments">2.5.2.2. Obtain automatically FirstLevelModel objects and fit arguments</a></li>
+<li><a class="reference internal" href="#group-study">2.5.2.3. Group study</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_bids_analysis.html"
+                        title="previous chapter">2.5.1. BIDS dataset first and second level analysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../modules/reference.html"
+                        title="next chapter">3. Reference documentation: all nistats functions</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-05-complete-examples-plot-surface-bids-analysis-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="surface-based-dataset-first-and-second-level-analysis-of-a-dataset">
+<span id="sphx-glr-auto-examples-05-complete-examples-plot-surface-bids-analysis-py"></span><h1>2.5.2. Surface-based dataset first and second level analysis of a dataset<a class="headerlink" href="#surface-based-dataset-first-and-second-level-analysis-of-a-dataset" title="Permalink to this headline">¶</a></h1>
+<p>Full step-by-step example of fitting a GLM (first and second level
+analysis) in a 10-subjects dataset and visualizing the results.</p>
+<p>More specifically:</p>
+<ol class="arabic simple">
+<li><p>Download an fMRI BIDS dataset with two language conditions to contrast.</p></li>
+<li><p>Project the data to a standard mesh, fsaverage5, aka the Freesurfer template mesh downsampled to about 10k nodes per hemisphere.</p></li>
+<li><p>Run the first level model objects</p></li>
+<li><p>Fit a second level model on the fitted first level models.</p></li>
+</ol>
+<dl class="simple">
+<dt>Notice that in this case the preprocessed bold images were already</dt><dd><p>normalized to the same MNI space.</p>
+</dd>
+</dl>
+<p>To run this example, you must launch IPython via <code class="docutils literal notranslate"><span class="pre">ipython</span>
+<span class="pre">--matplotlib</span></code> in a terminal, or use the Jupyter notebook.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#fetch-example-bids-dataset" id="id1">Fetch example BIDS dataset</a></p></li>
+<li><p><a class="reference internal" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments" id="id2">Obtain automatically FirstLevelModel objects and fit arguments</a></p></li>
+<li><p><a class="reference internal" href="#group-study" id="id3">Group study</a></p></li>
+</ul>
+</div>
+<div class="section" id="fetch-example-bids-dataset">
+<h2><a class="toc-backref" href="#id1">2.5.2.1. Fetch example BIDS dataset</a><a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We download an simplified BIDS dataset made available for illustrative
+purposes. It contains only the necessary
+information to run a statistical analysis using Nistats. The raw data
+subject folders only contain bold.json and events.tsv files, while the
+derivatives folder with preprocessed files contain preproc.nii and
+confounds.tsv files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.datasets</span> <span class="k">import</span> <a href="../../modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="View documentation for nistats.datasets.fetch_language_localizer_demo_dataset"><span class="n">fetch_language_localizer_demo_dataset</span></a>
+<span class="n">data_dir</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="View documentation for nistats.datasets.fetch_language_localizer_demo_dataset"><span class="n">fetch_language_localizer_demo_dataset</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here is the location of the dataset on disk</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtain-automatically-firstlevelmodel-objects-and-fit-arguments">
+<h2><a class="toc-backref" href="#id2">2.5.2.2. Obtain automatically FirstLevelModel objects and fit arguments</a><a class="headerlink" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments" title="Permalink to this headline">¶</a></h2>
+<p>From the dataset directory we obtain automatically FirstLevelModel objects
+with their subject_id filled from the BIDS dataset. Moreover we obtain
+for each model a dictionary with run_imgs, events and confounder regressors
+since in this case a confounds.tsv file is available in the BIDS dataset.
+To get the first level models we only have to specify the dataset directory
+and the task_label as specified in the file names.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.first_level_model.first_level_models_from_bids.html#nistats.first_level_model.first_level_models_from_bids" title="View documentation for nistats.first_level_model.first_level_models_from_bids"><span class="n">first_level_models_from_bids</span></a>
+<span class="n">task_label</span> <span class="o">=</span> <span class="s1">&#39;languagelocalizer&#39;</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">models_run_imgs</span><span class="p">,</span> <span class="n">models_events</span><span class="p">,</span> <span class="n">models_confounds</span> <span class="o">=</span> \
+    <a href="../../modules/generated/nistats.first_level_model.first_level_models_from_bids.html#nistats.first_level_model.first_level_models_from_bids" title="View documentation for nistats.first_level_model.first_level_models_from_bids"><span class="n">first_level_models_from_bids</span></a><span class="p">(</span>
+        <span class="n">data_dir</span><span class="p">,</span> <span class="n">task_label</span><span class="p">,</span>
+        <span class="n">img_filters</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;desc&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:703: ResourceWarning: unclosed file &lt;_io.TextIOWrapper name=&#39;/home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+  specs = json.load(open(img_specs[0], &#39;r&#39;))
+/home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:718: UserWarning: SliceTimingRef not found in file /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
+  img_specs[0])
+</pre></div>
+</div>
+<p>We also need to get the TR information. For that we use a json file
+of the dataset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">json_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;derivatives&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-01&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;sub-01_task-languagelocalizer_desc-preproc_bold.json&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">t_r</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s1">&#39;RepetitionTime&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Project fMRI data to the surface: First get fsaverage5</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="View documentation for nilearn.datasets.fetch_surf_fsaverage"><span class="n">fetch_surf_fsaverage</span></a>
+<span class="n">fsaverage</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="View documentation for nilearn.datasets.fetch_surf_fsaverage"><span class="n">fetch_surf_fsaverage</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="s1">&#39;fsaverage5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The projection function simply takes the fMRI data and the mesh.
+Note that those correspond spatially, are they are bothin MNI space.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">surface</span>
+<span class="kn">from</span> <span class="nn">nistats.design_matrix</span> <span class="k">import</span> <a href="../../modules/generated/nistats.design_matrix.make_first_level_design_matrix.html#nistats.design_matrix.make_first_level_design_matrix" title="View documentation for nistats.design_matrix.make_first_level_design_matrix"><span class="n">make_first_level_design_matrix</span></a>
+<span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.first_level_model.run_glm.html#nistats.first_level_model.run_glm" title="View documentation for nistats.first_level_model.run_glm"><span class="n">run_glm</span></a>
+<span class="kn">from</span> <span class="nn">nistats.contrasts</span> <span class="k">import</span> <a href="../../modules/generated/nistats.contrasts.compute_contrast.html#nistats.contrasts.compute_contrast" title="View documentation for nistats.contrasts.compute_contrast"><span class="n">compute_contrast</span></a>
+</pre></div>
+</div>
+<p>Empty lists in which we are going to store activation values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_scores_right</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z_scores_left</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">confound</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">models_run_imgs</span><span class="p">,</span> <span class="n">models_confounds</span><span class="p">,</span> <span class="n">models_events</span><span class="p">):</span>
+    <span class="n">texture</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.surface.vol_to_surf.html#nilearn.surface.vol_to_surf" title="View documentation for nilearn.surface.vol_to_surf"><span class="n">surface</span><span class="o">.</span><span class="n">vol_to_surf</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fsaverage</span><span class="o">.</span><span class="n">pial_right</span><span class="p">)</span>
+    <span class="n">n_scans</span> <span class="o">=</span> <span class="n">texture</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">frame_times</span> <span class="o">=</span> <span class="n">t_r</span> <span class="o">*</span> <span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange" title="View documentation for numpy.arange"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">n_scans</span><span class="p">)</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># Create the design matrix</span>
+    <span class="c1">#</span>
+    <span class="c1"># We specify an hrf model containing Glover model and its time derivative</span>
+    <span class="c1"># the drift model is implicitly a cosine basis with period cutoff 128s.</span>
+    <span class="n">design_matrix</span> <span class="o">=</span> <a href="../../modules/generated/nistats.design_matrix.make_first_level_design_matrix.html#nistats.design_matrix.make_first_level_design_matrix" title="View documentation for nistats.design_matrix.make_first_level_design_matrix"><span class="n">make_first_level_design_matrix</span></a><span class="p">(</span>
+        <span class="n">frame_times</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;glover + derivative&#39;</span><span class="p">,</span>
+        <span class="n">add_regs</span><span class="o">=</span><span class="n">confound</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># contrast_specification</span>
+    <span class="n">contrast_values</span> <span class="o">=</span> <span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;language&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">-</span>\
+                      <span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Setup and fit GLM.</span>
+    <span class="c1"># Note that the output consists in 2 variables: `labels` and `fit`</span>
+    <span class="c1"># `labels` tags voxels according to noise autocorrelation.</span>
+    <span class="c1"># `estimates` contains the parameter estimates.</span>
+    <span class="c1"># We input them for contrast computation.</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">estimates</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.run_glm.html#nistats.first_level_model.run_glm" title="View documentation for nistats.first_level_model.run_glm"><span class="n">run_glm</span></a><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">contrast</span> <span class="o">=</span> <a href="../../modules/generated/nistats.contrasts.compute_contrast.html#nistats.contrasts.compute_contrast" title="View documentation for nistats.contrasts.compute_contrast"><span class="n">compute_contrast</span></a><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">estimates</span><span class="p">,</span> <span class="n">contrast_values</span><span class="p">,</span>
+                                <span class="n">contrast_type</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+    <span class="c1"># we present the Z-transform of the t map</span>
+    <span class="n">z_score</span> <span class="o">=</span> <span class="n">contrast</span><span class="o">.</span><span class="n">z_score</span><span class="p">()</span>
+    <span class="n">z_scores_right</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z_score</span><span class="p">)</span>
+
+    <span class="c1"># Do the left hemipshere exactly in the same way</span>
+    <span class="n">texture</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.surface.vol_to_surf.html#nilearn.surface.vol_to_surf" title="View documentation for nilearn.surface.vol_to_surf"><span class="n">surface</span><span class="o">.</span><span class="n">vol_to_surf</span></a><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">fsaverage</span><span class="o">.</span><span class="n">pial_left</span><span class="p">)</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">estimates</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.run_glm.html#nistats.first_level_model.run_glm" title="View documentation for nistats.first_level_model.run_glm"><span class="n">run_glm</span></a><span class="p">(</span><span class="n">texture</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">contrast</span> <span class="o">=</span> <a href="../../modules/generated/nistats.contrasts.compute_contrast.html#nistats.contrasts.compute_contrast" title="View documentation for nistats.contrasts.compute_contrast"><span class="n">compute_contrast</span></a><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">estimates</span><span class="p">,</span> <span class="n">contrast_values</span><span class="p">,</span>
+                                <span class="n">contrast_type</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+    <span class="n">z_scores_left</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">z_score</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Individual activation maps have been accumulated in the z_score_left
+and az_scores_right lists respectively. We can now use them in a
+group study (one -sample study)</p>
+</div>
+<div class="section" id="group-study">
+<h2><a class="toc-backref" href="#id3">2.5.2.3. Group study</a><a class="headerlink" href="#group-study" title="Permalink to this headline">¶</a></h2>
+<p>Prepare figure for concurrent plot of individual maps
+compute population-level maps for left and right hemisphere
+we directetly do that on the values arrays</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="View documentation for scipy.stats.ttest_1samp"><span class="n">ttest_1samp</span></a><span class="p">,</span> <span class="n">norm</span>
+<span class="n">t_left</span><span class="p">,</span> <span class="n">pval_left</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="View documentation for scipy.stats.ttest_1samp"><span class="n">ttest_1samp</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">z_scores_left</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">t_right</span><span class="p">,</span> <span class="n">pval_right</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="View documentation for scipy.stats.ttest_1samp"><span class="n">ttest_1samp</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">z_scores_right</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What we have so far are p-values: we convert them to z-values for plotting</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_val_left</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">pval_left</span><span class="p">)</span>
+<span class="n">z_val_right</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">pval_right</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot the resulting maps.
+Left hemipshere</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">plotting</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="View documentation for nilearn.plotting.plot_surf_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_stat_map</span></a><span class="p">(</span>
+    <span class="n">fsaverage</span><span class="o">.</span><span class="n">infl_left</span><span class="p">,</span> <span class="n">z_val_left</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;language-string, left hemisphere&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mf">3.</span><span class="p">,</span> <span class="n">bg_map</span><span class="o">=</span><span class="n">fsaverage</span><span class="o">.</span><span class="n">sulc_left</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_surface_bids_analysis_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_surface_bids_analysis_001.png" />
+<p>Right hemisphere</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="View documentation for nilearn.plotting.plot_surf_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_stat_map</span></a><span class="p">(</span>
+    <span class="n">fsaverage</span><span class="o">.</span><span class="n">infl_right</span><span class="p">,</span> <span class="n">z_val_left</span><span class="p">,</span> <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;language-string, right hemisphere&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mf">3.</span><span class="p">,</span> <span class="n">bg_map</span><span class="o">=</span><span class="n">fsaverage</span><span class="o">.</span><span class="n">sulc_right</span><span class="p">)</span>
+
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  19.266 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-complete-examples-plot-surface-bids-analysis-py">
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/1a25d1bddd4d344d63aa91bc1d3da2fb/plot_surface_bids_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_surface_bids_analysis.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/8e13d5de894a09da3d0d10d6d4c8c580/plot_surface_bids_analysis.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_surface_bids_analysis.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="../../modules/reference.html" title="3. Reference documentation: all nistats functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_bids_analysis.html" title="2.5.1. BIDS dataset first and second level analysis"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/05_complete_examples/plot_surface_bids_analysis.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

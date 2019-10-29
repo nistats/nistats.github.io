@@ -1,4 +1,8 @@
+.. note::
+    :class: sphx-glr-download-link-note
 
+    Click :ref:`here <sphx_glr_download_auto_examples_03_second_level_models_plot_thresholding.py>` to download the full example code
+.. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_03_second_level_models_plot_thresholding.py:
 
@@ -13,14 +17,12 @@ It shows activation related to a mental computation task,
 as opposed to narrative sentence reading/listening.
 
 
-
 Prepare some images for a simple t test
 ----------------------------------------
 This is a simple manually performed second level analysis
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn import datasets
     n_samples = 20
@@ -31,13 +33,21 @@ This is a simple manually performed second level analysis
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+      output = genfromtxt(fname, **kwargs)
+
 
 
 Get the set of individual statstical maps (contrast estimates)
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     cmap_filenames = localizer_dataset.cmaps
 
@@ -53,8 +63,7 @@ Perform the second level analysis
 First define a design matrix for the model. As the model is trivial (one-sample test), the design matrix is just one column with ones.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     import pandas as pd
     design_matrix = pd.DataFrame([1] * n_samples, columns=['intercept'])
@@ -68,8 +77,7 @@ First define a design matrix for the model. As the model is trivial (one-sample 
 Specify and estimate the model
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.second_level_model import SecondLevelModel
     second_level_model = SecondLevelModel().fit(
@@ -79,14 +87,25 @@ Specify and estimate the model
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+    Use os.path.join(memory.location, 'joblib') attribute instead.
+      if (memory.cachedir is None and memory_level is not None
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
+      r = func(a, **kwargs)
+
 
 
 Compute the only possible contrast: the one-sample test. Since there
 is only one possible contrast, we don't need to specify it in detail
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     z_map = second_level_model.compute_contrast(output_type='z_score')
 
@@ -94,18 +113,26 @@ is only one possible contrast, we don't need to specify it in detail
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
+      return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+
 
 
 Threshold the resulting map:
 false positive rate < .001, cluster size > 10 voxels
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nistats.thresholding import map_threshold
     thresholded_map1, threshold1 = map_threshold(
-        z_map, level=.001, height_control='fpr', cluster_threshold=10)
+        z_map, alpha=.001, height_control='fpr', cluster_threshold=10)
 
 
 
@@ -116,11 +143,10 @@ false positive rate < .001, cluster size > 10 voxels
 Now use FDR <.05, (False Discovery Rate) no cluster-level threshold
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     thresholded_map2, threshold2 = map_threshold(
-        z_map, level=.05, height_control='fdr')
+        z_map, alpha=.05, height_control='fdr')
     print('The FDR=.05 threshold is %.3g' % threshold2)
 
 
@@ -129,9 +155,12 @@ Now use FDR <.05, (False Discovery Rate) no cluster-level threshold
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
+
+ .. code-block:: none
 
     The FDR=.05 threshold is 2.06
+
 
 
 Now use FWER <.05, (Familywise Error Rate) no cluster-level
@@ -139,11 +168,10 @@ threshold.  As the data have not been intensively smoothed, we can
 use a simple Bonferroni correction
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     thresholded_map3, threshold3 = map_threshold(
-        z_map, level=.05, height_control='bonferroni')
+        z_map, alpha=.05, height_control='bonferroni')
     print('The p<.05 Bonferroni-corrected threshold is %.3g' % threshold3)
 
 
@@ -152,9 +180,12 @@ use a simple Bonferroni correction
 
 .. rst-class:: sphx-glr-script-out
 
- Out::
+ Out:
+
+ .. code-block:: none
 
     The p<.05 Bonferroni-corrected threshold is 4.74
+
 
 
 Visualize the results
@@ -163,8 +194,7 @@ Visualize the results
 First the unthresholded map
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     from nilearn import plotting
     display = plotting.plot_stat_map(z_map, title='Raw z map')
@@ -173,16 +203,24 @@ First the unthresholded map
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_thresholding_001.png
-    :align: center
+    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
+      return _nd_image.find_objects(input, max_label)
 
 
 
 Second the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels)
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     plotting.plot_stat_map(
         thresholded_map1, cut_coords=display.cut_coords, threshold=threshold1,
@@ -192,7 +230,7 @@ Second the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels)
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_thresholding_002.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -200,8 +238,7 @@ Second the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels)
 Third the fdr-thresholded map
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     plotting.plot_stat_map(thresholded_map2, cut_coords=display.cut_coords,
                            title='Thresholded z map, expected fdr = .05',
@@ -211,7 +248,7 @@ Third the fdr-thresholded map
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_thresholding_003.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -219,8 +256,7 @@ Third the fdr-thresholded map
 Fourth the Bonferroni-thresholded map
 
 
-
-.. code-block:: python
+.. code-block:: default
 
     plotting.plot_stat_map(thresholded_map3, cut_coords=display.cut_coords,
                            title='Thresholded z map, expected fwer < .05',
@@ -230,7 +266,7 @@ Fourth the Bonferroni-thresholded map
 
 
 .. image:: /auto_examples/03_second_level_models/images/sphx_glr_plot_thresholding_004.png
-    :align: center
+    :class: sphx-glr-single-img
 
 
 
@@ -243,8 +279,7 @@ positive. In the uncorrected image, one expects a few tens of false
 positive voxels.
 
 
-
-.. code-block:: python
+.. code-block:: default
 
 
     plotting.show()
@@ -254,11 +289,20 @@ positive voxels.
 
 
 
-**Total running time of the script:** ( 0 minutes  4.353 seconds)
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  3.733 seconds)
 
 
+.. _sphx_glr_download_auto_examples_03_second_level_models_plot_thresholding.py:
 
-.. container:: sphx-glr-footer
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
 
 
   .. container:: sphx-glr-download
@@ -271,6 +315,9 @@ positive voxels.
 
      :download:`Download Jupyter notebook: plot_thresholding.ipynb <plot_thresholding.ipynb>`
 
-.. rst-class:: sphx-glr-signature
 
-    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

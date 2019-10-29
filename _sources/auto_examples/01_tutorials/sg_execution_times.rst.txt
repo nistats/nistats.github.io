@@ -1,0 +1,11 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_01_tutorials_sg_execution_times:
+
+Computation times
+=================
+**00:54.146** total execution time for **auto_examples_01_tutorials** files:
+
+- **00:46.395**: :ref:`sphx_glr_auto_examples_01_tutorials_plot_first_level_model_details.py` (``plot_first_level_model_details.py``)
+- **00:07.751**: :ref:`sphx_glr_auto_examples_01_tutorials_plot_single_subject_single_run.py` (``plot_single_subject_single_run.py``)

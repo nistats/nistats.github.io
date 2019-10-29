@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2.3. Single-subject data (two sessions) in native space" href="plot_spm_multimodal_faces.html" />
+    <link rel="prev" title="2.2.1. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../03_second_level_models/plot_thresholding.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_spm_multimodal_faces.html" title="2.2.3. Single-subject data (two sessions) in native space"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_adhd_dmn.html" title="2.2.1. Default Mode Network extraction of AHDH dataset"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_adhd_dmn.html"
+                        title="previous chapter">2.2.1. Default Mode Network extraction of AHDH dataset</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plot_spm_multimodal_faces.html"
+                        title="next chapter">2.2.3. Single-subject data (two sessions) in native space</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-02-first-level-models-plot-fir-model-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="analysis-of-an-fmri-dataset-with-a-finite-impule-response-fir-model">
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-fir-model-py"></span><h1>2.2.2. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model<a class="headerlink" href="#analysis-of-an-fmri-dataset-with-a-finite-impule-response-fir-model" title="Permalink to this headline">¶</a></h1>
+<p>FIR models are used to estimate the hemodyamic response non-parametrically.
+The example below shows that they’re good to do statistical inference
+even on fast event-related fMRI datasets.</p>
+<p>Here, we demonstrate the use of a FIR model with 3 lags, computing 4 contrasts from a single subject dataset from the “Neurospin Localizer”. It is a fast event related design: During 5 minutes, 80 events of the following types are presented : [‘calculaudio’, ‘calculvideo’‘, ‘clicDvideo’, ‘clicGaudio’, ‘clicGvideo’, ‘damier_H’, ‘damier_V’, ‘phraseaudio’, ‘phrasevideo’]</p>
+<p>Grab localizer data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">nistats</span> <span class="k">import</span> <span class="n">datasets</span>
+
+<span class="n">data</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_localizer_first_level.html#nistats.datasets.fetch_localizer_first_level" title="View documentation for nistats.datasets.fetch_localizer_first_level"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_first_level</span></a><span class="p">()</span>
+<span class="n">fmri_img</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epi_img</span>
+<span class="n">t_r</span> <span class="o">=</span> <span class="mf">2.4</span>
+<span class="n">events_file</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span>
+<span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><span class="n">events_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next solution is to try finite impulse reponse (FIR) models: we just
+say that the hrf is an arbitrary function that lags behind the
+stimulus onset.  In the present case, given that the numbers of
+conditions is high, we should use a simple FIR model.</p>
+<p>Concretely, we set <cite>hrf_model</cite> to ‘fir’ and <cite>fir_delays</cite> to [1, 2,
+3] (scans) corresponding to a 3-step functions on the [1 * t_r, 4 *
+t_r] seconds interval.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a>
+<span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="k">import</span> <a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">,</span> <a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a>
+
+<span class="n">first_level_model</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a><span class="p">(</span><span class="n">t_r</span><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;fir&#39;</span><span class="p">,</span> <span class="n">fir_delays</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">first_level_model</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">)</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_fir_model_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The &#39;cachedir&#39; attribute has been deprecated in version 0.12 and will be removed in version 0.14.
+Use os.path.join(memory.location, &#39;joblib&#39;) attribute instead.
+  if (memory.cachedir is None and memory_level is not None
+</pre></div>
+</div>
+<p>We have to adapt contrast specification. We characterize the BOLD
+response by the sum across the three time lags. It’s a bit hairy,
+sorry, but this is the price to pay for flexibility…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">contrast_matrix</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">contrasts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">column</span><span class="p">,</span> <span class="n">contrast_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">)])</span>
+<span class="n">conditions</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">trial_type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">conditions</span><span class="p">:</span>
+    <span class="n">contrasts</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
+        <span class="p">[</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span>
+         <span class="k">if</span> <span class="n">name</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">condition</span><span class="p">)]</span> <span class="o">==</span> <span class="n">condition</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">([</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
+                             <span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;audio_computation&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;sentence_listening&#39;</span><span class="p">]],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
+    <span class="p">[</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
+     <span class="p">[</span><span class="s1">&#39;visual_right_hand_button_press&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;visual_left_hand_button_press&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;visual_computation&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;sentence_reading&#39;</span><span class="p">]],</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_computation&#39;</span><span class="p">]</span> <span class="o">+</span>\
+                           <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_computation&#39;</span><span class="p">]</span>
+<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentence_listening&#39;</span><span class="p">]</span> <span class="o">+</span>\
+                         <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentence_reading&#39;</span><span class="p">]</span>
+
+<span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;left-right&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">+</span>
+        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
+        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_right_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
+        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;H-V&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;horizontal_checkerboard&#39;</span><span class="p">]</span> <span class="o">-</span>
+            <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;vertical_checkerboard&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;audio-video&#39;</span><span class="p">:</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;sentences-computation&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Take a look at the contrasts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;left-right&#39;</span><span class="p">],</span> <span class="n">design_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_fir_model_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+  return matrix(data, dtype=dtype, copy=False)
+</pre></div>
+</div>
+<p>Take a breath.</p>
+<p>We can now  proceed by estimating the contrasts and displaying them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a>
+
+<span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">index</span><span class="p">)</span>
+    <span class="n">z_map</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span>
+        <span class="n">contrast_val</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+    <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span>
+        <span class="n">z_map</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_fir_model_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
+  return _nd_image.find_objects(input, max_label)
+</pre></div>
+</div>
+<p>The result is acceptable. Note that we’re asking a lot of questions
+to a small dataset, yet with a relatively large number of experimental
+conditions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.804 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-first-level-models-plot-fir-model-py">
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d62fdb823e327104dab1cc7e8f159f47/plot_fir_model.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fir_model.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/590a2e4018529472d68e9f6732965057/plot_fir_model.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fir_model.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_spm_multimodal_faces.html" title="2.2.3. Single-subject data (two sessions) in native space"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_adhd_dmn.html" title="2.2.1. Default Mode Network extraction of AHDH dataset"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/02_first_level_models/plot_fir_model.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

@@ -27,7 +27,7 @@ uses.
    :toctree: generated/
    :template: function.rst
 
-   fetch_bids_langloc_dataset
+   fetch_language_localizer_demo_dataset
    fetch_openneuro_dataset_index
    select_from_index
    fetch_openneuro_dataset
@@ -264,6 +264,7 @@ uses.
    plot_design_matrix
    plot_contrast_matrix
    get_clusters_table
+   make_glm_report
 
 .. _utils_ref:
 

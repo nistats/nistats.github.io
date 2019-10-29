@@ -1,5 +1,9 @@
 :orphan:
 
+
+
+.. _sphx_glr_auto_examples:
+
 Nistats usage examples
 ======================
 
@@ -20,32 +24,16 @@ Nistats usage examples
 
     <div style='clear:both'></div>
 
+
+
+.. _sphx_glr_auto_examples_01_tutorials:
+
 Tutorial examples
 -----------------
 
 These are examples with detailed explanations to showcase how to perform an fMRI first and second level analysis in arbitrary datasets and BIDS datasets.
 
 
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first and second level analysis in a B...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/01_tutorials/images/thumb/sphx_glr_plot_bids_analysis_thumb.png
-
-        :ref:`sphx_glr_auto_examples_01_tutorials_plot_bids_analysis.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/01_tutorials/plot_bids_analysis
 
 .. raw:: html
 
@@ -90,6 +78,10 @@ These are examples with detailed explanations to showcase how to perform an fMRI
 
     <div style='clear:both'></div>
 
+
+
+.. _sphx_glr_auto_examples_02_first_level_models:
+
 First level analysis examples
 ------------------------------
 
@@ -119,13 +111,13 @@ These are examples focused on showcasing first level models functionality and si
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th...">
+    <div class="sphx-glr-thumbcontainer" tooltip="FIR models are used to estimate the hemodyamic response non-parametrically. The example below s...">
 
 .. only:: html
 
-    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_fiac_analysis_thumb.png
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_fir_model_thumb.png
 
-        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py`
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fir_model.py`
 
 .. raw:: html
 
@@ -135,7 +127,7 @@ These are examples focused on showcasing first level models functionality and si
 .. toctree::
    :hidden:
 
-   /auto_examples/02_first_level_models/plot_fiac_analysis
+   /auto_examples/02_first_level_models/plot_fir_model
 
 .. raw:: html
 
@@ -156,6 +148,26 @@ These are examples focused on showcasing first level models functionality and si
    :hidden:
 
    /auto_examples/02_first_level_models/plot_spm_multimodal_faces
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/02_first_level_models/images/thumb/sphx_glr_plot_fiac_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/02_first_level_models/plot_fiac_analysis
 
 .. raw:: html
 
@@ -200,52 +212,16 @@ These are examples focused on showcasing first level models functionality and si
 
     <div style='clear:both'></div>
 
+
+
+.. _sphx_glr_auto_examples_03_second_level_models:
+
 Second level analysis examples
 ------------------------------
 
 These are examples focused on showcasing second level models functionality and group level analysis.
 
 
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="This example shows the results obtained in a group analysis using a more complex contrast than ...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_second_level_association_test_thumb.png
-
-        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_second_level_association_test.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/03_second_level_models/plot_second_level_association_test
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a second-level analysis (one-sample test)...">
-
-.. only:: html
-
-    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_second_level_one_sample_test_thumb.png
-
-        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/03_second_level_models/plot_second_level_one_sample_test
 
 .. raw:: html
 
@@ -306,9 +282,53 @@ These are examples focused on showcasing second level models functionality and g
    :hidden:
 
    /auto_examples/03_second_level_models/plot_oasis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a second-level analysis (one-sample test)...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_second_level_one_sample_test_thumb.png
+
+        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_second_level_models/plot_second_level_one_sample_test
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows the results obtained in a group analysis using a more complex contrast than ...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/03_second_level_models/images/thumb/sphx_glr_plot_second_level_association_test_thumb.png
+
+        :ref:`sphx_glr_auto_examples_03_second_level_models_plot_second_level_association_test.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/03_second_level_models/plot_second_level_association_test
 .. raw:: html
 
     <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_auto_examples_04_low_level_functions:
 
 Low level function examples
 ----------------------------
@@ -402,7 +422,64 @@ These are examples focused on showcasing low level functionality like design mat
 
 
 
-.. container:: sphx-glr-footer
+.. _sphx_glr_auto_examples_05_complete_examples:
+
+Complete examples
+-----------------
+
+Complete step-by-step examples, including First and Second Level Models.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first and second level analysis in a B...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/05_complete_examples/images/thumb/sphx_glr_plot_bids_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_05_complete_examples_plot_bids_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/05_complete_examples/plot_bids_analysis
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM (first and second level analysis) in a 10-subjects ...">
+
+.. only:: html
+
+    .. figure:: /auto_examples/05_complete_examples/images/thumb/sphx_glr_plot_surface_bids_analysis_thumb.png
+
+        :ref:`sphx_glr_auto_examples_05_complete_examples_plot_surface_bids_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/05_complete_examples/plot_surface_bids_analysis
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
 
 
   .. container:: sphx-glr-download
@@ -415,6 +492,9 @@ These are examples focused on showcasing low level functionality like design mat
 
     :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/doc/auto_examples/auto_examples_jupyter.zip>`
 
-.. rst-class:: sphx-glr-signature
 
-    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_
