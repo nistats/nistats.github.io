@@ -17,19 +17,18 @@ and visualizing the results.
 More specifically:
 
 1. A sequence of subject fMRI button press contrasts is downloaded.
-2. a mask of the useful brain volume is computed
-3. A one-sample t-test is applied to the brain maps
+2. A mask of the useful brain volume is computed.
+3. A one-sample t-test is applied to the brain maps.
 
 We focus on a given contrast of the localizer dataset: the motor response to
-left versus right button press. Both at the ndividual and group level, this is
+left versus right button press. Both at the individual and group level, this is
 expected to elicit activity in the motor cortex (positive in the right
 hemisphere, negative in the left hemisphere).
-
 
 Fetch dataset
 --------------
 We download a list of left vs right button press contrasts from a
-localizer dataset. Note that we fetc individual t-maps that represent the
+localizer dataset. Note that we fetch individual t-maps that represent the
 Bold activity estimate divided by the uncertainty about this estimate.
 
 
@@ -50,8 +49,9 @@ Bold activity estimate divided by the uncertainty about this estimate.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+    /home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
       output = genfromtxt(fname, **kwargs)
+
 
 
 
@@ -59,7 +59,7 @@ Display subject t_maps
 ----------------------
 We plot a grid with all the subjects t-maps thresholded at t = 2 for
 simple visualization purposes. The button press effect is visible among
-all subjects
+all subjects.
 
 
 .. code-block:: default
@@ -89,10 +89,9 @@ all subjects
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/03_second_level_models/plot_second_level_one_sample_test.py:49: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -115,7 +114,8 @@ and fit it.
 
 
 
-Model specification and fit
+
+Model specification and fit.
 
 
 .. code-block:: default
@@ -129,17 +129,6 @@ Model specification and fit
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
-      r = func(a, **kwargs)
 
 
 
@@ -155,18 +144,10 @@ name of the design matrix.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
-      return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 
 
-We threshold the second level contrast at uncorrected p < 0.001 and plot
+We threshold the second level contrast at uncorrected p < 0.001 and plot it.
 
 
 .. code-block:: default
@@ -177,6 +158,7 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot
     display = plotting.plot_glass_brain(
         z_map, threshold=p001_unc, colorbar=True, display_mode='z', plot_abs=False,
         title='group left-right button press (unc p<0.001)')
+    plotting.show()
 
 
 
@@ -187,21 +169,11 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot
 
 
 
-As expected, we find the motor cortex
 
+As expected, we find the motor cortex.
 
-.. code-block:: default
-
-    plotting.show()
-
-
-
-
-
-
-
-Computing the (corrected) p-values with parametric test to compare with
-non parametric test
+Next, we compute the (corrected) p-values with a parametric test to compare them with the results
+from a nonparametric test.
 
 
 .. code-block:: default
@@ -209,8 +181,10 @@ non parametric test
     import numpy as np
     from nilearn.image import math_img
     from nilearn.input_data import NiftiMasker
+    from nistats.utils import get_data
+
     p_val = second_level_model.compute_contrast(output_type='p_value')
-    n_voxels = np.sum(second_level_model.masker_.mask_img_.get_data())
+    n_voxels = np.sum(get_data(second_level_model.masker_.mask_img_))
     # Correcting the p-values for multiple testing and taking negative logarithm
     neg_log_pval = math_img("-np.log10(np.minimum(1, img * {}))"
                             .format(str(n_voxels)),
@@ -230,7 +204,8 @@ non parametric test
 
 
 
-Let us plot the (corrected) negative log p-values for the parametric test
+
+Let us plot the (corrected) negative log p-values for the parametric test.
 
 
 .. code-block:: default
@@ -258,7 +233,8 @@ Let us plot the (corrected) negative log p-values for the parametric test
 
 
 
-Computing the (corrected) p-values with permutation test
+
+Now, we compute the (corrected) p-values with a permutation test.
 
 
 .. code-block:: default
@@ -275,18 +251,10 @@ Computing the (corrected) p-values with permutation test
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/mass_univariate/permuted_least_squares.py:453: DeprecationWarning: This function is deprecated. Please call randint(1, 2147483646 + 1) instead
-      for n_perm_chunk in n_perm_chunks)
 
 
 
-Let us plot the (corrected) negative log  p-values
+Let us plot the (corrected) negative log p-values for the nonparametric test.
 
 
 .. code-block:: default
@@ -299,10 +267,10 @@ Let us plot the (corrected) negative log  p-values
         threshold=threshold, title=title)
     plotting.show()
 
-    # The neg-log p-values obtained with non parametric testing are capped at 3
+    # The neg-log p-values obtained with nonparametric testing are capped at 3
     # since the number of permutations is 1e3.
-    # The non parametric test yields many more discoveries
-    # and is then more powerful than the usual parametric procedure.
+    # The nonparametric test yields many more discoveries
+    # and is more powerful than the usual parametric procedure.
 
 
 
@@ -313,9 +281,10 @@ Let us plot the (corrected) negative log  p-values
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  21.081 seconds)
+   **Total running time of the script:** ( 0 minutes  26.254 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py:

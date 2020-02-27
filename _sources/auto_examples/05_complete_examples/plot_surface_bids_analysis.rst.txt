@@ -17,11 +17,10 @@ More specifically:
 
 1. Download an fMRI BIDS dataset with two language conditions to contrast.
 2. Project the data to a standard mesh, fsaverage5, aka the Freesurfer template mesh downsampled to about 10k nodes per hemisphere.
-3. Run the first level model objects
-4. Fit a second level model on the fitted first level models. 
+3. Run the first level model objects.
+4. Fit a second level model on the fitted first level models.
 
-Notice that in this case the preprocessed bold images were already
-   normalized to the same MNI space.
+Notice that in this case the preprocessed bold images were already normalized to the same MNI space.
 
 To run this example, you must launch IPython via ``ipython
 --matplotlib`` in a terminal, or use the Jupyter notebook.
@@ -30,14 +29,13 @@ To run this example, you must launch IPython via ``ipython
     :local:
     :depth: 1
 
-
 Fetch example BIDS dataset
 --------------------------
-We download an simplified BIDS dataset made available for illustrative
+We download a simplified BIDS dataset made available for illustrative
 purposes. It contains only the necessary
 information to run a statistical analysis using Nistats. The raw data
 subject folders only contain bold.json and events.tsv files, while the
-derivatives folder with preprocessed files contain preproc.nii and
+derivatives folder includes the preprocessed files preproc.nii and the
 confounds.tsv files.
 
 
@@ -52,7 +50,8 @@ confounds.tsv files.
 
 
 
-Here is the location of the dataset on disk
+
+Here is the location of the dataset on disk.
 
 
 .. code-block:: default
@@ -69,14 +68,15 @@ Here is the location of the dataset on disk
 
  .. code-block:: none
 
-    /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset
+    /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset
+
 
 
 
 Obtain automatically FirstLevelModel objects and fit arguments
 --------------------------------------------------------------
-From the dataset directory we obtain automatically FirstLevelModel objects
-with their subject_id filled from the BIDS dataset. Moreover we obtain
+From the dataset directory we automatically obtain the FirstLevelModel objects
+with their subject_id filled from the BIDS dataset. Moreover, we obtain
 for each model a dictionary with run_imgs, events and confounder regressors
 since in this case a confounds.tsv file is available in the BIDS dataset.
 To get the first level models we only have to specify the dataset directory
@@ -102,15 +102,14 @@ and the task_label as specified in the file names.
 
  .. code-block:: none
 
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:703: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json' mode='r' encoding='UTF-8'>
-      specs = json.load(open(img_specs[0], 'r'))
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:718: UserWarning: SliceTimingRef not found in file /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
+    /home/emdupre/Desktop/open_source/nistats/nistats/first_level_model.py:861: UserWarning: SliceTimingRef not found in file /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
       img_specs[0])
 
 
 
-We also need to get the TR information. For that we use a json file
-of the dataset
+
+We also need to get the TR information. For that we use the json sidecar file
+of the dataset's functional images.
 
 
 .. code-block:: default
@@ -128,7 +127,8 @@ of the dataset
 
 
 
-Project fMRI data to the surface: First get fsaverage5
+
+Project fMRI data to the surface: First get fsaverage5.
 
 
 .. code-block:: default
@@ -142,8 +142,9 @@ Project fMRI data to the surface: First get fsaverage5
 
 
 
+
 The projection function simply takes the fMRI data and the mesh.
-Note that those correspond spatially, are they are bothin MNI space.
+Note that those correspond spatially, as they are both in MNI space.
 
 
 .. code-block:: default
@@ -153,6 +154,7 @@ Note that those correspond spatially, are they are bothin MNI space.
     from nistats.design_matrix import make_first_level_design_matrix
     from nistats.first_level_model import run_glm
     from nistats.contrasts import compute_contrast
+
 
 
 
@@ -175,13 +177,13 @@ Empty lists in which we are going to store activation values.
 
         # Create the design matrix
         #
-        # We specify an hrf model containing Glover model and its time derivative
-        # the drift model is implicitly a cosine basis with period cutoff 128s.
+        # We specify an hrf model containing Glover model and its time derivative.
+        # The drift model is implicitly a cosine basis with period cutoff 128s.
         design_matrix = make_first_level_design_matrix(
             frame_times, events=events[0], hrf_model='glover + derivative',
             add_regs=confound[0])
 
-        # contrast_specification
+        # Contrast specification
         contrast_values = (design_matrix.columns == 'language') * 1.0 -\
                           (design_matrix.columns == 'string')
 
@@ -193,11 +195,11 @@ Empty lists in which we are going to store activation values.
         labels, estimates = run_glm(texture.T, design_matrix.values)
         contrast = compute_contrast(labels, estimates, contrast_values,
                                     contrast_type='t')
-        # we present the Z-transform of the t map
+        # We present the Z-transform of the t map.
         z_score = contrast.z_score()
         z_scores_right.append(z_score)
 
-        # Do the left hemipshere exactly in the same way
+        # Do the left hemipshere exactly in the same way.
         texture = surface.vol_to_surf(fmri_img, fsaverage.pial_left)
         labels, estimates = run_glm(texture.T, design_matrix.values)
         contrast = compute_contrast(labels, estimates, contrast_values,
@@ -210,16 +212,17 @@ Empty lists in which we are going to store activation values.
 
 
 
+
 Individual activation maps have been accumulated in the z_score_left
 and az_scores_right lists respectively. We can now use them in a
-group study (one -sample study)
+group study (one-sample study).
 
 Group study
 -----------
 
 Prepare figure for concurrent plot of individual maps
 compute population-level maps for left and right hemisphere
-we directetly do that on the values arrays 
+We directly do that on the value arrays.
 
 
 .. code-block:: default
@@ -234,7 +237,8 @@ we directetly do that on the values arrays
 
 
 
-What we have so far are p-values: we convert them to z-values for plotting
+
+What we have so far are p-values: we convert them to z-values for plotting.
 
 
 .. code-block:: default
@@ -248,8 +252,8 @@ What we have so far are p-values: we convert them to z-values for plotting
 
 
 
-Plot the resulting maps.
-Left hemipshere
+
+Plot the resulting maps, at first on the left hemipshere.
 
 
 .. code-block:: default
@@ -266,9 +270,18 @@ Left hemipshere
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
 
 
-Right hemisphere
+    <Figure size 640x480 with 2 Axes>
+
+
+
+Next, on the right hemisphere.
 
 
 .. code-block:: default
@@ -289,9 +302,10 @@ Right hemisphere
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  19.266 seconds)
+   **Total running time of the script:** ( 2 minutes  16.506 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_complete_examples_plot_surface_bids_analysis.py:

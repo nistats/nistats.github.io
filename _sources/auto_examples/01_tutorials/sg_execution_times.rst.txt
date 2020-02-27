@@ -5,7 +5,10 @@
 
 Computation times
 =================
-**00:54.146** total execution time for **auto_examples_01_tutorials** files:
+**01:17.810** total execution time for **auto_examples_01_tutorials** files:
 
-- **00:46.395**: :ref:`sphx_glr_auto_examples_01_tutorials_plot_first_level_model_details.py` (``plot_first_level_model_details.py``)
-- **00:07.751**: :ref:`sphx_glr_auto_examples_01_tutorials_plot_single_subject_single_run.py` (``plot_single_subject_single_run.py``)
++----------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_01_tutorials_plot_first_level_model_details.py` (``plot_first_level_model_details.py``) | 00:59.788 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_01_tutorials_plot_single_subject_single_run.py` (``plot_single_subject_single_run.py``) | 00:18.022 | 0.0 MB |
++----------------------------------------------------------------------------------------------------------------------+-----------+--------+

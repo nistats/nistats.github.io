@@ -184,7 +184,7 @@ $(function () {
                         title="previous chapter">User guide: table of contents</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="auto_examples/index.html"
-                        title="next chapter">2. Nistats usage examples</a></p>
+                        title="next chapter"><span class="section-number">2. </span>Nistats usage examples</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -204,9 +204,9 @@ $(function () {
           <div class="body" role="main">
             
   <div class="section" id="introduction-nistats-in-a-nutshell">
-<h1>1. Introduction: Nistats in a nutshell<a class="headerlink" href="#introduction-nistats-in-a-nutshell" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>Introduction: Nistats in a nutshell<a class="headerlink" href="#introduction-nistats-in-a-nutshell" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
-<p class="topic-title first"><strong>Contents</strong></p>
+<p class="topic-title"><strong>Contents</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#what-is-nistats" id="id1">What is Nistats?</a></p></li>
 <li><p><a class="reference internal" href="#a-primer-on-bold-fmri-data-analysis" id="id2">A primer on BOLD-fMRI data analysis</a></p></li>
@@ -215,16 +215,16 @@ $(function () {
 </ul>
 </div>
 <div class="section" id="what-is-nistats">
-<h2><a class="toc-backref" href="#id1">1.1. What is Nistats?</a><a class="headerlink" href="#what-is-nistats" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1"><span class="section-number">1.1. </span>What is Nistats?</a><a class="headerlink" href="#what-is-nistats" title="Permalink to this headline">¶</a></h2>
 <div class="topic">
-<p class="topic-title first"><strong>What is Nistats?</strong></p>
+<p class="topic-title"><strong>What is Nistats?</strong></p>
 <p>Nistats is a Python module to perform voxel-wise analyses of functional magnetic resonance images (fMRI) using linear models. It provides functions to create design matrices, at the subject and group levels, to estimate them from images series and to compute statistical maps (contrasts). It allows to perform the same statistical analyses as <a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM</a> or <a class="reference external" href="https://www.fmrib.ox.ac.uk/fsl">FSL</a> (but it does not provide tools for preprocessing stages (realignment, spatial normalization, etc.); for this, see <a class="reference external" href="https://nipype.readthedocs.io/en/latest/">NiPype</a>.</p>
 </div>
 </div>
 <div class="section" id="a-primer-on-bold-fmri-data-analysis">
-<h2><a class="toc-backref" href="#id2">1.2. A primer on BOLD-fMRI data analysis</a><a class="headerlink" href="#a-primer-on-bold-fmri-data-analysis" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2"><span class="section-number">1.2. </span>A primer on BOLD-fMRI data analysis</a><a class="headerlink" href="#a-primer-on-bold-fmri-data-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-is-fmri">
-<h3>1.2.1. What is fMRI ?<a class="headerlink" href="#what-is-fmri" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>What is fMRI ?<a class="headerlink" href="#what-is-fmri" title="Permalink to this headline">¶</a></h3>
 <p>Functional magnetic resonance imaging (fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood flow lead to fluctuations of the relative concentrations of oxyhaemoglobin (the red cells in the blood that carry oxygen) and deoxyhaemoglobin (the same red cells after they have delivered the oxygen). Oxy-haemoglobin and deoxy-haemoglobin have different magnetic properties (diamagnetic and paramagnetic, respectively), and they affect the local magnetic field in different ways. The signal picked up by the MRI scanner is sensitive to these modifications of the local magnetic field. To record cerebral activity, during functional sessions, the scanner is tuned to detect this “Blood Oxygen Level Dependent” (BOLD) signal.</p>
 <p>Brain activity is measured in sessions that span several minutes, while the participant performs some a cognitive task and the scanner acquires brain images, typically every 2 or 3 seconds (the time between two successive image acquisition is called the Repetition time, or TR).</p>
 <p>A cerebral MR image provides a 3D image of the brain that can be decomposed into <a class="reference external" href="https://en.wikipedia.org/wiki/Voxel">voxels</a> (the equivalent of pixels, but in 3 dimensions). The series of images acquired during a functional session provides, in each voxel, a time series of positive real number representing the MRI signal, sampled at the TR.</p>
@@ -234,7 +234,7 @@ $(function () {
 </div>
 </div>
 <div class="section" id="fmri-data-modelling">
-<h3>1.2.2. fMRI data modelling<a class="headerlink" href="#fmri-data-modelling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>fMRI data modelling<a class="headerlink" href="#fmri-data-modelling" title="Permalink to this headline">¶</a></h3>
 <p>One way to analyze times series consists in comparing them to a <em>model</em> built from our knowledge of the events that occurred during the functional session. Events can correspond to actions of the participant (e.g. button presses), presentations of sensory stimui (e.g. sound, images), or hypothesized internal processes (e.g. memorization of a stimulus), …</p>
 <div class="figure align-default">
 <img alt="_images/stimulation-time-diagram.png" src="_images/stimulation-time-diagram.png" />
@@ -267,7 +267,7 @@ $(function () {
 </ol>
 </div>
 <div class="section" id="fmri-statistical-analysis">
-<h3>1.2.3. fMRI statistical analysis<a class="headerlink" href="#fmri-statistical-analysis" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.3. </span>fMRI statistical analysis<a class="headerlink" href="#fmri-statistical-analysis" title="Permalink to this headline">¶</a></h3>
 <p>As explained in the previous section, the basic statistical analysis of fMRI is conceptually a correlation analysis, where one seeks whether a certain combination (contrast) of columns of the design matrix fits a significant proportion of the fMRI signal at a given location.</p>
 <p>It can be shown that this is equivalent to studying whether the estimated contrast effect is large with respect to the uncertainty about its exact value. Concretely, we compute the effect size estimate and the uncertainty about its value and divide the two. The resulting number has no physical dimension, it is a statistic — a Student or t-statistic, which we will denote <cite>t</cite>.
 Next, based on <cite>t</cite>, we want to decide whether the true effect was indeed greater than zero or not.</p>
@@ -292,7 +292,7 @@ However, if we assume that the noise is Gaussian, and that the model is correctl
 </div>
 </div>
 <div class="section" id="multiple-comparisons">
-<h3>1.2.4. Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.4. </span>Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this headline">¶</a></h3>
 <dl class="simple">
 <dt>A well-known issue that arrives then is that of multiple comparisons:</dt><dd><p>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect,  the number of detections —false detections since there is no effect— will be roughly <img class="math" src="_images/math/512da9cd5b54dbbb034c63ad5f7fcd4a1c488103.png" alt="n\_voxels \alpha"/>. Then, take <img class="math" src="_images/math/befff685f3ad4a25fe6d0faf8a48e18183d470f6.png" alt="\alpha=.001"/> and <img class="math" src="_images/math/3b29057dd09798d2669a9a5782924b36b16b6d91.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</p>
 </dd>
@@ -308,13 +308,13 @@ The problem with his approach is that truly activated voxel may not surpass the 
 </div>
 </div>
 <div class="section" id="tutorials">
-<h2><a class="toc-backref" href="#id3">1.3. Tutorials</a><a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3"><span class="section-number">1.3. </span>Tutorials</a><a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>For tutorials, please check out the <a class="reference external" href="auto_examples/index.html">Examples</a> gallery, especially those  of the Tutorial section.</p>
 </div></blockquote>
 </div>
 <div class="section" id="installing-nistats">
-<span id="installation"></span><h2><a class="toc-backref" href="#id4">1.4. Installing Nistats</a><a class="headerlink" href="#installing-nistats" title="Permalink to this headline">¶</a></h2>
+<span id="installation"></span><h2><a class="toc-backref" href="#id4"><span class="section-number">1.4. </span>Installing Nistats</a><a class="headerlink" href="#installing-nistats" title="Permalink to this headline">¶</a></h2>
 <script type="text/javascript">
 var OSName=2;
 if (navigator.userAgent.indexOf("Win")!=-1) OSName=1;
@@ -512,7 +512,7 @@ $(document).ready(function(){
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="_sources/introduction.rst.txt"
         	 rel="nofollow">Show this page source</a>

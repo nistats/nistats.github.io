@@ -16,10 +16,9 @@ This example is based on the so-called localizer dataset.
 It shows activation related to a mental computation task,
 as opposed to narrative sentence reading/listening.
 
-
 Prepare some images for a simple t test
 ----------------------------------------
-This is a simple manually performed second level analysis
+This is a simple manually performed second level analysis.
 
 
 .. code-block:: default
@@ -39,8 +38,9 @@ This is a simple manually performed second level analysis
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+    /home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
       output = genfromtxt(fname, **kwargs)
+
 
 
 
@@ -57,10 +57,11 @@ Get the set of individual statstical maps (contrast estimates)
 
 
 
+
 Perform the second level analysis
 ----------------------------------
 
-First define a design matrix for the model. As the model is trivial (one-sample test), the design matrix is just one column with ones.
+First, we define a design matrix for the model. As the model is trivial (one-sample test), the design matrix is just one column with ones.
 
 
 .. code-block:: default
@@ -74,7 +75,8 @@ First define a design matrix for the model. As the model is trivial (one-sample 
 
 
 
-Specify and estimate the model
+
+Next, we specify and estimate the model.
 
 
 .. code-block:: default
@@ -87,22 +89,11 @@ Specify and estimate the model
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
-      r = func(a, **kwargs)
 
 
 
 Compute the only possible contrast: the one-sample test. Since there
-is only one possible contrast, we don't need to specify it in detail
+is only one possible contrast, we don't need to specify it in detail.
 
 
 .. code-block:: default
@@ -113,19 +104,11 @@ is only one possible contrast, we don't need to specify it in detail
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
-      return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 
 
 Threshold the resulting map:
-false positive rate < .001, cluster size > 10 voxels
+false positive rate < .001, cluster size > 10 voxels.
 
 
 .. code-block:: default
@@ -140,7 +123,8 @@ false positive rate < .001, cluster size > 10 voxels
 
 
 
-Now use FDR <.05, (False Discovery Rate) no cluster-level threshold
+
+Now use FDR <.05 (False Discovery Rate) and no cluster-level threshold.
 
 
 .. code-block:: default
@@ -159,13 +143,14 @@ Now use FDR <.05, (False Discovery Rate) no cluster-level threshold
 
  .. code-block:: none
 
-    The FDR=.05 threshold is 2.06
+    The FDR=.05 threshold is 2.37
 
 
 
-Now use FWER <.05, (Familywise Error Rate) no cluster-level
-threshold.  As the data have not been intensively smoothed, we can
-use a simple Bonferroni correction
+
+Now use FWER <.05 (Family-Wise Error Rate) and no cluster-level
+threshold.  As the data has not been intensively smoothed, we can
+use a simple Bonferroni correction.
 
 
 .. code-block:: default
@@ -184,14 +169,15 @@ use a simple Bonferroni correction
 
  .. code-block:: none
 
-    The p<.05 Bonferroni-corrected threshold is 4.74
+    The p<.05 Bonferroni-corrected threshold is 4.88
+
 
 
 
 Visualize the results
 ---------------------
 
-First the unthresholded map
+First, the unthresholded map.
 
 
 .. code-block:: default
@@ -206,18 +192,10 @@ First the unthresholded map
     :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
 
 
 
-Second the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels)
+Second, the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels).
 
 
 .. code-block:: default
@@ -233,9 +211,18 @@ Second the p<.001 uncorrected-thresholded map (with only clusters > 10 voxels)
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
 
 
-Third the fdr-thresholded map
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7f6336978e50>
+
+
+
+Third, the fdr-thresholded map.
 
 
 .. code-block:: default
@@ -251,9 +238,18 @@ Third the fdr-thresholded map
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
 
 
-Fourth the Bonferroni-thresholded map
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7f63346e68d0>
+
+
+
+Fourth, the Bonferroni-thresholded map.
 
 
 .. code-block:: default
@@ -269,11 +265,20 @@ Fourth the Bonferroni-thresholded map
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7f6315fa4950>
+
 
 
 These different thresholds correspond to different statistical
-guarantees: in the FWER corrected image there is only a
-probability<.05 of observing any false positive voxel. In the
+guarantees: in the FWER-corrected image there is only a
+probability smaller than .05 of observing any false positive voxel. In the
 FDR-corrected image, 5% of the voxels found are likely to be false
 positive. In the uncorrected image, one expects a few tens of false
 positive voxels.
@@ -290,9 +295,10 @@ positive voxels.
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.733 seconds)
+   **Total running time of the script:** ( 0 minutes  3.864 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_second_level_models_plot_thresholding.py:

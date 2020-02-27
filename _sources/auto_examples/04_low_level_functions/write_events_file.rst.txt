@@ -10,7 +10,7 @@ Example of a events.tsv file generation: the neurospin/localizer events.
 =============================================================================
 
 The protocol described is the so-called "archi standard" localizer
-event sequence.  See Pinel et al., BMC neuroscience 2007 for reference
+event sequence.  See Pinel et al., BMC neuroscience 2007 for reference.
 
 
 .. code-block:: default
@@ -38,7 +38,7 @@ from the stimulation software used.
 
 
 Associated trial types: these are numbered between 0 and 9, hence
-correspond to 10 different conditions
+correspond to 10 different conditions.
 
 
 .. code-block:: default
@@ -70,7 +70,7 @@ For that, we define a list of 10 strings.
     trial_type = np.array([condition_ids[i] for i in trial_idx])
 
 
-We also define a duration (required by BIDS conventions)
+We also define a duration (required by BIDS conventions).
 
 
 .. code-block:: default
@@ -79,7 +79,7 @@ We also define a duration (required by BIDS conventions)
 
 
 
-Form an event dataframe from these information
+Form an event dataframe from these information.
 
 
 .. code-block:: default
@@ -90,7 +90,7 @@ Form an event dataframe from these information
                            'duration': duration})
 
 
-Export them to a tsv file
+Export them to a tsv file.
 
 
 .. code-block:: default

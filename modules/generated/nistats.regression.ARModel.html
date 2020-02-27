@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,10 +165,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.regression.OLSModel.html"
-                        title="previous chapter">3.6.1. nistats.regression.OLSModel</a></p>
+                        title="previous chapter"><span class="section-number">3.6.1. </span>nistats.regression.OLSModel</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.regression.RegressionResults.html"
-                        title="next chapter">3.6.3. nistats.regression.RegressionResults</a></p>
+                        title="next chapter"><span class="section-number">3.6.3. </span>nistats.regression.RegressionResults</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -194,7 +194,7 @@ signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-regression-armodel">
-<h1>3.6.2. nistats.regression.ARModel<a class="headerlink" href="#nistats-regression-armodel" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.6.2. </span>nistats.regression.ARModel<a class="headerlink" href="#nistats-regression-armodel" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="nistats.regression.ARModel">
 <em class="property">class </em><code class="sig-prename descclassname">nistats.regression.</code><code class="sig-name descname">ARModel</code><span class="sig-paren">(</span><em class="sig-param">design</em>, <em class="sig-param">rho</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.ARModel" title="Permalink to this definition">¶</a></dt>
@@ -256,9 +256,10 @@ and the nuisance parameter, sigma.</p>
 </dd>
 <dt><strong>Y</strong><span class="classifier">ndarray</span></dt><dd><p>The dependent variable</p>
 </dd>
-<dt><strong>nuisance</strong><span class="classifier">dict, optional</span></dt><dd><p>A dict with key ‘sigma’, which is an optional estimate of sigma. If
-None, defaults to its maximum likelihood estimate (with beta fixed)
-as <code class="docutils literal notranslate"><span class="pre">sum((Y</span> <span class="pre">-</span> <span class="pre">X*beta)**2)</span> <span class="pre">/</span> <span class="pre">n</span></code>, where n=Y.shape[0], X=self.design.</p>
+<dt><strong>nuisance</strong><span class="classifier">dict, optional</span></dt><dd><p>A dict with key ‘sigma’, which is an optional estimate of sigma.
+If None, defaults to its maximum likelihood estimate
+(with beta fixed) as
+<code class="docutils literal notranslate"><span class="pre">sum((Y</span> <span class="pre">-</span> <span class="pre">X*beta)**2)</span> <span class="pre">/</span> <span class="pre">n</span></code>, where n=Y.shape[0], X=self.design.</p>
 </dd>
 </dl>
 </dd>
@@ -274,11 +275,12 @@ as <code class="docutils literal notranslate"><span class="pre">sum((Y</span> <s
 <div class="math">
 <p><img src="../../_images/math/03e6eed5b4a778612e0a692d48ef8d983d5b3f19.png" alt="\ell(\beta,\sigma,Y)=
 -\frac{n}{2}\log(2\pi\sigma^2) - \|Y-X\beta\|^2/(2\sigma^2)"/></p>
-</div><p>The parameter <img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> above is what is sometimes referred to as a
-nuisance parameter. That is, the likelihood is considered as a function
-of <img class="math" src="../../_images/math/7138dad9ac96835665b17f5817eacfcaa9b834c9.png" alt="\beta"/>, but to evaluate it, a value of <img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> is
-needed.</p>
-<p>If <img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> is not provided, then its maximum likelihood estimate:</p>
+</div><p>The parameter <img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> above is what is sometimes referred to
+as a nuisance parameter. That is, the likelihood is considered as a
+function of <img class="math" src="../../_images/math/7138dad9ac96835665b17f5817eacfcaa9b834c9.png" alt="\beta"/>, but to evaluate it, a value of
+<img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> is needed.</p>
+<p>If <img class="math" src="../../_images/math/b52df27bfb0b1e3af0c2c68a7b9da459178c2a7d.png" alt="\sigma"/> is not provided,
+then its maximum likelihood estimate:</p>
 <div class="math">
 <p><img src="../../_images/math/a00bc2961f2b5bbd6d3479ac9bad9d8502903fd0.png" alt="\hat{\sigma}(\beta) = \frac{\text{SSE}(\beta)}{n}"/></p>
 </div><p>is plugged in. This likelihood is now a function of only <img class="math" src="../../_images/math/7138dad9ac96835665b17f5817eacfcaa9b834c9.png" alt="\beta"/>
@@ -306,7 +308,7 @@ and is technically referred to as a profile-likelihood.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>wX</strong><span class="classifier">ndarray</span></dt><dd><p>X whitened with order self.order AR</p>
+<dt><strong>whitened_X</strong><span class="classifier">ndarray</span></dt><dd><p>X whitened with order self.order AR</p>
 </dd>
 </dl>
 </dd>
@@ -343,12 +345,12 @@ and is technically referred to as a profile-likelihood.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.regression.ARModel.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -15,8 +15,7 @@ even on fast event-related fMRI datasets.
 
 Here, we demonstrate the use of a FIR model with 3 lags, computing 4 contrasts from a single subject dataset from the "Neurospin Localizer". It is a fast event related design: During 5 minutes, 80 events of the following types are presented : ['calculaudio', 'calculvideo'', 'clicDvideo', 'clicGaudio', 'clicGvideo', 'damier_H', 'damier_V', 'phraseaudio', 'phrasevideo']
 
-
-Grab localizer data
+At first, we grab the localizer data.
 
 
 .. code-block:: default
@@ -38,7 +37,8 @@ Grab localizer data
 
 
 
-Next solution is to try finite impulse reponse (FIR) models: we just
+
+Next solution is to try Finite Impulse Reponse (FIR) models: we just
 say that the hrf is an arbitrary function that lags behind the
 stimulus onset.  In the present case, given that the numbers of
 conditions is high, we should use a simple FIR model.
@@ -73,9 +73,8 @@ t_r] seconds interval.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
+
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7f6334cb5610>
 
 
 
@@ -133,6 +132,7 @@ sorry, but this is the price to pay for flexibility...
 
 
 
+
 Take a look at the contrasts.
 
 
@@ -153,8 +153,8 @@ Take a look at the contrasts.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
-      return matrix(data, dtype=dtype, copy=False)
+
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7f63349c8850>
 
 
 
@@ -177,6 +177,7 @@ We can now  proceed by estimating the contrasts and displaying them.
         plot_stat_map(
             z_map, display_mode='z', threshold=3.0, title=contrast_id, axes=ax,
             cut_coords=1)
+        plt.show()
 
 
 
@@ -191,8 +192,9 @@ We can now  proceed by estimating the contrasts and displaying them.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
+    /home/emdupre/Desktop/open_source/nistats/examples/02_first_level_models/plot_fir_model.py:109: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -202,20 +204,9 @@ conditions.
 
 
 
-.. code-block:: default
-
-
-    plt.show()
-
-
-
-
-
-
-
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.804 seconds)
+   **Total running time of the script:** ( 0 minutes  4.419 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_fir_model.py:

@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -173,10 +173,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.reporting.plot_contrast_matrix.html"
-                        title="previous chapter">3.11.3. nistats.reporting.plot_contrast_matrix</a></p>
+                        title="previous chapter"><span class="section-number">3.11.3. </span>nistats.reporting.plot_contrast_matrix</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.reporting.make_glm_report.html"
-                        title="next chapter">3.11.5. nistats.reporting.make_glm_report</a></p>
+                        title="next chapter"><span class="section-number">3.11.5. </span>nistats.reporting.make_glm_report</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,7 +202,7 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-reporting-get-clusters-table">
-<h1>3.11.4. nistats.reporting.get_clusters_table<a class="headerlink" href="#nistats-reporting-get-clusters-table" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.11.4. </span>nistats.reporting.get_clusters_table<a class="headerlink" href="#nistats-reporting-get-clusters-table" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="nistats.reporting.get_clusters_table">
 <code class="sig-prename descclassname">nistats.reporting.</code><code class="sig-name descname">get_clusters_table</code><span class="sig-paren">(</span><em class="sig-param">stat_img</em>, <em class="sig-param">stat_threshold</em>, <em class="sig-param">cluster_threshold=None</em>, <em class="sig-param">min_distance=8.0</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.reporting.get_clusters_table" title="Permalink to this definition">¶</a></dt>
@@ -225,7 +225,8 @@ p-value or z-scale value).</p>
 <dd class="field-even"><dl>
 <dt><strong>df</strong><span class="classifier"><cite>pandas.DataFrame</cite></span></dt><dd><p>Table with peaks and subpeaks from thresholded <cite>stat_img</cite>. For binary
 clusters (clusters with &gt;1 voxel containing only one value), the table
-reports the center of mass of the cluster, rather than any peaks/subpeaks.</p>
+reports the center of mass of the cluster,
+rather than any peaks/subpeaks.</p>
 </dd>
 </dl>
 </dd>
@@ -233,7 +234,7 @@ reports the center of mass of the cluster, rather than any peaks/subpeaks.</p>
 </dd></dl>
 
 <div class="section" id="examples-using-nistats-reporting-get-clusters-table">
-<h2>3.11.4.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.get_clusters_table</span></code><a class="headerlink" href="#examples-using-nistats-reporting-get-clusters-table" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.11.4.1. </span>Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.get_clusters_table</span></code><a class="headerlink" href="#examples-using-nistats-reporting-get-clusters-table" title="Permalink to this headline">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we compare the fMRI signal during periods of auditory stimulation versus peri..."><div class="figure align-default" id="id1">
 <img alt="../../_images/sphx_glr_plot_single_subject_single_run_thumb.png" src="../../_images/sphx_glr_plot_single_subject_single_run_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/01_tutorials/plot_single_subject_single_run.html#sphx-glr-auto-examples-01-tutorials-plot-single-subject-single-run-py"><span class="std std-ref">Analysis of a single session, single subject fMRI dataset</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -241,6 +242,10 @@ reports the center of mass of the cluster, rather than any peaks/subpeaks.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first level analysis in an openneuro B..."><div class="figure align-default" id="id2">
 <img alt="../../_images/sphx_glr_plot_bids_features_thumb.png" src="../../_images/sphx_glr_plot_bids_features_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_bids_features.html#sphx-glr-auto-examples-02-first-level-models-plot-bids-features-py"><span class="std std-ref">First level analysis of a complete BIDS dataset from openneuro</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we fit a First Level GLM with the minimize_memory-argument set to False. By doing so, the ..."><div class="figure align-default" id="id3">
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" src="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_predictions_residuals.html#sphx-glr-auto-examples-02-first-level-models-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>
@@ -271,12 +276,12 @@ reports the center of mass of the cluster, rather than any peaks/subpeaks.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.reporting.get_clusters_table.rst.txt"
         	 rel="nofollow">Show this page source</a>

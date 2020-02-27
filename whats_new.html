@@ -167,23 +167,29 @@ $(function () {
 <li><a class="reference internal" href="#new">New</a></li>
 <li><a class="reference internal" href="#changes">Changes</a></li>
 <li><a class="reference internal" href="#fixes">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#b1">0.1.0b1</a><ul>
+<li><a class="reference internal" href="#id1">New</a></li>
+<li><a class="reference internal" href="#id2">Changes</a></li>
+<li><a class="reference internal" href="#id3">Fixes</a></li>
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#b">0.0.1b</a><ul>
+<li><a class="reference internal" href="#b0">0.0.1b0</a><ul>
 <li><a class="reference internal" href="#changelog">Changelog</a></li>
-<li><a class="reference internal" href="#id1">Contributors</a></li>
+<li><a class="reference internal" href="#id4">Contributors</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#a">0.0.1a</a><ul>
-<li><a class="reference internal" href="#id2">Changelog</a></li>
+<li><a class="reference internal" href="#id5">Changelog</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="modules/generated/nistats.utils.parse_bids_filename.html"
-                        title="previous chapter">3.12.7. nistats.utils.parse_bids_filename</a></p>
+                        title="previous chapter"><span class="section-number">3.12.7. </span>nistats.utils.parse_bids_filename</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="contributing.html"
                         title="next chapter">Contributing</a></p>
@@ -210,25 +216,85 @@ $(function () {
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <div class="line-block">
-<div class="line">period_cut (in seconds) has been replaced by high_pass (in Hz) in FirstLevelModel &amp; design matrices.</div>
-<div class="line">This is a code-breaking change. Please update your code accordingly.</div>
+<div class="line">The phrases <cite>resid</cite> and <cite>w</cite> in method and attribute names</div>
+<div class="line">have been changed to <cite>residuals</cite> and <cite>whitened_</cite> respectively.</div>
+</div>
+<div class="line-block">
+<div class="line">This will be a breaking change in the stable release of Nistats,</div>
+<div class="line">due to be shipped with Nilearn 0.7.0 as <cite>nilearn.stats</cite>.</div>
+</div>
+<div class="line-block">
+<div class="line">To minimize compatibility problems, please change the names</div>
+<div class="line">according to the info in the “Changes” section.</div>
 </div>
 </div>
 <div class="section" id="new">
 <h2>New<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Use <a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a> to easily generate HTML reports from fitted first and second level models and contrasts.</p></li>
-<li><p>New dataset fetcher, <a class="reference internal" href="modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="nistats.datasets.fetch_language_localizer_demo_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code></a> , BIDS 1.2 compatible.</p></li>
+<li><p>New example showcasing the use of a GLM to get beta maps for decoding experiments (aka beta-regression).</p></li>
+<li><p>Addition of all-resolution inference, ie statistically grounded of true positive in given clusters, in <a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="nistats.thresholding.map_threshold"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.thresholding.map_threshold</span></code></a></p></li>
+<li><p><a class="reference internal" href="modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="nistats.thresholding.map_threshold"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.thresholding.map_threshold</span></code></a> can now perform two-sided tests and does so by default.</p></li>
 </ul>
 </div>
 <div class="section" id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Nistats now uses BIDS v1.2 &amp; BIDS Derivatives terminology.</p></li>
+<ul>
+<li><p>The following parameters, methods, and attributes have been renamed.
+Classes affected: <cite>OLSModel</cite>, <cite>RegressionResults</cite>, <cite>LikelihoodModelResults</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>resid -&gt; residuals</p></li>
+<li><p>df_resid -&gt; df_residuals</p></li>
+<li><p>norm_resid -&gt; normalized_residuals</p></li>
+<li><p>wresid -&gt; whitened_residuals</p></li>
+<li><p>wdesign -&gt; whitened_design</p></li>
+<li><p>wX -&gt; whitened_X</p></li>
+<li><p>wY -&gt; whitened_y</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>run_img</cite> variable deleted after masking in FirstLevelModel to reduce memory use.</p></li>
+<li><p><a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a> now uses the computed mask if there is no
+user-specified one.</p></li>
+<li><p>Default value of <cite>alpha</cite> in <a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a> is <cite>0.001</cite>.</p></li>
 </ul>
 </div>
 <div class="section" id="fixes">
 <h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Explicit method for fixed effects to support image-based summary
+statistics approach.</p></li>
+<li><p>FIR delays are now integers.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="b1">
+<h1>0.1.0b1<a class="headerlink" href="#b1" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">period_cut (in seconds) has been replaced by high_pass (in Hz) in FirstLevelModel &amp; design matrices.</div>
+<div class="line">This is a code-breaking change. Please update your code accordingly.</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>New<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="nistats.first_level_model.FirstLevelModel"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code></a> now has the attributes: <code class="docutils literal notranslate"><span class="pre">residuals</span></code>, <code class="docutils literal notranslate"><span class="pre">predicted</span></code>, and <code class="docutils literal notranslate"><span class="pre">r_square</span></code>
+which returns a Niimg-like object in the same shape as the input Niimg-like object.
+Additionally, there is an example showcasing the use of the attributes.</p></li>
+<li><p>Use <a class="reference internal" href="modules/generated/nistats.reporting.make_glm_report.html#nistats.reporting.make_glm_report" title="nistats.reporting.make_glm_report"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code></a> to easily generate HTML reports from fitted first and second level models and contrasts.</p></li>
+<li><p>New dataset fetcher, <a class="reference internal" href="modules/generated/nistats.datasets.fetch_language_localizer_demo_dataset.html#nistats.datasets.fetch_language_localizer_demo_dataset" title="nistats.datasets.fetch_language_localizer_demo_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">nistats.datasets.fetch_language_localizer_demo_dataset</span></code></a> , BIDS 1.2 compatible.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Nistats now uses BIDS v1.2 &amp; BIDS Derivatives terminology.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Fixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Removed Python 2 deprecation warning for Python 3 installations.</p></li>
 <li><p>fixed effect contrasts now average effect sizes across runs rather than
@@ -238,25 +304,25 @@ summing them.</p></li>
 </div>
 <div class="section" id="contributors">
 <h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
-<p>The following people contributed to this release (in alphabetical order)</p>
-<blockquote>
-<div><p>Ana Luisa Pinho
-Anthony Gifuni
-Bertrand Thirion
-Christopher J. Markiewicz
-Christophe Pallier
-Gael Varoquaux
-Jerome Dockes
-Jerome-Alexis Chevalier
-Jessica Thompson
-Kshitij Chawla (kchawla-pi)
-Takis Panagopoulos
-Tuan Binh Nguyen</p>
-</div></blockquote>
+<p>The following people contributed to this release (in alphabetical order):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ana</span> <span class="n">Luisa</span> <span class="n">Pinho</span>
+<span class="n">Anthony</span> <span class="n">Gifuni</span>
+<span class="n">Bertrand</span> <span class="n">Thirion</span>
+<span class="n">Christopher</span> <span class="n">J</span><span class="o">.</span> <span class="n">Markiewicz</span>
+<span class="n">Christophe</span> <span class="n">Pallier</span>
+<span class="n">Gael</span> <span class="n">Varoquaux</span>
+<span class="n">Jerome</span> <span class="n">Dockes</span>
+<span class="n">Jerome</span><span class="o">-</span><span class="n">Alexis</span> <span class="n">Chevalier</span>
+<span class="n">Jessica</span> <span class="n">Thompson</span>
+<span class="n">Kshitij</span> <span class="n">Chawla</span> <span class="p">(</span><span class="n">kchawla</span><span class="o">-</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">Takis</span> <span class="n">Panagopoulos</span>
+<span class="n">Tuan</span> <span class="n">Binh</span> <span class="n">Nguyen</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="b">
-<h1>0.0.1b<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="b0">
+<h1>0.0.1b0<a class="headerlink" href="#b0" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -318,8 +384,8 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
 </li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>Contributors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Contributors<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>The following people contributed to this release:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>  <span class="n">Bertrand</span> <span class="n">Thirion</span>
 <span class="mi">70</span>  <span class="n">Kshitij</span> <span class="n">Chawla</span>
@@ -338,8 +404,8 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
 </div>
 <div class="section" id="a">
 <h1>0.0.1a<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>Changelog<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>Changelog<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>First alpha release of nistats.</p>
 <p>Contributors (from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">shortlog</span> <span class="pre">-ns</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">223</span>  <span class="n">Martin</span> <span class="n">Perez</span><span class="o">-</span><span class="n">Guevara</span>
@@ -387,7 +453,7 @@ A DeprecationWarning is displayed in Python 2 environments with a suggestion to 
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="_sources/whats_new.rst.txt"
         	 rel="nofollow">Show this page source</a>

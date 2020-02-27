@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -173,10 +173,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.hemodynamic_models.glover_dispersion_derivative.html"
-                        title="previous chapter">3.2.6. nistats.hemodynamic_models.glover_dispersion_derivative</a></p>
+                        title="previous chapter"><span class="section-number">3.2.6. </span>nistats.hemodynamic_models.glover_dispersion_derivative</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.design_matrix.make_first_level_design_matrix.html"
-                        title="next chapter">3.3.1. nistats.design_matrix.make_first_level_design_matrix</a></p>
+                        title="next chapter"><span class="section-number">3.3.1. </span>nistats.design_matrix.make_first_level_design_matrix</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,7 +202,7 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-hemodynamic-models-compute-regressor">
-<h1>3.2.7. nistats.hemodynamic_models.compute_regressor<a class="headerlink" href="#nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.2.7. </span>nistats.hemodynamic_models.compute_regressor<a class="headerlink" href="#nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="nistats.hemodynamic_models.compute_regressor">
 <code class="sig-prename descclassname">nistats.hemodynamic_models.</code><code class="sig-name descname">compute_regressor</code><span class="sig-paren">(</span><em class="sig-param">exp_condition</em>, <em class="sig-param">hrf_model</em>, <em class="sig-param">frame_times</em>, <em class="sig-param">con_id='cond'</em>, <em class="sig-param">oversampling=50</em>, <em class="sig-param">fir_delays=None</em>, <em class="sig-param">min_onset=-24</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.hemodynamic_models.compute_regressor" title="Permalink to this definition">¶</a></dt>
@@ -222,7 +222,7 @@ Name of the hrf model to be used</p>
 </dd>
 <dt><strong>oversampling</strong><span class="classifier">int, optional</span></dt><dd><p>oversampling factor to perform the convolution</p>
 </dd>
-<dt><strong>fir_delays</strong><span class="classifier">1D-array-like, optional</span></dt><dd><p>delays (in scans) used in case of a finite impulse reponse model</p>
+<dt><strong>fir_delays</strong><span class="classifier">[int] 1D-array-like, optional</span></dt><dd><p>delays (in scans) used in case of a finite impulse response model</p>
 </dd>
 <dt><strong>min_onset</strong><span class="classifier">float, optional</span></dt><dd><p>minimal onset relative to frame_times[0] (in seconds)
 events that start before frame_times[0] + min_onset are not considered</p>
@@ -243,7 +243,11 @@ events that start before frame_times[0] + min_onset are not considered</p>
 <dt>The different hemodynamic models can be understood as follows:</dt><dd><ul class="simple">
 <li><p>‘spm’: this is the hrf model used in SPM</p></li>
 <li><p>‘spm + derivative’: SPM model plus its time derivative (2 regressors)</p></li>
-<li><p>‘spm + time + dispersion’: idem, plus dispersion derivative (3 regressors)</p></li>
+<li><dl class="simple">
+<dt>‘spm + time + dispersion’: idem, plus dispersion derivative</dt><dd><p>(3 regressors)</p>
+</dd>
+</dl>
+</li>
 <li><p>‘glover’: this one corresponds to the Glover hrf</p></li>
 <li><p>‘glover + derivative’: the Glover hrf + time derivative (2 regressors)</p></li>
 <li><dl class="simple">
@@ -253,8 +257,7 @@ events that start before frame_times[0] + min_onset are not considered</p>
 </li>
 </ul>
 </dd>
-<dt>‘fir’: finite impulse response basis, a set of delayed dirac models</dt><dd><p>with arbitrary length. This one currently assumes regularly spaced
-frame times (i.e. fixed time of repetition).</p>
+<dt>‘fir’: list or array,</dt><dd><p>finite impulse response basis, a set of delayed dirac models.</p>
 </dd>
 </dl>
 <p>It is expected that spm standard and Glover model would not yield
@@ -264,8 +267,8 @@ orthogonalized wrt the main one.</p>
 </dd></dl>
 
 <div class="section" id="examples-using-nistats-hemodynamic-models-compute-regressor">
-<h2>3.2.7.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code><a class="headerlink" href="#examples-using-nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot the hemodynamic reponse function (hrf) model in SPM together with the hrf shape proposed b..."><div class="figure align-default" id="id1">
+<h2><span class="section-number">3.2.7.1. </span>Examples using <code class="docutils literal notranslate"><span class="pre">nistats.hemodynamic_models.compute_regressor</span></code><a class="headerlink" href="#examples-using-nistats-hemodynamic-models-compute-regressor" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Within this example we are going to plot the hemodynamic reponse function (hrf) model in SPM to..."><div class="figure align-default" id="id1">
 <img alt="../../_images/sphx_glr_plot_hrf_thumb.png" src="../../_images/sphx_glr_plot_hrf_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/04_low_level_functions/plot_hrf.html#sphx-glr-auto-examples-04-low-level-functions-plot-hrf-py"><span class="std std-ref">Example of hemodynamic reponse functions.</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
@@ -298,12 +301,12 @@ orthogonalized wrt the main one.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.hemodynamic_models.compute_regressor.rst.txt"
         	 rel="nofollow">Show this page source</a>

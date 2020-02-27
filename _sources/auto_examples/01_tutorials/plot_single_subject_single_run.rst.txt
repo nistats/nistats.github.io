@@ -19,7 +19,7 @@ group which develops the SPM software.
 
 According to SPM documentation, 96 scans were acquired (repetition time TR=7s) in one session. The paradigm consisted of alternating periods of stimulation and rest, lasting 42s each (that is, for 6 scans). The sesssion started with a rest block.
 Auditory stimulation consisted of bi-syllabic words presented binaurally at a
-rate of 60 per minute. The functional data starts at scan number 4, that is the 
+rate of 60 per minute. The functional data starts at scan number 4, that is the
 image file ``fM00223_004``.
 
 The whole brain BOLD/EPI images were acquired on a  2T Siemens
@@ -39,14 +39,13 @@ To run this example, you must launch IPython via ``ipython
     :local:
     :depth: 1
 
-
 Retrieving the data
 -------------------
 
 .. note:: In this tutorial, we load the data using a data downloading
           function. To input your own data, you will need to provide
           a list of paths to your own files in the ``subject_data`` variable.
-          These should abide to the Brain Imaging Data Structure (BIDS) 
+          These should abide to the Brain Imaging Data Structure (BIDS)
           organization.
 
 
@@ -67,7 +66,15 @@ Retrieving the data
 
  .. code-block:: none
 
-    ['/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
+
+    Dataset created in /home/emdupre/nilearn_data/spm_auditory
+
+    Data absent, downloading...
+    Downloading data from http://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.zip ...
+    Downloaded 2072576 of 34212021 bytes (6.1%,   15.5s remaining)    Downloaded 5840896 of 34212021 bytes (17.1%,    9.7s remaining)    Downloaded 9732096 of 34212021 bytes (28.4%,    7.5s remaining)    Downloaded 13860864 of 34212021 bytes (40.5%,    5.9s remaining)    Downloaded 18055168 of 34212021 bytes (52.8%,    4.5s remaining)    Downloaded 22257664 of 34212021 bytes (65.1%,    3.2s remaining)    Downloaded 26484736 of 34212021 bytes (77.4%,    2.0s remaining)    Downloaded 30679040 of 34212021 bytes (89.7%,    0.9s remaining)    Downloaded 34212021 of 34212021 bytes (100.0%,    0.0s remaining) ...done. (9 seconds, 0 min)
+    Extracting data from /home/emdupre/nilearn_data/spm_auditory/sub001/MoAEpilot.zip..... done.
+    ['/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
+
 
 
 
@@ -103,8 +110,8 @@ We can display the first functional image and the subject's anatomy:
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
+
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7f63369f1bd0>
 
 
 
@@ -119,6 +126,7 @@ image that will be used to display the activations:
     from nilearn.image import concat_imgs, mean_img
     fmri_img = concat_imgs(subject_data.func)
     mean_img = mean_img(fmri_img)
+
 
 
 
@@ -171,6 +179,7 @@ provided in the dataset.
 
 
 
+
 Performing the GLM analysis
 ---------------------------
 
@@ -181,6 +190,7 @@ It is now time to create and estimate a ``FirstLevelModel`` object, that will ge
 
 
     from nistats.first_level_model import FirstLevelModel
+
 
 
 
@@ -213,6 +223,7 @@ Parameters of the first-level model
 
 
 
+
 Now that we have specified the model, we can run it on the fMRI image
 
 
@@ -224,15 +235,6 @@ Now that we have specified the model, we can run it on the fMRI image
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
 
 
 
@@ -243,6 +245,7 @@ columns contain the predictors).
 .. code-block:: default
 
     design_matrix = fmri_glm.design_matrices_[0]
+
 
 
 
@@ -274,8 +277,9 @@ implictily meant to for multiple runs.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:116: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -294,6 +298,7 @@ first create a directory where you want to write the images
     from os.path import join
     plot_design_matrix(
         design_matrix, output_file=join(outdir, 'design_matrix.png'))
+
 
 
 
@@ -321,6 +326,16 @@ Let's plot this first column
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:139: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Detecting voxels with significant effects
@@ -332,7 +347,7 @@ of the contrast is to select some columns of the model --and
 potentially weight them-- to study the associated statistics. So in
 a nutshell, a contrast is a weighted combination of the estimated
 effects.  Here we can define canonical contrasts that just consider
-the two condition in isolation ---let's call them "conditions"---
+the two effects in isolation ---let's call them "conditions"---
 then a contrast that makes the difference between these conditions.
 
 
@@ -353,6 +368,7 @@ then a contrast that makes the difference between these conditions.
 
 
 
+
 We can then compare the two conditions 'active' and 'rest' by
 defining the corresponding contrast:
 
@@ -361,6 +377,7 @@ defining the corresponding contrast:
 
 
     active_minus_rest = conditions['active'] - conditions['rest']
+
 
 
 
@@ -391,8 +408,8 @@ the names of the columns of the design matrix.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
-      return matrix(data, dtype=dtype, copy=False)
+
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7f6336ade6d0>
 
 
 
@@ -413,10 +430,11 @@ account the associated variance.
 
 
 
+
 In order to get statistical significance, we form a t-statistic, and
-directly convert is into z-scale. The z-scale means that the values
+directly convert it into z-scale. The z-scale means that the values
 are scaled to match a standard Gaussian distribution (mean=0,
-variance=1), across voxels, if there were now effects in the data.
+variance=1), across voxels, if there were no effects in the data.
 
 
 .. code-block:: default
@@ -431,13 +449,14 @@ variance=1), across voxels, if there were now effects in the data.
 
 
 
+
 Plot thresholded z scores map.
 
 We display it on top of the average
 functional image of the series (could be the anatomical image of the
 subject).  We use arbitrarily a threshold of 3.0 in z-scale. We'll
 see later how to use corrected thresholds. We will show 3
-axial views, with display_mode='z' and cut_coords=3
+axial views, with display_mode='z' and cut_coords=3.
 
 
 .. code-block:: default
@@ -453,6 +472,16 @@ axial views, with display_mode='z' and cut_coords=3
 
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_single_subject_single_run_006.png
     :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:204: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
@@ -490,7 +519,10 @@ of declaring an inactive voxel, active.
 
  .. code-block:: none
 
-    Uncorrected p<0.001 threshold: 3.090
+    Uncorrected p<0.001 threshold: 3.291
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:221: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -498,7 +530,7 @@ The problem is that with this you expect 0.001 * n_voxels to show up
 while they're not active --- tens to hundreds of voxels. A more
 conservative solution is to control the family wise error rate,
 i.e. the probability of making only one false detection, say at
-5%. For that we use the so-called Bonferroni correction
+5%. For that we use the so-called Bonferroni correction.
 
 
 .. code-block:: default
@@ -524,14 +556,17 @@ i.e. the probability of making only one false detection, say at
 
  .. code-block:: none
 
-    Bonferroni-corrected, p<0.05 threshold: 4.797
+    Bonferroni-corrected, p<0.05 threshold: 4.934
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:235: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
 This is quite conservative indeed!  A popular alternative is to
 control the expected proportion of
-false discoveries among detections. This is called the false
-discovery rate
+false discoveries among detections. This is called the False
+discovery rate.
 
 
 .. code-block:: default
@@ -557,7 +592,10 @@ discovery rate
 
  .. code-block:: none
 
-    False Discovery rate = 0.05 threshold: 2.760
+    False Discovery rate = 0.05 threshold: 2.905
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -587,9 +625,19 @@ will be discarded.
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:262: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
-We can save the effect and zscore maps to the disk
+
+
+We can save the effect and zscore maps to the disk.
 
 
 .. code-block:: default
@@ -603,7 +651,8 @@ We can save the effect and zscore maps to the disk
 
 
 
-Report the found positions in a table
+
+We can furthermore extract and report the found positions in a table.
 
 
 .. code-block:: default
@@ -625,47 +674,39 @@ Report the found positions in a table
  .. code-block:: none
 
        Cluster ID     X     Y     Z  Peak Stat Cluster Size (mm3)
-    0           1 -60.0  -6.0  42.0   9.811979               4590
+    0           1 -60.0  -6.0  42.0   9.811979               4050
     1          1a -63.0   6.0  36.0   8.601922                   
     2          1b -63.0   0.0  42.0   8.399054                   
     3          1c -48.0 -15.0  39.0   8.364058                   
-    4           2  60.0   0.0  36.0   9.605127               1728
-    5          2a  45.0 -12.0  42.0   7.590201                   
-    6          2b  69.0   6.0  30.0   4.136199                   
-    7           3  63.0  12.0  27.0   8.284500                999
-    8          3a  51.0   3.0  30.0   6.968355                   
-    9          3b  54.0   9.0  39.0   3.565609                   
-    10          4  36.0  -3.0  15.0   8.087450               1269
-    11          5  51.0  30.0  27.0   7.850265                756
-    12         5a  48.0  21.0  27.0   7.411894                   
-    13         5b  57.0  39.0  27.0   6.043533                   
-    14         5c  45.0   9.0  27.0   5.133463                   
-    15          6 -63.0 -18.0  27.0   5.807508                810
-    16         6a -63.0 -21.0  42.0   5.646351                   
-    17         6b -60.0 -21.0  33.0   5.416272                   
-    18         6c -63.0  -9.0  24.0   4.292129                   
-    19          7  45.0 -18.0  57.0   5.710963               1053
-    20         7a  36.0 -12.0  57.0   5.633747                   
-    21         7b  30.0  -9.0  66.0   4.796135                   
-    22         7c  36.0 -15.0  69.0   4.254544                   
-    23          8 -12.0 -15.0  93.0   5.522476                621
-    24         8a  -6.0 -15.0  99.0   4.713854                   
-    25         8b  -3.0 -18.0  90.0   4.270732                   
-    26         8c -18.0 -12.0  96.0   4.085567                   
-    27          9  -3.0 -27.0  90.0   5.406320                891
-    28         9a -24.0 -24.0  90.0   5.331806                   
-    29         9b -36.0 -24.0  90.0   4.700089                   
-    30         9c -12.0 -24.0  81.0   4.193729                   
-    31         10 -15.0 -60.0  66.0   4.835098                918
-    32        10a -15.0 -60.0  57.0   4.615643                   
-    33        10b  -6.0 -63.0  63.0   4.091567                   
-    34         11 -12.0 -69.0  51.0   4.565542                540
-    35        11a -24.0 -63.0  51.0   3.855582                   
-    36        11b  -6.0 -69.0  51.0   3.784628                   
+    4           2  60.0   0.0  36.0   9.605128               1512
+    5          2a  45.0 -12.0  42.0   7.590200                   
+    6           3  63.0  12.0  27.0   8.284500                972
+    7          3a  51.0   3.0  30.0   6.968355                   
+    8          3b  54.0   9.0  39.0   3.565609                   
+    9           4  36.0  -3.0  15.0   8.087451               1188
+    10          5 -63.0 -18.0  27.0   5.807510                594
+    11         5a -63.0 -21.0  42.0   5.646352                   
+    12         5b -60.0 -21.0  33.0   5.416271                   
+    13          6  45.0 -18.0  57.0   5.710963                702
+    14         6a  36.0 -12.0  57.0   5.633746                   
+    15         6b  30.0  -9.0  66.0   4.796135                   
+    16         6c  36.0 -15.0  69.0   4.254544                   
+    17          7 -12.0 -15.0  93.0   5.522477                621
+    18         7a  -6.0 -15.0  99.0   4.713852                   
+    19         7b  -3.0 -18.0  90.0   4.270733                   
+    20         7c -18.0 -12.0  96.0   4.085568                   
+    21          8 -24.0 -24.0  90.0   5.331806                648
+    22         8a -36.0 -24.0  90.0   4.700088                   
+    23         8b -12.0 -24.0  90.0   4.037845                   
+    24         8c -36.0 -24.0  84.0   3.527477                   
+    25          9 -15.0 -60.0  66.0   4.835099                837
+    26         9a -15.0 -60.0  57.0   4.615642                   
+    27         9b  -6.0 -63.0  63.0   4.091568                   
 
 
 
-the table can be saved for future use
+
+This table can be saved for future use.
 
 
 .. code-block:: default
@@ -679,31 +720,15 @@ the table can be saved for future use
 
 
 
-Performing an F-test
+
+Performing an F-test.
 
 "active vs rest" is a typical t test: condition versus
 baseline. Another popular type of test is an F test in which one
 seeks whether a certain combination of conditions (possibly two-,
 three- or higher-dimensional) explains a significant proportion of
 the signal.  Here one might for instance test which voxels are well
-explained by combination of the active and rest condition.
-
-
-.. code-block:: default
-
-    import numpy as np
-    effects_of_interest = np.vstack((conditions['active'], conditions['rest']))
-    plot_contrast_matrix(effects_of_interest, design_matrix)
-    plt.show()
-
-
-
-
-.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_single_subject_single_run_011.png
-    :class: sphx-glr-single-img
-
-
-
+explained by the combination of the active and rest condition.
 
 Specify the contrast and compute the corresponding map. Actually, the
 contrast specification is done exactly the same way as for t-
@@ -713,12 +738,30 @@ contrasts.
 .. code-block:: default
 
 
-    z_map = fmri_glm.compute_contrast(effects_of_interest,
-                                      output_type='z_score')
+    import numpy as np
+    effects_of_interest = np.vstack((conditions['active'], conditions['rest']))
+    plot_contrast_matrix(effects_of_interest, design_matrix)
     plt.show()
 
 
+    z_map = fmri_glm.compute_contrast(effects_of_interest,
+                                      output_type='z_score')
 
+
+
+
+.. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_single_subject_single_run_011.png
+    :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:302: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
@@ -744,6 +787,16 @@ makes it easier to represent it.
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:317: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
@@ -751,7 +804,7 @@ Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.751 seconds)
+   **Total running time of the script:** ( 0 minutes  18.022 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_tutorials_plot_single_subject_single_run.py:

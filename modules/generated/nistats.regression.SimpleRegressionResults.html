@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,10 +165,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.regression.RegressionResults.html"
-                        title="previous chapter">3.6.3. nistats.regression.RegressionResults</a></p>
+                        title="previous chapter"><span class="section-number">3.6.3. </span>nistats.regression.RegressionResults</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.first_level_model.FirstLevelModel.html"
-                        title="next chapter">3.7.1. nistats.first_level_model.FirstLevelModel</a></p>
+                        title="next chapter"><span class="section-number">3.7.1. </span>nistats.first_level_model.FirstLevelModel</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -194,7 +194,7 @@ signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-regression-simpleregressionresults">
-<h1>3.6.4. nistats.regression.SimpleRegressionResults<a class="headerlink" href="#nistats-regression-simpleregressionresults" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.6.4. </span>nistats.regression.SimpleRegressionResults<a class="headerlink" href="#nistats-regression-simpleregressionresults" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="nistats.regression.SimpleRegressionResults">
 <em class="property">class </em><code class="sig-prename descclassname">nistats.regression.</code><code class="sig-name descname">SimpleRegressionResults</code><span class="sig-paren">(</span><em class="sig-param">results</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.SimpleRegressionResults" title="Permalink to this definition">¶</a></dt>
@@ -217,11 +217,12 @@ are stored for a regression model.</p>
 <div class="math">
 <p><img src="../../_images/math/541f4099d90457e1584c19adcbcad2092c961997.png" alt="M pX pX' M'"/></p>
 </div><p>is assumed invertible. Here, <img class="math" src="../../_images/math/7d68d33f1f019745882045e3b9c9e60f32ab1e9d.png" alt="pX"/> is the generalized inverse of
-the design matrix of the model. There can be problems in non-OLS models
-where the rank of the covariance of the noise is not full.</p>
-<p>See the contrast module to see how to specify contrasts.  In particular,
-the matrices from these contrasts will always be non-singular in the
-sense above.</p>
+the design matrix of the model.
+There can be problems in non-OLS models where
+the rank of the covariance of the noise is not full.</p>
+<p>See the contrast module to see how to specify contrasts.
+In particular, the matrices from these contrasts will always be
+non-singular in the sense above.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -255,8 +256,8 @@ If None, calculate this matrix.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>matrix</strong><span class="classifier">1D array-like</span></dt><dd><p>contrast matrix</p>
 </dd>
-<dt><strong>store</strong><span class="classifier">sequence, optional</span></dt><dd><p>components of t to store in results output object.  Defaults to all
-components (‘t’, ‘effect’, ‘sd’).</p>
+<dt><strong>store</strong><span class="classifier">sequence, optional</span></dt><dd><p>components of t to store in results output object.
+Defaults to all components (‘t’, ‘effect’, ‘sd’).</p>
 </dd>
 <dt><strong>dispersion</strong><span class="classifier">None or float, optional</span></dt><dd></dd>
 </dl>
@@ -281,8 +282,8 @@ ie., <cite>alpha</cite> = .05 returns a 95% confidence interval.</p>
 </dd>
 <dt><strong>cols</strong><span class="classifier">tuple, optional</span></dt><dd><p><cite>cols</cite> specifies which confidence intervals to return</p>
 </dd>
-<dt><strong>dispersion</strong><span class="classifier">None or scalar</span></dt><dd><p>scale factor for the variance / covariance (see class docstring and
-<code class="docutils literal notranslate"><span class="pre">vcov</span></code> method docstring)</p>
+<dt><strong>dispersion</strong><span class="classifier">None or scalar</span></dt><dd><p>scale factor for the variance / covariance
+(see class docstring and <code class="docutils literal notranslate"><span class="pre">vcov</span></code> method docstring)</p>
 </dd>
 </dl>
 </dd>
@@ -301,8 +302,8 @@ upper] for the given entry in <cite>cols</cite></p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="k">import</span> <span class="n">standard_normal</span> <span class="k">as</span> <span class="n">stan</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nistats.regression</span> <span class="k">import</span> <span class="n">OLSModel</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">standard_normal</span> <span class="k">as</span> <span class="n">stan</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nistats.regression</span> <span class="kn">import</span> <span class="n">OLSModel</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">stan</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="n">stan</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="n">stan</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">))))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">beta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span> <span class="o">+</span> <span class="n">stan</span><span class="p">((</span><span class="mi">30</span><span class="p">))</span>
@@ -319,8 +320,8 @@ upper] for the given entry in <cite>cols</cite></p>
 </dd></dl>
 
 <dl class="method">
-<dt id="nistats.regression.SimpleRegressionResults.norm_resid">
-<code class="sig-name descname">norm_resid</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Y</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.SimpleRegressionResults.norm_resid" title="Permalink to this definition">¶</a></dt>
+<dt id="nistats.regression.SimpleRegressionResults.normalized_residuals">
+<code class="sig-name descname">normalized_residuals</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Y</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.SimpleRegressionResults.normalized_residuals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Residuals, normalized to have unit length.</p>
 <p class="rubric">Notes</p>
 <p>Is this supposed to return “stanardized residuals,”
@@ -341,8 +342,8 @@ to have mean zero and approximately unit variance?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="nistats.regression.SimpleRegressionResults.resid">
-<code class="sig-name descname">resid</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Y</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.SimpleRegressionResults.resid" title="Permalink to this definition">¶</a></dt>
+<dt id="nistats.regression.SimpleRegressionResults.residuals">
+<code class="sig-name descname">residuals</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Y</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.regression.SimpleRegressionResults.residuals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Residuals from the fit.</p>
 </dd></dl>
 
@@ -416,12 +417,12 @@ for F contrasts.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.regression.SimpleRegressionResults.rst.txt"
         	 rel="nofollow">Show this page source</a>

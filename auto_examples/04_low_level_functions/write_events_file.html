@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,10 +165,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_hrf.html"
-                        title="previous chapter">2.4.2. Example of hemodynamic reponse functions.</a></p>
+                        title="previous chapter"><span class="section-number">2.4.2. </span>Example of hemodynamic reponse functions.</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_design_matrix.html"
-                        title="next chapter">2.4.4. Examples of design matrices</a></p>
+                        title="next chapter"><span class="section-number">2.4.4. </span>Examples of design matrices</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -192,9 +192,9 @@ $(function () {
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-04-low-level-functions-write-events-file-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="example-of-a-events-tsv-file-generation-the-neurospin-localizer-events">
-<span id="sphx-glr-auto-examples-04-low-level-functions-write-events-file-py"></span><h1>2.4.3. Example of a events.tsv file generation: the neurospin/localizer events.<a class="headerlink" href="#example-of-a-events-tsv-file-generation-the-neurospin-localizer-events" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-04-low-level-functions-write-events-file-py"></span><h1><span class="section-number">2.4.3. </span>Example of a events.tsv file generation: the neurospin/localizer events.<a class="headerlink" href="#example-of-a-events-tsv-file-generation-the-neurospin-localizer-events" title="Permalink to this headline">¶</a></h1>
 <p>The protocol described is the so-called “archi standard” localizer
-event sequence.  See Pinel et al., BMC neuroscience 2007 for reference</p>
+event sequence.  See Pinel et al., BMC neuroscience 2007 for reference.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -213,7 +213,7 @@ from the stimulation software used.</p>
 </pre></div>
 </div>
 <p>Associated trial types: these are numbered between 0 and 9, hence
-correspond to 10 different conditions</p>
+correspond to 10 different conditions.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trial_idx</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
     <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
      <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
@@ -237,18 +237,18 @@ For that, we define a list of 10 strings.</p>
 <span class="n">trial_type</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">condition_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trial_idx</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>We also define a duration (required by BIDS conventions)</p>
+<p>We also define a duration (required by BIDS conventions).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">duration</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html#numpy.ones_like" title="View documentation for numpy.ones_like"><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span></a><span class="p">(</span><span class="n">onset</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Form an event dataframe from these information</p>
+<p>Form an event dataframe from these information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">({</span><span class="s1">&#39;trial_type&#39;</span><span class="p">:</span> <span class="n">trial_type</span><span class="p">,</span>
                        <span class="s1">&#39;onset&#39;</span><span class="p">:</span> <span class="n">onset</span><span class="p">,</span>
                        <span class="s1">&#39;duration&#39;</span><span class="p">:</span> <span class="n">duration</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>Export them to a tsv file</p>
+<p>Export them to a tsv file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsvfile</span> <span class="o">=</span> <span class="s1">&#39;localizer_events.tsv&#39;</span>
 <span class="n">events</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">tsvfile</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created the events file in </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="n">tsvfile</span><span class="p">)</span>
@@ -257,10 +257,10 @@ For that, we define a list of 10 strings.</p>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-low-level-functions-write-events-file-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/c9e1e541a3b95a86f0aa66ebfb8d3962/write_events_file.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">write_events_file.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/1139c81d79c7a7ebf83d60f01a17f084/write_events_file.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">write_events_file.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/5bbb3408ea7f8fe6642cb5a51cc23899/write_events_file.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">write_events_file.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/434200db30870e74408717e65171a5ff/write_events_file.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">write_events_file.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -292,12 +292,12 @@ For that, we define a list of 10 strings.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_low_level_functions/write_events_file.rst.txt"
         	 rel="nofollow">Show this page source</a>

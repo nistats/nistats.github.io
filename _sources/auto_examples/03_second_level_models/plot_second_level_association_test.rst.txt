@@ -18,8 +18,6 @@ that measures the speed of pseudo-word reading. No confounding variate
 is included in the model.
 
 
-
-
 .. code-block:: default
 
     # Author: Virgile Fritsch, Bertrand Thirion, 2014 -- 2018
@@ -31,7 +29,8 @@ is included in the model.
 
 
 
-Load Localizer contrast
+
+At first, we need to load the Localizer contrasts.
 
 
 .. code-block:: default
@@ -51,12 +50,13 @@ Load Localizer contrast
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+    /home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
       output = genfromtxt(fname, **kwargs)
 
 
 
-print basic information on the dataset
+
+Let's print basic information on the dataset.
 
 
 .. code-block:: default
@@ -74,11 +74,12 @@ print basic information on the dataset
 
  .. code-block:: none
 
-    First contrast nifti image (3D) is located at: /home/kshitij/nilearn_data/brainomics_localizer/brainomics_data/S01/c_map_left_auditory_click.nii.gz
+    First contrast nifti image (3D) is located at: /home/emdupre/nilearn_data/brainomics_localizer/brainomics_data/S01/cmaps_LeftAuditoryClick.nii.gz
 
 
 
-Load the behavioral variable
+
+we also need to load the behavioral variable.
 
 
 .. code-block:: default
@@ -97,26 +98,27 @@ Load the behavioral variable
  .. code-block:: none
 
     [b'15.0' b'16.0' b'14.0' b'19.0' b'16.0' b'18.0' b'22.0' b'19.0' b'17.0'
-     b'15.0' b'10.0' b'21.0' b'17.0' b'21.0' b'None' b'14.0' b'22.0' b'17.0'
+     b'15.0' b'10.0' b'21.0' b'17.0' b'21.0' b'n/a' b'14.0' b'22.0' b'17.0'
      b'23.0' b'15.0' b'15.0' b'18.0' b'17.0' b'18.0' b'20.0' b'27.0' b'18.0'
      b'16.0' b'18.0' b'17.0' b'19.0' b'22.0' b'15.0' b'16.0' b'21.0' b'20.0'
-     b'12.0' b'None' b'19.0' b'19.0' b'16.0' b'22.0' b'23.0' b'14.0' b'24.0'
+     b'12.0' b'n/a' b'19.0' b'19.0' b'16.0' b'22.0' b'23.0' b'14.0' b'24.0'
      b'22.0' b'20.0' b'25.0' b'23.0' b'15.0' b'12.0' b'16.0' b'20.0' b'18.0'
-     b'14.0' b'14.0' b'18.0' b'20.0' b'19.0' b'14.0' b'27.0' b'None' b'13.0'
+     b'14.0' b'14.0' b'18.0' b'20.0' b'19.0' b'14.0' b'27.0' b'n/a' b'13.0'
      b'17.0' b'19.0' b'19.0' b'14.0' b'17.0' b'15.0' b'15.0' b'14.0' b'20.0'
-     b'16.0' b'15.0' b'15.0' b'15.0' b'19.0' b'17.0' b'14.0' b'15.0' b'None'
-     b'20.0' b'15.0' b'17.0' b'18.0' b'17.5' b'None' b'15.0' b'23.0' b'12.0'
+     b'16.0' b'15.0' b'15.0' b'15.0' b'19.0' b'17.0' b'14.0' b'15.0' b'n/a'
+     b'20.0' b'15.0' b'17.0' b'18.0' b'17.5' b'n/a' b'15.0' b'23.0' b'12.0'
      b'16.0' b'13.0' b'25.0' b'21.0']
 
 
 
-Quality check / Remove subjects with bad tested variate
+
+It is worth to do a auality check and remove subjects with missing values.
 
 
 .. code-block:: default
 
     import numpy as np
-    mask_quality_check = np.where(tested_var != b'None')[0]
+    mask_quality_check = np.where(tested_var != b'n/a')[0]
     n_samples = mask_quality_check.size
     contrast_map_filenames = [localizer_dataset.cmaps[i]
                               for i in mask_quality_check]
@@ -137,6 +139,7 @@ Quality check / Remove subjects with bad tested variate
 
 
 
+
 Estimate second level model
 ---------------------------
 We define the input maps and the design matrix for the second level model
@@ -149,6 +152,7 @@ and fit it.
     design_matrix = pd.DataFrame(
         np.hstack((tested_var, np.ones_like(tested_var))),
         columns=['fluency', 'intercept'])
+
 
 
 
@@ -175,11 +179,9 @@ Fit of the second-level model
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
-      r = func(a, **kwargs)
+
+    SecondLevelModel(mask_img=None, memory=Memory(location=None), memory_level=1,
+                     minimize_memory=True, n_jobs=1, smoothing_fwhm=5.0, verbose=0)
 
 
 
@@ -195,14 +197,6 @@ name of the design matrix.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
-      return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 
 
@@ -213,6 +207,7 @@ We compute the fdr-corrected p = 0.05 threshold for these data
 
     from nistats.thresholding import map_threshold
     _, threshold = map_threshold(z_map, alpha=.05, height_control='fdr')
+
 
 
 
@@ -240,14 +235,6 @@ Let us plot the second level contrast at the computed thresholds
     :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
 
 
 
@@ -259,8 +246,10 @@ non parametric test
 
     from nilearn.image import math_img
     from nilearn.input_data import NiftiMasker
+    from nistats.utils import get_data
+
     p_val = model.compute_contrast('fluency', output_type='p_value')
-    n_voxels = np.sum(model.masker_.mask_img_.get_data())
+    n_voxels = np.sum(get_data(model.masker_.mask_img_))
     # Correcting the p-values for multiple testing and taking negative logarithm
     neg_log_pval = math_img("-np.log10(np.minimum(1, img * {}))"
                             .format(str(n_voxels)),
@@ -277,6 +266,7 @@ non parametric test
  .. code-block:: none
 
     <string>:1: RuntimeWarning: divide by zero encountered in log10
+
 
 
 
@@ -307,6 +297,7 @@ Let us plot the (corrected) negative log  p-values for the parametric test
 
 
 
+
 Computing the (corrected) negative log p-values with permutation test
 
 
@@ -325,14 +316,6 @@ Computing the (corrected) negative log p-values with permutation test
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/mass_univariate/permuted_least_squares.py:453: DeprecationWarning: This function is deprecated. Please call randint(1, 2147483646 + 1) instead
-      for n_perm_chunk in n_perm_chunks)
 
 
 
@@ -362,9 +345,10 @@ Let us plot the (corrected) negative log  p-values
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.954 seconds)
+   **Total running time of the script:** ( 0 minutes  19.011 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_second_level_models_plot_second_level_association_test.py:

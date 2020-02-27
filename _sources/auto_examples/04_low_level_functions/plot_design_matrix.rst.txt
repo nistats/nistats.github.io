@@ -11,11 +11,9 @@ Examples of design matrices
 ===========================
 
 Three examples of design matrices specification and computation
-for first-level fMRI data analysis.
-(event-related design, block design, FIR design)
+for first-level fMRI data analysis (event-related design, block design, FIR design).
 
-Requires matplotlib
-
+This examples requires matplotlib.
 
 
 .. code-block:: default
@@ -32,16 +30,17 @@ Requires matplotlib
 
 
 
+
 Define parameters
 ----------------------------------
-first we define parameters related to the images acquisition
+At first, we define parameters related to the images acquisition.
 
 
 .. code-block:: default
 
     import numpy as np
     tr = 1.0  # repetition time is 1 second
-    n_scans = 128  # the acquisition comprises 128 scans 
+    n_scans = 128  # the acquisition comprises 128 scans
     frame_times = np.arange(n_scans) * tr  # here are the correspoding frame times
 
 
@@ -50,7 +49,8 @@ first we define parameters related to the images acquisition
 
 
 
-then we define parameters related to the experimental design
+
+Then we define parameters related to the experimental design.
 
 
 .. code-block:: default
@@ -62,7 +62,7 @@ then we define parameters related to the experimental design
     # these are the corresponding onset times
     onsets = [30., 70., 100., 10., 30., 90., 30., 40., 60.]
     # Next, we simulate 6 motion parameters jointly observed with fMRI acquisitions
-    motion = np.cumsum(np.random.randn(n_scans, 6), 0)  
+    motion = np.cumsum(np.random.randn(n_scans, 6), 0)
     # The 6 parameters correspond to three translations and three
     # rotations describing rigid body motion
     add_reg_names = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
@@ -73,10 +73,11 @@ then we define parameters related to the experimental design
 
 
 
+
 Create design matrices
 -------------------------------------
-The same parameters allow us to obtain a variety of design matrices
-We first create an events object
+The same parameters allow us to obtain a variety of design matrices.
+We first create an events object.
 
 
 .. code-block:: default
@@ -91,7 +92,8 @@ We first create an events object
 
 
 
-We sample the events into a design matrix, also including additional regressors
+
+We sample the events into a design matrix, also including additional regressors.
 
 
 .. code-block:: default
@@ -108,8 +110,9 @@ We sample the events into a design matrix, also including additional regressors
 
 
 
+
 Now we compute a block design matrix. We add duration to create the blocks.
-For this we first define an event structure that includes the duration parameter
+For this we first define an event structure that includes the duration parameter.
 
 
 .. code-block:: default
@@ -124,13 +127,15 @@ For this we first define an event structure that includes the duration parameter
 
 
 
-Then we sample the design matrix
+
+Then we sample the design matrix.
 
 
 .. code-block:: default
 
     X2 = make_first_level_design_matrix(frame_times, events, drift_model='polynomial',
                                         drift_order=3, hrf_model=hrf_model)
+
 
 
 
@@ -156,7 +161,8 @@ Finally we compute a FIR model
 
 
 
-Here the three designs side by side
+
+Here are the three designs side by side.
 
 
 .. code-block:: default
@@ -177,9 +183,18 @@ Here the three designs side by side
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
 
 
-Improve the layout and show the result
+    Text(0.5, 1, 'FIR design matrix')
+
+
+
+Let's improve the layout and show the result.
 
 
 .. code-block:: default
@@ -199,15 +214,16 @@ Improve the layout and show the result
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/04_low_level_functions/plot_design_matrix.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.490 seconds)
+   **Total running time of the script:** ( 0 minutes  0.337 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_low_level_functions_plot_design_matrix.py:

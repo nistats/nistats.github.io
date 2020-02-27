@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -173,10 +173,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.regression.SimpleRegressionResults.html"
-                        title="previous chapter">3.6.4. nistats.regression.SimpleRegressionResults</a></p>
+                        title="previous chapter"><span class="section-number">3.6.4. </span>nistats.regression.SimpleRegressionResults</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.first_level_model.mean_scaling.html"
-                        title="next chapter">3.7.2. nistats.first_level_model.mean_scaling</a></p>
+                        title="next chapter"><span class="section-number">3.7.2. </span>nistats.first_level_model.mean_scaling</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,11 +202,12 @@ signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-first-level-model-firstlevelmodel">
-<h1>3.7.1. nistats.first_level_model.FirstLevelModel<a class="headerlink" href="#nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.7.1. </span>nistats.first_level_model.FirstLevelModel<a class="headerlink" href="#nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="nistats.first_level_model.FirstLevelModel">
 <em class="property">class </em><code class="sig-prename descclassname">nistats.first_level_model.</code><code class="sig-name descname">FirstLevelModel</code><span class="sig-paren">(</span><em class="sig-param">t_r=None, slice_time_ref=0.0, hrf_model='glover', drift_model='cosine', high_pass=0.01, drift_order=1, fir_delays=[0], min_onset=-24, mask_img=None, target_affine=None, target_shape=None, smoothing_fwhm=None, memory=Memory(location=None), memory_level=1, standardize=False, signal_scaling=0, noise_model='ar1', verbose=0, n_jobs=1, minimize_memory=True, subject_label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implementation of the General Linear Model for single session fMRI data</p>
+<dd><p>Implementation of the General Linear Model
+for single session fMRI data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -222,7 +223,8 @@ values between 0. and 1.</p>
 </dd>
 <dt><strong>hrf_model</strong><span class="classifier">{‘spm’, ‘spm + derivative’, ‘spm + derivative + dispersion’,</span></dt><dd><p>‘glover’, ‘glover + derivative’, ‘glover + derivative + dispersion’,
 ‘fir’, None}
-String that specifies the hemodynamic response function. Defaults to ‘glover’.</p>
+String that specifies the hemodynamic response function.
+Defaults to ‘glover’.</p>
 </dd>
 <dt><strong>drift_model</strong><span class="classifier">string, optional</span></dt><dd><p>This parameter specifies the desired drift model for the design
 matrices. It can be ‘polynomial’, ‘cosine’ or None.</p>
@@ -245,17 +247,18 @@ then its mask will be used. If no mask is given,
 it will be computed automatically by a NiftiMasker with default
 parameters. If False is given then the data will not be masked.</p>
 </dd>
-<dt><strong>target_affine</strong><span class="classifier">3x3 or 4x4 matrix, optional</span></dt><dd><p>This parameter is passed to nilearn.image.resample_img. Please see the
-related documentation for details.</p>
+<dt><strong>target_affine</strong><span class="classifier">3x3 or 4x4 matrix, optional</span></dt><dd><p>This parameter is passed to nilearn.image.resample_img.
+Please see the related documentation for details.</p>
 </dd>
-<dt><strong>target_shape</strong><span class="classifier">3-tuple of integers, optional</span></dt><dd><p>This parameter is passed to nilearn.image.resample_img. Please see the
-related documentation for details.</p>
+<dt><strong>target_shape</strong><span class="classifier">3-tuple of integers, optional</span></dt><dd><p>This parameter is passed to nilearn.image.resample_img.
+Please see the related documentation for details.</p>
 </dd>
-<dt><strong>smoothing_fwhm</strong><span class="classifier">float, optional</span></dt><dd><p>If smoothing_fwhm is not None, it gives the size in millimeters of the
-spatial smoothing to apply to the signal.</p>
+<dt><strong>smoothing_fwhm</strong><span class="classifier">float, optional</span></dt><dd><p>If smoothing_fwhm is not None, it gives the size in millimeters of
+the spatial smoothing to apply to the signal.</p>
 </dd>
 <dt><strong>memory</strong><span class="classifier">string, optional</span></dt><dd><p>Path to the directory used to cache the masking process and the glm
-fit. By default, no caching is done. Creates instance of joblib.Memory.</p>
+fit. By default, no caching is done.
+Creates instance of joblib.Memory.</p>
 </dd>
 <dt><strong>memory_level</strong><span class="classifier">integer, optional</span></dt><dd><p>Rough estimator of the amount of memory used by caching. Higher value
 means more memory for caching.</p>
@@ -263,11 +266,13 @@ means more memory for caching.</p>
 <dt><strong>standardize</strong><span class="classifier">boolean, optional</span></dt><dd><p>If standardize is True, the time-series are centered and normed:
 their variance is put to 1 in the time dimension.</p>
 </dd>
-<dt><strong>signal_scaling</strong><span class="classifier">False, int or (int, int), optional,</span></dt><dd><p>If not False, fMRI signals are scaled to the mean value of scaling_axis
-given, which can be 0, 1 or (0, 1). 0 refers to mean scaling each voxel
-with respect to time, 1 refers to mean scaling each time point with
-respect to all voxels and (0, 1) refers to scaling with respect to
-voxels and time, which is known as grand mean scaling.
+<dt><strong>signal_scaling</strong><span class="classifier">False, int or (int, int), optional,</span></dt><dd><p>If not False, fMRI signals are
+scaled to the mean value of scaling_axis given,
+which can be 0, 1 or (0, 1).
+0 refers to mean scaling each voxel with respect to time,
+1 refers to mean scaling each time point with respect to all voxels &amp;
+(0, 1) refers to scaling with respect to voxels and time,
+which is known as grand mean scaling.
 Incompatible with standardize (standardize=False is enforced when
 signal_scaling is not False).</p>
 </dd>
@@ -327,8 +332,8 @@ are several runs, it will be assumed that the same contrast is
 desired for all runs. The string can be a formula compatible with
 <cite>pandas.DataFrame.eval</cite>. Basically one can use the name of the
 conditions as they appear in the design matrix of the fitted model
-combined with operators +- and combined with numbers with operators
-+-<cite>*</cite>/.</p>
+combined with operators +- and combined with numbers
+with operators +-<cite>*</cite>/.</p>
 </dd>
 <dt><strong>stat_type</strong><span class="classifier">{‘t’, ‘F’}, optional</span></dt><dd><p>type of the contrast</p>
 </dd>
@@ -358,7 +363,7 @@ the output is a dictionary of images, keyed by the type of image.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>run_imgs: Niimg-like object or list of Niimg-like objects,</strong></dt><dd><p>See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html#inputing-data-file-names-or-image-objects">http://nilearn.github.io/manipulating_images/input_output.html#inputing-data-file-names-or-image-objects</a>
+<dt><strong>run_imgs: Niimg-like object or list of Niimg-like objects,</strong></dt><dd><p>See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html#inputing-data-file-names-or-image-objects">http://nilearn.github.io/manipulating_images/input_output.html#inputing-data-file-names-or-image-objects</a>  # noqa:E501
 Data on which the GLM will be fitted. If this is a list,
 the affine is considered the same for all.</p>
 </dd>
@@ -399,6 +404,8 @@ and returns a transformed version of X.</p>
 </dd>
 <dt><strong>y</strong><span class="classifier">numpy array of shape [n_samples]</span></dt><dd><p>Target values.</p>
 </dd>
+<dt><strong>**fit_params</strong><span class="classifier">dict</span></dt><dd><p>Additional fit parameters.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -417,7 +424,7 @@ and returns a transformed version of X.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>deep</strong><span class="classifier">boolean, optional</span></dt><dd><p>If True, will return the parameters for this estimator and
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
@@ -425,6 +432,51 @@ contained subobjects that are estimators.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">mapping of string to any</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.predicted">
+<code class="sig-name descname">predicted</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.predicted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform voxelwise predicted values to the same shape
+as the input Nifti1Image(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>output</strong><span class="classifier">list</span></dt><dd><p>a list of Nifti1Image(s)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.r_square">
+<code class="sig-name descname">r_square</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.r_square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform voxelwise r-squared values to the same shape
+as the input Nifti1Image(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>output</strong><span class="classifier">list</span></dt><dd><p>a list of Nifti1Image(s)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nistats.first_level_model.FirstLevelModel.residuals">
+<code class="sig-name descname">residuals</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.first_level_model.FirstLevelModel.residuals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform voxelwise residuals to the same shape
+as the input Nifti1Image(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>output</strong><span class="classifier">list</span></dt><dd><p>a list of Nifti1Image(s)</p>
 </dd>
 </dl>
 </dd>
@@ -440,9 +492,16 @@ contained subobjects that are estimators.</p>
 <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
 component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>self</dt><dd></dd>
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Estimator instance.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -451,7 +510,7 @@ component of a nested object.</p>
 </dd></dl>
 
 <div class="section" id="examples-using-nistats-first-level-model-firstlevelmodel">
-<h2>3.7.1.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code><a class="headerlink" href="#examples-using-nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7.1.1. </span>Examples using <code class="docutils literal notranslate"><span class="pre">nistats.first_level_model.FirstLevelModel</span></code><a class="headerlink" href="#examples-using-nistats-first-level-model-firstlevelmodel" title="Permalink to this headline">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we compare the fMRI signal during periods of auditory stimulation versus peri..."><div class="figure align-default" id="id1">
 <img alt="../../_images/sphx_glr_plot_single_subject_single_run_thumb.png" src="../../_images/sphx_glr_plot_single_subject_single_run_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/01_tutorials/plot_single_subject_single_run.html#sphx-glr-auto-examples-01-tutorials-plot-single-subject-single-run-py"><span class="std std-ref">Analysis of a single session, single subject fMRI dataset</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -460,21 +519,41 @@ component of a nested object.</p>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_thumb.png" src="../../_images/sphx_glr_plot_first_level_model_details_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/01_tutorials/plot_first_level_model_details.html#sphx-glr-auto-examples-01-tutorials-plot-first-level-model-details-py"><span class="std std-ref">Studying first-level-model details in a trials-and-error fashion</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to a seed extract on the Posterior Cingulate Cortex ..."><div class="figure align-default" id="id3">
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to run a fixed effects model based on pre-computed statistics. Thi..."><div class="figure align-default" id="id3">
+<img alt="../../_images/sphx_glr_plot_fixed_effects_thumb.png" src="../../_images/sphx_glr_plot_fixed_effects_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fixed_effects.html#sphx-glr-auto-examples-02-first-level-models-plot-fixed-effects-py"><span class="std std-ref">Example of explicit fixed effects fMRI model fitting</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows a full step-by-step workflow of fitting a GLM to data extracted from a seed ..."><div class="figure align-default" id="id4">
 <img alt="../../_images/sphx_glr_plot_adhd_dmn_thumb.png" src="../../_images/sphx_glr_plot_adhd_dmn_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_adhd_dmn.html#sphx-glr-auto-examples-02-first-level-models-plot-adhd-dmn-py"><span class="std std-ref">Default Mode Network extraction of AHDH dataset</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_adhd_dmn.html#sphx-glr-auto-examples-02-first-level-models-plot-adhd-dmn-py"><span class="std std-ref">Default Mode Network extraction of AHDH dataset</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="FIR models are used to estimate the hemodyamic response non-parametrically. The example below s..."><div class="figure align-default" id="id4">
+</div><div class="sphx-glr-thumbcontainer" tooltip="FIR models are used to estimate the hemodyamic response non-parametrically. The example below s..."><div class="figure align-default" id="id5">
 <img alt="../../_images/sphx_glr_plot_fir_model_thumb.png" src="../../_images/sphx_glr_plot_fir_model_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fir_model.html#sphx-glr-auto-examples-02-first-level-models-plot-fir-model-py"><span class="std std-ref">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fir_model.html#sphx-glr-auto-examples-02-first-level-models-plot-fir-model-py"><span class="std std-ref">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="The example shows the analysis of an SPM dataset studying face perception. The anaylsis is perf..."><div class="figure align-default" id="id5">
+</div><div class="sphx-glr-thumbcontainer" tooltip="The example shows the analysis of an SPM dataset studying face perception. The anaylsis is perf..."><div class="figure align-default" id="id6">
 <img alt="../../_images/sphx_glr_plot_spm_multimodal_faces_thumb.png" src="../../_images/sphx_glr_plot_spm_multimodal_faces_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_spm_multimodal_faces.html#sphx-glr-auto-examples-02-first-level-models-plot-spm-multimodal-faces-py"><span class="std std-ref">Single-subject data (two sessions) in native space</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_spm_multimodal_faces.html#sphx-glr-auto-examples-02-first-level-models-plot-spm-multimodal-faces-py"><span class="std std-ref">Single-subject data (two sessions) in native space</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th..."><div class="figure align-default" id="id6">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and ..."><div class="figure align-default" id="id7">
 <img alt="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" src="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fiac_analysis.html#sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"><span class="std std-ref">Simple example of two-session fMRI model fitting</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fiac_analysis.html#sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"><span class="std std-ref">Simple example of two-session fMRI model fitting</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first level analysis in an openneuro B..."><div class="figure align-default" id="id8">
+<img alt="../../_images/sphx_glr_plot_bids_features_thumb.png" src="../../_images/sphx_glr_plot_bids_features_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_bids_features.html#sphx-glr-auto-examples-02-first-level-models-plot-bids-features-py"><span class="std std-ref">First level analysis of a complete BIDS dataset from openneuro</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we fit a First Level GLM with the minimize_memory-argument set to False. By doing so, the ..."><div class="figure align-default" id="id9">
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" src="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_predictions_residuals.html#sphx-glr-auto-examples-02-first-level-models-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" Full step-by-step example of fitting a GLM to perform a first and second level analysis in a B..."><div class="figure align-default" id="id10">
+<img alt="../../_images/sphx_glr_plot_bids_analysis_thumb.png" src="../../_images/sphx_glr_plot_bids_analysis_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/05_complete_examples/plot_bids_analysis.html#sphx-glr-auto-examples-05-complete-examples-plot-bids-analysis-py"><span class="std std-ref">BIDS dataset first and second level analysis</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a decoding experiment. We use the data fr..."><div class="figure align-default" id="id11">
+<img alt="../../_images/sphx_glr_plot_haxby_block_classification_thumb.png" src="../../_images/sphx_glr_plot_haxby_block_classification_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/05_complete_examples/plot_haxby_block_classification.html#sphx-glr-auto-examples-05-complete-examples-plot-haxby-block-classification-py"><span class="std std-ref">Decoding of a dataset after glm fit for signal extraction</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>
@@ -505,12 +584,12 @@ component of a nested object.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.first_level_model.FirstLevelModel.rst.txt"
         	 rel="nofollow">Show this page source</a>

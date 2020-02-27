@@ -9,15 +9,15 @@
 Example of surface-based first-level analysis
 =============================================
 
-Full step-by-step example of fitting a GLM to experimental data
+A full step-by-step example of fitting a GLM to experimental data
 sampled on the cortical surface and visualizing the results.
 
 More specifically:
 
-1. A sequence of fMRI volumes are loaded
-2. fMRI data are projected onto a reference cortical surface (the freesurfer template, fsaverage)
-3. A design matrix describing all the effects related to the data is computed
-4. A GLM is applied to the dataset (effect/covariance, then contrast estimation)
+1. A sequence of fMRI volumes is loaded.
+2. fMRI data are projected onto a reference cortical surface (the FreeSurfer template, fsaverage).
+3. A design matrix describing all the effects related to the data is computed.
+4. A GLM is applied to the dataset (effect/covariance, then contrast estimation).
 
 The result of the analysis are statistical maps that are defined on
 the brain mesh. We display them using Nilearn capabilities.
@@ -33,10 +33,9 @@ The advantage of this second approach is that it makes it easy to run
 second-level analyses on the surface. On the other hand, it is
 obviously less accurate than using a subject-tailored mesh.
 
-
 Prepare data and analysis parameters
 -------------------------------------
-Prepare timing parameters
+Prepare the timing parameters.
 
 
 .. code-block:: default
@@ -50,8 +49,9 @@ Prepare timing parameters
 
 
 
-Prepare data
-First the volume-based fMRI data.
+
+Prepare the data.
+First, the volume-based fMRI data.
 
 
 .. code-block:: default
@@ -66,7 +66,8 @@ First the volume-based fMRI data.
 
 
 
-Second the experimental paradigm.
+
+Second, the experimental paradigm.
 
 
 .. code-block:: default
@@ -81,12 +82,13 @@ Second the experimental paradigm.
 
 
 
+
 Project the fMRI image to the surface
 -------------------------------------
 
 For this we need to get a mesh representing the geometry of the
-surface.  we could use an individual mesh, but we first resort to a
-standard mesh, the so-called fsaverage5 template from the Freesurfer
+surface.  We could use an individual mesh, but we first resort to a
+standard mesh, the so-called fsaverage5 template from the FreeSurfer
 software.
 
 
@@ -102,8 +104,9 @@ software.
 
 
 
+
 The projection function simply takes the fMRI data and the mesh.
-Note that those correspond spatially, are they are bothin MNI space.
+Note that those correspond spatially, are they are both in MNI space.
 
 
 .. code-block:: default
@@ -117,11 +120,12 @@ Note that those correspond spatially, are they are bothin MNI space.
 
 
 
+
 Perform first level analysis
 ----------------------------
 
 This involves computing the design matrix and fitting the model.
-We start by specifying the timing of fMRI frames
+We start by specifying the timing of fMRI frames.
 
 
 .. code-block:: default
@@ -137,10 +141,11 @@ We start by specifying the timing of fMRI frames
 
 
 
-Create the design matrix
 
-We specify an hrf model containing Glover model and its time derivative
-the drift model is implicitly a cosine basis with period cutoff 128s.
+Create the design matrix.
+
+We specify an hrf model containing the Glover model and its time derivative.
+The drift model is implicitly a cosine basis with a period cutoff at 128s.
 
 
 .. code-block:: default
@@ -157,8 +162,10 @@ the drift model is implicitly a cosine basis with period cutoff 128s.
 
 
 
+
 Setup and fit GLM.
-Note that the output consists in 2 variables: `labels` and `fit`
+
+Note that the output consists in 2 variables: `labels` and `fit`.
 `labels` tags voxels according to noise autocorrelation.
 `estimates` contains the parameter estimates.
 We keep them for later contrast computation.
@@ -176,11 +183,13 @@ We keep them for later contrast computation.
 
 
 
+
 Estimate contrasts
 ------------------
-Specify the contrasts
+Specify the contrasts.
+
 For practical purpose, we first generate an identity matrix whose size is
-the number of columns of the design matrix
+the number of columns of the design matrix.
 
 
 .. code-block:: default
@@ -193,7 +202,8 @@ the number of columns of the design matrix
 
 
 
-first create basic contrasts
+
+At first, we create basic contrasts.
 
 
 .. code-block:: default
@@ -207,8 +217,9 @@ first create basic contrasts
 
 
 
-add some intermediate contrasts
-one contrast adding all conditions with some auditory parts
+
+Next, we add some intermediate contrasts and
+one contrast adding all conditions with some auditory parts.
 
 
 .. code-block:: default
@@ -240,11 +251,12 @@ one contrast adding all conditions with some auditory parts
 
 
 
-Finally make a dictionary of more relevant contrasts
 
-* 'left - right button press' probes motor activity in left versus right button presses
-* 'audio - visual' probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
-* 'computation - sentences' looks at the activity when performing a mental comptation task  versus simply reading sentences.
+Finally, we create a dictionary of more relevant contrasts
+
+* 'left - right button press': probes motor activity in left versus right button presses.
+* 'audio - visual': probes the difference of activity between listening to some content or reading the same type of content (instructions, stories).
+* 'computation - sentences': looks at the activity when performing a mental computation task  versus simply reading sentences.
 
 Of course, we could define other contrasts, but we keep only 3 for simplicity.
 
@@ -271,24 +283,14 @@ Of course, we could define other contrasts, but we keep only 3 for simplicity.
 
 
 
-contrast estimation
+
+Let's estimate the contrasts by iterating over them.
 
 
 .. code-block:: default
 
     from nistats.contrasts import compute_contrast
     from nilearn import plotting
-
-
-
-
-
-
-
-iterate over contrasts
-
-
-.. code-block:: default
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
         print('  Contrast % i out of %i: %s, right hemisphere' %
@@ -340,12 +342,13 @@ iterate over contrasts
 
 
 
+
 Analysing the left hemisphere
 -----------------------------
 
-Note that it requires little additional code!
+Note that re-creating the above analysis for the left hemisphere requires little additional code!
 
-Project the fMRI data to the mesh
+We project the fMRI data to the mesh.
 
 
 .. code-block:: default
@@ -358,7 +361,8 @@ Project the fMRI data to the mesh
 
 
 
-Estimate the General Linear Model
+
+Then we estimate the General Linear Model.
 
 
 .. code-block:: default
@@ -371,7 +375,8 @@ Estimate the General Linear Model
 
 
 
-Create contrast-specific maps
+
+Finally, we create contrast-specific maps and plot them.
 
 
 .. code-block:: default
@@ -383,7 +388,7 @@ Create contrast-specific maps
         contrast = compute_contrast(labels, estimates, contrast_val,
                                     contrast_type='t')
         z_score = contrast.z_score()
-        # Plot the result
+        # plot the result
         plotting.plot_surf_stat_map(
             fsaverage.infl_left, z_score, hemi='left',
             title=contrast_id, colorbar=True,
@@ -425,9 +430,10 @@ Create contrast-specific maps
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.293 seconds)
+   **Total running time of the script:** ( 0 minutes  12.016 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py:

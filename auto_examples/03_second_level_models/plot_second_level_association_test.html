@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2.4.1. Example of second level design matrix" href="../04_low_level_functions/plot_second_level_design_matrix.html" />
-    <link rel="prev" title="2.3.4. Second-level fMRI model: one sample test" href="plot_second_level_one_sample_test.html" />
+    <link rel="prev" title="2.3.5. Second-level fMRI model: one sample test" href="plot_second_level_one_sample_test.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -140,7 +140,7 @@ $(function () {
           <a href="../04_low_level_functions/plot_second_level_design_matrix.html" title="2.4.1. Example of second level design matrix"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_one_sample_test.html" title="2.3.4. Second-level fMRI model: one sample test"
+          <a href="plot_second_level_one_sample_test.html" title="2.3.5. Second-level fMRI model: one sample test"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,18 +165,18 @@ $(function () {
 
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">2.3.5. Example of generic design in second-level models</a><ul>
-<li><a class="reference internal" href="#estimate-second-level-model">2.3.5.1. Estimate second level model</a></li>
+<li><a class="reference internal" href="#">2.3.6. Example of generic design in second-level models</a><ul>
+<li><a class="reference internal" href="#estimate-second-level-model">2.3.6.1. Estimate second level model</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_second_level_one_sample_test.html"
-                        title="previous chapter">2.3.4. Second-level fMRI model: one sample test</a></p>
+                        title="previous chapter"><span class="section-number">2.3.5. </span>Second-level fMRI model: one sample test</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../04_low_level_functions/plot_second_level_design_matrix.html"
-                        title="next chapter">2.4.1. Example of second level design matrix</a></p>
+                        title="next chapter"><span class="section-number">2.4.1. </span>Example of second level design matrix</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -200,7 +200,7 @@ $(function () {
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-03-second-level-models-plot-second-level-association-test-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="example-of-generic-design-in-second-level-models">
-<span id="sphx-glr-auto-examples-03-second-level-models-plot-second-level-association-test-py"></span><h1>2.3.5. Example of generic design in second-level models<a class="headerlink" href="#example-of-generic-design-in-second-level-models" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-03-second-level-models-plot-second-level-association-test-py"></span><h1><span class="section-number">2.3.6. </span>Example of generic design in second-level models<a class="headerlink" href="#example-of-generic-design-in-second-level-models" title="Permalink to this headline">¶</a></h1>
 <p>This example shows the results obtained in a group analysis using a more
 complex contrast than a one- or two-sample t test.
 We use the [left button press (auditory cue)] task from the Localizer
@@ -211,54 +211,54 @@ is included in the model.</p>
 <span class="c1">#         Jerome-Alexis Chevalier, 2019</span>
 </pre></div>
 </div>
-<p>Load Localizer contrast</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">datasets</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">94</span>
+<p>At first, we need to load the Localizer contrasts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a> <span class="o">=</span> <span class="mi">94</span>
 <span class="n">localizer_dataset</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_localizer_contrasts.html#nilearn.datasets.fetch_localizer_contrasts" title="View documentation for nilearn.datasets.fetch_localizer_contrasts"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_contrasts</span></a><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;left button press (auditory cue)&#39;</span><span class="p">],</span> <span class="n">n_subjects</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="p">[</span><span class="s1">&#39;left button press (auditory cue)&#39;</span><span class="p">],</span> <span class="n">n_subjects</span><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
   output = genfromtxt(fname, **kwargs)
 </pre></div>
 </div>
-<p>print basic information on the dataset</p>
+<p>Let’s print basic information on the dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First contrast nifti image (3D) is located at: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
       <span class="n">localizer_dataset</span><span class="o">.</span><span class="n">cmaps</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First contrast nifti image (3D) is located at: /home/kshitij/nilearn_data/brainomics_localizer/brainomics_data/S01/c_map_left_auditory_click.nii.gz
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First contrast nifti image (3D) is located at: /home/emdupre/nilearn_data/brainomics_localizer/brainomics_data/S01/cmaps_LeftAuditoryClick.nii.gz
 </pre></div>
 </div>
-<p>Load the behavioral variable</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tested_var</span> <span class="o">=</span> <span class="n">localizer_dataset</span><span class="o">.</span><span class="n">ext_vars</span><span class="p">[</span><span class="s1">&#39;pseudo&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tested_var</span><span class="p">)</span>
+<p>we also need to load the behavioral variable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a> <span class="o">=</span> <span class="n">localizer_dataset</span><span class="o">.</span><span class="n">ext_vars</span><span class="p">[</span><span class="s1">&#39;pseudo&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[b&#39;15.0&#39; b&#39;16.0&#39; b&#39;14.0&#39; b&#39;19.0&#39; b&#39;16.0&#39; b&#39;18.0&#39; b&#39;22.0&#39; b&#39;19.0&#39; b&#39;17.0&#39;
- b&#39;15.0&#39; b&#39;10.0&#39; b&#39;21.0&#39; b&#39;17.0&#39; b&#39;21.0&#39; b&#39;None&#39; b&#39;14.0&#39; b&#39;22.0&#39; b&#39;17.0&#39;
+ b&#39;15.0&#39; b&#39;10.0&#39; b&#39;21.0&#39; b&#39;17.0&#39; b&#39;21.0&#39; b&#39;n/a&#39; b&#39;14.0&#39; b&#39;22.0&#39; b&#39;17.0&#39;
  b&#39;23.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;18.0&#39; b&#39;17.0&#39; b&#39;18.0&#39; b&#39;20.0&#39; b&#39;27.0&#39; b&#39;18.0&#39;
  b&#39;16.0&#39; b&#39;18.0&#39; b&#39;17.0&#39; b&#39;19.0&#39; b&#39;22.0&#39; b&#39;15.0&#39; b&#39;16.0&#39; b&#39;21.0&#39; b&#39;20.0&#39;
- b&#39;12.0&#39; b&#39;None&#39; b&#39;19.0&#39; b&#39;19.0&#39; b&#39;16.0&#39; b&#39;22.0&#39; b&#39;23.0&#39; b&#39;14.0&#39; b&#39;24.0&#39;
+ b&#39;12.0&#39; b&#39;n/a&#39; b&#39;19.0&#39; b&#39;19.0&#39; b&#39;16.0&#39; b&#39;22.0&#39; b&#39;23.0&#39; b&#39;14.0&#39; b&#39;24.0&#39;
  b&#39;22.0&#39; b&#39;20.0&#39; b&#39;25.0&#39; b&#39;23.0&#39; b&#39;15.0&#39; b&#39;12.0&#39; b&#39;16.0&#39; b&#39;20.0&#39; b&#39;18.0&#39;
- b&#39;14.0&#39; b&#39;14.0&#39; b&#39;18.0&#39; b&#39;20.0&#39; b&#39;19.0&#39; b&#39;14.0&#39; b&#39;27.0&#39; b&#39;None&#39; b&#39;13.0&#39;
+ b&#39;14.0&#39; b&#39;14.0&#39; b&#39;18.0&#39; b&#39;20.0&#39; b&#39;19.0&#39; b&#39;14.0&#39; b&#39;27.0&#39; b&#39;n/a&#39; b&#39;13.0&#39;
  b&#39;17.0&#39; b&#39;19.0&#39; b&#39;19.0&#39; b&#39;14.0&#39; b&#39;17.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;14.0&#39; b&#39;20.0&#39;
- b&#39;16.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;19.0&#39; b&#39;17.0&#39; b&#39;14.0&#39; b&#39;15.0&#39; b&#39;None&#39;
- b&#39;20.0&#39; b&#39;15.0&#39; b&#39;17.0&#39; b&#39;18.0&#39; b&#39;17.5&#39; b&#39;None&#39; b&#39;15.0&#39; b&#39;23.0&#39; b&#39;12.0&#39;
+ b&#39;16.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;15.0&#39; b&#39;19.0&#39; b&#39;17.0&#39; b&#39;14.0&#39; b&#39;15.0&#39; b&#39;n/a&#39;
+ b&#39;20.0&#39; b&#39;15.0&#39; b&#39;17.0&#39; b&#39;18.0&#39; b&#39;17.5&#39; b&#39;n/a&#39; b&#39;15.0&#39; b&#39;23.0&#39; b&#39;12.0&#39;
  b&#39;16.0&#39; b&#39;13.0&#39; b&#39;25.0&#39; b&#39;21.0&#39;]
 </pre></div>
 </div>
-<p>Quality check / Remove subjects with bad tested variate</p>
+<p>It is worth to do a auality check and remove subjects with missing values.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">mask_quality_check</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html#numpy.where" title="View documentation for numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><span class="n">tested_var</span> <span class="o">!=</span> <span class="sa">b</span><span class="s1">&#39;None&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="n">mask_quality_check</span><span class="o">.</span><span class="n">size</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">mask_quality_check</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html#numpy.where" title="View documentation for numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a> <span class="o">!=</span> <span class="sa">b</span><span class="s1">&#39;n/a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.size.html#numpy.ndarray.size" title="View documentation for numpy.ndarray.size"><span class="n">mask_quality_check</span><span class="o">.</span><span class="n">size</span></a>
 <span class="n">contrast_map_filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">localizer_dataset</span><span class="o">.</span><span class="n">cmaps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mask_quality_check</span><span class="p">]</span>
-<span class="n">tested_var</span> <span class="o">=</span> <span class="n">tested_var</span><span class="p">[</span><span class="n">mask_quality_check</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Actual number of subjects after quality check: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">n_samples</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">mask_quality_check</span></a><span class="p">]</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a><span class="p">[</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">mask_quality_check</span></a><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Actual number of subjects after quality check: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -266,70 +266,59 @@ is included in the model.</p>
 </pre></div>
 </div>
 <div class="section" id="estimate-second-level-model">
-<h2>2.3.5.1. Estimate second level model<a class="headerlink" href="#estimate-second-level-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.6.1. </span>Estimate second level model<a class="headerlink" href="#estimate-second-level-model" title="Permalink to this headline">¶</a></h2>
 <p>We define the input maps and the design matrix for the second level model
 and fit it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">design_matrix</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">(</span>
-    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><span class="n">tested_var</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html#numpy.ones_like" title="View documentation for numpy.ones_like"><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span></a><span class="p">(</span><span class="n">tested_var</span><span class="p">))),</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.hstack.html#numpy.hstack" title="View documentation for numpy.hstack"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">((</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones_like.html#numpy.ones_like" title="View documentation for numpy.ones_like"><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">tested_var</span></a><span class="p">))),</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span> <span class="s1">&#39;intercept&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Fit of the second-level model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a>
-<span class="n">model</span> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a><span class="p">(</span><span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">contrast_map_filenames</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a>
+<a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">model</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a><span class="p">(</span><span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">model</span></a><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">contrast_map_filenames</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The &#39;cachedir&#39; attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-Use os.path.join(memory.location, &#39;joblib&#39;) attribute instead.
-  if (memory.cachedir is None and memory_level is not None
-/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
-  r = func(a, **kwargs)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>SecondLevelModel(mask_img=None, memory=Memory(location=None), memory_level=1,
+                 minimize_memory=True, n_jobs=1, smoothing_fwhm=5.0, verbose=0)
 </pre></div>
 </div>
 <p>To estimate the contrast is very simple. We can just provide the column
 name of the design matrix.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
-  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We compute the fdr-corrected p = 0.05 threshold for these data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="k">import</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a>
-<span class="n">_</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">_</span></a><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Let us plot the second level contrast at the computed thresholds</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">plotting</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Group-level association between motor activity </span><span class="se">\n</span><span class="s1">&#39;</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a><span class="o">=</span><span class="s1">&#39;Group-level association between motor activity </span><span class="se">\n</span><span class="s1">&#39;</span>
     <span class="s1">&#39;and reading fluency (fdr=0.05)&#39;</span><span class="p">)</span>
 
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_second_level_association_test_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_second_level_association_test_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
-  return _nd_image.find_objects(input, max_label)
-</pre></div>
-</div>
 <p>Computing the (corrected) p-values with parametric test to compare with
 non parametric test</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="View documentation for nilearn.image.math_img"><span class="n">math_img</span></a>
-<span class="kn">from</span> <span class="nn">nilearn.input_data</span> <span class="k">import</span> <span class="n">NiftiMasker</span>
-<span class="n">p_val</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;p_value&#39;</span><span class="p">)</span>
-<span class="n">n_voxels</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">masker_</span><span class="o">.</span><span class="n">mask_img_</span><span class="o">.</span><span class="n">get_data</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="View documentation for nilearn.image.math_img"><span class="n">math_img</span></a>
+<span class="kn">from</span> <span class="nn">nilearn.input_data</span> <span class="kn">import</span> <span class="n">NiftiMasker</span>
+<span class="kn">from</span> <span class="nn">nistats.utils</span> <span class="kn">import</span> <span class="n">get_data</span>
+
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">p_val</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;p_value&#39;</span><span class="p">)</span>
+<span class="n">n_voxels</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">get_data</span><span class="p">(</span><a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">model</span></a><span class="o">.</span><span class="n">masker_</span><span class="o">.</span><span class="n">mask_img_</span><span class="p">))</span>
 <span class="c1"># Correcting the p-values for multiple testing and taking negative logarithm</span>
-<span class="n">neg_log_pval</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="View documentation for nilearn.image.math_img"><span class="n">math_img</span></a><span class="p">(</span><span class="s2">&quot;-np.log10(np.minimum(1, img * </span><span class="si">{}</span><span class="s2">))&quot;</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">neg_log_pval</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="View documentation for nilearn.image.math_img"><span class="n">math_img</span></a><span class="p">(</span><span class="s2">&quot;-np.log10(np.minimum(1, img * </span><span class="si">{}</span><span class="s2">))&quot;</span>
                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n_voxels</span><span class="p">)),</span>
-                        <span class="n">img</span><span class="o">=</span><span class="n">p_val</span><span class="p">)</span>
+                        <span class="n">img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">p_val</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -343,18 +332,18 @@ non parametric test</p>
 <span class="c1"># is less than 10% probability to make a single false discovery</span>
 <span class="c1"># (90% chance that we make no false discoveries at all).</span>
 <span class="c1"># This threshold is much more conservative than the previous one.</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Group-level association between motor activity and reading: </span><span class="se">\n</span><span class="s1">&#39;</span>
+<a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a> <span class="o">=</span> <span class="mi">1</span>
+<a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Group-level association between motor activity and reading: </span><span class="se">\n</span><span class="s1">&#39;</span>
          <span class="s1">&#39;neg-log of parametric corrected p-values (FWER &lt; 10%)&#39;</span><span class="p">)</span>
-<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">neg_log_pval</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">cut_coords</span><span class="p">,</span>
-                       <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">neg_log_pval</span></a><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">cut_coords</span><span class="p">,</span>
+                       <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_second_level_association_test_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_second_level_association_test_002.png" />
 <p>Computing the (corrected) negative log p-values with permutation test</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="k">import</span> <span class="n">non_parametric_inference</span>
-<span class="n">neg_log_pvals_permuted_ols_unmasked</span> <span class="o">=</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="kn">import</span> <span class="n">non_parametric_inference</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">neg_log_pvals_permuted_ols_unmasked</span></a> <span class="o">=</span> \
     <span class="n">non_parametric_inference</span><span class="p">(</span><span class="n">contrast_map_filenames</span><span class="p">,</span>
                              <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">,</span>
                              <span class="n">second_level_contrast</span><span class="o">=</span><span class="s1">&#39;fluency&#39;</span><span class="p">,</span>
@@ -363,17 +352,12 @@ non parametric test</p>
                              <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/mass_univariate/permuted_least_squares.py:453: DeprecationWarning: This function is deprecated. Please call randint(1, 2147483646 + 1) instead
-  for n_perm_chunk in n_perm_chunks)
-</pre></div>
-</div>
 <p>Let us plot the (corrected) negative log  p-values</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Group-level association between motor activity and reading: </span><span class="se">\n</span><span class="s1">&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Group-level association between motor activity and reading: </span><span class="se">\n</span><span class="s1">&#39;</span>
          <span class="s1">&#39;neg-log of non-parametric corrected p-values (FWER &lt; 10%)&#39;</span><span class="p">)</span>
-<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">neg_log_pvals_permuted_ols_unmasked</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">cut_coords</span><span class="o">=</span><span class="n">cut_coords</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-                       <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">neg_log_pvals_permuted_ols_unmasked</span></a><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">cut_coords</span><span class="o">=</span><span class="n">cut_coords</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">threshold</span></a><span class="p">,</span>
+                       <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">title</span></a><span class="p">)</span>
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
 <span class="c1"># The neg-log p-values obtained with non parametric testing are capped at 3</span>
@@ -383,13 +367,13 @@ non parametric test</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_second_level_association_test_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_second_level_association_test_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.954 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.011 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-second-level-models-plot-second-level-association-test-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/97ef8b744601e06d48c1870971b04277/plot_second_level_association_test.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_association_test.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/0bc083acc0c6262977045398b3b635eb/plot_second_level_association_test.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_association_test.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/c31ff2284a4cc74a25368c5b44a7e84d/plot_second_level_association_test.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_second_level_association_test.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/97fc75cfa33657441d6c24e7e575c401/plot_second_level_association_test.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_second_level_association_test.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -412,7 +396,7 @@ non parametric test</p>
           <a href="../04_low_level_functions/plot_second_level_design_matrix.html" title="2.4.1. Example of second level design matrix"
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_one_sample_test.html" title="2.3.4. Second-level fMRI model: one sample test"
+          <a href="plot_second_level_one_sample_test.html" title="2.3.5. Second-level fMRI model: one sample test"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -422,12 +406,12 @@ non parametric test</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_second_level_models/plot_second_level_association_test.rst.txt"
         	 rel="nofollow">Show this page source</a>

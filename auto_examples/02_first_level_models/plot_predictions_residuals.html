@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nistats: Functional MRI in Python &#8212; functional MRI for NeuroImaging</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2.8. Example of surface-based first-level analysis" href="plot_localizer_surface_analysis.html" />
+    <link rel="prev" title="2.2.6. First level analysis of a complete BIDS dataset from openneuro" href="plot_bids_features.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
+<script type="text/javascript">
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var top = 105 + $('.sphinxsidebarwrapper').offset().top - parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0)),
+        sections = {},
+        i        = 0,
+	url	 = document.URL.replace(/#.*$/, ""),
+	current_section = 0;
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50;
+    });
+
+    $(window).scroll(function(event) {
+	var pos   = $(window).scrollTop();
+	// Lock the table of content to a fixed position once we scroll enough
+	if(pos > top){
+	    //begin to scroll
+	    $('.sphinxsidebarwrapper').css("position", "fixed");
+	    $('.sphinxsidebarwrapper').css("top", -105);
+	}
+	else{
+	    //lock it back into place
+	    $('.sphinxsidebarwrapper').css("position", "relative");
+	    $('.sphinxsidebarwrapper').css("top",0);
+	}
+
+	// Highlight the current section
+	$('a.internal').removeClass('active');
+        for(i in sections){
+            if(sections[i] > pos){
+		break;
+            };
+	    if($('a.internal[href$="' + i + '"]').is(':visible')){
+		current_section = i;
+	    };
+        }
+	$('a.internal[href$="' + current_section + '"]').addClass('active');
+    });
+
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nistats-logo.png" alt="Nistats logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../04_low_level_functions/plot_hrf.html">HRF</a></big>
+    </li>
+    <li>
+      <small><a href="../04_low_level_functions/plot_design_matrix.html">Design Matrix</a></small>
+    </li>
+    <li>
+      <small><a href="plot_localizer_analysis.html">First Level</a></small>
+    </li>
+    <li>
+      <big><a href="../03_second_level_models/plot_thresholding.html">Second Level</a></big>
+    </li>
+    <li>
+      <big><a href="../01_tutorials/plot_bids_analysis.html">BIDS datasets</a></big>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nistats:</h1>
+    <h2>Functional MRI Neuro-Imaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div id="cse" style="width: 100%;"></div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+      var customSearchControl = new google.search.CustomSearchControl('014136483057745874622:r-npolb1uki');
+      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+      var options = new google.search.DrawOptions();
+      options.setAutoComplete(true);
+      customSearchControl.draw('cse', options);
+      }, true);
+    </script>
+  </div>
+</div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_surface_analysis.html" title="2.2.8. Example of surface-based first-level analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_bids_features.html" title="2.2.6. First level analysis of a complete BIDS dataset from openneuro"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2.2.7. Predicted time series and residuals</a><ul>
+<li><a class="reference internal" href="#import-modules">2.2.7.1. Import modules</a></li>
+<li><a class="reference internal" href="#fit-model">2.2.7.2. Fit model</a></li>
+<li><a class="reference internal" href="#calculate-and-plot-contrast">2.2.7.3. Calculate and plot contrast</a></li>
+<li><a class="reference internal" href="#extract-the-largest-clusters">2.2.7.4. Extract the largest clusters</a></li>
+<li><a class="reference internal" href="#plot-predicted-and-actual-time-series-for-6-most-significant-clusters">2.2.7.5. Plot predicted and actual time series for 6 most significant clusters</a></li>
+<li><a class="reference internal" href="#get-residuals">2.2.7.6. Get residuals</a></li>
+<li><a class="reference internal" href="#plot-distribution-of-residuals">2.2.7.7. Plot distribution of residuals</a></li>
+<li><a class="reference internal" href="#plot-r-squared">2.2.7.8. Plot R-squared</a></li>
+<li><a class="reference internal" href="#calculate-and-plot-f-test">2.2.7.9. Calculate and Plot F-test</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plot_bids_features.html"
+                        title="previous chapter"><span class="section-number">2.2.6. </span>First level analysis of a complete BIDS dataset from openneuro</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plot_localizer_surface_analysis.html"
+                        title="next chapter"><span class="section-number">2.2.8. </span>Example of surface-based first-level analysis</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-02-first-level-models-plot-predictions-residuals-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="predicted-time-series-and-residuals">
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-predictions-residuals-py"></span><h1><span class="section-number">2.2.7. </span>Predicted time series and residuals<a class="headerlink" href="#predicted-time-series-and-residuals" title="Permalink to this headline">¶</a></h1>
+<p>Here we fit a First Level GLM with the <cite>minimize_memory</cite>-argument set to <cite>False</cite>.
+By doing so, the <cite>FirstLevelModel</cite>-object stores the residuals, which we can then inspect.
+Also, the predicted time series can be extracted, which is useful to assess the quality of the model fit.</p>
+<div class="section" id="import-modules">
+<h2><span class="section-number">2.2.7.1. </span>Import modules<a class="headerlink" href="#import-modules" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="View documentation for nistats.datasets.fetch_spm_auditory"><span class="n">fetch_spm_auditory</span></a>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">masking</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="c1"># load fMRI data</span>
+<span class="n">subject_data</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_spm_auditory.html#nistats.datasets.fetch_spm_auditory" title="View documentation for nistats.datasets.fetch_spm_auditory"><span class="n">fetch_spm_auditory</span></a><span class="p">()</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="View documentation for nilearn.image.concat_imgs"><span class="n">image</span><span class="o">.</span><span class="n">concat_imgs</span></a><span class="p">(</span><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
+
+<span class="c1"># Make an average</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="View documentation for nilearn.image.mean_img"><span class="n">image</span><span class="o">.</span><span class="n">mean_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a><span class="p">)</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mask</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="View documentation for nilearn.masking.compute_epi_mask"><span class="n">masking</span><span class="o">.</span><span class="n">compute_epi_mask</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a><span class="p">)</span>
+
+<span class="c1"># Clean and smooth data</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.clean_img.html#nilearn.image.clean_img" title="View documentation for nilearn.image.clean_img"><span class="n">image</span><span class="o">.</span><span class="n">clean_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.image.smooth_img.html#nilearn.image.smooth_img" title="View documentation for nilearn.image.smooth_img"><span class="n">image</span><span class="o">.</span><span class="n">smooth_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a><span class="p">,</span> <span class="mf">5.</span><span class="p">)</span>
+
+<span class="c1"># load events</span>
+<span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><span class="n">subject_data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fit-model">
+<h2><span class="section-number">2.2.7.2. </span>Fit model<a class="headerlink" href="#fit-model" title="Permalink to this headline">¶</a></h2>
+<p>Note that <cite>minimize_memory</cite> is set to <cite>False</cite> so that <cite>FirstLevelModel</cite>
+stores the residuals.
+<cite>signal_scaling</cite> is set to False, so we keep the same scaling as the
+original data in <cite>fmri_img</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a>
+
+<a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a><span class="p">(</span><span class="n">t_r</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+                           <span class="n">drift_model</span><span class="o">=</span><span class="s1">&#39;cosine&#39;</span><span class="p">,</span>
+                           <span class="n">signal_scaling</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                           <span class="n">mask_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mask</span></a><span class="p">,</span>
+                           <span class="n">minimize_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculate-and-plot-contrast">
+<h2><span class="section-number">2.2.7.3. </span>Calculate and plot contrast<a class="headerlink" href="#calculate-and-plot-contrast" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;active - rest&#39;</span><span class="p">)</span>
+
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_predictions_residuals_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer object at 0x7f6334e8ce50&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="extract-the-largest-clusters">
+<h2><span class="section-number">2.2.7.4. </span>Extract the largest clusters<a class="headerlink" href="#extract-the-largest-clusters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="View documentation for nistats.reporting.get_clusters_table"><span class="n">get_clusters_table</span></a>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">input_data</span>
+
+<span class="n">table</span> <span class="o">=</span> <a href="../../modules/generated/nistats.reporting.get_clusters_table.html#nistats.reporting.get_clusters_table" title="View documentation for nistats.reporting.get_clusters_table"><span class="n">get_clusters_table</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">stat_threshold</span><span class="o">=</span><span class="mf">3.1</span><span class="p">,</span>
+                           <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Cluster ID&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># get the 6 largest clusters&#39; max x, y, and z coordinates</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># extract time series from each coordinate</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiSpheresMasker.html#nilearn.input_data.NiftiSpheresMasker" title="View documentation for nilearn.input_data.NiftiSpheresMasker"><span class="n">masker</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiSpheresMasker.html#nilearn.input_data.NiftiSpheresMasker" title="View documentation for nilearn.input_data.NiftiSpheresMasker"><span class="n">input_data</span><span class="o">.</span><span class="n">NiftiSpheresMasker</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">real_timeseries</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiSpheresMasker.html#nilearn.input_data.NiftiSpheresMasker.fit_transform" title="View documentation for nilearn.input_data.NiftiSpheresMasker.fit_transform"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">fmri_img</span></a><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">predicted_timeseries</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiSpheresMasker.html#nilearn.input_data.NiftiSpheresMasker.fit_transform" title="View documentation for nilearn.input_data.NiftiSpheresMasker.fit_transform"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">predicted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-predicted-and-actual-time-series-for-6-most-significant-clusters">
+<h2><span class="section-number">2.2.7.5. </span>Plot predicted and actual time series for 6 most significant clusters<a class="headerlink" href="#plot-predicted-and-actual-time-series-for-6-most-significant-clusters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># colors for each of the clusters</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="s1">&#39;olive&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">]</span>
+<span class="c1"># plot the time series and corresponding locations</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="View documentation for matplotlib.figure.Figure"><span class="n">fig1</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="View documentation for matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="k">for</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="c1"># plotting time series</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cluster peak </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]))</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">real_timeseries</span></a><span class="p">[:,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">predicted_timeseries</span></a><span class="p">[:,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>  <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Signal intensity&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># plotting image below the time series</span>
+    <span class="n">roi_img</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="p">[</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">][</span><span class="mi">2</span><span class="p">]],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.1</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="View documentation for matplotlib.figure.Figure"><span class="n">fig1</span></a><span class="p">,</span>
+        <span class="n">axes</span><span class="o">=</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs1</span></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a><span class="p">)</span>
+    <span class="n">roi_img</span><span class="o">.</span><span class="n">add_markers</span><span class="p">([</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]],</span> <span class="n">colors</span><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="mi">300</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.set_size_inches" title="View documentation for matplotlib.figure.Figure.set_size_inches"><span class="n">fig1</span><span class="o">.</span><span class="n">set_size_inches</span></a><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_predictions_residuals_002.png" />
+</div>
+<div class="section" id="get-residuals">
+<h2><span class="section-number">2.2.7.6. </span>Get residuals<a class="headerlink" href="#get-residuals" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">resid</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiSpheresMasker.html#nilearn.input_data.NiftiSpheresMasker.fit_transform" title="View documentation for nilearn.input_data.NiftiSpheresMasker.fit_transform"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">residuals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/nistats/regression.py:339: FutureWarning: &#39;resid&#39; from RegressionResults has been deprecated and will be removed. Please use &#39;residuals&#39; instead.
+  FutureWarning,
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-distribution-of-residuals">
+<h2><span class="section-number">2.2.7.7. </span>Plot distribution of residuals<a class="headerlink" href="#plot-distribution-of-residuals" title="Permalink to this headline">¶</a></h2>
+<p>Note that residuals are not really distributed normally.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="View documentation for matplotlib.figure.Figure"><span class="n">fig2</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs2</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="View documentation for matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs2</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten" title="View documentation for numpy.ndarray.flatten"><span class="n">axs2</span><span class="o">.</span><span class="n">flatten</span></a><span class="p">()</span>
+<span class="k">for</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs2</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cluster peak </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">coords</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]))</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">axs2</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">resid</span></a><span class="p">[:,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean residuals: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">resid</span></a><span class="p">[:,</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.set_size_inches" title="View documentation for matplotlib.figure.Figure.set_size_inches"><span class="n">fig2</span><span class="o">.</span><span class="n">set_size_inches</span></a><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.tight_layout" title="View documentation for matplotlib.figure.Figure.tight_layout"><span class="n">fig2</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_predictions_residuals_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mean residuals: -1.6283271027835629e-15
+Mean residuals: -0.054243714362478324
+Mean residuals: 0.0023122844696967793
+Mean residuals: 0.011694404270545614
+Mean residuals: 0.0023762926821077057
+Mean residuals: -0.004646005260067125
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-r-squared">
+<h2><span class="section-number">2.2.7.8. </span>Plot R-squared<a class="headerlink" href="#plot-r-squared" title="Permalink to this headline">¶</a></h2>
+<p>Because we stored the residuals, we can plot the R-squared: the proportion
+of explained variance of the GLM as a whole. Note that the R-squared is markedly
+lower deep down the brain, where there is more physiological noise and we
+are further away from the receive coils. However, R-Squared should be interpreted
+with a grain of salt. The R-squared value will necessarily increase with
+the addition of more factors (such as rest, active, drift, motion) into the GLM.
+Additionally, we are looking at the overall fit of the model, so we are
+unable to say whether a voxel/region has a large R-squared value because
+the voxel/region is responsive to the experiment (such as active or rest)
+or because the voxel/region fits the noise factors (such as drift or motion)
+that could be present in the GLM. To isolate the influence of the experiment,
+we can use an F-test as shown in the next section.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">r_square</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                       <span class="n">bg_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_predictions_residuals_004.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.ZSlicer object at 0x7f631632ee10&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculate-and-plot-f-test">
+<h2><span class="section-number">2.2.7.9. </span>Calculate and Plot F-test<a class="headerlink" href="#calculate-and-plot-f-test" title="Permalink to this headline">¶</a></h2>
+<p>The F-test tells you how well the GLM fits effects of interest such as
+the active and rest conditions together. This is different from R-squared,
+which tells you how well the overall GLM fits the data, including active, rest
+and all the other columns in the design matrix such as drift and motion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">design_matrix</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># contrast with a one for &quot;active&quot; and zero everywhere else</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">active</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39;active&#39;</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+
+<span class="c1"># contrast with a one for &quot;rest&quot; and zero everywhere else</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">rest</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39;rest&#39;</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">effects_of_interest</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html#numpy.vstack" title="View documentation for numpy.vstack"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">active</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">rest</span></a><span class="p">))</span>
+<span class="c1"># f-test for rest and activity</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map_ftest</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">fmri_glm</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">effects_of_interest</span></a><span class="p">,</span>
+    <span class="n">stat_type</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span>
+    <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map_ftest</span></a><span class="p">,</span>
+                       <span class="n">bg_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.1</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_plot_predictions_residuals_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_predictions_residuals_005.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.ZSlicer object at 0x7f6334914c10&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.553 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-first-level-models-plot-predictions-residuals-py">
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/57ca55c53ef611f605c78ff05f29203d/plot_predictions_residuals.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_predictions_residuals.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b95dd791e1772a37178efc224f0bd581/plot_predictions_residuals.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_predictions_residuals.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_localizer_surface_analysis.html" title="2.2.8. Example of surface-based first-level analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_bids_features.html" title="2.2.6. First level analysis of a complete BIDS dataset from openneuro"
+             >previous</a> |</li>
+<li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+            &copy; The nistats developers 2010-2016.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/02_first_level_models/plot_predictions_residuals.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

@@ -16,8 +16,8 @@
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.2.3. Single-subject data (two sessions) in native space" href="plot_spm_multimodal_faces.html" />
-    <link rel="prev" title="2.2.1. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
+    <link rel="next" title="2.2.4. Single-subject data (two sessions) in native space" href="plot_spm_multimodal_faces.html" />
+    <link rel="prev" title="2.2.2. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -137,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_spm_multimodal_faces.html" title="2.2.3. Single-subject data (two sessions) in native space"
+          <a href="plot_spm_multimodal_faces.html" title="2.2.4. Single-subject data (two sessions) in native space"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_adhd_dmn.html" title="2.2.1. Default Mode Network extraction of AHDH dataset"
+          <a href="plot_adhd_dmn.html" title="2.2.2. Default Mode Network extraction of AHDH dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,10 +165,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_adhd_dmn.html"
-                        title="previous chapter">2.2.1. Default Mode Network extraction of AHDH dataset</a></p>
+                        title="previous chapter"><span class="section-number">2.2.2. </span>Default Mode Network extraction of AHDH dataset</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_spm_multimodal_faces.html"
-                        title="next chapter">2.2.3. Single-subject data (two sessions) in native space</a></p>
+                        title="next chapter"><span class="section-number">2.2.4. </span>Single-subject data (two sessions) in native space</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -192,43 +192,41 @@ $(function () {
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-02-first-level-models-plot-fir-model-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="analysis-of-an-fmri-dataset-with-a-finite-impule-response-fir-model">
-<span id="sphx-glr-auto-examples-02-first-level-models-plot-fir-model-py"></span><h1>2.2.2. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model<a class="headerlink" href="#analysis-of-an-fmri-dataset-with-a-finite-impule-response-fir-model" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-first-level-models-plot-fir-model-py"></span><h1><span class="section-number">2.2.3. </span>Analysis of an fMRI dataset with a Finite Impule Response (FIR) model<a class="headerlink" href="#analysis-of-an-fmri-dataset-with-a-finite-impule-response-fir-model" title="Permalink to this headline">¶</a></h1>
 <p>FIR models are used to estimate the hemodyamic response non-parametrically.
 The example below shows that they’re good to do statistical inference
 even on fast event-related fMRI datasets.</p>
-<p>Here, we demonstrate the use of a FIR model with 3 lags, computing 4 contrasts from a single subject dataset from the “Neurospin Localizer”. It is a fast event related design: During 5 minutes, 80 events of the following types are presented : [‘calculaudio’, ‘calculvideo’‘, ‘clicDvideo’, ‘clicGaudio’, ‘clicGvideo’, ‘damier_H’, ‘damier_V’, ‘phraseaudio’, ‘phrasevideo’]</p>
-<p>Grab localizer data</p>
+<p>Here, we demonstrate the use of a FIR model with 3 lags, computing 4 contrasts from a single subject dataset from the “Neurospin Localizer”. It is a fast event related design: During 5 minutes, 80 events of the following types are presented : [‘calculaudio’, ‘calculvideo’’, ‘clicDvideo’, ‘clicGaudio’, ‘clicGvideo’, ‘damier_H’, ‘damier_V’, ‘phraseaudio’, ‘phrasevideo’]</p>
+<p>At first, we grab the localizer data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">nistats</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <span class="n">data</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_localizer_first_level.html#nistats.datasets.fetch_localizer_first_level" title="View documentation for nistats.datasets.fetch_localizer_first_level"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_first_level</span></a><span class="p">()</span>
-<span class="n">fmri_img</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epi_img</span>
-<span class="n">t_r</span> <span class="o">=</span> <span class="mf">2.4</span>
-<span class="n">events_file</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span>
-<span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><span class="n">events_file</span><span class="p">)</span>
+<a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">fmri_img</span></a> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epi_img</span>
+<a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">t_r</span></a> <span class="o">=</span> <span class="mf">2.4</span>
+<a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">events_file</span></a> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span>
+<span class="n">events</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_table.html#pandas.read_table" title="View documentation for pandas.read_table"><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span></a><span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">events_file</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p>Next solution is to try finite impulse reponse (FIR) models: we just
+<p>Next solution is to try Finite Impulse Reponse (FIR) models: we just
 say that the hrf is an arbitrary function that lags behind the
 stimulus onset.  In the present case, given that the numbers of
 conditions is high, we should use a simple FIR model.</p>
 <p>Concretely, we set <cite>hrf_model</cite> to ‘fir’ and <cite>fir_delays</cite> to [1, 2,
 3] (scans) corresponding to a 3-step functions on the [1 * t_r, 4 *
 t_r] seconds interval.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a>
-<span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="k">import</span> <a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">,</span> <a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.first_level_model</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a>
+<span class="kn">from</span> <span class="nn">nistats.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">,</span> <a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a>
 
-<span class="n">first_level_model</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a><span class="p">(</span><span class="n">t_r</span><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;fir&#39;</span><span class="p">,</span> <span class="n">fir_delays</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">first_level_model</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_img</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">)</span>
-<span class="n">design_matrix</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">first_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">FirstLevelModel</span></a><span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">t_r</span></a><span class="p">,</span> <span class="n">hrf_model</span><span class="o">=</span><span class="s1">&#39;fir&#39;</span><span class="p">,</span> <span class="n">fir_delays</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">first_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">first_level_model</span></a><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">fmri_img</span></a><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">)</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">first_level_model</span></a><span class="o">.</span><span class="n">design_matrices_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <a href="../../modules/generated/nistats.reporting.plot_design_matrix.html#nistats.reporting.plot_design_matrix" title="View documentation for nistats.reporting.plot_design_matrix"><span class="n">plot_design_matrix</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_fir_model_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The &#39;cachedir&#39; attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-Use os.path.join(memory.location, &#39;joblib&#39;) attribute instead.
-  if (memory.cachedir is None and memory_level is not None
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f6334cb5610&gt;
 </pre></div>
 </div>
 <p>We have to adapt contrast specification. We characterize the BOLD
@@ -236,89 +234,86 @@ response by the sum across the three time lags. It’s a bit hairy,
 sorry, but this is the price to pay for flexibility…</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">contrast_matrix</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">contrasts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">column</span><span class="p">,</span> <span class="n">contrast_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">contrast_matrix</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html#numpy.eye" title="View documentation for numpy.eye"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">column</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">contrast_matrix</span></a><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">)])</span>
-<span class="n">conditions</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">trial_type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">conditions</span><span class="p">:</span>
-    <span class="n">contrasts</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
-        <span class="p">[</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span>
-         <span class="k">if</span> <span class="n">name</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">condition</span><span class="p">)]</span> <span class="o">==</span> <span class="n">condition</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">conditions</span></a> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">trial_type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="k">for</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">condition</span></a> <span class="ow">in</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">conditions</span></a><span class="p">:</span>
+    <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">condition</span></a><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
+        <span class="p">[</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">design_matrix</span><span class="o">.</span><span class="n">columns</span>
+         <span class="k">if</span> <span class="n">name</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">condition</span></a><span class="p">)]</span> <span class="o">==</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">condition</span></a><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">([</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">([</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
                              <span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">,</span>
                               <span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">,</span>
                               <span class="s1">&#39;audio_computation&#39;</span><span class="p">,</span>
                               <span class="s1">&#39;sentence_listening&#39;</span><span class="p">]],</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
-    <span class="p">[</span><span class="n">contrasts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html#numpy.sum" title="View documentation for numpy.sum"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span>
+    <span class="p">[</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span>
      <span class="p">[</span><span class="s1">&#39;visual_right_hand_button_press&#39;</span><span class="p">,</span>
       <span class="s1">&#39;visual_left_hand_button_press&#39;</span><span class="p">,</span>
       <span class="s1">&#39;visual_computation&#39;</span><span class="p">,</span>
       <span class="s1">&#39;sentence_reading&#39;</span><span class="p">]],</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_computation&#39;</span><span class="p">]</span> <span class="o">+</span>\
-                           <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_computation&#39;</span><span class="p">]</span>
-<span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentence_listening&#39;</span><span class="p">]</span> <span class="o">+</span>\
-                         <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentence_reading&#39;</span><span class="p">]</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio_computation&#39;</span><span class="p">]</span> <span class="o">+</span>\
+                           <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;visual_computation&#39;</span><span class="p">]</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;sentence_listening&#39;</span><span class="p">]</span> <span class="o">+</span>\
+                         <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;sentence_reading&#39;</span><span class="p">]</span>
 
-<span class="n">contrasts</span> <span class="o">=</span> <span class="p">{</span>
+<a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;left-right&#39;</span><span class="p">:</span> <span class="p">(</span>
-        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">+</span>
-        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
-        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;visual_right_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
-        <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">]),</span>
-    <span class="s1">&#39;H-V&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;horizontal_checkerboard&#39;</span><span class="p">]</span> <span class="o">-</span>
-            <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;vertical_checkerboard&#39;</span><span class="p">]),</span>
-    <span class="s1">&#39;audio-video&#39;</span><span class="p">:</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;sentences-computation&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">])</span>
+        <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;visual_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">+</span>
+        <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
+        <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;visual_right_hand_button_press&#39;</span><span class="p">]</span> <span class="o">-</span>
+        <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;H-V&#39;</span><span class="p">:</span> <span class="p">(</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;horizontal_checkerboard&#39;</span><span class="p">]</span> <span class="o">-</span>
+            <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;vertical_checkerboard&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;audio-video&#39;</span><span class="p">:</span> <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">-</span> <a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;sentences-computation&#39;</span><span class="p">:</span> <span class="p">(</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;sentences&#39;</span><span class="p">]</span><span class="o">-</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;computation&#39;</span><span class="p">])</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Take a look at the contrasts.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><span class="n">contrasts</span><span class="p">[</span><span class="s1">&#39;left-right&#39;</span><span class="p">],</span> <span class="n">design_matrix</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nistats.reporting.plot_contrast_matrix.html#nistats.reporting.plot_contrast_matrix" title="View documentation for nistats.reporting.plot_contrast_matrix"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">[</span><span class="s1">&#39;left-right&#39;</span><span class="p">],</span> <span class="n">design_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_fir_model_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_002.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
-  return matrix(data, dtype=dtype, copy=False)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f63349c8850&gt;
 </pre></div>
 </div>
 <p>Take a breath.</p>
 <p>We can now  proceed by estimating the contrasts and displaying them.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="k">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a>
 
-<span class="n">fig</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">contrast_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-    <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">index</span><span class="p">)</span>
-    <span class="n">z_map</span> <span class="o">=</span> <span class="n">first_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span>
-        <span class="n">contrast_val</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="View documentation for matplotlib.figure.Figure"><span class="n">fig</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">index</span></a><span class="p">,</span> <span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">contrast_id</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">contrast_val</span></a><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict.items" title="View documentation for builtins.dict.items"><span class="n">contrasts</span><span class="o">.</span><span class="n">items</span></a><span class="p">()):</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="View documentation for builtins.dict"><span class="n">contrasts</span></a><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">index</span></a><span class="p">)</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.first_level_model.FirstLevelModel.html#nistats.first_level_model.FirstLevelModel" title="View documentation for nistats.first_level_model.FirstLevelModel"><span class="n">first_level_model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span>
+        <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">contrast_val</span></a><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
     <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plot_stat_map</span></a><span class="p">(</span>
-        <span class="n">z_map</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">contrast_id</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">contrast_id</span></a><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="p">,</span>
         <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_fir_model_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_fir_model_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
-  return _nd_image.find_objects(input, max_label)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/02_first_level_models/plot_fir_model.py:109: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
 </pre></div>
 </div>
 <p>The result is acceptable. Note that we’re asking a lot of questions
 to a small dataset, yet with a relatively large number of experimental
 conditions.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.804 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.419 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-first-level-models-plot-fir-model-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/d62fdb823e327104dab1cc7e8f159f47/plot_fir_model.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fir_model.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/8d4598eb383dde5ee3bc8add7b2736a7/plot_fir_model.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_fir_model.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/590a2e4018529472d68e9f6732965057/plot_fir_model.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fir_model.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/6ea69de22bfa54555bc0fd6164ed817f/plot_fir_model.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_fir_model.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -337,10 +332,10 @@ conditions.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_spm_multimodal_faces.html" title="2.2.3. Single-subject data (two sessions) in native space"
+          <a href="plot_spm_multimodal_faces.html" title="2.2.4. Single-subject data (two sessions) in native space"
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_adhd_dmn.html" title="2.2.1. Default Mode Network extraction of AHDH dataset"
+          <a href="plot_adhd_dmn.html" title="2.2.2. Default Mode Network extraction of AHDH dataset"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -350,12 +345,12 @@ conditions.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_first_level_models/plot_fir_model.rst.txt"
         	 rel="nofollow">Show this page source</a>

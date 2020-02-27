@@ -16,8 +16,8 @@
     <script type="text/javascript" src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3.3. Voxel-Based Morphometry on Oasis dataset" href="plot_oasis.html" />
-    <link rel="prev" title="2.3.1. Second-level fMRI model: a two-sample test" href="plot_second_level_two_sample_test.html" />
+    <link rel="next" title="2.3.4. Voxel-Based Morphometry on Oasis dataset" href="plot_oasis.html" />
+    <link rel="prev" title="2.3.2. Second-level fMRI model: a two-sample test" href="plot_second_level_two_sample_test.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nistats, neuroimaging, python, neuroscience, statistics">
@@ -137,10 +137,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_oasis.html" title="2.3.3. Voxel-Based Morphometry on Oasis dataset"
+          <a href="plot_oasis.html" title="2.3.4. Voxel-Based Morphometry on Oasis dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_two_sample_test.html" title="2.3.1. Second-level fMRI model: a two-sample test"
+          <a href="plot_second_level_two_sample_test.html" title="2.3.2. Second-level fMRI model: a two-sample test"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U">2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -165,20 +165,20 @@ $(function () {
 
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">2.3.2. Statistical testing of a second-level analysis</a><ul>
-<li><a class="reference internal" href="#prepare-some-images-for-a-simple-t-test">2.3.2.1. Prepare some images for a simple t test</a></li>
-<li><a class="reference internal" href="#perform-the-second-level-analysis">2.3.2.2. Perform the second level analysis</a></li>
-<li><a class="reference internal" href="#visualize-the-results">2.3.2.3. Visualize the results</a></li>
+<li><a class="reference internal" href="#">2.3.3. Statistical testing of a second-level analysis</a><ul>
+<li><a class="reference internal" href="#prepare-some-images-for-a-simple-t-test">2.3.3.1. Prepare some images for a simple t test</a></li>
+<li><a class="reference internal" href="#perform-the-second-level-analysis">2.3.3.2. Perform the second level analysis</a></li>
+<li><a class="reference internal" href="#visualize-the-results">2.3.3.3. Visualize the results</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plot_second_level_two_sample_test.html"
-                        title="previous chapter">2.3.1. Second-level fMRI model: a two-sample test</a></p>
+                        title="previous chapter"><span class="section-number">2.3.2. </span>Second-level fMRI model: a two-sample test</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plot_oasis.html"
-                        title="next chapter">2.3.3. Voxel-Based Morphometry on Oasis dataset</a></p>
+                        title="next chapter"><span class="section-number">2.3.4. </span>Voxel-Based Morphometry on Oasis dataset</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,22 +202,22 @@ $(function () {
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-03-second-level-models-plot-thresholding-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="statistical-testing-of-a-second-level-analysis">
-<span id="sphx-glr-auto-examples-03-second-level-models-plot-thresholding-py"></span><h1>2.3.2. Statistical testing of a second-level analysis<a class="headerlink" href="#statistical-testing-of-a-second-level-analysis" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-03-second-level-models-plot-thresholding-py"></span><h1><span class="section-number">2.3.3. </span>Statistical testing of a second-level analysis<a class="headerlink" href="#statistical-testing-of-a-second-level-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Perform a one-sample t-test on a bunch of images (a.k.a. second-level analyis in fMRI) and threshold the resulting statistical map.</p>
 <p>This example is based on the so-called localizer dataset.
 It shows activation related to a mental computation task,
 as opposed to narrative sentence reading/listening.</p>
 <div class="section" id="prepare-some-images-for-a-simple-t-test">
-<h2>2.3.2.1. Prepare some images for a simple t test<a class="headerlink" href="#prepare-some-images-for-a-simple-t-test" title="Permalink to this headline">¶</a></h2>
-<p>This is a simple manually performed second level analysis</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">datasets</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">20</span>
+<h2><span class="section-number">2.3.3.1. </span>Prepare some images for a simple t test<a class="headerlink" href="#prepare-some-images-for-a-simple-t-test" title="Permalink to this headline">¶</a></h2>
+<p>This is a simple manually performed second level analysis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">localizer_dataset</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_localizer_calculation_task.html#nilearn.datasets.fetch_localizer_calculation_task" title="View documentation for nilearn.datasets.fetch_localizer_calculation_task"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_calculation_task</span></a><span class="p">(</span>
-    <span class="n">n_subjects</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">n_subjects</span><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2278: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
   output = genfromtxt(fname, **kwargs)
 </pre></div>
 </div>
@@ -227,116 +227,110 @@ as opposed to narrative sentence reading/listening.</p>
 </div>
 </div>
 <div class="section" id="perform-the-second-level-analysis">
-<h2>2.3.2.2. Perform the second level analysis<a class="headerlink" href="#perform-the-second-level-analysis" title="Permalink to this headline">¶</a></h2>
-<p>First define a design matrix for the model. As the model is trivial (one-sample test), the design matrix is just one column with ones.</p>
+<h2><span class="section-number">2.3.3.2. </span>Perform the second level analysis<a class="headerlink" href="#perform-the-second-level-analysis" title="Permalink to this headline">¶</a></h2>
+<p>First, we define a design matrix for the model. As the model is trivial (one-sample test), the design matrix is just one column with ones.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">design_matrix</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">([</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;intercept&#39;</span><span class="p">])</span>
+<span class="n">design_matrix</span> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="View documentation for pandas.DataFrame"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span></a><span class="p">([</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <a href="https://docs.python.org/2.7/library/functions.html#int" title="View documentation for builtins.int"><span class="n">n_samples</span></a><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;intercept&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Specify and estimate the model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="k">import</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a>
-<span class="n">second_level_model</span> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<p>Next, we specify and estimate the model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.second_level_model</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a>
+<a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">second_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">SecondLevelModel</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
     <span class="n">cmap_filenames</span><span class="p">,</span> <span class="n">design_matrix</span><span class="o">=</span><span class="n">design_matrix</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The &#39;cachedir&#39; attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-Use os.path.join(memory.location, &#39;joblib&#39;) attribute instead.
-  if (memory.cachedir is None and memory_level is not None
-/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/function_base.py:3250: RuntimeWarning: Invalid value encountered in median
-  r = func(a, **kwargs)
-</pre></div>
-</div>
 <p>Compute the only possible contrast: the one-sample test. Since there
-is only one possible contrast, we don’t need to specify it in detail</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
-  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+is only one possible contrast, we don’t need to specify it in detail.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">second_level_model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Threshold the resulting map:
-false positive rate &lt; .001, cluster size &gt; 10 voxels</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="k">import</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a>
-<span class="n">thresholded_map1</span><span class="p">,</span> <span class="n">threshold1</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">001</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fpr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+false positive rate &lt; .001, cluster size &gt; 10 voxels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats.thresholding</span> <span class="kn">import</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map1</span></a><span class="p">,</span> <span class="n">threshold1</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">001</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fpr&#39;</span><span class="p">,</span> <span class="n">cluster_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now use FDR &lt;.05, (False Discovery Rate) no cluster-level threshold</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thresholded_map2</span><span class="p">,</span> <span class="n">threshold2</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
+<p>Now use FDR &lt;.05 (False Discovery Rate) and no cluster-level threshold.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map2</span></a><span class="p">,</span> <span class="n">threshold2</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;fdr&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The FDR=.05 threshold is </span><span class="si">%.3g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The FDR=.05 threshold is 2.06
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The FDR=.05 threshold is 2.37
 </pre></div>
 </div>
-<p>Now use FWER &lt;.05, (Familywise Error Rate) no cluster-level
-threshold.  As the data have not been intensively smoothed, we can
-use a simple Bonferroni correction</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thresholded_map3</span><span class="p">,</span> <span class="n">threshold3</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
-    <span class="n">z_map</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
+<p>Now use FWER &lt;.05 (Family-Wise Error Rate) and no cluster-level
+threshold.  As the data has not been intensively smoothed, we can
+use a simple Bonferroni correction.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map3</span></a><span class="p">,</span> <span class="n">threshold3</span> <span class="o">=</span> <a href="../../modules/generated/nistats.thresholding.map_threshold.html#nistats.thresholding.map_threshold" title="View documentation for nistats.thresholding.map_threshold"><span class="n">map_threshold</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">height_control</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The p&lt;.05 Bonferroni-corrected threshold is </span><span class="si">%.3g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">threshold3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The p&lt;.05 Bonferroni-corrected threshold is 4.74
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The p&lt;.05 Bonferroni-corrected threshold is 4.88
 </pre></div>
 </div>
 </div>
 <div class="section" id="visualize-the-results">
-<h2>2.3.2.3. Visualize the results<a class="headerlink" href="#visualize-the-results" title="Permalink to this headline">¶</a></h2>
-<p>First the unthresholded map</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">plotting</span>
-<span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">z_map</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Raw z map&#39;</span><span class="p">)</span>
+<h2><span class="section-number">2.3.3.3. </span>Visualize the results<a class="headerlink" href="#visualize-the-results" title="Permalink to this headline">¶</a></h2>
+<p>First, the unthresholded map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+<a href="http://nilearn.github.io/modules/generated/nilearn.plotting.displays.OrthoSlicer.html#nilearn.plotting.displays.OrthoSlicer" title="View documentation for nilearn.plotting.displays.OrthoSlicer"><span class="n">display</span></a> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Raw z map&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_thresholding_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_thresholding_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
-  return _nd_image.find_objects(input, max_label)
-</pre></div>
-</div>
-<p>Second the p&lt;.001 uncorrected-thresholded map (with only clusters &gt; 10 voxels)</p>
+<p>Second, the p&lt;.001 uncorrected-thresholded map (with only clusters &gt; 10 voxels).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
-    <span class="n">thresholded_map1</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">display</span><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold1</span><span class="p">,</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map1</span></a><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.displays.OrthoSlicer.html#nilearn.plotting.displays.OrthoSlicer" title="View documentation for nilearn.plotting.displays.OrthoSlicer"><span class="n">display</span></a><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold1</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Thresholded z map, fpr &lt;.001, clusters &gt; 10 voxels&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_thresholding_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_thresholding_002.png" />
-<p>Third the fdr-thresholded map</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">thresholded_map2</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">display</span><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer object at 0x7f6336978e50&gt;
+</pre></div>
+</div>
+<p>Third, the fdr-thresholded map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map2</span></a><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.displays.OrthoSlicer.html#nilearn.plotting.displays.OrthoSlicer" title="View documentation for nilearn.plotting.displays.OrthoSlicer"><span class="n">display</span></a><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span>
                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Thresholded z map, expected fdr = .05&#39;</span><span class="p">,</span>
                        <span class="n">threshold</span><span class="o">=</span><span class="n">threshold2</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_thresholding_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_thresholding_003.png" />
-<p>Fourth the Bonferroni-thresholded map</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><span class="n">thresholded_map3</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="n">display</span><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer object at 0x7f63346e68d0&gt;
+</pre></div>
+</div>
+<p>Fourth, the Bonferroni-thresholded map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="View documentation for nilearn.plotting.plot_stat_map"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">thresholded_map3</span></a><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.displays.OrthoSlicer.html#nilearn.plotting.displays.OrthoSlicer" title="View documentation for nilearn.plotting.displays.OrthoSlicer"><span class="n">display</span></a><span class="o">.</span><span class="n">cut_coords</span><span class="p">,</span>
                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Thresholded z map, expected fwer &lt; .05&#39;</span><span class="p">,</span>
                        <span class="n">threshold</span><span class="o">=</span><span class="n">threshold3</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_plot_thresholding_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_thresholding_004.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays.OrthoSlicer object at 0x7f6315fa4950&gt;
+</pre></div>
+</div>
 <p>These different thresholds correspond to different statistical
-guarantees: in the FWER corrected image there is only a
-probability&lt;.05 of observing any false positive voxel. In the
+guarantees: in the FWER-corrected image there is only a
+probability smaller than .05 of observing any false positive voxel. In the
 FDR-corrected image, 5% of the voxels found are likely to be false
 positive. In the uncorrected image, one expects a few tens of false
 positive voxels.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.733 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.864 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-second-level-models-plot-thresholding-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/748f94905c28a27eaea257e6dd5daff9/plot_thresholding.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_thresholding.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ce50753293d0911627650985f1268c10/plot_thresholding.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_thresholding.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/f345adac9915a6945c27597fde7682b6/plot_thresholding.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_thresholding.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/6e3f04f20b61c37e845704e13a36c9c5/plot_thresholding.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_thresholding.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -356,10 +350,10 @@ positive voxels.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_oasis.html" title="2.3.3. Voxel-Based Morphometry on Oasis dataset"
+          <a href="plot_oasis.html" title="2.3.4. Voxel-Based Morphometry on Oasis dataset"
              >next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_two_sample_test.html" title="2.3.1. Second-level fMRI model: a two-sample test"
+          <a href="plot_second_level_two_sample_test.html" title="2.3.2. Second-level fMRI model: a two-sample test"
              >previous</a> |</li>
 <li><a href="../../index.html">Nistats Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -369,12 +363,12 @@ positive voxels.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >2. Nistats usage examples</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">2. </span>Nistats usage examples</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_second_level_models/plot_thresholding.rst.txt"
         	 rel="nofollow">Show this page source</a>

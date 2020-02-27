@@ -150,7 +150,7 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U">3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" accesskey="U"><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -173,10 +173,10 @@ $(function () {
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="nistats.reporting.get_clusters_table.html"
-                        title="previous chapter">3.11.4. nistats.reporting.get_clusters_table</a></p>
+                        title="previous chapter"><span class="section-number">3.11.4. </span>nistats.reporting.get_clusters_table</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="nistats.utils.z_score.html"
-                        title="next chapter">3.12.1. nistats.utils.z_score</a></p>
+                        title="next chapter"><span class="section-number">3.12.1. </span>nistats.utils.z_score</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -202,10 +202,10 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <div class="section" id="nistats-reporting-make-glm-report">
-<h1>3.11.5. nistats.reporting.make_glm_report<a class="headerlink" href="#nistats-reporting-make-glm-report" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.11.5. </span>nistats.reporting.make_glm_report<a class="headerlink" href="#nistats-reporting-make-glm-report" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="nistats.reporting.make_glm_report">
-<code class="sig-prename descclassname">nistats.reporting.</code><code class="sig-name descname">make_glm_report</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">contrasts</em>, <em class="sig-param">title=None</em>, <em class="sig-param">bg_img=&lt;MNI152Template&gt;</em>, <em class="sig-param">threshold=3.09</em>, <em class="sig-param">alpha=0.01</em>, <em class="sig-param">cluster_threshold=0</em>, <em class="sig-param">height_control='fpr'</em>, <em class="sig-param">min_distance=8.0</em>, <em class="sig-param">plot_type='slice'</em>, <em class="sig-param">display_mode=None</em>, <em class="sig-param">report_dims=(1600</em>, <em class="sig-param">800)</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.reporting.make_glm_report" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">nistats.reporting.</code><code class="sig-name descname">make_glm_report</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">contrasts</em>, <em class="sig-param">title=None</em>, <em class="sig-param">bg_img=&lt;MNI152Template&gt;</em>, <em class="sig-param">threshold=3.09</em>, <em class="sig-param">alpha=0.001</em>, <em class="sig-param">cluster_threshold=0</em>, <em class="sig-param">height_control='fpr'</em>, <em class="sig-param">min_distance=8.0</em>, <em class="sig-param">plot_type='slice'</em>, <em class="sig-param">display_mode=None</em>, <em class="sig-param">report_dims=(1600</em>, <em class="sig-param">800)</em><span class="sig-paren">)</span><a class="headerlink" href="#nistats.reporting.make_glm_report" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns HTMLDocument object
 for a report which shows all important aspects of a fitted GLM.
 The object can be opened in a browser, displayed in a notebook,
@@ -251,7 +251,7 @@ To turn off background image, just pass “bg_img=None”.</p>
 Cluster forming threshold in same scale as <cite>stat_img</cite> (either a
 t-scale or z-scale value). Used only if height_control is None.</p>
 </dd>
-<dt><strong>alpha: float</strong></dt><dd><p>Default is 0.01
+<dt><strong>alpha: float</strong></dt><dd><p>Default is 0.001
 Number controlling the thresholding (either a p-value or q-value).
 Its actual meaning depends on the height_control parameter.
 This function translates alpha to a z-scale threshold.</p>
@@ -304,12 +304,12 @@ Can be set after report creation using report.width, report.height.</p>
 </dd></dl>
 
 <div class="section" id="examples-using-nistats-reporting-make-glm-report">
-<h2>3.11.5.1. Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code><a class="headerlink" href="#examples-using-nistats-reporting-make-glm-report" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to a seed extract on the Posterior Cingulate Cortex ..."><div class="figure align-default" id="id5">
+<h2><span class="section-number">3.11.5.1. </span>Examples using <code class="docutils literal notranslate"><span class="pre">nistats.reporting.make_glm_report</span></code><a class="headerlink" href="#examples-using-nistats-reporting-make-glm-report" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="This example shows a full step-by-step workflow of fitting a GLM to data extracted from a seed ..."><div class="figure align-default" id="id5">
 <img alt="../../_images/sphx_glr_plot_adhd_dmn_thumb.png" src="../../_images/sphx_glr_plot_adhd_dmn_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_adhd_dmn.html#sphx-glr-auto-examples-02-first-level-models-plot-adhd-dmn-py"><span class="std std-ref">Default Mode Network extraction of AHDH dataset</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to experimental data and visualizing the results. Th..."><div class="figure align-default" id="id6">
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and ..."><div class="figure align-default" id="id6">
 <img alt="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" src="../../_images/sphx_glr_plot_fiac_analysis_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/02_first_level_models/plot_fiac_analysis.html#sphx-glr-auto-examples-02-first-level-models-plot-fiac-analysis-py"><span class="std std-ref">Simple example of two-session fMRI model fitting</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
@@ -320,6 +320,10 @@ Can be set after report creation using report.width, report.height.</p>
 </div><div class="sphx-glr-thumbcontainer" tooltip="This example uses Voxel-Based Morphometry (VBM) to study the relationship between aging, sex an..."><div class="figure align-default" id="id8">
 <img alt="../../_images/sphx_glr_plot_oasis_thumb.png" src="../../_images/sphx_glr_plot_oasis_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/03_second_level_models/plot_oasis.html#sphx-glr-auto-examples-03-second-level-models-plot-oasis-py"><span class="std std-ref">Voxel-Based Morphometry on Oasis dataset</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a decoding experiment. We use the data fr..."><div class="figure align-default" id="id9">
+<img alt="../../_images/sphx_glr_plot_haxby_block_classification_thumb.png" src="../../_images/sphx_glr_plot_haxby_block_classification_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../auto_examples/05_complete_examples/plot_haxby_block_classification.html#sphx-glr-auto-examples-05-complete-examples-plot-haxby-block-classification-py"><span class="std std-ref">Decoding of a dataset after glm fit for signal extraction</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>
@@ -350,12 +354,12 @@ Can be set after report creation using report.width, report.height.</p>
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../reference.html" >3. Reference documentation: all nistats functions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../reference.html" ><span class="section-number">3. </span>Reference documentation: all nistats functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nistats.reporting.make_glm_report.rst.txt"
         	 rel="nofollow">Show this page source</a>

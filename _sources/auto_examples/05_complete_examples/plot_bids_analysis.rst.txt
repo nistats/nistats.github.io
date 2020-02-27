@@ -13,12 +13,12 @@ BIDS dataset first and second level analysis
 
 Full step-by-step example of fitting a GLM to perform a first and second level
 analysis in a BIDS dataset and visualizing the results. Details about the BIDS
-standard can be consulted at http://bids.neuroimaging.io/
+standard can be consulted at http://bids.neuroimaging.io/.
 
 More specifically:
 
 1. Download an fMRI BIDS dataset with two language conditions to contrast.
-2. Extract automatically from the BIDS dataset first level model objects
+2. Extract first level model objects automatically from the BIDS dataset.
 3. Fit a second level model on the fitted first level models. Notice that
    in this case the preprocessed bold images were already normalized to the
    same MNI space.
@@ -32,11 +32,11 @@ To run this example, you must launch IPython via ``ipython
 
 Fetch example BIDS dataset
 --------------------------
-We download an simplified BIDS dataset made available for illustrative
+We download a simplified BIDS dataset made available for illustrative
 purposes. It contains only the necessary
 information to run a statistical analysis using Nistats. The raw data
 subject folders only contain bold.json and events.tsv files, while the
-derivatives folder with preprocessed files contain preproc.nii and
+derivatives folder includes the preprocessed files preproc.nii and the
 confounds.tsv files.
 
 
@@ -49,9 +49,23 @@ confounds.tsv files.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
 
 
-Here is the location of the dataset on disk
+    Dataset created in /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset
+
+    Downloading data from https://osf.io/nh987/download ...
+    Downloaded 6012928 of 749503182 bytes (0.8%,  2.1min remaining)    Downloaded 17727488 of 749503182 bytes (2.4%,  1.4min remaining)    Downloaded 29442048 of 749503182 bytes (3.9%,  1.2min remaining)    Downloaded 41140224 of 749503182 bytes (5.5%,  1.1min remaining)    Downloaded 52854784 of 749503182 bytes (7.1%,  1.1min remaining)    Downloaded 64569344 of 749503182 bytes (8.6%,  1.1min remaining)    Downloaded 76267520 of 749503182 bytes (10.2%,  1.0min remaining)    Downloaded 87982080 of 749503182 bytes (11.7%,  1.0min remaining)    Downloaded 99631104 of 749503182 bytes (13.3%,   58.7s remaining)    Downloaded 111345664 of 749503182 bytes (14.9%,   57.4s remaining)    Downloaded 121044992 of 749503182 bytes (16.2%,   57.2s remaining)    Downloaded 132759552 of 749503182 bytes (17.7%,   55.8s remaining)    Downloaded 144465920 of 749503182 bytes (19.3%,   54.5s remaining)    Downloaded 156180480 of 749503182 bytes (20.8%,   53.2s remaining)    Downloaded 167895040 of 749503182 bytes (22.4%,   52.0s remaining)    Downloaded 179609600 of 749503182 bytes (24.0%,   50.8s remaining)    Downloaded 191324160 of 749503182 bytes (25.5%,   49.6s remaining)    Downloaded 203038720 of 749503182 bytes (27.1%,   48.5s remaining)    Downloaded 214753280 of 749503182 bytes (28.7%,   47.3s remaining)    Downloaded 226467840 of 749503182 bytes (30.2%,   46.2s remaining)    Downloaded 236167168 of 749503182 bytes (31.5%,   45.7s remaining)    Downloaded 247881728 of 749503182 bytes (33.1%,   44.5s remaining)    Downloaded 259596288 of 749503182 bytes (34.6%,   43.4s remaining)    Downloaded 271310848 of 749503182 bytes (36.2%,   42.3s remaining)    Downloaded 283025408 of 749503182 bytes (37.8%,   41.2s remaining)    Downloaded 294739968 of 749503182 bytes (39.3%,   40.1s remaining)    Downloaded 306454528 of 749503182 bytes (40.9%,   39.1s remaining)    Downloaded 318169088 of 749503182 bytes (42.5%,   38.0s remaining)    Downloaded 329883648 of 749503182 bytes (44.0%,   36.9s remaining)    Downloaded 341549056 of 749503182 bytes (45.6%,   35.9s remaining)    Downloaded 353263616 of 749503182 bytes (47.1%,   34.8s remaining)    Downloaded 364978176 of 749503182 bytes (48.7%,   33.7s remaining)    Downloaded 376692736 of 749503182 bytes (50.3%,   32.7s remaining)    Downloaded 388407296 of 749503182 bytes (51.8%,   31.6s remaining)    Downloaded 399040512 of 749503182 bytes (53.2%,   30.8s remaining)    Downloaded 410705920 of 749503182 bytes (54.8%,   29.7s remaining)    Downloaded 422420480 of 749503182 bytes (56.4%,   28.7s remaining)    Downloaded 434135040 of 749503182 bytes (57.9%,   27.6s remaining)    Downloaded 445849600 of 749503182 bytes (59.5%,   26.6s remaining)    Downloaded 455581696 of 749503182 bytes (60.8%,   25.8s remaining)    Downloaded 467304448 of 749503182 bytes (62.3%,   24.8s remaining)    Downloaded 479019008 of 749503182 bytes (63.9%,   23.7s remaining)    Downloaded 490733568 of 749503182 bytes (65.5%,   22.7s remaining)    Downloaded 502448128 of 749503182 bytes (67.0%,   21.6s remaining)    Downloaded 514162688 of 749503182 bytes (68.6%,   20.6s remaining)    Downloaded 525877248 of 749503182 bytes (70.2%,   19.6s remaining)    Downloaded 537116672 of 749503182 bytes (71.7%,   18.6s remaining)    Downloaded 548814848 of 749503182 bytes (73.2%,   17.6s remaining)    Downloaded 560529408 of 749503182 bytes (74.8%,   16.5s remaining)    Downloaded 572178432 of 749503182 bytes (76.3%,   15.5s remaining)    Downloaded 583892992 of 749503182 bytes (77.9%,   14.5s remaining)    Downloaded 595607552 of 749503182 bytes (79.5%,   13.4s remaining)    Downloaded 607322112 of 749503182 bytes (81.0%,   12.4s remaining)    Downloaded 619036672 of 749503182 bytes (82.6%,   11.4s remaining)    Downloaded 630669312 of 749503182 bytes (84.1%,   10.4s remaining)    Downloaded 642383872 of 749503182 bytes (85.7%,    9.3s remaining)    Downloaded 654098432 of 749503182 bytes (87.3%,    8.3s remaining)    Downloaded 665812992 of 749503182 bytes (88.8%,    7.3s remaining)    Downloaded 677478400 of 749503182 bytes (90.4%,    6.3s remaining)    Downloaded 689192960 of 749503182 bytes (92.0%,    5.3s remaining)    Downloaded 700891136 of 749503182 bytes (93.5%,    4.2s remaining)    Downloaded 712605696 of 749503182 bytes (95.1%,    3.2s remaining)    Downloaded 724320256 of 749503182 bytes (96.6%,    2.2s remaining)    Downloaded 736034816 of 749503182 bytes (98.2%,    1.2s remaining)    Downloaded 747749376 of 749503182 bytes (99.8%,    0.2s remaining)    Downloaded 749503182 of 749503182 bytes (100.0%,    0.0s remaining) ...done. (68 seconds, 1 min)
+    Extracting data from /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset/fMRI-language-localizer-demo-dataset.zip..... done.
+
+
+
+
+Here is the location of the dataset on disk.
 
 
 .. code-block:: default
@@ -68,14 +82,15 @@ Here is the location of the dataset on disk
 
  .. code-block:: none
 
-    /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset
+    /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset
+
 
 
 
 Obtain automatically FirstLevelModel objects and fit arguments
 --------------------------------------------------------------
-From the dataset directory we obtain automatically FirstLevelModel objects
-with their subject_id filled from the BIDS dataset. Moreover we obtain
+From the dataset directory we automatically obtain the FirstLevelModel objects
+with their subject_id filled from the BIDS dataset. Moreover, we obtain
 for each model a dictionary with run_imgs, events and confounder regressors
 since in this case a confounds.tsv file is available in the BIDS dataset.
 To get the first level models we only have to specify the dataset directory
@@ -101,19 +116,18 @@ and the task_label as specified in the file names.
 
  .. code-block:: none
 
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:703: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json' mode='r' encoding='UTF-8'>
-      specs = json.load(open(img_specs[0], 'r'))
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:718: UserWarning: SliceTimingRef not found in file /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
+    /home/emdupre/Desktop/open_source/nistats/nistats/first_level_model.py:861: UserWarning: SliceTimingRef not found in file /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
       img_specs[0])
+
 
 
 
 Quick sanity check on fit arguments
 -----------------------------------
 Additional checks or information extraction from pre-processed data can
-be made here
+be made here.
 
-We just expect one run img per subject.
+We just expect one run_img per subject.
 
 
 .. code-block:: default
@@ -135,9 +149,10 @@ We just expect one run img per subject.
 
 
 
+
 The only confounds stored are regressors obtained from motion correction. As
 we can verify from the column headers of the confounds table corresponding
-to the only run_img present
+to the only run_img present.
 
 
 .. code-block:: default
@@ -155,6 +170,7 @@ to the only run_img present
  .. code-block:: none
 
     Index(['RotX', 'RotY', 'RotZ', 'X', 'Y', 'Z'], dtype='object')
+
 
 
 
@@ -183,6 +199,7 @@ We verify there are 12 blocks for each condition.
 
 
 
+
 First level model estimation
 ----------------------------
 Now we simply fit each first level model and plot for each subject the
@@ -190,7 +207,7 @@ contrast that reveals the language network (language - string). Notice that
 we can define a contrast using the names of the conditions specified in the
 events dataframe. Sum, substraction and scalar multiplication are allowed.
 
-Set the threshold as the z-variate with an uncorrected p-value of 0.001
+Set the threshold as the z-variate with an uncorrected p-value of 0.001.
 
 
 .. code-block:: default
@@ -204,7 +221,8 @@ Set the threshold as the z-variate with an uncorrected p-value of 0.001
 
 
 
-Prepare figure for concurrent plot of individual maps
+
+Prepare figure for concurrent plot of individual maps.
 
 
 .. code-block:: default
@@ -233,17 +251,6 @@ Prepare figure for concurrent plot of individual maps
     :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
 
 
 
@@ -252,13 +259,14 @@ Second level model estimation
 We just have to provide the list of fitted FirstLevelModel objects
 to the SecondLevelModel object for estimation. We can do this because
 all subjects share a similar design matrix (same variables reflected in
-column names)
+column names).
 
 
 .. code-block:: default
 
     from nistats.second_level_model import SecondLevelModel
     second_level_input = models
+
 
 
 
@@ -280,8 +288,9 @@ Note that we apply a smoothing of 8mm.
 
 
 
-Computing contrasts at the second level is as simple as at the first level
-Since we are not providing confounders we are performing an one-sample test
+
+Computing contrasts at the second level is as simple as at the first level.
+Since we are not providing confounders we are performing a one-sample test
 at the second level with the images determined by the specified first level
 contrast.
 
@@ -297,8 +306,9 @@ contrast.
 
 
 
+
 The group level contrast reveals a left lateralized fronto-temporal
-language network
+language network.
 
 
 .. code-block:: default
@@ -317,9 +327,10 @@ language network
 
 
 
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  29.223 seconds)
+   **Total running time of the script:** ( 1 minutes  36.099 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_complete_examples_plot_bids_analysis.py:

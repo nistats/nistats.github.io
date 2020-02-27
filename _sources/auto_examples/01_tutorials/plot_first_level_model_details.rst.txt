@@ -31,7 +31,6 @@ To run this example, you must launch IPython via ``ipython
 
 .. _Analysis of a single session, single subject fMRI dataset: plot_single_subject_single_run.html
 
-
 Retrieving the data
 -------------------
 
@@ -50,30 +49,44 @@ acquisition of a fast event-related dataset.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    Dataset created in /home/emdupre/nilearn_data/localizer_first_level
+
+    Downloading data from https://osf.io/2bqxn/download ...
+    Downloaded 6103040 of 34527702 bytes (17.7%,    4.7s remaining)    Downloaded 17817600 of 34527702 bytes (51.6%,    1.9s remaining)    Downloaded 29515776 of 34527702 bytes (85.5%,    0.5s remaining)    Downloaded 34527702 of 34527702 bytes (100.0%,    0.0s remaining) ...done. (6 seconds, 0 min)
+    Extracting data from /home/emdupre/nilearn_data/localizer_first_level/775984ff61321050eba8738c4176eda5/download..... done.
+
+
 
 
 Define the paradigm that will be used. Here, we just need to get the provided file.
 
 This task, described in Pinel et al., BMC neuroscience 2007 probes
-basic functions, such as button with the left or right hand, viewing
+basic functions, such as button presses with the left or right hand, viewing
 horizontal and vertical checkerboards, reading and listening to
 short sentences, and mental computations (subractions).
 
- Visual stimuli were displayed in four 250-ms epochs, separated by
- 100ms intervals (i.e., 1.3s in total). Auditory stimuli were drawn
- from a recorded male voice (i.e., a total of 1.6s for motor
- instructions, 1.2-1.7s for sentences, and 1.2-1.3s for
- subtraction). The auditory or visual stimuli were shown to the
- participants for passive viewing or button response in
- event-related paradigms.  Post-scan questions verified that the
- experimental tasks were understood and followed correctly.
+Visual stimuli were displayed in four 250-ms epochs, separated by
+100ms intervals (i.e., 1.3s in total). Auditory stimuli were drawn
+from a recorded male voice (i.e., a total of 1.6s for motor
+instructions, 1.2-1.7s for sentences, and 1.2-1.3s for
+subtractions). The auditory or visual stimuli were shown to the
+participants for passive listening or viewing or responses via button presses in
+event-related paradigms.  Post-scan questions verified that the
+experimental tasks were understood and followed correctly.
 
 This task comprises 10 conditions:
 
-* audio_left_hand_button_press: Left-hand three-times button press, indicated by visual instruction
-* audio_right_hand_button_press: Right-hand three-times button press, indicated by visual instruction
-* visual_left_hand_button_press: Left-hand three-times button press, indicated by auditory instruction
-* visual_right_hand_button_press:  Right-hand three-times button press, indicated by auditory instruction
+* audio_left_hand_button_press: Left-hand three-times button press, indicated by auditory instruction
+* audio_right_hand_button_press: Right-hand three-times button press, indicated by auditory instruction
+* visual_left_hand_button_press: Left-hand three-times button press, indicated by visual instruction
+* visual_right_hand_button_press:  Right-hand three-times button press, indicated by visual instruction
 * horizontal_checkerboard: Visualization of flashing horizontal checkerboards
 * vertical_checkerboard: Visualization of flashing vertical checkerboards
 * sentence_listening: Listen to narrative sentences
@@ -97,11 +110,12 @@ This task comprises 10 conditions:
 
 
 
+
 Running a basic model
 ---------------------
 
-First specify a linear model.
-the fit() model creates the design matrix and the beta maps.
+First we specify a linear model.
+The .fit() functionality of FirstLevelModel function creates the design matrix and the beta maps.
 
 
 
@@ -116,19 +130,10 @@ the fit() model creates the design matrix and the beta maps.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
 
 
 
-Let us take a look at the design matrix: it has 10 main columns corresponding to 10 experimental conditions, followed by 3 columns describing low-frequency signals (drifts) and a constant regressor.
+Let us take a look at the design matrix: it has 10 main columns corresponding to 10 experimental conditions, followed by 6 columns describing low-frequency signals (drifts) and a constant regressor.
 
 
 .. code-block:: default
@@ -151,8 +156,9 @@ Let us take a look at the design matrix: it has 10 main columns corresponding to
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -170,7 +176,7 @@ repeat contrast specification when we change the design matrix.
     def make_localizer_contrasts(design_matrix):
         """ returns a dictionary of four contrasts, given the design matrix"""
 
-        # first generate canonical contrasts 
+        # first generate canonical contrasts
         contrast_matrix = np.eye(design_matrix.shape[1])
         contrasts = dict([(column, contrast_matrix[i])
                           for i, column in enumerate(design_matrix.columns)])
@@ -180,7 +186,7 @@ repeat contrast specification when we change the design matrix.
             + contrasts['audio_right_hand_button_press']
             + contrasts['audio_computation']
             + contrasts['sentence_listening'])
-    
+
         # one contrast adding all conditions involving instructions reading
         contrasts['visual'] = (
             contrasts['visual_left_hand_button_press']
@@ -195,7 +201,7 @@ repeat contrast specification when we change the design matrix.
         # one contrast adding all conditions involving sentences
         contrasts['sentences'] = (contrasts['sentence_listening']
                                         + contrasts['sentence_reading'])
-    
+
         # Short dictionary of more relevant contrasts
         contrasts = {
             'left - right button press': (
@@ -219,12 +225,13 @@ repeat contrast specification when we change the design matrix.
 
 
 
-So let's look at these computed contrasts
 
-* 'left - right button press' probes motor activity in left versus right button presses
+So let's look at these computed contrasts:
+
+* 'left - right button press': probes motor activity in left versus right button presses
 * 'horizontal-vertical': probes the differential activity in viewing a horizontal vs vertical checkerboard
-* 'audio - visual' probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
-* 'computation - sentences' looks at the activity when performing a mental comptation task  versus simply reading sentences.
+* 'audio - visual': probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
+* 'computation - sentences': looks at the activity when performing a mental comptation task  versus simply reading sentences.
 
 
 
@@ -252,14 +259,15 @@ So let's look at these computed contrasts
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/matrixlib/defmatrix.py:68: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
-      return matrix(data, dtype=dtype, copy=False)
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/tight_layout.py:211: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
-      warnings.warn('Tight layout not applied. '
+    /home/emdupre/Desktop/open_source/nistats/nistats/reporting/_plot_matrices.py:132: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
+      plt.tight_layout()
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:163: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
-Contrast estimation and plotting
+
+Contrast estimation and plotting.
 
 Since this script will be repeated several times, for the sake of readability,
 we encapsulate it in a function that we call when needed.
@@ -271,7 +279,7 @@ we encapsulate it in a function that we call when needed.
     from nilearn import plotting
 
     def plot_contrast(first_level_model):
-        """ Given a first model, specify, enstimate and plot the main contrasts"""
+        """ Given a first model, specify, estimate and plot the main contrasts"""
         design_matrix = first_level_model.design_matrices_[0]
         # Call the contrast specification within the function
         contrasts = make_localizer_contrasts(design_matrix)
@@ -284,6 +292,7 @@ we encapsulate it in a function that we call when needed.
             plotting.plot_stat_map(
                 z_map, display_mode='z', threshold=3.0, title=contrast_id, axes=ax,
                 cut_coords=1)
+
 
 
 
@@ -313,8 +322,9 @@ Let's run the model and look at the outcome.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:192: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -330,7 +340,7 @@ function. Depending on the design of the experiment, the user may want to
 change this value. The cutoff period (1/high_pass) should be set as the
 longest period between two trials of the same condition multiplied by 2.
 For instance, if the longest period is 32s, the high_pass frequency shall be
-1/64 Hz ~ 0.016 Hz.
+1/64 Hz ~ 0.016 Hz. Note that the design matrix has more columns to model drifts in the data.
 
 
 .. code-block:: default
@@ -347,6 +357,15 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
 .. image:: /auto_examples/01_tutorials/images/sphx_glr_plot_first_level_model_details_004.png
     :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7f633699c890>
 
 
 
@@ -366,14 +385,22 @@ Does the model perform worse or better ?
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:218: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
-Note that the design matrix has more columns to model drifts in the data.
+
 
 We notice however that this model performs rather poorly.
 
 Another solution is to remove these drift terms. Maybe they're simply useless.
-this is done by setting drift_model to None.
+This is done by setting drift_model to None.
 
 
 .. code-block:: default
@@ -403,14 +430,25 @@ this is done by setting drift_model to None.
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:231: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
-Is it better than the original ? No !
+
+
+Is it better than the original? No!
 
 Note that the design matrix has changed with no drift columns.
 the event columns, on the other hand, haven't changed.
-Another alternative to get a drift model is to specify a set of polynomials
-Let's take a basis of 5 polynomials
+
+Another alternative to get a drift model is to specify a set of polynomials.
+Let's take a basis of 5 polynomials.
 
 
 .. code-block:: default
@@ -441,6 +479,16 @@ Let's take a basis of 5 polynomials
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Is it good ? No better, no worse. Let's turn to another parameter.
@@ -453,12 +501,12 @@ reference BOLD signal for the design matrix.
 
 The first thing that we can do is to change the default model (the
 so-called Glover hrf) for the so-called canonical model of SPM
---which has slightly weaker undershoot component.
+--which has a slightly weaker undershoot component.
 
 
 .. code-block:: default
 
- 
+
     first_level_model = FirstLevelModel(t_r, hrf_model='spm')
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
@@ -483,6 +531,16 @@ so-called Glover hrf) for the so-called canonical model of SPM
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:269: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 No strong --positive or negative-- effect.
@@ -491,10 +549,10 @@ We could try to go one step further: using not only the so-called
 canonical hrf, but also its time derivative. Note that in that case,
 we still perform the contrasts and obtain statistical significance
 for the main effect ---not the time derivative. This means that the
-inclusion of time derivative in the design matrix has the sole
+inclusion of a time derivative in the design matrix has the sole
 effect of discounting timing misspecification from the error term,
-which vould decrease the estimated variance and enhance the
-statistical significance of the effect. Is it the case ?
+which would decrease the estimated variance and enhance the
+statistical significance of the effect. Is that the case?
 
 
 .. code-block:: default
@@ -524,13 +582,23 @@ statistical significance of the effect. Is it the case ?
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:288: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Not a huge effect, but rather positive overall. We could keep that one.
 
-Bzw, a benefit of this approach is that we can test which voxels are
-well explined by the derivative term, hinting at misfit regions, a
-possibly valuable information This is implemented by an F test on
+By the way, a benefit of this approach is that we can test which voxels are
+well explained by the derivative term, hinting at misfit regions, a
+possibly valuable information. This is implemented by an F-test on
 the time derivative regressors.
 
 
@@ -564,10 +632,22 @@ the time derivative regressors.
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:300: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:306: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Well, there seems to be something here. Maybe we could adjust the
-timing, by increasing the slice_time_ref parameter: 0 to 0.5 now the
+timing, by increasing the slice_time_ref parameter from 0 to 0.5. Now the
 reference for model sampling is not the beginning of the volume
 acquisition, but the middle of it.
 
@@ -590,14 +670,24 @@ acquisition, but the middle of it.
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:321: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
-The time derivatives regressors capture less signal: it's better so.
+
+
+The time derivatives regressors capture less signal: it's better like that.
 
 We can also consider adding the so-called dispersion derivative to
 capture some mis-specification in the shape of the hrf.
 
-This is done by specifying `hrf_model='spm + derivative + dispersion'`
+This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 
 
@@ -628,18 +718,28 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:337: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 Not a huge effect. For the sake of simplicity and readibility, we
 can drop that one.
 
-The noise model ar(1) or ols ?
-------------------------------
+The noise model: ar(1) or ols ?
+-------------------------------
 
 So far,we have implicitly used a lag-1 autoregressive model ---aka
 ar(1)--- for the temporal structure of the noise. An alternative
-choice is to use an ordinaly least squares model (ols) that assumes
-no temporal structure (time-independent noise)
+choice is to use an ordinary least squares model (ols) that assumes
+no temporal structure (time-independent noise).
 
 
 .. code-block:: default
@@ -671,6 +771,16 @@ no temporal structure (time-independent noise)
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:359: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
+
 
 
 While the difference is not obvious you should rather stick to the
@@ -680,7 +790,7 @@ Removing confounds
 ------------------
 
 A problematic feature of fMRI is the presence of uncontrolled
-confounds in the data, sue to scanner instabilities (spikes) or
+confounds in the data, due to scanner instabilities (spikes) or
 physiological phenomena, such as motion, heart and
 respiration-related blood oxygenation fluctuations.  Side
 measurements are sometimes acquired to characterize these
@@ -732,16 +842,17 @@ routine of Nilearn.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-      return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:393: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
-Note the five additional columns in the design matrix
 
-The effect on activation maps is complex: auditory/visual effects
+Note the five additional columns in the design matrix.
+
+The effect on the activation maps is complex: auditory/visual effects
 are killed, probably because they were somewhat colinear to the
-confounds. On the other hand, some of the maps become cleaner (H-V,
+confounds. On the other hand, some of the maps become cleaner (horizontal-vertical,
 computation) after this addition.
 
 Smoothing
@@ -750,7 +861,7 @@ Smoothing
 Smoothing is a regularization of the model. It has two benefits:
 decrease the noise level in images, and reduce the discrepancy
 between individuals. The drawback is that it biases the shape and
-position of activation.  We simply illustrate here the statistical
+position of activation. Here, we simply illustrate the statistical
 gains.  We use a mild smoothing of 5mm full-width at half maximum
 (fwhm).
 
@@ -783,9 +894,19 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
             :class: sphx-glr-multi-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:421: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
-The design is unchanged but the maps are smoother and more contrasted
+
+
+The design is unchanged but the maps are smoother and more contrasted.
 
 
 Masking
@@ -795,12 +916,12 @@ Masking consists in selecting the region of the image on which the
 model is run: it is useless to run it outside of the brain.
 
 The approach taken by FirstLeveModel is to estimate it from the fMRI
-data themselves when no mask is explicitly provided.  Since the data
+data itself when no mask is explicitly provided.  Since the data
 have been resampled into MNI space, we can use instead a mask of the
 grey matter in MNI space. The benefit is that it makes voxel-level
-comparisons easier across subjects and datasets, and removed
+comparisons easier across subjects and datasets, and removes
 non-grey matter regions, in which no BOLD signal is expected.  The
-downside is that the mask may not fit very well these particular
+downside is that the mask may not fit very well this particular
 data.
 
 
@@ -811,7 +932,7 @@ data.
     from nilearn.datasets import fetch_icbm152_brain_gm_mask
     icbm_mask = fetch_icbm152_brain_gm_mask()
 
-    from nilearn.plotting import plot_roi 
+    from nilearn.plotting import plot_roi
     plt.figure(figsize=(16, 4))
     ax = plt.subplot(121)
     plot_roi(icbm_mask, title='ICBM mask', axes=ax)
@@ -832,16 +953,15 @@ data.
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:453: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
-For the sake of time saving, we reample icbm_mask to our data
+
+For the sake of time saving, we resample icbm_mask to our data.
 For this we call the resample_to_img routine of Nilearn.
-We use interpolation = 'nearest' to keep the mask a binary image
+We use interpolation = 'nearest' to keep the mask as a binary image.
 
 
 .. code-block:: default
@@ -856,7 +976,8 @@ We use interpolation = 'nearest' to keep the mask a binary image
 
 
 
-Impact on the first-level model
+
+Impact on the first-level model.
 
 
 .. code-block:: default
@@ -893,19 +1014,9 @@ Impact on the first-level model
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/nilearn/_utils/cache_mixin.py:232: DeprecationWarning: The 'cachedir' attribute has been deprecated in version 0.12 and will be removed in version 0.14.
-    Use os.path.join(memory.location, 'joblib') attribute instead.
-      if (memory.cachedir is None and memory_level is not None
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:135: RuntimeWarning: divide by zero encountered in true_divide
-      (ols_result.resid ** 2).sum(axis=0))
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/first_level_model.py:135: RuntimeWarning: invalid value encountered in true_divide
-      (ols_result.resid ** 2).sum(axis=0))
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/utils.py:300: RuntimeWarning: divide by zero encountered in true_divide
-      return np.where(X <= 0, 0, 1. / X)
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/scipy/ndimage/measurements.py:272: DeprecationWarning: In future, it will be an error for 'np.bool_' scalars to be interpreted as an index
-      return _nd_image.find_objects(input, max_label)
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:472: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
@@ -923,7 +1034,7 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  46.395 seconds)
+   **Total running time of the script:** ( 0 minutes  59.788 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_tutorials_plot_first_level_model_details.py:

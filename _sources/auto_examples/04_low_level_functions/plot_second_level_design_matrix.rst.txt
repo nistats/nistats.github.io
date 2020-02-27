@@ -9,7 +9,7 @@
 Example of second level design matrix
 =====================================
 
-The shows how a second-level design matrix is specified: assuming that
+This example shows how a second-level design matrix is specified: assuming that
 the data refer to a group of individuals, with one image per subject,
 the design matrix typically holds the characteristics of each
 individual.
@@ -17,8 +17,7 @@ individual.
 This is used in a second-level analysis to assess the impact of these
 characteristics on brain signals.
 
-Requires matplotlib.
-
+This example requires matplotlib.
 
 
 .. code-block:: default
@@ -35,9 +34,10 @@ Requires matplotlib.
 
 
 
+
 Create a simple experimental paradigm
 --------------------------------------
-We want to get the group result of a contrast for 20 subjects
+We want to get the group result of a contrast for 20 subjects.
 
 
 .. code-block:: default
@@ -51,8 +51,9 @@ We want to get the group result of a contrast for 20 subjects
 
 
 
-Specify extra information about the subjects to create confounders
-Without confounders the design matrix would correspond to a one sample test
+
+Next, we specify extra information about the subjects to create confounders.
+Without confounders the design matrix would correspond to a one sample test.
 
 
 .. code-block:: default
@@ -68,8 +69,10 @@ Without confounders the design matrix would correspond to a one sample test
 
 
 
+
 Create a second level design matrix
 -----------------------------------
+With that information we can create the second level design matrix.
 
 
 .. code-block:: default
@@ -87,12 +90,13 @@ Create a second level design matrix
 
  .. code-block:: none
 
-    /home/kshitij/workspace/nistats-org/nistats-repo/kchawla-pi/nistats/nistats/design_matrix.py:460: UserWarning: Attention: Design matrix is singular. Aberrant estimates are expected.
+    /home/emdupre/Desktop/open_source/nistats/nistats/design_matrix.py:460: UserWarning: Attention: Design matrix is singular. Aberrant estimates are expected.
       warn('Attention: Design matrix is singular. Aberrant estimates '
 
 
 
-plot the results
+
+Let's plot it.
 
 
 .. code-block:: default
@@ -116,15 +120,16 @@ plot the results
 
  .. code-block:: none
 
-    /home/kshitij/.programs/anaconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/matplotlib/figure.py:445: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
-      % get_backend())
+    /home/emdupre/Desktop/open_source/nistats/examples/04_low_level_functions/plot_second_level_design_matrix.py:50: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.251 seconds)
+   **Total running time of the script:** ( 0 minutes  0.160 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_low_level_functions_plot_second_level_design_matrix.py:
