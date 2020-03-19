@@ -15,6 +15,7 @@ even on fast event-related fMRI datasets.
 
 Here, we demonstrate the use of a FIR model with 3 lags, computing 4 contrasts from a single subject dataset from the "Neurospin Localizer". It is a fast event related design: During 5 minutes, 80 events of the following types are presented : ['calculaudio', 'calculvideo'', 'clicDvideo', 'clicGaudio', 'clicGvideo', 'damier_H', 'damier_V', 'phraseaudio', 'phrasevideo']
 
+
 At first, we grab the localizer data.
 
 
@@ -74,7 +75,7 @@ t_r] seconds interval.
  .. code-block:: none
 
 
-    <matplotlib.axes._subplots.AxesSubplot object at 0x7f6334cb5610>
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7fd70b877ef0>
 
 
 
@@ -154,7 +155,7 @@ Take a look at the contrasts.
  .. code-block:: none
 
 
-    <matplotlib.axes._subplots.AxesSubplot object at 0x7f63349c8850>
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7fd70b5a1d30>
 
 
 
@@ -192,7 +193,7 @@ We can now  proceed by estimating the contrasts and displaying them.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/02_first_level_models/plot_fir_model.py:109: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/02_first_level_models/plot_fir_model.py:109: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -206,7 +207,7 @@ conditions.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.419 seconds)
+   **Total running time of the script:** ( 0 minutes  4.523 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_fir_model.py:

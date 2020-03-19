@@ -103,7 +103,7 @@ Calculate and plot contrast
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.OrthoSlicer object at 0x7f6334e8ce50>
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7fd70b6b41d0>
 
 
 
@@ -192,7 +192,7 @@ Get residuals
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/nistats/regression.py:339: FutureWarning: 'resid' from RegressionResults has been deprecated and will be removed. Please use 'residuals' instead.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/nistats/regression.py:339: FutureWarning: 'resid' from RegressionResults has been deprecated and will be removed. Please use 'residuals' instead.
       FutureWarning,
 
 
@@ -229,12 +229,12 @@ Note that residuals are not really distributed normally.
 
  .. code-block:: none
 
-    Mean residuals: -1.6283271027835629e-15
-    Mean residuals: -0.054243714362478324
-    Mean residuals: 0.0023122844696967793
-    Mean residuals: 0.011694404270545614
-    Mean residuals: 0.0023762926821077057
-    Mean residuals: -0.004646005260067125
+    Mean residuals: -5.773159728050814e-15
+    Mean residuals: -0.054243721524977286
+    Mean residuals: 0.002312283103887758
+    Mean residuals: 0.01169441049638209
+    Mean residuals: 0.0023763067961561912
+    Mean residuals: -0.004646018056754649
 
 
 
@@ -275,7 +275,7 @@ we can use an F-test as shown in the next section.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.ZSlicer object at 0x7f631632ee10>
+    <nilearn.plotting.displays.ZSlicer object at 0x7fd7341d81d0>
 
 
 
@@ -322,14 +322,14 @@ and all the other columns in the design matrix such as drift and motion.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.ZSlicer object at 0x7f6334914c10>
+    <nilearn.plotting.displays.ZSlicer object at 0x7fd70b923ba8>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  15.553 seconds)
+   **Total running time of the script:** ( 0 minutes  11.807 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_predictions_residuals.py:

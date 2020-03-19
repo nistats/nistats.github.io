@@ -31,6 +31,7 @@ To run this example, you must launch IPython via ``ipython
 
 .. _Analysis of a single session, single subject fMRI dataset: plot_single_subject_single_run.html
 
+
 Retrieving the data
 -------------------
 
@@ -48,19 +49,6 @@ acquisition of a fast event-related dataset.
 
 
 
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    Dataset created in /home/emdupre/nilearn_data/localizer_first_level
-
-    Downloading data from https://osf.io/2bqxn/download ...
-    Downloaded 6103040 of 34527702 bytes (17.7%,    4.7s remaining)    Downloaded 17817600 of 34527702 bytes (51.6%,    1.9s remaining)    Downloaded 29515776 of 34527702 bytes (85.5%,    0.5s remaining)    Downloaded 34527702 of 34527702 bytes (100.0%,    0.0s remaining) ...done. (6 seconds, 0 min)
-    Extracting data from /home/emdupre/nilearn_data/localizer_first_level/775984ff61321050eba8738c4176eda5/download..... done.
 
 
 
@@ -156,7 +144,7 @@ Let us take a look at the design matrix: it has 10 main columns corresponding to
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -259,9 +247,9 @@ So let's look at these computed contrasts:
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/nistats/reporting/_plot_matrices.py:132: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/nistats/reporting/_plot_matrices.py:132: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
       plt.tight_layout()
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:163: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:163: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -322,7 +310,7 @@ Let's run the model and look at the outcome.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:192: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:192: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -365,7 +353,7 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
  .. code-block:: none
 
 
-    <matplotlib.axes._subplots.AxesSubplot object at 0x7f633699c890>
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7fd75b8dde80>
 
 
 
@@ -391,7 +379,7 @@ Does the model perform worse or better ?
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:218: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:218: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -436,7 +424,7 @@ This is done by setting drift_model to None.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:231: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:231: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -485,7 +473,7 @@ Let's take a basis of 5 polynomials.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -537,7 +525,7 @@ so-called Glover hrf) for the so-called canonical model of SPM
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:269: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:269: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -588,7 +576,7 @@ statistical significance of the effect. Is that the case?
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:288: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:288: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -638,9 +626,9 @@ the time derivative regressors.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:300: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:300: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:306: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:306: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -676,7 +664,7 @@ acquisition, but the middle of it.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:321: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:321: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -724,7 +712,7 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:337: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:337: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -777,7 +765,7 @@ no temporal structure (time-independent noise).
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:359: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:359: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -842,7 +830,7 @@ routine of Nilearn.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:393: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:393: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -900,7 +888,7 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:421: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:421: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -953,7 +941,7 @@ data.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:453: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:453: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -1014,7 +1002,7 @@ Impact on the first-level model.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:472: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:472: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -1034,7 +1022,7 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  59.788 seconds)
+   **Total running time of the script:** ( 0 minutes  47.464 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_tutorials_plot_first_level_model_details.py:

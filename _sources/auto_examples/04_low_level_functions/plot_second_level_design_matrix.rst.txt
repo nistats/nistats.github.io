@@ -20,6 +20,7 @@ characteristics on brain signals.
 This example requires matplotlib.
 
 
+
 .. code-block:: default
 
 
@@ -90,7 +91,7 @@ With that information we can create the second level design matrix.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/nistats/design_matrix.py:460: UserWarning: Attention: Design matrix is singular. Aberrant estimates are expected.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/nistats/design_matrix.py:460: UserWarning: Attention: Design matrix is singular. Aberrant estimates are expected.
       warn('Attention: Design matrix is singular. Aberrant estimates '
 
 
@@ -120,7 +121,7 @@ Let's plot it.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/04_low_level_functions/plot_second_level_design_matrix.py:50: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/04_low_level_functions/plot_second_level_design_matrix.py:50: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -129,7 +130,7 @@ Let's plot it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.160 seconds)
+   **Total running time of the script:** ( 0 minutes  0.156 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_low_level_functions_plot_second_level_design_matrix.py:

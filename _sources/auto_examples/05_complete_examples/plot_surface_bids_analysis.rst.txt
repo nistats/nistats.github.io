@@ -29,6 +29,7 @@ To run this example, you must launch IPython via ``ipython
     :local:
     :depth: 1
 
+
 Fetch example BIDS dataset
 --------------------------
 We download a simplified BIDS dataset made available for illustrative
@@ -68,7 +69,7 @@ Here is the location of the dataset on disk.
 
  .. code-block:: none
 
-    /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset
+    /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset
 
 
 
@@ -102,7 +103,7 @@ and the task_label as specified in the file names.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/nistats/first_level_model.py:861: UserWarning: SliceTimingRef not found in file /home/emdupre/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/nistats/first_level_model.py:861: UserWarning: SliceTimingRef not found in file /home/kshitij/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
       img_specs[0])
 
 
@@ -305,7 +306,7 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  16.506 seconds)
+   **Total running time of the script:** ( 2 minutes  9.450 seconds)
 
 
 .. _sphx_glr_download_auto_examples_05_complete_examples_plot_surface_bids_analysis.py:

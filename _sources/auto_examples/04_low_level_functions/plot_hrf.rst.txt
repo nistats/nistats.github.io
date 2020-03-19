@@ -25,6 +25,7 @@ a huge difference.  Adding derivatives should be considered whenever
 timing information has some degree of uncertainty. It is actually
 useful to detect timing issues.
 
+
 Set up some parameters for model display
 ----------------------------------------
 
@@ -115,7 +116,7 @@ Sample the hrf
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/04_low_level_functions/plot_hrf.py:64: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/04_low_level_functions/plot_hrf.py:64: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -124,7 +125,7 @@ Sample the hrf
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.137 seconds)
+   **Total running time of the script:** ( 0 minutes  0.153 seconds)
 
 
 .. _sphx_glr_download_auto_examples_04_low_level_functions_plot_hrf.py:

@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2.2.1. Example of explicit fixed effects fMRI model fitting" href="../02_first_level_models/plot_fixed_effects.html" />
@@ -194,7 +194,7 @@ $(function () {
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -242,18 +242,6 @@ acquisition of a fast event-related dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nistats</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">data</span> <span class="o">=</span> <a href="../../modules/generated/nistats.datasets.fetch_localizer_first_level.html#nistats.datasets.fetch_localizer_first_level" title="View documentation for nistats.datasets.fetch_localizer_first_level"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_first_level</span></a><span class="p">()</span>
 <a href="https://docs.python.org/2.7/library/functions.html#str" title="View documentation for builtins.str"><span class="n">fmri_img</span></a> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">epi_img</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/emdupre/nilearn_data/localizer_first_level
-
-Downloading data from https://osf.io/2bqxn/download ...
-
-Downloaded 6103040 of 34527702 bytes (17.7%,    4.7s remaining)
-Downloaded 17817600 of 34527702 bytes (51.6%,    1.9s remaining)
-Downloaded 29515776 of 34527702 bytes (85.5%,    0.5s remaining)
-Downloaded 34527702 of 34527702 bytes (100.0%,    0.0s remaining) ...done. (6 seconds, 0 min)
-Extracting data from /home/emdupre/nilearn_data/localizer_first_level/775984ff61321050eba8738c4176eda5/download..... done.
 </pre></div>
 </div>
 <p>Define the paradigm that will be used. Here, we just need to get the provided file.</p>
@@ -308,7 +296,7 @@ The .fit() functionality of FirstLevelModel function creates the design matrix a
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:92: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -384,9 +372,9 @@ repeat contrast specification when we change the design matrix.</p>
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_002.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/nistats/reporting/_plot_matrices.py:132: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/nistats/reporting/_plot_matrices.py:132: UserWarning: Tight layout not applied. tight_layout cannot make axes height small enough to accommodate all axes decorations
   plt.tight_layout()
-/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:163: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:163: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -418,7 +406,7 @@ we encapsulate it in a function that we call when needed.</p>
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:192: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:192: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -443,7 +431,7 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_004.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f633699c890&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fd75b8dde80&gt;
 </pre></div>
 </div>
 <p>Does the model perform worse or better ?</p>
@@ -453,7 +441,7 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_005.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:218: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:218: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -475,7 +463,7 @@ This is done by setting drift_model to None.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:231: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:231: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -500,7 +488,7 @@ Let’s take a basis of 5 polynomials.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -528,7 +516,7 @@ so-called Glover hrf) for the so-called canonical model of SPM
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:269: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:269: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -556,7 +544,7 @@ statistical significance of the effect. Is that the case?</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:288: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:288: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -583,9 +571,9 @@ the time derivative regressors.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:300: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:300: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
-/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:306: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:306: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -606,7 +594,7 @@ acquisition, but the middle of it.</p>
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_016.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_016.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:321: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:321: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -630,7 +618,7 @@ capture some mis-specification in the shape of the hrf.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:337: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:337: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -660,7 +648,7 @@ no temporal structure (time-independent noise).</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:359: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:359: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -698,7 +686,7 @@ routine of Nilearn.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:393: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:393: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -732,7 +720,7 @@ gains.  We use a mild smoothing of 5mm full-width at half maximum
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:421: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:421: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -765,7 +753,7 @@ data.</p>
 </div>
 <img alt="../../_images/sphx_glr_plot_first_level_model_details_025.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_first_level_model_details_025.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:453: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:453: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -795,7 +783,7 @@ We use interpolation = ‘nearest’ to keep the mask as a binary image.</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_first_level_model_details.py:472: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_first_level_model_details.py:472: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -808,7 +796,7 @@ manipulation of modeling parameters: this is reassuring. It shows
 that Nistats defaults (‘cosine’ drift, cutoff=128s, ‘glover’ hrf,
 ar(1) model) are actually reasonable.  Note that these conclusions
 are specific to this dataset and may vary with other ones.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  59.788 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  47.464 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-tutorials-plot-first-level-model-details-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/aa3457aeecb7d56f0c257f78fbc4d9ee/plot_first_level_model_details.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_first_level_model_details.py</span></code></a></p>
@@ -852,7 +840,7 @@ are specific to this dataset and may vary with other ones.</p>
     </div>
     <div class="footer">
             &copy; The nistats developers 2010-2016.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.4.4.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/01_tutorials/plot_first_level_model_details.rst.txt"
         	 rel="nofollow">Show this page source</a>

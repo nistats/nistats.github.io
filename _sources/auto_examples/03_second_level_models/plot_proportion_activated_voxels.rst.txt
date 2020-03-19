@@ -20,6 +20,7 @@ Rosenblatt JD, Finos L, Weeda WD, Solari A, Goeman JJ. All-Resolutions
 Inference for brain imaging. Neuroimage. 2018 Nov 1;181:786-796. doi:
 10.1016/j.neuroimage.2018.07.060
 
+
 Fetch dataset
 --------------
 We download a list of left vs right button press contrasts from a
@@ -47,37 +48,7 @@ BOLD activity estimate divided by the uncertainty about this estimate.
 
  .. code-block:: none
 
-    Downloading data from https://osf.io/download/5d27ca3d1c5b4a001b9eeddb/ ...
-    Downloaded 239217 of 239217 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27eba2114a420016059fbf/ ...
-    Downloaded 245380 of 245380 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27f296114a42001704a5d9/ ...
-    Downloaded 236772 of 236772 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d280608a26b3400180868d1/ ...
-    Downloaded 242862 of 242862 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2811d0114a42001704b988/ ...
-    Downloaded 244475 of 244475 bytes (100.0%,    0.0s remaining) ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d281f851c5b4a001b9f2315/ ...
-    Downloaded 239378 of 239378 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d282d9045253a001c3e80a1/ ...
-    Downloaded 237243 of 237243 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d283ee0a26b34001609f58e/ ...
-    Downloaded 238935 of 238935 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285263114a4200160602c6/ ...
-    Downloaded 241498 of 241498 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285d61114a42001904a343/ ...
-    Downloaded 233151 of 233151 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28709e114a420016061aa1/ ...
-    Downloaded 217977 of 217977 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d287b3a45253a00193d145e/ ...
-    Downloaded 229476 of 229476 bytes (100.0%,    0.0s remaining) ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28966345253a00193d2e27/ ...
-    Downloaded 227432 of 227432 bytes (100.0%,    0.0s remaining) ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28a431a26b340019090fa2/ ...
-    Downloaded 216248 of 216248 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28b761a26b3400160a6ba8/ ...
-    Downloaded 237960 of 237960 bytes (100.0%,    0.0s remaining) ...done. (2 seconds, 0 min)
-    /home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+    /home/kshitij/miniconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
       output = genfromtxt(fname, **kwargs)
 
 
@@ -180,7 +151,7 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  39.321 seconds)
+   **Total running time of the script:** ( 0 minutes  2.419 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_second_level_models_plot_proportion_activated_voxels.py:

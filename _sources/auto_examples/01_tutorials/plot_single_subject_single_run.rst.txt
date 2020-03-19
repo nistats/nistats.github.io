@@ -39,6 +39,7 @@ To run this example, you must launch IPython via ``ipython
     :local:
     :depth: 1
 
+
 Retrieving the data
 -------------------
 
@@ -66,14 +67,7 @@ Retrieving the data
 
  .. code-block:: none
 
-
-    Dataset created in /home/emdupre/nilearn_data/spm_auditory
-
-    Data absent, downloading...
-    Downloading data from http://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.zip ...
-    Downloaded 2072576 of 34212021 bytes (6.1%,   15.5s remaining)    Downloaded 5840896 of 34212021 bytes (17.1%,    9.7s remaining)    Downloaded 9732096 of 34212021 bytes (28.4%,    7.5s remaining)    Downloaded 13860864 of 34212021 bytes (40.5%,    5.9s remaining)    Downloaded 18055168 of 34212021 bytes (52.8%,    4.5s remaining)    Downloaded 22257664 of 34212021 bytes (65.1%,    3.2s remaining)    Downloaded 26484736 of 34212021 bytes (77.4%,    2.0s remaining)    Downloaded 30679040 of 34212021 bytes (89.7%,    0.9s remaining)    Downloaded 34212021 of 34212021 bytes (100.0%,    0.0s remaining) ...done. (9 seconds, 0 min)
-    Extracting data from /home/emdupre/nilearn_data/spm_auditory/sub001/MoAEpilot.zip..... done.
-    ['/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/emdupre/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
+    ['/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_008.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_009.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_010.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_011.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_012.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_013.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_014.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_015.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_016.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_017.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_018.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_019.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_020.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_021.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_022.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_023.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_024.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_025.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_026.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_027.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_028.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_029.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_030.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_031.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_032.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_033.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_034.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_035.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_036.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_037.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_038.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_039.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_040.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_041.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_042.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_043.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_044.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_045.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_046.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_047.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_048.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_049.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_050.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_051.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_052.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_053.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_054.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_055.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_056.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_057.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_058.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_059.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_060.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_061.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_062.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_063.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_064.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_065.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_066.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_067.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_068.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_069.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_070.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_071.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_072.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_073.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_074.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_075.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_076.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_077.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_078.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_079.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_080.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_081.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_082.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_083.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_084.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_085.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_086.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_087.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_088.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_089.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_090.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_091.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_092.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_093.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_094.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_095.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_096.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_097.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_098.img', '/home/kshitij/nilearn_data/spm_auditory/sub001/fM00223/fM00223_099.img']
 
 
 
@@ -111,7 +105,7 @@ We can display the first functional image and the subject's anatomy:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.OrthoSlicer object at 0x7f63369f1bd0>
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7fd75b7f9da0>
 
 
 
@@ -277,7 +271,7 @@ implictily meant to for multiple runs.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:116: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:116: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -332,7 +326,7 @@ Let's plot this first column
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:139: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:139: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -409,7 +403,7 @@ the names of the columns of the design matrix.
  .. code-block:: none
 
 
-    <matplotlib.axes._subplots.AxesSubplot object at 0x7f6336ade6d0>
+    <matplotlib.axes._subplots.AxesSubplot object at 0x7fd73429cc18>
 
 
 
@@ -480,7 +474,7 @@ axial views, with display_mode='z' and cut_coords=3.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:204: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:204: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -520,7 +514,7 @@ of declaring an inactive voxel, active.
  .. code-block:: none
 
     Uncorrected p<0.001 threshold: 3.291
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:221: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:221: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -557,7 +551,7 @@ i.e. the probability of making only one false detection, say at
  .. code-block:: none
 
     Bonferroni-corrected, p<0.05 threshold: 4.934
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:235: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:235: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -593,7 +587,7 @@ discovery rate.
  .. code-block:: none
 
     False Discovery rate = 0.05 threshold: 2.905
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:248: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -631,7 +625,7 @@ will be discarded.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:262: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:262: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -760,7 +754,7 @@ contrasts.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:302: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:302: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -793,7 +787,7 @@ makes it easier to represent it.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/01_tutorials/plot_single_subject_single_run.py:317: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/01_tutorials/plot_single_subject_single_run.py:317: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -804,7 +798,7 @@ Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.022 seconds)
+   **Total running time of the script:** ( 0 minutes  6.839 seconds)
 
 
 .. _sphx_glr_download_auto_examples_01_tutorials_plot_single_subject_single_run.py:

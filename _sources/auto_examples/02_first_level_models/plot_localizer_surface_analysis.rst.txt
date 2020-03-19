@@ -33,6 +33,7 @@ The advantage of this second approach is that it makes it easy to run
 second-level analyses on the surface. On the other hand, it is
 obviously less accurate than using a subject-tailored mesh.
 
+
 Prepare data and analysis parameters
 -------------------------------------
 Prepare the timing parameters.
@@ -433,7 +434,7 @@ Finally, we create contrast-specific maps and plot them.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.016 seconds)
+   **Total running time of the script:** ( 0 minutes  10.275 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py:

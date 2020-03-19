@@ -25,6 +25,7 @@ left versus right button press. Both at the individual and group level, this is
 expected to elicit activity in the motor cortex (positive in the right
 hemisphere, negative in the left hemisphere).
 
+
 Fetch dataset
 --------------
 We download a list of left vs right button press contrasts from a
@@ -49,7 +50,7 @@ Bold activity estimate divided by the uncertainty about this estimate.
 
  .. code-block:: none
 
-    /home/emdupre/miniconda3/envs/nilearn/lib/python3.7/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+    /home/kshitij/miniconda3/envs/nistats-py36-latest/lib/python3.6/site-packages/numpy/lib/npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
       output = genfromtxt(fname, **kwargs)
 
 
@@ -89,7 +90,7 @@ all subjects.
 
  .. code-block:: none
 
-    /home/emdupre/Desktop/open_source/nistats/examples/03_second_level_models/plot_second_level_one_sample_test.py:49: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+    /home/kshitij/workspace/nistats-org/nistats-repo/nistats-kchawla-pi/examples/03_second_level_models/plot_second_level_one_sample_test.py:49: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
       plt.show()
 
 
@@ -284,7 +285,7 @@ Let us plot the (corrected) negative log p-values for the nonparametric test.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  26.254 seconds)
+   **Total running time of the script:** ( 0 minutes  22.530 seconds)
 
 
 .. _sphx_glr_download_auto_examples_03_second_level_models_plot_second_level_one_sample_test.py:
