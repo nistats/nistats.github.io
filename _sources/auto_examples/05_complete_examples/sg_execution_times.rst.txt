@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**04:28.518** total execution time for **auto_examples_05_complete_examples** files:
+**03:46.376** total execution time for **auto_examples_05_complete_examples** files:
 
 +--------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_surface_bids_analysis.py` (``plot_surface_bids_analysis.py``)           | 02:09.450 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_surface_bids_analysis.py` (``plot_surface_bids_analysis.py``)           | 01:48.073 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_haxby_block_classification.py` (``plot_haxby_block_classification.py``) | 01:48.140 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_haxby_block_classification.py` (``plot_haxby_block_classification.py``) | 01:34.398 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_bids_analysis.py` (``plot_bids_analysis.py``)                           | 00:30.929 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_05_complete_examples_plot_bids_analysis.py` (``plot_bids_analysis.py``)                           | 00:23.905 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------------------------------+-----------+--------+

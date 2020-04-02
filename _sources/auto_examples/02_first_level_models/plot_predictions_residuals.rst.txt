@@ -103,7 +103,7 @@ Calculate and plot contrast
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.OrthoSlicer object at 0x7fd70b6b41d0>
+    <nilearn.plotting.displays.OrthoSlicer object at 0x7f6ec4095208>
 
 
 
@@ -275,7 +275,7 @@ we can use an F-test as shown in the next section.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.ZSlicer object at 0x7fd7341d81d0>
+    <nilearn.plotting.displays.ZSlicer object at 0x7f6ec4142e80>
 
 
 
@@ -322,14 +322,14 @@ and all the other columns in the design matrix such as drift and motion.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays.ZSlicer object at 0x7fd70b923ba8>
+    <nilearn.plotting.displays.ZSlicer object at 0x7f6ec3ed50b8>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.807 seconds)
+   **Total running time of the script:** ( 0 minutes  12.444 seconds)
 
 
 .. _sphx_glr_download_auto_examples_02_first_level_models_plot_predictions_residuals.py:

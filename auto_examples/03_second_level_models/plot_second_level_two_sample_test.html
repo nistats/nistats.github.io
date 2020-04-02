@@ -271,7 +271,7 @@ and fit it.</p>
 </div>
 <img alt="../../_images/sphx_glr_plot_second_level_two_sample_test_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_second_level_two_sample_test_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7fd70acb5390&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f6ec4095438&gt;
 </pre></div>
 </div>
 <p>We formally specify the analysis model and fit it.</p>
@@ -282,14 +282,14 @@ and fit it.</p>
 </div>
 <p>Estimating the contrast is very simple. We can just provide the column
 name of the design matrix.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">second_level_model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;vertical vs horizontal&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z_map</span> <span class="o">=</span> <a href="../../modules/generated/nistats.second_level_model.SecondLevelModel.html#nistats.second_level_model.SecondLevelModel" title="View documentation for nistats.second_level_model.SecondLevelModel"><span class="n">second_level_model</span></a><span class="o">.</span><span class="n">compute_contrast</span><span class="p">(</span><span class="s1">&#39;vertical vs horizontal&#39;</span><span class="p">,</span>
                                             <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We threshold the second level contrast and plot it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">threshold</span></a> <span class="o">=</span> <span class="mf">3.1</span>  <span class="c1"># correponds to  p &lt; .001, uncorrected</span>
 <span class="n">display</span> <span class="o">=</span> <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="View documentation for nilearn.plotting.plot_glass_brain"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="View documentation for nibabel.nifti1.Nifti1Image"><span class="n">z_map</span></a><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">threshold</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">threshold</span></a><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_abs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">z_map</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">threshold</span></a><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#float" title="View documentation for builtins.float"><span class="n">threshold</span></a><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_abs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;vertical vs horizontal checkerboard (unc p&lt;0.001&#39;</span><span class="p">)</span>
 
 <a href="http://nilearn.github.io/modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="View documentation for nilearn.plotting.show"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
@@ -298,7 +298,7 @@ name of the design matrix.</p>
 <img alt="../../_images/sphx_glr_plot_second_level_two_sample_test_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_second_level_two_sample_test_002.png" />
 <p>Unsurprisingly, we see activity in the primary visual cortex, both positive
 and negative.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.418 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.265 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-second-level-models-plot-second-level-two-sample-test-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/48bf2e3df4a27f3e2387a37741d993e2/plot_second_level_two_sample_test.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_second_level_two_sample_test.py</span></code></a></p>

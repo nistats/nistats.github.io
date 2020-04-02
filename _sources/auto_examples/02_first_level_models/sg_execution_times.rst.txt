@@ -5,22 +5,22 @@
 
 Computation times
 =================
-**04:53.944** total execution time for **auto_examples_02_first_level_models** files:
+**02:24.002** total execution time for **auto_examples_02_first_level_models** files:
 
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fixed_effects.py` (``plot_fixed_effects.py``)                           | 02:45.635 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_spm_multimodal_faces.py` (``plot_spm_multimodal_faces.py``)             | 00:55.734 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_spm_multimodal_faces.py` (``plot_spm_multimodal_faces.py``)             | 00:52.764 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py` (``plot_fiac_analysis.py``)                           | 00:28.252 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fiac_analysis.py` (``plot_fiac_analysis.py``)                           | 00:23.454 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_bids_features.py` (``plot_bids_features.py``)                           | 00:18.281 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_bids_features.py` (``plot_bids_features.py``)                           | 00:16.764 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_predictions_residuals.py` (``plot_predictions_residuals.py``)           | 00:12.444 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_predictions_residuals.py` (``plot_predictions_residuals.py``)           | 00:11.807 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py` (``plot_localizer_surface_analysis.py``) | 00:11.242 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_localizer_surface_analysis.py` (``plot_localizer_surface_analysis.py``) | 00:10.275 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_adhd_dmn.py` (``plot_adhd_dmn.py``)                                     | 00:08.361 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_adhd_dmn.py` (``plot_adhd_dmn.py``)                                     | 00:08.722 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fixed_effects.py` (``plot_fixed_effects.py``)                           | 00:05.245 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fir_model.py` (``plot_fir_model.py``)                                   | 00:04.523 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_02_first_level_models_plot_fir_model.py` (``plot_fir_model.py``)                                   | 00:04.444 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
